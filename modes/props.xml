@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="lineComment" VALUE="#" />
+		<PROPERTY NAME="commentStart" VALUE="#" />
+		<PROPERTY NAME="commentEnd" VALUE=" " />
+	</PROPS>
+	<RULES HIGHLIGHT_DIGITS="TRUE">
+		<EOL_SPAN TYPE="COMMENT1">#</EOL_SPAN>
+		
+		<EOL_SPAN TYPE="NULL" DELEGATE="PROPVALUES">=</EOL_SPAN>
+		<EOL_SPAN TYPE="NULL" DELEGATE="PROPVALUES">:</EOL_SPAN>
+	</RULES>
+	
+	<RULES SET="PROPVALUES" DEFAULT="LITERAL1">
+		<!-- MessageFormat { ... } stuff -->
+		<SPAN TYPE="LITERAL2" NO_LINE_BREAK="TRUE">
+			<BEGIN>{</BEGIN>
+			<END>}</END>
+		</SPAN>
+		
+		<EOL_SPAN TYPE="COMMENT1">#</EOL_SPAN>
+		
+		<SEQ TYPE="LABEL">=</SEQ>
+	</RULES>
+	
+</MODE>

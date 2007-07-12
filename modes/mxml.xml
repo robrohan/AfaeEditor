@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="commentStart" VALUE="&lt;!--" />
+		<PROPERTY NAME="commentEnd" VALUE="--&gt;" />
+	</PROPS>
+	
+	<RULES IGNORE_CASE="FALSE">
+		<!-- whitespace: (space and tab) -->
+		<!-- <WHITESPACE> </WHITESPACE>
+		<WHITESPACE>	</WHITESPACE> -->
+
+		<!-- SGML comment -->
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;!--</BEGIN>
+			<END>--&gt;</END>
+		</SPAN>
+
+		<!-- DTD Entity declarations -->
+		<!-- <SPAN TYPE="KEYWORD2" DELEGATE="ENTITY-TAGS">
+			<BEGIN>&lt;!ENTITY</BEGIN>
+			<END>&gt;</END>
+		</SPAN> -->
+
+		<!-- TYPE="LABEL"  -->
+		<SPAN TYPE="NULL" DELEGATE="ACTIONSCRIPT">
+			<BEGIN>{</BEGIN>
+			<END>}</END>
+		</SPAN>
+
+		<!-- CDATA sections
+		<SPAN TYPE="KEYWORD2" DELEGATE="CDATA"> -->
+		<SPAN TYPE="LABEL" DELEGATE="EXCLAIMRULES">
+			<BEGIN>&lt;!</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<!-- DTD instructions 
+		<SPAN TYPE="KEYWORD2" DELEGATE="DTD-TAGS">
+			<BEGIN>&lt;!</BEGIN>
+			<END>&gt;</END>
+		</SPAN>  -->
+
+		<!-- PI directives -->
+		<SPAN TYPE="KEYWORD3">
+			<BEGIN>&lt;?</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+		
+		<!--  -->
+		<SPAN TYPE="NULL" DELEGATE="ACTIONSCRIPT">
+			<BEGIN>&lt;mx:Script&gt;</BEGIN>
+			<END>&lt;/mx:Script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="NULL" DELEGATE="CSSRULES">
+			<BEGIN>&lt;mx:Style&gt;</BEGIN>
+			<END>&lt;/mx:Style&gt;</END>
+		</SPAN>
+
+		<!-- markup tags -->
+		<SPAN TYPE="MARKUP" DELEGATE="TAGS">
+			<BEGIN>&lt;</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+		
+		<!-- SGML entities -->
+		<SPAN TYPE="LITERAL2" NO_WORD_BREAK="TRUE">
+			<BEGIN>&amp;</BEGIN>
+			<END>;</END>
+		</SPAN>
+	</RULES>
+	
+	<RULES SET="TAGS" DEFAULT="MARKUP">
+		<!-- whitespace: (space and tab) -->
+		<!-- <WHITESPACE> </WHITESPACE>
+		<WHITESPACE>	</WHITESPACE> -->
+
+		<!-- SGML comment -->
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;!--</BEGIN>
+			<END>--&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="LITERAL1">
+			<BEGIN>"</BEGIN>
+			<END>"</END>
+		</SPAN>
+
+		<SPAN TYPE="LITERAL1">
+			<BEGIN>'</BEGIN>
+			<END>'</END>
+		</SPAN>
+
+		<SPAN TYPE="LABEL">
+			<BEGIN>{</BEGIN>
+			<END>}</END>
+		</SPAN>
+
+		<SEQ TYPE="MARKUP">/</SEQ>
+		<SEQ TYPE="NULL">=</SEQ>
+		
+		<!-- <MARK_PREVIOUS TYPE="LABEL" EXCLUDE_MATCH="FALSE">:</MARK_PREVIOUS> -->
+		<!-- <SEQ TYPE="OPERATOR">:</SEQ> -->
+	</RULES>
+	
+	<RULES SET="EXCLAIMRULES" DEFAULT="LABEL">
+		<SPAN TYPE="LABEL">
+			<BEGIN>&lt;!</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+	</RULES>
+	
+	<RULES SET="ACTIONSCRIPT" DEFAULT="NULL" IGNORE_CASE="FALSE">
+		<SPAN TYPE="MARKUP">
+			<BEGIN>&lt;mx:Script</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+		
+		<SPAN TYPE="MARKUP">
+			<BEGIN>&lt;/mx:Script</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+		
+		<SPAN TYPE="LABEL">
+			<BEGIN>&lt;![</BEGIN>
+			<END>[</END>
+		</SPAN>
+		
+		<SEQ TYPE="LABEL">]]&gt;</SEQ>
+		
+		&actionscriptrules;
+	</RULES>
+	
+	<RULES SET="CSSRULES" DEFAULT="NULL" IGNORE_CASE="FALSE">
+		<SPAN TYPE="MARKUP">
+			<BEGIN>&lt;mx:Style</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+		
+		<SPAN TYPE="MARKUP">
+			<BEGIN>&lt;/mx:Style</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+		
+		&cssrules;
+	</RULES>
+</MODE>

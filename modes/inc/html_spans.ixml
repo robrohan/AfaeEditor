@@ -1,0 +1,474 @@
+<!-- 
+<a>
+<abbr>
+<acronym>
+<address>
+<applet>
+<area>
+<b>
+<base>
+<basefont>
+<bdo>
+<big>
+<blockquote>
+<body>
+<br>
+<button>
+<caption>
+<center>
+<cite>
+<code>
+<col>
+<colgroup>
+<dd>
+<del>
+<dir>
+<div>
+<dfn>
+<dl>
+<dt>
+<em>
+<fieldset>
+<font>
+<form>
+<frame>
+<frameset>
+<h1>
+<h2>
+<h3>
+<h4>
+<h5>
+<h6>
+<head>
+<hr>
+<html>
+<i>
+<iframe>
+<img>
+<input>
+<ins>
+<isindex>
+<kbd>
+<label>
+<legend>
+<li>
+<link>
+<map>
+<menu>
+<meta>
+<noframes>
+<noscript>
+<object>
+<ol>
+<optgroup>
+<option>
+<p>
+<param>
+<pre>
+<q>
+<s>
+<samp>
+<script>
+<select>
+<small>
+<span>
+<strike>
+<strong>
+<style>
+<sub>
+<sup>
+<table>
+<tbody>
+<td>
+<textarea>
+<tfoot>
+<th>
+<thead>
+<title>
+<tr>
+<tt>
+<u>
+<ul>
+<var>
+<xmp>
+-->
+
+<!-- markup tags -->
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;a</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;abbr</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;acronym</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;address</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;applet</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;area</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;b</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;base</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;basefont</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;bdo</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;big</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;blockquote</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;body</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;br</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;button</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;caption</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;center</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;cite</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;code</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;col</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;colgroup</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;dd</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;del</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;dir</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;div</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;dfn</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;dl</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;dt</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;em</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;fieldset</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;font</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;form</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;frame</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;frameset</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;h1</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;h2</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;h3</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;h4</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">	
+	<BEGIN>&lt;h5</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;h6</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;head</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;hr</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;html</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;i</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;iframe</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;img</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;input</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;ins</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;isindex</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;kbd</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;label</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;legend</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;li</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;link</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;map</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;menu</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;meta</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;noframes</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;noscript</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;object</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;ol</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;optgroup</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">	
+	<BEGIN>&lt;option</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;p</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;param</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;pre</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">	
+	<BEGIN>&lt;q</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<!-- <SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;s</BEGIN><END>&gt;</END>
+</SPAN> -->
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;samp</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<!-- <SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;script</BEGIN><END>&gt;</END>
+</SPAN>-->
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;select</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;small</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;span</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;strike</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;strong</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<!-- <SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">	
+	<BEGIN>&lt;style</BEGIN><END>&gt;</END>
+</SPAN> -->	
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;sub</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;sup</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;table</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;tbody</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;td</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;textarea</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;tfoot</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;th</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;thead</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;title</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;tr</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">	
+	<BEGIN>&lt;tt</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;u</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;ul</BEGIN><END>&gt;</END>
+</SPAN>
+
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;var</BEGIN><END>&gt;</END>
+</SPAN>
+	
+<SPAN TYPE="MARKUP" DELEGATE="TAGS" IGNORE_CASE="TRUE" ESCAPE="?-">
+	<BEGIN>&lt;xmp</BEGIN><END>&gt;</END>
+</SPAN>
+
+<!-- 
+	generic end tag 
+	TODO: this is kind of lame without a generic start tag. There can't be
+	a generic start tag or the regex JS and CSS rules run way too often. What
+	might be needed is to duplicate the above with closing tags. Perhaps another
+	day...
+-->
+<SPAN TYPE="MARKUP">
+	<BEGIN>&lt;/</BEGIN><END>&gt;</END>
+</SPAN>

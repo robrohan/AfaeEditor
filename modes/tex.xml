@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="lineComment" VALUE="%" />
+	</PROPS>
+	<RULES>
+		<!-- <WHITESPACE> </WHITESPACE>
+		<WHITESPACE>	</WHITESPACE> -->
+
+		<!-- $$...$$ -->
+		<SPAN TYPE="MARKUP" DELEGATE="MATH">
+			<BEGIN>$$</BEGIN>
+			<END>$$</END>
+		</SPAN>
+
+		<!-- $...$ -->
+		<SPAN TYPE="MARKUP" DELEGATE="MATH">
+			<BEGIN>$</BEGIN>
+			<END>$</END>
+		</SPAN>
+
+		<!-- \[...\] (LaTeX math mode) -->
+		<SPAN TYPE="MARKUP" DELEGATE="MATH">
+			<BEGIN>\[</BEGIN>
+			<END>\]</END>
+		</SPAN>
+
+		<!-- some commands must be handled specially -->
+		<SEQ TYPE="KEYWORD1">\$</SEQ>
+		<SEQ TYPE="KEYWORD1">\\</SEQ>
+		<SEQ TYPE="KEYWORD1">\%</SEQ>
+
+		<!-- \... commands -->
+		<!-- <MARK_FOLLOWING TYPE="KEYWORD1">\</MARK_FOLLOWING> -->
+
+		<!-- comments -->
+		<EOL_SPAN TYPE="COMMENT1">%</EOL_SPAN>
+
+		<!-- word separators -->
+		<SEQ TYPE="NULL">)</SEQ>
+		<SEQ TYPE="NULL">(</SEQ>
+		<SEQ TYPE="MARKUP">{</SEQ>
+		<SEQ TYPE="MARKUP">}</SEQ>
+		<SEQ TYPE="OPERATOR">[</SEQ>
+		<SEQ TYPE="OPERATOR">]</SEQ>
+		<SEQ TYPE="NULL">=</SEQ>
+		<SEQ TYPE="NULL">!</SEQ>
+		<SEQ TYPE="NULL">+</SEQ>
+		<SEQ TYPE="NULL">-</SEQ>
+		<SEQ TYPE="NULL">/</SEQ>
+		<SEQ TYPE="NULL">*</SEQ>
+		<SEQ TYPE="NULL">&gt;</SEQ>
+		<SEQ TYPE="NULL">&lt;</SEQ>
+		<SEQ TYPE="NULL">&amp;</SEQ>
+		<SEQ TYPE="NULL">|</SEQ>
+		<SEQ TYPE="NULL">^</SEQ>
+		<SEQ TYPE="NULL">~</SEQ>
+		<SEQ TYPE="NULL">.</SEQ>
+		<SEQ TYPE="NULL">,</SEQ>
+		<SEQ TYPE="NULL">;</SEQ>
+		<SEQ TYPE="NULL">?</SEQ>
+		<SEQ TYPE="NULL">:</SEQ>
+		<SEQ TYPE="NULL">'</SEQ>
+		<SEQ TYPE="NULL">"</SEQ>
+		<SEQ TYPE="NULL">`</SEQ>
+		
+		<!-- commands -->
+		<KEYWORDS IGNORE_CASE="FALSE">
+		<KEYWORD1>\begin</KEYWORD1>
+		<KEYWORD1>\end</KEYWORD1>
+		<!-- /////////// -->
+		<KEYWORD1>\documentstyle</KEYWORD1>
+		<KEYWORD1>\bibliographystyle</KEYWORD1>
+		<KEYWORD1>\section</KEYWORD1>
+		<KEYWORD1>\bibliography</KEYWORD1>
+		<!-- /////////// -->
+		<KEYWORD1>\addcontentsline</KEYWORD1>
+		<KEYWORD1>\addtocontents</KEYWORD1>
+		<KEYWORD1>\addtocounter</KEYWORD1>
+		<KEYWORD1>\address</KEYWORD1>
+		<KEYWORD1>\addtolength</KEYWORD1>
+		<KEYWORD1>\addvspace</KEYWORD1>
+		<KEYWORD1>\alph</KEYWORD1>
+		<KEYWORD1>\appendix</KEYWORD1>
+		<KEYWORD1>\arabic</KEYWORD1>
+		<KEYWORD1>\author</KEYWORD1>
+		<KEYWORD1>\backslash</KEYWORD1>
+		<KEYWORD1>\baselineskip</KEYWORD1>
+		<KEYWORD1>\baselinestretch</KEYWORD1>
+		<KEYWORD1>\bf</KEYWORD1>
+		<KEYWORD1>\bibitem</KEYWORD1>
+		<KEYWORD1>\bigskip</KEYWORD1>
+		<KEYWORD1>\boldmath</KEYWORD1>
+		<KEYWORD1>\cal</KEYWORD1>
+		<KEYWORD1>\caption</KEYWORD1>
+		<KEYWORD1>\cdots</KEYWORD1>
+		<KEYWORD1>\centering</KEYWORD1>
+		<KEYWORD1>\circle</KEYWORD1>
+		<KEYWORD1>\cite</KEYWORD1>
+		<KEYWORD1>\cleardoublepage</KEYWORD1>
+		<KEYWORD1>\clearpage</KEYWORD1>
+		<KEYWORD1>\cline</KEYWORD1>
+		<KEYWORD1>\closing</KEYWORD1>
+		<KEYWORD1>\dashbox</KEYWORD1>
+		<KEYWORD1>\date</KEYWORD1>
+		<KEYWORD1>\ddots</KEYWORD1>
+		<KEYWORD1>\dotfill</KEYWORD1>
+		<KEYWORD1>\em</KEYWORD1>
+		<KEYWORD1>\ensuremath</KEYWORD1>
+		<KEYWORD1>\fbox</KEYWORD1>
+		<KEYWORD1>\flushbottom</KEYWORD1>
+		<KEYWORD1>\fnsymbol</KEYWORD1>
+		<KEYWORD1>\footnote</KEYWORD1>
+		<KEYWORD1>\footnotemark</KEYWORD1>
+		<KEYWORD1>\footnotesize</KEYWORD1>
+		<KEYWORD1>\footnotetext</KEYWORD1>
+		<KEYWORD1>\frac</KEYWORD1>
+		<KEYWORD1>\frame</KEYWORD1>
+		<KEYWORD1>\framebox</KEYWORD1>
+		<KEYWORD1>\frenchspacing</KEYWORD1>
+		<KEYWORD1>\hfill</KEYWORD1>
+		<KEYWORD1>\hline</KEYWORD1>
+		<KEYWORD1>\hrulefill</KEYWORD1>
+		<KEYWORD1>\hspace</KEYWORD1>
+		<KEYWORD1>\huge</KEYWORD1>
+		<KEYWORD1>\Huge</KEYWORD1>
+		<KEYWORD1>\hyphenation</KEYWORD1>
+		<KEYWORD1>\include</KEYWORD1>
+		<KEYWORD1>\includeonly</KEYWORD1>
+		<KEYWORD1>\indent</KEYWORD1>
+		<KEYWORD1>\input</KEYWORD1>
+		<KEYWORD1>\it</KEYWORD1>
+		<KEYWORD1>\item</KEYWORD1>
+		<KEYWORD1>\kill</KEYWORD1>
+		<KEYWORD1>\label</KEYWORD1>
+		<KEYWORD1>\large</KEYWORD1>
+		<KEYWORD1>\Large</KEYWORD1>
+		<KEYWORD1>\LARGE</KEYWORD1>
+		<KEYWORD1>\ldots</KEYWORD1>
+		<KEYWORD1>\left</KEYWORD1>
+		<KEYWORD1>\lefteqn</KEYWORD1>
+		<KEYWORD1>\line</KEYWORD1>
+		<KEYWORD1>\linebreak</KEYWORD1>
+		<KEYWORD1>\linethickness</KEYWORD1>
+		<KEYWORD1>\linewidth</KEYWORD1>
+		<KEYWORD1>\location</KEYWORD1>
+		<KEYWORD1>\makebox</KEYWORD1>
+		<KEYWORD1>\maketitle</KEYWORD1>
+		<KEYWORD1>\markboth</KEYWORD1>
+		<KEYWORD1>\markright</KEYWORD1>
+		<KEYWORD1>\mathcal</KEYWORD1>
+		<KEYWORD1>\mathop</KEYWORD1>
+		<KEYWORD1>\mbox</KEYWORD1>
+		<KEYWORD1>\medskip</KEYWORD1>
+		<KEYWORD1>\multicolumn</KEYWORD1>
+		<KEYWORD1>\multiput</KEYWORD1>
+		<KEYWORD1>\newcommand</KEYWORD1>
+		<KEYWORD1>\newcounter</KEYWORD1>
+		<KEYWORD1>\newenvironment</KEYWORD1>
+		<KEYWORD1>\newfont</KEYWORD1>
+		<KEYWORD1>\newlength</KEYWORD1>
+		<KEYWORD1>\newline</KEYWORD1>
+		<KEYWORD1>\newpage</KEYWORD1>
+		<KEYWORD1>\newsavebox</KEYWORD1>
+		<KEYWORD1>\newtheorem</KEYWORD1>
+		<KEYWORD1>\nocite</KEYWORD1>
+		<KEYWORD1>\noindent</KEYWORD1>
+		<KEYWORD1>\nolinebreak</KEYWORD1>
+		<KEYWORD1>\normalsize</KEYWORD1>
+		<KEYWORD1>\nopagebreak</KEYWORD1>
+		<KEYWORD1>\not</KEYWORD1>
+		<KEYWORD1>\onecolumn</KEYWORD1>
+		<KEYWORD1>\opening</KEYWORD1>
+		<KEYWORD1>\oval</KEYWORD1>
+		<KEYWORD1>\overbrace</KEYWORD1>
+		<KEYWORD1>\overline</KEYWORD1>
+		<KEYWORD1>\pagebreak</KEYWORD1>
+		<KEYWORD1>\pagenumbering</KEYWORD1>
+		<KEYWORD1>\pageref</KEYWORD1>
+		<KEYWORD1>\pagestyle</KEYWORD1>
+		<KEYWORD1>\par</KEYWORD1>
+		<KEYWORD1>\parbox</KEYWORD1>
+		<KEYWORD1>\parindent</KEYWORD1>
+		<KEYWORD1>\parskip</KEYWORD1>
+		<KEYWORD1>\protect</KEYWORD1>
+		<KEYWORD1>\providecommand</KEYWORD1>
+		<KEYWORD1>\put</KEYWORD1>
+		<KEYWORD1>\raggedbottom</KEYWORD1>
+		<KEYWORD1>\raggedleft</KEYWORD1>
+		<KEYWORD1>\raggedright</KEYWORD1>
+		<KEYWORD1>\raisebox</KEYWORD1>
+		<KEYWORD1>\ref</KEYWORD1>
+		<KEYWORD1>\renewcommand</KEYWORD1>
+		<KEYWORD1>\right</KEYWORD1>
+		<KEYWORD1>\rm</KEYWORD1>
+		<KEYWORD1>\roman</KEYWORD1>
+		<KEYWORD1>\rule</KEYWORD1>
+		<KEYWORD1>\savebox</KEYWORD1>
+		<KEYWORD1>\sbox</KEYWORD1>
+		<KEYWORD1>\sc</KEYWORD1>
+		<KEYWORD1>\scriptsize</KEYWORD1>
+		<KEYWORD1>\setcounter</KEYWORD1>
+		<KEYWORD1>\setlength</KEYWORD1>
+		<KEYWORD1>\settowidth</KEYWORD1>
+		<KEYWORD1>\sf</KEYWORD1>
+		<KEYWORD1>\shortstack</KEYWORD1>
+		<KEYWORD1>\signature</KEYWORD1>
+		<KEYWORD1>\sl</KEYWORD1>
+		<KEYWORD1>\small</KEYWORD1>
+		<KEYWORD1>\smallskip</KEYWORD1>
+		<KEYWORD1>\sqrt</KEYWORD1>
+		<KEYWORD1>\stackrel</KEYWORD1>
+		<KEYWORD1>\tableofcontents</KEYWORD1>
+		<KEYWORD1>\telephone</KEYWORD1>
+		<KEYWORD1>\textwidth</KEYWORD1>
+		<KEYWORD1>\textheight</KEYWORD1>
+		<KEYWORD1>\thanks</KEYWORD1>
+		<KEYWORD1>\thispagestyle</KEYWORD1>
+		<KEYWORD1>\tiny</KEYWORD1>
+		<KEYWORD1>\title</KEYWORD1>
+		<KEYWORD1>\today</KEYWORD1>
+		<KEYWORD1>\tt</KEYWORD1>
+		<KEYWORD1>\twocolumn</KEYWORD1>
+		<KEYWORD1>\typeout</KEYWORD1>
+		<KEYWORD1>\typein</KEYWORD1>
+		<KEYWORD1>\underbrace</KEYWORD1>
+		<KEYWORD1>\underline</KEYWORD1>
+		<KEYWORD1>\unitlength</KEYWORD1>
+		<KEYWORD1>\usebox</KEYWORD1>
+		<KEYWORD1>\usecounter</KEYWORD1>
+		<KEYWORD1>\value</KEYWORD1>
+		<KEYWORD1>\vdots</KEYWORD1>
+		<KEYWORD1>\vector</KEYWORD1>
+		<KEYWORD1>\verb</KEYWORD1>
+		<KEYWORD1>\vfill</KEYWORD1>
+		<KEYWORD1>\vline</KEYWORD1>
+		<KEYWORD1>\vphantom</KEYWORD1>
+		<KEYWORD1>\vspace</KEYWORD1>
+	</KEYWORDS>
+		
+	</RULES>
+
+	<RULES SET="MATH" DEFAULT="MARKUP">
+		<!-- whitespace: (space and tab) -->
+		<!-- <WHITESPACE> </WHITESPACE>
+		<WHITESPACE>	</WHITESPACE> -->
+
+		<!-- some commands must be handled specially -->
+		<SEQ TYPE="KEYWORD3">\$</SEQ>
+		<SEQ TYPE="KEYWORD3">\\</SEQ>
+		<SEQ TYPE="KEYWORD3">\%</SEQ>
+
+		<!-- \... commands -->
+		<!-- <MARK_FOLLOWING TYPE="KEYWORD3">\</MARK_FOLLOWING> -->
+
+		<!-- word separators -->
+		<SEQ TYPE="KEYWORD2">)</SEQ>
+		<SEQ TYPE="KEYWORD2">(</SEQ>
+		<SEQ TYPE="KEYWORD2">{</SEQ>
+		<SEQ TYPE="KEYWORD2">}</SEQ>
+		<SEQ TYPE="KEYWORD2">[</SEQ>
+		<SEQ TYPE="KEYWORD2">]</SEQ>
+		<SEQ TYPE="KEYWORD2">=</SEQ>
+		<SEQ TYPE="KEYWORD2">!</SEQ>
+		<SEQ TYPE="KEYWORD2">+</SEQ>
+		<SEQ TYPE="KEYWORD2">-</SEQ>
+		<SEQ TYPE="KEYWORD2">/</SEQ>
+		<SEQ TYPE="KEYWORD2">*</SEQ>
+		<SEQ TYPE="KEYWORD2">&gt;</SEQ>
+		<SEQ TYPE="KEYWORD2">&lt;</SEQ>
+		<SEQ TYPE="KEYWORD2">&amp;</SEQ>
+		<SEQ TYPE="KEYWORD2">|</SEQ>
+		<SEQ TYPE="KEYWORD2">^</SEQ>
+		<SEQ TYPE="KEYWORD2">~</SEQ>
+		<SEQ TYPE="KEYWORD2">.</SEQ>
+		<SEQ TYPE="KEYWORD2">,</SEQ>
+		<SEQ TYPE="KEYWORD2">;</SEQ>
+		<SEQ TYPE="KEYWORD2">?</SEQ>
+		<SEQ TYPE="KEYWORD2">:</SEQ>
+		<SEQ TYPE="KEYWORD2">'</SEQ>
+		<SEQ TYPE="KEYWORD2">"</SEQ>
+		<SEQ TYPE="KEYWORD2">`</SEQ>
+
+		<!-- comments -->
+		<EOL_SPAN TYPE="COMMENT1">%</EOL_SPAN>
+	</RULES>
+</MODE>

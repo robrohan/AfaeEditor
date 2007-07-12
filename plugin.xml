@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin id="com.rohanclan.afae"
+	name="Afae Plugin"
+	version="1.1.1"
+	provider-name="RohanClan"
+	class="com.rohanclan.afae.AfaePlugin"
+>
+	<runtime>
+		<library name="editor.jar">
+		<export name="*"/>
+		</library>
+		<library name="libs/dom4j-mini.jar">
+			<export name="*"/>
+		</library>
+  <library name="libs/jakarta-regexp-1.4.jar">
+     <export name="*"/>
+  </library>
+	</runtime>
+	
+	<requires>
+		<import plugin="org.eclipse.ui"/>
+		<import plugin="org.eclipse.core.runtime"/>
+		<import plugin="org.eclipse.jface.text"/>
+		<import plugin="org.eclipse.ui.editors"/>
+		<import plugin="org.eclipse.ui.workbench.texteditor"/>
+		
+		<import plugin="org.eclipse.core.resources"/>
+		<import plugin="org.eclipse.ui.ide"/>
+		<import plugin="org.eclipse.ui.views"/>
+	</requires>
+	
+	<!-- //////////////////////////////////////////////////////////////////////// -->
+	<!-- //////////////////////////// Afae extensions /////////////////////////// -->
+	<!-- //////////////////////////////////////////////////////////////////////// -->
+	<extension-point id="loglistener" name="Log Listener" schema="schema/loglistener.exsd"/>
+	<extension-point id="outlineprovider" name="Afae Outline Provider" schema="schema/outlineprovider.exsd"/>
+	<!-- example: 
+	<extension point="com.rohanclan.afae.loglistener">
+		<loglistener class="com.rohanclan.afae.DefaultLogger" />
+	</extension> -->
+	
+	<!-- //////////////////////////////////////////////////////////////////////// -->
+	<!-- //////////////////////// Implemented extensions //////////////////////// -->
+	<!-- //////////////////////////////////////////////////////////////////////// -->	<extension point="org.eclipse.ui.perspectives">
+		<perspective
+			name="Afae"
+			icon="icons/obj16/afae16.gif"
+			class="com.rohanclan.afae.perspective.AfaePerspective"
+			id="com.rohanclan.afae.perspective.AfaePerspectiveId">
+		</perspective>
+	</extension>
+	
+	<extension point="org.eclipse.ui.ide.resourceFilters">
+		<filter selected="true" pattern=".*"></filter>
+	</extension>
+	
+	<extension id="com.rohanclan.afae" name="AfaeEditor"
+		point="org.eclipse.ui.editors"
+	>
+		<editor
+			class="com.rohanclan.afae.editor.AfaeEditor"
+			contributorClass="com.rohanclan.afae.editor.AfaeEditorContribution"
+			extensions="svg,xsl,xslt,xsd,dtd,as,jsp,asp,php,php3,php4,properties,props,ini,config,log,bsh,csh,sh,tsh,bat,4gl,ada,adb,ads,asa,asm,awk,bas,bbj,bib,c,cbl,cc,changes,classpath,cls,cpp,cs,cxx,diff,dpk,dpr,dsl,e,el,eps,f,h,hh,hpp,hs,i,i3,icc,idl,imp,in,inc,jhtml,jmk,jou,jsf,jspf,lisp,lsp,ltx,m,m3,mak,makefile,mch,mips,ml,nrx,orx,p,pas,patch,phtml,pl,pls,pm,pov,povray,prg,pro,project,ps,py,pyw,r,rb,rbw,ref,reg,rex,rvw,scm,sgm,sgml,shtm,shtml,sml,sources,spec,sqc,sqr,st,sty,tcl,tex,texi,txt,v,vbs,ver,vh,vm,w,xom,aspx,vb,thx,xdf,xml,lzx,mxml,js,css,plist,xmi,xhtml,wsdl,rss,htm,html,sql,java,scpt,applescript,resx,strings,xq,xquery,rng,mod,dbm,wsdd,htaccess,ixml,rhtml,yml,rake,hex,txt,f,4th,jjt,jj,gladep,glade,cfm,cfml,cfc,blog,note"
+			filenames="Makefile,Rakefile,COPYING,INSTALL,README,HACKING,CHANGELOG,TODO,catalog"
+			icon="icons/obj16/default.gif"
+			id="com.rohanclan.afae.editor.AfaeEditor"
+			name="Afae Editor"/>
+	</extension>
+	
+	<!-- ///////////////////////////// decorators //////////////////////////////// -->
+	<extension point="org.eclipse.ui.decorators">
+		<!-- // Log // -->
+		<decorator adaptable="false"
+			label="Log File Decorator"
+			state="true"
+			lightweight="true"
+			icon="icons/obj16/log.gif"
+			id="com.rohanclan.afae.ui.decorators.logdecorator"
+			location="TOP_LEFT"
+		>
+			<description>Shows distinct icon for Log files</description>	
+			<enablement>
+				<and>
+					<objectClass name="org.eclipse.core.resources.IResource" />
+					<objectState name="extension" value="log" />
+				</and>
+			</enablement>
+		</decorator>
+		
+		<!-- // Ruby // -->
+		<decorator adaptable="false"
+			label="Ruby File Decorator"
+			state="true"
+			lightweight="true"
+			icon="icons/obj16/ruby.gif"
+			id="com.rohanclan.afae.ui.decorators.rubydecorator"
+			location="TOP_LEFT"
+		>
+			<description>Shows distinct icon for ruby and rails files</description>	
+			<enablement>
+				<and>
+					<objectClass name="org.eclipse.core.resources.IResource" />
+					<or>
+						<objectState name="extension" value="rb" />
+						<objectState name="extension" value="yml" />
+						<objectState name="extension" value="rhtml" />
+						<objectState name="extension" value="rbw" />
+						<objectState name="extension" value="rake" />
+					</or>
+				</and>
+			</enablement>
+		</decorator>
+		
+		<!-- // Shell Type (System Type) // -->
+		<decorator adaptable="false"
+			label="Shell File Decorator"
+			state="true"
+			lightweight="true"
+			icon="icons/obj16/shell.gif"
+			id="com.rohanclan.afae.ui.decorators.shelldecorator"
+			location="TOP_LEFT"
+		>
+			<description>Shows distinct icon for Shell files</description>	
+			<enablement>
+				<and>
+					<objectClass name="org.eclipse.core.resources.IResource" />
+					<or>
+						<objectState name="extension" value="bsh" />
+						<objectState name="extension" value="csh" />
+						<objectState name="extension" value="sh" />
+						<objectState name="extension" value="tsh" />
+						<objectState name="extension" value="bat" />
+						<objectState name="extension" value="pl" />
+						<objectState name="extension" value="pm" />
+					</or>
+				</and>
+			</enablement>
+		</decorator>
+		
+		<!-- // Config Type // -->
+		<decorator adaptable="false"
+			label="Config File Decorator"
+			state="true"
+			lightweight="true"
+			icon="icons/obj16/config.gif"
+			id="com.rohanclan.afae.ui.decorators.configdecorator"
+			location="TOP_LEFT"
+		>
+			<description>Shows distinct icon for Config files</description>	
+			<enablement>
+				<and>
+					<objectClass name="org.eclipse.core.resources.IResource" />
+					<or>
+						<objectState name="extension" value="properties" />
+						<objectState name="extension" value="props" />
+						<objectState name="extension" value="ini" />
+						<objectState name="extension" value="config" />
+					</or>
+				</and>
+			</enablement>
+		</decorator>
+		
+		<!-- // XML Type // -->
+		<decorator adaptable="false"
+			label="XML File Decorator"
+			state="true"
+			lightweight="true"
+			icon="icons/obj16/xmloverlay.gif"
+			id="com.rohanclan.afae.ui.decorators.xmldecorator"
+			location="TOP_LEFT"
+		>
+			<description>Shows distinct icon for XML files</description>	
+			<enablement>
+				<and>
+				<objectClass name="org.eclipse.core.resources.IResource" />
+					<or>
+						<objectState name="extension" value="xml" />
+						<objectState name="extension" value="ixml" />
+						<objectState name="extension" value="xslt" />
+						<objectState name="extension" value="xsl" />
+						<objectState name="extension" value="xsd" />
+						<objectState name="extension" value="dtd" />
+						<objectState name="extension" value="svg" />
+						<objectState name="extension" value="mxml" />
+						<objectState name="extension" value="lzx" />
+						<objectState name="extension" value="plist" />
+						<objectState name="extension" value="xmi" />
+						<objectState name="extension" value="xhtml" />
+						<objectState name="extension" value="wsdl" />
+						<objectState name="extension" value="rss" />
+						<objectState name="extension" value="resx" />
+						<objectState name="extension" value="xq" />
+						<objectState name="extension" value="xquery" />
+						<objectState name="extension" value="wsdd" />
+						<objectState name="extension" value="gladep" />
+						<objectState name="extension" value="glade" />
+						<objectState name="extension" value="xml.cfm" />
+						<objectState name="extension" value="xml.cfml" />
+					</or>
+				</and>
+			</enablement>
+		</decorator>
+		
+		<!-- // Web Type // -->
+		<decorator adaptable="false"
+			label="Web File Decorator"
+			state="true"
+			lightweight="true"
+			icon="icons/obj16/web.gif"
+			id="com.rohanclan.afae.ui.decorators.webdecorator"
+			location="TOP_LEFT"
+		>
+			<description>Shows distinct icon for Web files</description>
+			<enablement>
+				<and>
+					<objectClass name="org.eclipse.core.resources.IResource" />
+					<or>
+						<objectState name="extension" value="jsp" />
+						<objectState name="extension" value="asp" />
+						<objectState name="extension" value="aspx" />
+						<objectState name="extension" value="php" />
+						<objectState name="extension" value="php3" />
+						<objectState name="extension" value="php4" />
+						<objectState name="extension" value="htm" />
+						<objectState name="extension" value="html" />
+						<objectState name="extension" value="blog" />
+						<objectState name="extension" value="cfm" />
+						<objectState name="extension" value="cfml" />
+						<objectState name="extension" value="cfc" />
+					</or>
+				</and>
+			</enablement>
+		</decorator>
+		
+		<!-- // Bracket Type // -->
+		<decorator adaptable="false"
+			label="Bracket File Decorator"
+			state="true"
+			lightweight="true"
+			icon="icons/obj16/bracket.gif"
+			id="com.rohanclan.afae.ui.decorators.bracketdecorator"
+			location="TOP_LEFT"
+		>
+			<description>Shows distinct icon for bracket style files</description>
+			<enablement>
+				<and>
+				<objectClass name="org.eclipse.core.resources.IResource" />
+					<or>
+						<objectState name="extension" value="js" />
+						<objectState name="extension" value="css" />
+						<objectState name="extension" value="as" />
+						<objectState name="extension" value="c" />
+						<objectState name="extension" value="cpp" />
+						<objectState name="extension" value="cc" />
+						<objectState name="extension" value="cs" />
+					</or>
+				</and>
+			</enablement>
+		</decorator>
+		
+		<!-- // Thoth Type // -->
+		<decorator adaptable="false"
+			label="Thoth File Decorator"
+			state="true"
+			lightweight="true"
+			icon="icons/obj16/thoth.gif"
+			id="com.rohanclan.afae.ui.decorators.thothdecorator"
+			location="BOTTOM_LEFT"
+		>
+			<description>Shows distinct icon for Thoth files</description>	
+			<enablement>
+				<and>
+				<objectClass name="org.eclipse.core.resources.IResource" />
+					<or>
+						<objectState name="extension" value="thx" />
+						<objectState name="extension" value="xdf" />
+					</or>
+				</and>
+			</enablement>
+		</decorator>
+		
+		<!-- // Compiled Type (header) // -->
+		<decorator adaptable="false"
+			label="Compiled File Decorator"
+			state="true"
+			lightweight="true"
+			icon="icons/obj16/compiled.gif"
+			id="com.rohanclan.afae.ui.decorators.compileddecorator"
+			location="TOP_LEFT"
+		>
+			<description>Shows distinct icon for Compiled files</description>	
+			<enablement>
+				<and>
+					<objectClass name="org.eclipse.core.resources.IResource" />
+					<or>
+						<objectState name="extension" value="asm" />
+						<objectState name="extension" value="h" />
+					</or>
+				</and>
+			</enablement>
+		</decorator>
+		
+		<!-- // Apple(r) specific (well mostly) // -->
+		<decorator adaptable="false"
+			label="Apple(r) File Decorator"
+			state="true"
+			lightweight="true"
+			icon="icons/obj16/objc.gif"
+			id="com.rohanclan.afae.ui.decorators.appldecorator"
+			location="TOP_LEFT"
+		>
+			<description>Shows distinct icon for objective-c / applescript files</description>	
+			<enablement>
+				<and>
+					<objectClass name="org.eclipse.core.resources.IResource" />
+					<or>
+						<objectState name="extension" value="m" />
+						<objectState name="extension" value="applescript" />
+						<objectState name="extension" value="scpt" />
+					</or>
+				</and>
+			</enablement>
+		</decorator>
+		
+		<!-- // Desigining Type // -->
+		<!-- while we cant open these, we note what they are. (they should use the 
+		system default when opening -->
+		<decorator adaptable="false"
+			label="Designing File Decorator"
+			state="true"
+			lightweight="true"
+			icon="icons/obj16/designer.gif"
+			id="com.rohanclan.afae.ui.decorators.designerdecorator"
+			location="TOP_LEFT"
+		>
+			<description>Shows distinct icon for Designing files</description>	
+			<enablement>
+				<and>
+					<objectClass name="org.eclipse.core.resources.IResource" />
+					<or>
+						<objectState name="extension" value="graffle" />
+						<objectState name="extension" value="dia" />
+						<objectState name="extension" value="argo" />
+					</or>
+				</and>
+			</enablement>
+		</decorator>
+		
+		<!-- /// Read Only /// -->
+		﻿<decorator adaptable="false"
+			label="Afae Readonly Decorator"
+			state="true"
+			lightweight="true"
+			icon="icons/obj16/lockoverlay.gif"
+			id="com.rohanclan.afae.ui.decorators.readonlydecorator"
+			location="BOTTOM_LEFT">
+			<description>Shows readonly indicator</description>	
+			<enablement>
+				<and>
+					<objectClass name="org.eclipse.core.resources.IResource" />
+					<objectState name="readOnly" value="true" />
+				</and>
+			</enablement>
+		</decorator>
+		
+	</extension>
+	
+	<!-- /////////////////////////////// actions //////////////////////////////// -->
+	<extension point="org.eclipse.ui.editorActions">
+		<editorContribution
+			targetID="com.rohanclan.afae.editor.AfaeEditor"
+			id="AfaeEditor.actions"
+		>
+			<menu label="Afae"
+				id="AfaeEditor.afaemenu">
+				<separator name="maingroup"></separator>
+			</menu>
+			
+			<!-- comment -->
+			<action 
+				definitionId="Afae.ActionWrapComment"
+				id="Afae.ActionWrapComment"
+				label="Insert C&amp;omment"
+				tooltip="Wrap text in a comment"
+				icon="icons/obj16/comment.gif"
+				class="com.rohanclan.afae.editor.actions.ActionWrapComment"
+				menubarPath="AfaeEditor.afaemenu/maingroup"
+				toolbarPath="AfaeEditorToolbar"
+			></action>
+			
+			<!-- quotes -->
+			<!-- 
+				icon="icons/obj16/comment.gif"
+				menubarPath="AfaeEditor.afaemenu/maingroup"
+				toolbarPath="AfaeEditorToolbar"
+			 -->
+			<action 
+				definitionId="Afae.ActionWrapQuotes"
+				id="Afae.ActionWrapQuotes"
+				label="Wrap in Quotes"
+				tooltip="Wrap text in a quotes"
+				class="com.rohanclan.afae.editor.actions.DoubleQuoteAction"
+			></action>
+			
+			<!-- insert color -->
+			<action 
+				definitionId="Afae.ActionInsertColor"
+				id="Afae.ActionInsertColor"
+				label="Insert &amp;Color"
+				tooltip="Insert a color"
+				icon="icons/obj16/color.gif"
+				class="com.rohanclan.afae.editor.actions.ActionInsertColor"
+				menubarPath="AfaeEditor.afaemenu/maingroup"
+				toolbarPath="AfaeEditorToolbar"
+			></action>
+			
+			<!-- insert date -->
+			<action id="Afae.ActionInsertDate"
+				label="Insert &amp;Date"
+				tooltip="Insert the current date"
+				icon="icons/obj16/date.gif"
+				class="com.rohanclan.afae.editor.actions.ActionInsertDate"
+				menubarPath="AfaeEditor.afaemenu/maingroup"
+				toolbarPath="AfaeEditorToolbar"
+			></action>
+			
+			<!-- toggle white space -->
+			<action id="com_rohanclan_afae_ShowWhitespacee"
+				label="Toggle Whitespace"
+				tooltip="Toggle editor whitespace"
+				icon="icons/obj16/showwhitespace.gif"
+				class="com.rohanclan.afae.editor.actions.TogglePreferenceAction"
+				menubarPath="AfaeEditor.afaemenu/maingroup"
+				toolbarPath="AfaeEditorToolbar"
+			></action>
+			
+			<!-- toggle print margin -->
+			<action id="printMargin"
+				label="Toggle Print Margin"
+				tooltip="Toggle print margin"
+				icon="icons/obj16/margin.gif"
+				class="com.rohanclan.afae.editor.actions.TogglePreferenceAction"
+				menubarPath="AfaeEditor.afaemenu/maingroup"
+				toolbarPath="AfaeEditorToolbar"
+			></action>
+   <action
+         class="com.rohanclan.afae.editor.actions.ToggleTextModeAction"
+         icon="icons/obj16/text_block.gif"
+         id="AfaeEditor.toggleTextMode"
+         label="Toggle Text Mode"
+         menubarPath="AfaeEditor.afaemenu/maingroup"
+         style="push"
+         toolbarPath="AfaeEditorToolbar"
+         tooltip="Toggle Text Mode (line wrap / line numbers)"/>
+			
+		</editorContribution>
+	</extension>
+	
+	<!-- /////////////////////////// commands /////////////////////////////////// -->
+	<extension point="org.eclipse.ui.commands">
+		<category
+			name="Afae Editor"
+			description="Afae Editor key bindings"
+			id="Afae.commandCategory">
+		</category>
+		
+		<command 
+			name="Insert Comment"
+			description="Comment selected text"
+			categoryId="Afae.commandCategory"
+			id="Afae.ActionWrapComment">
+		</command>
+		
+		<command 
+			name="Wrap in Quotes"
+			description="Wraps selected text in quotes"
+			categoryId="Afae.commandCategory"
+			id="Afae.ActionWrapQuotes">
+		</command>
+		
+		<command 
+			name="Insert Color"
+			description="Opens a color wheel for color insert"
+			categoryId="Afae.commandCategory"
+			id="Afae.ActionInsertColor">
+		</command>
+		
+		<!-- //////////// -->
+		<command 
+			name="Toggle Whitespace"
+			description="Toggles the editor whitespace display"
+			categoryId="Afae.commandCategory"
+			id="com_rohanclan_afae_ShowWhitespacee">
+		</command>
+		
+		<command 
+			name="Toggle Print Margin"
+			description="Toggles the print margin display"
+			categoryId="Afae.commandCategory"
+			id="printMargin">
+		</command>
+		
+	</extension>
+	
+	<!-- //////////////////////////// key bindings //////////////////////////////// -->
+	<!-- platform=
+	win32, gtk, motif, carbon and photon.
+	
+	The "M" modifier keys are a platform-independent way of representing keys, and these are 
+	generally preferred.
+	
+	M1 is the COMMAND key on MacOS X, and the CTRL key on most other platforms. 
+	M2 is the SHIFT key. 
+	M3 is the Option key on MacOS X, and the ALT key on most other platforms. 
+	M4 is the CTRL key on MacOS X, and is undefined on other platforms.
+	
+	The actual key is generally specified simply as the ASCII character, in uppercase. So, 
+	for example F or , are examples of such keys. However, there are some special keys; keys 
+	that have no printable ASCII representation. The following is a list of the current 
+	special keys: ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT, ARROW_UP, BREAK, BS, CAPS_LOCK, CR, 
+	DEL, END, ESC, F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12, F13, F14, F15, FF, 
+	HOME, INSERT, LF, NUL, NUM_LOCK, NUMPAD_0, NUMPAD_1, NUMPAD_2, NUMPAD_3, NUMPAD_4, 
+	NUMPAD_5, NUMPAD_6, NUMPAD_7, NUMPAD_8, NUMPAD_9, NUMPAD_ADD, NUMPAD_DECIMAL, NUMPAD_DIVIDE, 
+	NUMPAD_ENTER, NUMPAD_EQUAL, NUMPAD_MULTIPLY, NUMPAD_SUBTRACT, PAGE_UP, PAGE_DOWN, PAUSE, 
+	PRINT_SCREEN, SCROLL_LOCK, SPACE, TAB and VT. -->
+	<extension point="org.eclipse.ui.bindings">
+		<!-- //// Mac OS X //// -->
+		<key sequence="M4+C M4+K"
+			commandId="Afae.ActionWrapComment"
+			contextId="org.eclipse.ui.textEditorScope"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+			platform="carbon"
+		></key>
+		
+		<key sequence="M4+C M4+C"
+			commandId="Afae.ActionInsertColor"
+			contextId="org.eclipse.ui.textEditorScope"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+			platform="carbon"
+		></key>
+		
+		<!-- <key sequence="M4+C M4+W"
+			commandId="com_rohanclan_afae_ShowWhitespacee"
+			contextId="org.eclipse.ui.textEditorScope"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+			platform="carbon"
+		></key>
+		
+		<key sequence="M4+C M4+M"
+			commandId="printMargin"
+			contextId="org.eclipse.ui.textEditorScope"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+			platform="carbon"
+		></key> -->
+		
+		<key sequence="M4+M2+'"
+			commandId="Afae.ActionWrapQuotes"
+			contextId="org.eclipse.ui.textEditorScope"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+			platform="carbon"
+		></key>
+		
+		<!-- //// *NOT* Mac OS X //// -->
+		<key sequence="M1+M2+C"
+			commandId="Afae.ActionWrapComment"
+			contextId="org.eclipse.ui.textEditorScope"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+		>
+		</key>
+		
+		<key sequence="M2+M4+K"
+			commandId="Afae.ActionInsertColor"
+			contextId="org.eclipse.ui.textEditorScope"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+		</key>
+		
+		<key sequence="M1+M2+'"
+			commandId="Afae.ActionWrapQuotes"
+			contextId="org.eclipse.ui.textEditorScope"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+		</key>
+	</extension>
+	
+	<!-- //////////////////////////// popup menu //////////////////////////////// -->
+	<extension point="org.eclipse.ui.popupMenus">
+		<viewerContribution 
+			targetID="#EditorContext"
+			id="Afae.PopupMenu">
+			
+			<action id="Afae.ActionWrapComment"
+				icon="icons/obj16/comment.gif"
+				menubarPath="additions"
+				label="Insert Comment"
+				class="com.rohanclan.afae.editor.actions.ActionWrapComment"
+			></action>
+			
+			<action id="com_rohanclan_afae_ShowWhitespacee"
+				icon="icons/obj16/showwhitespace.gif"
+				menubarPath="additions"
+				label="Toggle Whitespace"
+				class="com.rohanclan.afae.editor.actions.TogglePreferenceAction"
+			></action>
+			
+		</viewerContribution>
+	</extension>
+	
+	<!-- ///////////////////////// preference pages ///////////////////////////// -->
+	<extension point="org.eclipse.ui.preferencePages">
+		<page name="Afae Editor"
+			class="com.rohanclan.afae.prefs.EditorPreferencePage"
+			id="com.rohanclan.afae.prefs.EditorPreferencePage"
+		/>
+		
+		<page name="Themes"
+			class="com.rohanclan.afae.prefs.ThemePreferencePage"
+			category="com.rohanclan.afae.prefs.EditorPreferencePage"
+			id="com.rohanclan.afae.prefs.ThemePreferencePage"
+		/>
+		
+	</extension>
+	
+	<!-- //////////////////////////////////////////////////////////////////////// -->
+	<!-- //////////////////////////// source control //////////////////////////// -->
+	<!-- //////////////////////////////////////////////////////////////////////// -->
+	<extension point="org.eclipse.team.core.fileTypes">
+		<fileTypes extension="dtd,as,4gl,ada,adb,ads,as,asa,asm,awk,log,bas,jsf,ref,reg,rex,rvw,bsh,sml,sources,spec,sqc,sqr,st,strings,csh,m,m3,pov,povray,prg,pro,project,ps,py,sh,mch,mips,ml,nrx,orx,p,pas,patch,phtml,pl,tsh,c,cbl,cc,changes,classpath,cls,cpp,bat,i,i3,icc,idl,imp,properties,xmi,xhtml,wsdl,rss,htm,html,xsl,xslt,xsd,svg,props,xquery,ini,w,xom,aspx,vb,thx,xdf,xml,config,scm,sgm,sgml,shtm,shtml,sty,tcl,tex,texi,jsp,jspf,lisp,lsp,ltx,pyw,r,rb,rbw,asp,mak,makefile,pls,pm,scpt,applescript,php,dpk,dpr,dsl,e,el,eps,f,h,hh,hpp,hs,inc,jhtml,jmk,jou,php3,bbj,bib,cs,cxx,dbm,diff,resx,xq,mod,ixml,htaccess,rhtml,yml,rake,php4,txt,v,vbs,ver,vh,vm,lzx,mxml,js,css,plist,sql,java,rng,wsdd,in,txt,f,4th,jjt,jj,gladep,glade,cfm,cfml,cfc,blog,note" type="text" />
+	</extension>
+</plugin>

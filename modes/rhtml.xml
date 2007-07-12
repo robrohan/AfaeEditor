@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+	<PROPS>
+		<!-- <PROPERTY NAME="indentOpenBrackets" VALUE="{" />
+		<PROPERTY NAME="indentCloseBrackets" VALUE="}" /> -->
+		<PROPERTY NAME="commentStart" VALUE="&lt;!-- " />
+		<PROPERTY NAME="commentEnd" VALUE=" --&gt;" />
+	</PROPS>
+	
+	<RULES IGNORE_CASE="TRUE">
+		<!-- Ruby -->
+		<SPAN TYPE="NULL" DELEGATE="RUBYRULES">
+			<BEGIN>&lt;%=</BEGIN>
+			<END>%&gt;</END>
+		</SPAN>
+		
+		<!-- Ruby code block -->
+		<SPAN TYPE="NULL" DELEGATE="RUBYRULES">
+			<BEGIN>&lt;%</BEGIN>
+			<END>%&gt;</END>
+		</SPAN>
+		
+		<!-- SGML comment -->
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;!--</BEGIN>
+			<END>--&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="LABEL" DELEGATE="EXCLAIMRULES">
+			<BEGIN>&lt;!</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<!-- SGML entities -->
+		<SPAN TYPE="LITERAL2" NO_WORD_BREAK="TRUE">
+			<BEGIN>&amp;</BEGIN>
+			<END>;</END>
+		</SPAN>
+
+		<!-- first try all html tags (and end tags) -->
+		&htmlspans;
+		
+		&cssspans;
+		
+		<!-- finally now try js tags. Since this is a REGEX tag
+			and REGEXs are very expensive and we should try to limit the number
+			of times the rules are run (hence they are last rules) 
+		-->
+		&javascriptspans;
+
+		<SPAN TYPE="MARKUP" DELEGATE="TAGS">
+			<BEGIN>&lt;</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+	</RULES>
+	
+	<!-- include the ruby rules include -->
+	<RULES SET="RUBYRULES" IGNORE_CASE="FALSE">
+		<SEQ TYPE="KEYWORD3">&lt;%</SEQ>
+		<SEQ TYPE="KEYWORD3">&lt;%=</SEQ>
+		<SEQ TYPE="KEYWORD3">%&gt;</SEQ>
+		&rubyrules;
+	</RULES>
+	
+	<!-- include the js rules include -->
+	<RULES SET="JSRULES">
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">script</SEQ>
+		&javascriptrules;
+	</RULES>
+	
+	<!-- include the css rules include -->
+	<RULES SET="CSSRULES">
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">style</SEQ>
+		&cssrules;
+	</RULES>
+	
+    <!-- typical markup -->
+	<RULES SET="TAGS" DEFAULT="MARKUP">
+		&htmlrules;
+	</RULES>
+	
+	<RULES SET="EXCLAIMRULES" DEFAULT="LABEL">
+		&dtdrules;
+	</RULES>
+</MODE>

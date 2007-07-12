@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+<!-- 
+	Copyright 2005 Rob Rohan
+-->
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="commentStart" VALUE="(:" />
+		<PROPERTY NAME="commentEnd" VALUE=":)" />
+		<PROPERTY NAME="noWordSep" VALUE="-" />
+		<!-- <PROPERTY NAME="wordBreakChars" VALUE="@:|.[]{},+=&lt;&gt;/?^&amp;*" /> -->
+	</PROPS>
+	
+	<RULES IGNORE_CASE="TRUE">
+		<!-- WHITE SPACE ( SPACE, TAB ) -->
+		<!-- <WHITESPACE> </WHITESPACE>
+		<WHITESPACE>	</WHITESPACE> -->
+		
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>(:</BEGIN>
+			<END>:)</END>
+		</SPAN>
+
+		<!-- DTD instructions -->
+		<SPAN TYPE="KEYWORD2" DELEGATE="xml::DTD-TAGS">
+			<BEGIN>&lt;!</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="LITERAL1">
+			<BEGIN>"</BEGIN>
+			<END>"</END>
+		</SPAN>
+		
+		<SPAN TYPE="LITERAL1">
+			<BEGIN>'</BEGIN>
+			<END>'</END>
+		</SPAN>
+		
+		<!-- PI directives -->
+		<SPAN TYPE="KEYWORD3">
+			<BEGIN>&lt;?</BEGIN>
+			<END>?&gt;</END>
+		</SPAN>
+		
+		<!-- HTML TAGS -->
+		<SPAN TYPE="MARKUP" DELEGATE="XMLTAGS">
+			<BEGIN>&lt;</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<!-- ENTITY REFERENCES -->
+		<SPAN TYPE="LITERAL2" NO_WORD_BREAK="TRUE">
+			<BEGIN>&amp;</BEGIN>
+			<END>;</END>
+		</SPAN>
+		
+		<KEYWORDS IGNORE_CASE="FALSE">
+			<KEYWORD1>declare</KEYWORD1>
+			<KEYWORD1>namespace</KEYWORD1>
+			<KEYWORD1>function</KEYWORD1>
+			<KEYWORD1>return</KEYWORD1>
+			<KEYWORD1>let</KEYWORD1>
+			<KEYWORD1>for</KEYWORD1>
+			<KEYWORD1>in</KEYWORD1>
+			<KEYWORD1>some</KEYWORD1>
+			<KEYWORD1>order</KEYWORD1>
+			<KEYWORD1>by</KEYWORD1>
+			<KEYWORD1>as</KEYWORD1>
+			<KEYWORD1>where</KEYWORD1>
+			<KEYWORD1>every</KEYWORD1>
+			
+			<KEYWORD1>satisfies</KEYWORD1>
+			<KEYWORD1>intersect</KEYWORD1>
+			<KEYWORD1>collation</KEYWORD1>
+			
+			<KEYWORD1>if</KEYWORD1>
+			<KEYWORD1>then</KEYWORD1>
+			<KEYWORD1>else</KEYWORD1>
+			
+			<OPERATOR>self</OPERATOR>
+			<OPERATOR>child</OPERATOR>
+			<OPERATOR>parent</OPERATOR>
+			<OPERATOR>attribute</OPERATOR>
+			<OPERATOR>descendant</OPERATOR>
+			<OPERATOR>descendant-or-self</OPERATOR>
+			<OPERATOR>ancestor</OPERATOR>
+			<OPERATOR>ancestor-or-self</OPERATOR>
+			<OPERATOR>following-sibling</OPERATOR>
+			<OPERATOR>preceding-sibling</OPERATOR>
+			<OPERATOR>following</OPERATOR>
+			<OPERATOR>preceding</OPERATOR>
+			<OPERATOR>namespace</OPERATOR>
+			
+			<OPERATOR>.</OPERATOR>
+			<OPERATOR>..</OPERATOR>
+			<OPERATOR>::</OPERATOR>
+			<OPERATOR>or</OPERATOR>
+			<OPERATOR>and</OPERATOR>
+			<OPERATOR>=</OPERATOR>
+			<OPERATOR>!=</OPERATOR>
+			<OPERATOR>*</OPERATOR>
+			<OPERATOR>div</OPERATOR>
+			<OPERATOR>mod</OPERATOR>
+			<OPERATOR>true</OPERATOR>
+			<OPERATOR>false</OPERATOR>
+			<OPERATOR>|</OPERATOR>
+			<OPERATOR>+</OPERATOR>
+			<OPERATOR>-</OPERATOR>
+			<OPERATOR>@</OPERATOR>
+			
+			<!-- xpath functions -->
+			<LABEL>boolean</LABEL>
+			<LABEL>ceiling</LABEL>
+			<LABEL>concat</LABEL>
+			<LABEL>contains</LABEL>
+			<LABEL>count</LABEL>
+			<LABEL>current</LABEL>
+			<LABEL>document</LABEL>
+			<LABEL>element-available</LABEL>
+			<LABEL>false</LABEL>
+			<LABEL>floor</LABEL>
+			<LABEL>format-number</LABEL>
+			<LABEL>function-available</LABEL>
+			<LABEL>generate-id</LABEL>
+			<LABEL>id</LABEL>
+			<LABEL>key</LABEL>
+			<LABEL>lang</LABEL>
+			<LABEL>last</LABEL>
+			<LABEL>local-name</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>namespace-uri</LABEL>
+			<LABEL>normalize-space</LABEL>
+			<LABEL>not</LABEL>
+			<LABEL>number</LABEL>
+			<LABEL>position</LABEL>
+			<LABEL>round</LABEL>
+			<LABEL>starts-with</LABEL>
+			<LABEL>string</LABEL>
+			<LABEL>string-length</LABEL>
+			<LABEL>substring</LABEL>
+			<LABEL>substring-after</LABEL>
+			<LABEL>substring-before</LABEL>
+			<LABEL>sum</LABEL>
+			<LABEL>system-property</LABEL>
+			<LABEL>translate</LABEL>
+			
+			<!-- I dont know if these are valid... -->
+			<LABEL>avg</LABEL>
+			<LABEL>base-uri</LABEL>
+			<LABEL>codepoints-to-string</LABEL>
+			<LABEL>compare</LABEL>
+			<LABEL>context-item</LABEL>
+			<LABEL>current-date</LABEL>
+			<LABEL>current-dateTime</LABEL>
+			<LABEL>current-time</LABEL>
+			<LABEL>data</LABEL>
+			<LABEL>dayTimeDuration-from-seconds</LABEL>
+			<LABEL>deep-equal</LABEL>
+			<LABEL>default-collation</LABEL>
+			<LABEL>distinct-nodes</LABEL>
+			<LABEL>distinct-values</LABEL>
+			<LABEL>empty</LABEL>
+			<LABEL>ends-with</LABEL>
+			<LABEL>error</LABEL>
+			<LABEL>escape-uri</LABEL>
+			<LABEL>exists</LABEL>
+			<LABEL>expanded-QName</LABEL>
+			<LABEL>get-day-from-date</LABEL>
+			<LABEL>get-day-from-dateTime</LABEL>
+			<LABEL>get-days-from-dayTimeDuration</LABEL>
+			<LABEL>get-dayTimeDuration-from-dateTimes</LABEL>
+			<LABEL>get-hours-from-dateTime</LABEL>
+			<LABEL>get-hours-from-dayTimeDuration</LABEL>
+			<LABEL>get-hours-from-time</LABEL>
+			<LABEL>get-in-scope-namespaces</LABEL>
+			<LABEL>get-local-name-from-QName</LABEL>
+			<LABEL>get-minutes-from-dateTime</LABEL>
+			<LABEL>get-minutes-from-dayTimeDuration</LABEL>
+			<LABEL>get-minutes-from-time</LABEL>
+			<LABEL>get-month-from-date</LABEL>
+			<LABEL>get-month-from-dateTime</LABEL>
+			<LABEL>get-months-from-yearMonthDuration</LABEL>
+			<LABEL>get-namespace-uri-for-prefix</LABEL>
+			<LABEL>get-seconds-from-dateTime</LABEL>
+			<LABEL>get-seconds-from-dayTimeDuration</LABEL>
+			<LABEL>get-seconds-from-time</LABEL>
+			<LABEL>get-timezone-from-date</LABEL>
+			<LABEL>get-timezone-from-dateTime</LABEL>
+			<LABEL>get-timezone-from-time</LABEL>
+			<LABEL>get-year-from-date</LABEL>
+			<LABEL>get-year-from-dateTime</LABEL>
+			<LABEL>get-yearMonthDuration-from-dateTimes</LABEL>
+			<LABEL>get-years-from-yearMonthDuration</LABEL>
+			<LABEL>index-of</LABEL>
+			<LABEL>input</LABEL>
+			<LABEL>insert</LABEL>
+			<LABEL>item-at</LABEL>
+			<LABEL>lang</LABEL>
+			<LABEL>last</LABEL>
+			<LABEL>lower-case</LABEL>
+			<LABEL>matches</LABEL>
+			<LABEL>max</LABEL>
+			<LABEL>min</LABEL>
+			<LABEL>normalize-unicode</LABEL>
+			<LABEL>remove</LABEL>
+			<LABEL>replace</LABEL>
+			<LABEL>root</LABEL>
+			<LABEL>sequence-deep-equal</LABEL>
+			<LABEL>sequence-node-equal</LABEL>
+			<LABEL>string-join</LABEL>
+			<LABEL>string-pad</LABEL>
+			<LABEL>string-to-codepoints</LABEL>
+			<LABEL>subsequence</LABEL>
+			<LABEL>tokenize</LABEL>
+			<LABEL>unparsed-entity-uri</LABEL>
+			<LABEL>unparsed-entity-public-id</LABEL>
+			<LABEL>unparsed-text</LABEL>
+			<LABEL>unordered</LABEL>
+			<LABEL>upper-case</LABEL>
+		</KEYWORDS>
+		
+	</RULES>
+	
+	<!-- HTML TAGS -->
+	<RULES SET="XMLTAGS" DEFAULT="MARKUP">
+		<!-- <WHITESPACE> </WHITESPACE>
+		<WHITESPACE>	</WHITESPACE> -->
+		
+		<SPAN TYPE="LITERAL1">
+			<BEGIN>"</BEGIN>
+			<END>"</END>
+		</SPAN>
+		
+		<SPAN TYPE="LITERAL1">
+			<BEGIN>'</BEGIN>
+			<END>'</END>
+		</SPAN>
+		
+		<SEQ TYPE="NULL">=</SEQ>
+		<SEQ TYPE="LABEL">:</SEQ>
+		<!-- <MARK_PREVIOUS TYPE="LABEL" EXCLUDE_MATCH="TRUE">:</MARK_PREVIOUS>
+		<SEQ TYPE="OPERATOR">:</SEQ> -->
+	</RULES>
+</MODE>

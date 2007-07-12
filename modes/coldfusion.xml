@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<!-- CFMode tweaked / expanded by Ron Stewart -->
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="commentStart" VALUE="&lt;!---" />
+		<PROPERTY NAME="commentEnd" VALUE="---&gt;" />
+	</PROPS>
+	
+	<RULES IGNORE_CASE="TRUE">
+		<!-- CFML comment -->
+		<SPAN TYPE="COMMENT2">
+			<BEGIN>&lt;!---</BEGIN>
+			<END>---&gt;</END>
+		</SPAN> 
+
+		<!-- SGML comment -->
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;!--</BEGIN>
+			<END>--&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="LABEL" DELEGATE="EXCLAIMRULES" AT_LINE_START="TRUE">
+			<BEGIN>&lt;!</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<!-- This is using the JS rules; not right, but close enough for now... -->
+		<SPAN TYPE="NULL" DELEGATE="FAKECFSCRIPTRULES" IGNORE_CASE="TRUE">
+			<BEGIN>&lt;cfscript&gt;</BEGIN>
+			<END>&lt;/cfscript&gt;</END>
+		</SPAN>
+		
+		<!-- Fake SQL highlighting... -->
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFSQLRULES" IGNORE_CASE="TRUE">
+			<BEGIN>&lt;cfquery </BEGIN>
+			<END>&lt;/cfquery&gt;</END>
+		</SPAN>
+		
+		<!-- Specific CF tags that CAN'T have closing tags and CAN'T be written in XML style:  -->
+		<SPAN TYPE="NULL" DELEGATE="CFSINGLETAGS" IGNORE_CASE="TRUE">
+			<BEGIN>&lt;cfelseif</BEGIN><END>&gt;</END>
+		</SPAN>
+		<SPAN TYPE="KEYWORD1" IGNORE_CASE="TRUE">
+			<BEGIN>&lt;cfelse</BEGIN><END>&gt;</END>
+		</SPAN>
+		<SPAN TYPE="NULL" DELEGATE="CFSINGLETAGS" IGNORE_CASE="TRUE">
+			<BEGIN>&lt;cfset</BEGIN><END>&gt;</END>
+		</SPAN>
+		
+		<!-- CFML markup start tags -->
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFTAGS" IGNORE_CASE="TRUE">
+			<BEGIN>&lt;CF</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<!-- CFML markup end tags  DELEGATE="CFTAGS -->
+		<SPAN TYPE="KEYWORD2" IGNORE_CASE="TRUE">
+			<BEGIN>&lt;/CF</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<!-- CFML markup start tags -->
+		<SPAN TYPE="NULL" DELEGATE="CFTAGS">
+			<BEGIN>#</BEGIN>
+			<END>#</END>
+		</SPAN>
+		
+		<!-- SGML entities -->
+		<SPAN TYPE="LITERAL2" NO_WORD_BREAK="TRUE">
+			<BEGIN>&amp;</BEGIN>
+			<END>;</END>
+		</SPAN>
+		
+		<!-- first try all html tags (and end tags) -->
+		&htmlspans;
+		
+		&cssspans;	
+		
+		&javascriptspans;
+		
+		<!-- markup tags -->
+		<SPAN TYPE="MARKUP">
+			<BEGIN>&lt;</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+	</RULES>
+	
+	<!-- no function highlighting until cfscript is in an ixml file... -->
+	<RULES SET="FAKECFSCRIPTRULES" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">&lt;cfscript&gt;</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">&lt;/cfscript&gt;</SEQ>
+		
+		<!-- CF operators: -->
+		<SEQ TYPE="OPERATOR" IGNORE_CASE="TRUE">IS</SEQ>
+		<SEQ TYPE="OPERATOR" IGNORE_CASE="TRUE">EQ</SEQ>
+		<SEQ TYPE="OPERATOR" IGNORE_CASE="TRUE">NEQ</SEQ>
+		<SEQ TYPE="OPERATOR" IGNORE_CASE="TRUE">GT</SEQ>
+		<SEQ TYPE="OPERATOR" IGNORE_CASE="TRUE">GTE</SEQ>
+		<SEQ TYPE="OPERATOR" IGNORE_CASE="TRUE">LT</SEQ>
+		<SEQ TYPE="OPERATOR" IGNORE_CASE="TRUE">LTE</SEQ>
+		<SEQ TYPE="OPERATOR" IGNORE_CASE="TRUE">AND</SEQ>
+		<SEQ TYPE="OPERATOR" IGNORE_CASE="TRUE">OR</SEQ>
+		<SEQ TYPE="OPERATOR" IGNORE_CASE="TRUE">NOT</SEQ>
+		<SEQ TYPE="OPERATOR" IGNORE_CASE="TRUE">XOR</SEQ>
+		<SEQ TYPE="OPERATOR" IGNORE_CASE="TRUE">MOD</SEQ>
+		&javascriptrules;
+		<!-- this will lose if, else, etc, coloring &coldfusionrules; -->
+	</RULES>
+
+	<RULES SET="TAGS" DEFAULT="MARKUP" IGNORE_CASE="TRUE">
+		&htmlrules;
+	</RULES>
+
+	<RULES SET="CFTAGS" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&coldfusionrules;
+	</RULES>
+	
+	<RULES SET="CFSINGLETAGS" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&coldfusionrules;
+	</RULES>
+	
+	<RULES SET="JSRULES" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">&lt;script</SEQ>
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">&lt;/script&gt;</SEQ>
+		&javascriptrules;
+	</RULES>
+	
+	<RULES SET="CSSRULES" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">&lt;style</SEQ>
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">&lt;/style&gt;</SEQ>
+		&cssrules;
+	</RULES>
+	
+	<RULES SET="EXCLAIMRULES" DEFAULT="LABEL">
+		&dtdrules;
+	</RULES>
+	
+	<RULES SET="CFSQLRULES" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		<!-- Stuff to get the enclosing cfquery tag and any cfqueryparams to 
+			 look like the rest of the ColdFusion markup above...
+		-->
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">&lt;cfqueryparam</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">&lt;cfquery</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">&lt;/cfquery&gt;</SEQ>
+		
+		<!-- When there is cf logic inside of a query, try to color the cftags. 
+			They'll be all one color, but at least they'll stand out a bit -->
+		<SPAN TYPE="KEYWORD2" IGNORE_CASE="TRUE">
+			<BEGIN>&lt;CF</BEGIN><END>&gt;</END>
+		</SPAN>
+		<SPAN TYPE="KEYWORD2" IGNORE_CASE="TRUE">
+			<BEGIN>&lt;/CF</BEGIN><END>&gt;</END>
+		</SPAN>
+		<SPAN TYPE="COMMENT2">
+			<BEGIN>&lt;!---</BEGIN><END>---&gt;</END>
+		</SPAN> 
+		
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">/&gt;</SEQ>
+		
+		<!-- RPS: This is a bit of a hack to keep the CFQUERY tag's NAME
+			 attribute from getting flagged as a SQL keyword (which NAME
+			 actually is, since it is a SQL datatype). As near as I can
+			 tell, though, this is the only overlap between the tag
+			 attributes and the SQL keywords... :
+		-->
+		<SEQ TYPE="NULL" IGNORE_CASE="TRUE"> name=</SEQ>
+		
+		<!-- CFQUERYPARAM data types: -->
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_BIGINT</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_BIT</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_CHAR</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_BLOB</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_CLOB</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_DATE</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_DECIMAL</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_DOUBLE</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_FLOAT</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_IDSTAMP</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_INTEGER</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_LONGVARCHAR</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_MONEY</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_MONEY4</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_NUMERIC</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_REAL</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_REFCURSOR</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_SMALLINT</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_TIME</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_TIMESTAMP</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_TINYINT</SEQ>
+		<SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">CF_SQL_VARCHAR</SEQ>
+		
+		<!-- <SEQ TYPE="KEYWORD2" IGNORE_CASE="TRUE">&gt;</SEQ> -->
+		&tsqlrules;
+	</RULES>
+</MODE>

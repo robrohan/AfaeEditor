@@ -1,0 +1,466 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<!-- ASP mode by Andre Kaplan tweeked to start to be aspx by rob rohan-->
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="commentStart" VALUE="&lt;%--" />
+		<PROPERTY NAME="commentEnd" VALUE="--%&gt;" />
+	</PROPS>
+
+	<RULES IGNORE_CASE="TRUE">
+		<!-- <SPAN TYPE="MARKUP" DELEGATE="ASPVB">
+			<BEGIN>&lt;%@LANGUAGE="VBSCRIPT"%&gt;</BEGIN>
+			<END></END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="ASPJS">
+			<BEGIN>&lt;%@LANGUAGE="JSCRIPT"%&gt;</BEGIN>
+			<END></END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="ASPJS">
+			<BEGIN>&lt;%@LANGUAGE="JAVASCRIPT"%&gt;</BEGIN>
+			<END></END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="ASPPL">
+			<BEGIN>&lt;%@LANGUAGE="PERLSCRIPT"%&gt;</BEGIN>
+			<END></END>
+		</SPAN> -->
+
+		<!-- Inlined server-side VBScript -->
+		<SPAN TYPE="MARKUP" DELEGATE="VBRULES">
+			<BEGIN>&lt;%</BEGIN>
+			<END>%&gt;</END>
+		</SPAN>
+
+		<!-- Server-side VBScript -->
+		<SPAN TYPE="MARKUP" DELEGATE="VBRULES">
+			<BEGIN>&lt;SCRIPT LANGUAGE="VBSCRIPT" RUNAT="SERVER"&gt;</BEGIN>
+			<END>&lt;/SCRIPT&gt;</END>
+		</SPAN>
+
+		<!-- Server-side Javascript -->
+		<SPAN TYPE="NULL" DELEGATE="JS">
+			<BEGIN>&lt;SCRIPT LANGUAGE="JSCRIPT" RUNAT="SERVER"&gt;</BEGIN>
+			<END>&lt;/SCRIPT&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="NULL" DELEGATE="JS">
+			<BEGIN>&lt;SCRIPT LANGUAGE="JAVASCRIPT" RUNAT="SERVER"&gt;</BEGIN>
+			<END>&lt;/SCRIPT&gt;</END>
+		</SPAN>
+
+		<!-- Server-side PerlScript -->
+		<!-- <SPAN TYPE="MARKUP" DELEGATE="perl::MAIN">
+			<BEGIN>&lt;script language="perlscript" runat="server"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN> -->
+
+		<!-- //////// Client-side javascript //////////// -->
+		<!-- <SPAN TYPE="NULL" DELEGATE="JS">
+			<BEGIN>&lt;SCRIPT LANGUAGE="JSCRIPT"&gt;</BEGIN>
+			<END>&lt;/SCRIPT&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="NULL" DELEGATE="JS">
+			<BEGIN>&lt;SCRIPT LANGUAGE="JAVASCRIPT"&gt;</BEGIN>
+			<END>&lt;/SCRIPT&gt;</END>
+		</SPAN>
+		
+		<SPAN TYPE="NULL" DELEGATE="JS">
+			<BEGIN>&lt;SCRIPT TYPE="TEXT/JAVASCRIPT"&gt;</BEGIN>
+			<END>&lt;/SCRIPT&gt;</END>
+		</SPAN>
+		
+		<SPAN TYPE="NULL" DELEGATE="JS">
+			<BEGIN>&lt;SCRIPT LANGUAGE="JAVASCRIPT" TYPE="TEXT/JAVASCRIPT"&gt;</BEGIN>
+			<END>&lt;/SCRIPT&gt;</END>
+		</SPAN>
+		
+		<SPAN TYPE="NULL" DELEGATE="JS">
+			<BEGIN>&lt;SCRIPT TYPE="TEXT/JAVASCRIPT" LANGUAGE="JAVASCRIPT"&gt;</BEGIN>
+			<END>&lt;/SCRIPT&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="NULL" DELEGATE="JS">
+			<BEGIN>&lt;SCRIPT&gt;</BEGIN>
+			<END>&lt;/SCRIPT&gt;</END>
+		</SPAN> -->
+		<!-- //////// Client-side javascript //////////// -->
+
+		<!-- Server-Side include -->
+		<SPAN TYPE="MARKUP">
+			<BEGIN>&lt;!--#</BEGIN>
+			<END>--&gt;</END>
+		</SPAN>
+
+		<!-- SGML comment -->
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;!--</BEGIN>
+			<END>--&gt;</END>
+		</SPAN>
+		
+		<!-- SGML entities -->
+		<SPAN TYPE="LITERAL2" NO_WORD_BREAK="TRUE">
+			<BEGIN>&amp;</BEGIN>
+			<END>;</END>
+		</SPAN>
+		
+		<SPAN TYPE="LABEL" DELEGATE="EXCLAIMRULES">
+			<BEGIN>&lt;!</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<!-- ASP comment -->
+		<!-- <SPAN TYPE="COMMENT2">
+			<BEGIN>&lt;%-=-</BEGIN>
+			<END>-=-%&gt;</END>
+		</SPAN> -->
+
+		<!-- stylesheet -->
+		<!-- <SPAN TYPE="NULL" DELEGATE="CSSRULES">
+			<BEGIN>&lt;STYLE TYPE="TEXT/CSS"&gt;</BEGIN>
+			<END>&lt;/STYLE&gt;</END>
+		</SPAN>
+		
+		<SPAN TYPE="NULL" DELEGATE="CSSRULES">
+			<BEGIN>&lt;STYLE&gt;</BEGIN>
+			<END>&lt;/STYLE&gt;</END>
+		</SPAN> -->
+		
+		<!-- first try all html tags (and end tags) -->
+		&htmlspans;
+		
+		&cssspans;
+		
+		<!-- finally now try js tags. Since this is a REGEX tag
+			and REGEXs are very expensive and we should try to limit the number
+			of times the rules are run (hence they are last rules) 
+		-->
+		&javascriptspans;
+		
+
+		<!-- markup tags  DELEGATE="ASPVB_TAGS" -->
+		<SPAN TYPE="MARKUP">
+			<BEGIN>&lt;</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+	</RULES>
+
+	<!-- ******************************************************************
+	     ASP with VBScript as default script engine
+	     ****************************************************************** -->
+	<!-- <RULES SET="ASPVB" IGNORE_CASE="TRUE">
+		<WHITESPACE> </WHITESPACE>
+		<WHITESPACE>	</WHITESPACE>
+
+		<SPAN TYPE="MARKUP" DELEGATE="vbscript::MAIN">
+			<BEGIN>&lt;%</BEGIN>
+			<END>%&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="vbscript::MAIN">
+			<BEGIN>&lt;script language="vbscript" runat="server"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="NULL" DELEGATE="JS">
+			<BEGIN>&lt;script language="jscript" runat="server"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="javascript::MAIN">
+			<BEGIN>&lt;script language="javascript" runat="server"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="perl::MAIN">
+			<BEGIN>&lt;script language="perlscript" runat="server"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="javascript::MAIN">
+			<BEGIN>&lt;script language="jscript"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="javascript::MAIN">
+			<BEGIN>&lt;script language="javascript"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="javascript::MAIN">
+			<BEGIN>&lt;script&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP">
+			<BEGIN>&lt;!-=-#</BEGIN>
+			<END>-=-&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;!-=-</BEGIN>
+			<END>-=-&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="css::MAIN">
+			<BEGIN>&lt;STYLE&gt;</BEGIN>
+			<END>&lt;/STYLE&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="ASPVB_TAGS">
+			<BEGIN>&lt;/</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="ASPVB_TAGS">
+			<BEGIN>&lt;</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="LITERAL2" NO_WORD_BREAK="TRUE">
+			<BEGIN>&amp;</BEGIN>
+			<END>;</END>
+		</SPAN>
+	</RULES> -->
+
+	<!-- ******************************************************************
+	     ASP with JScript as default script engine
+	     ****************************************************************** -->
+	<!-- <RULES SET="ASPJS" IGNORE_CASE="TRUE">
+		<WHITESPACE> </WHITESPACE>
+		<WHITESPACE>	</WHITESPACE>
+
+		<SPAN TYPE="MARKUP" DELEGATE="javascript::MAIN">
+			<BEGIN>&lt;%</BEGIN>
+			<END>%&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="vbscript::MAIN">
+			<BEGIN>&lt;script language="vbscript" runat="server"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="javascript::MAIN">
+			<BEGIN>&lt;script language="jscript" runat="server"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="javascript::MAIN">
+			<BEGIN>&lt;script language="javascript" runat="server"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="perl::MAIN">
+			<BEGIN>&lt;script language="perlscript" runat="server"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="javascript::MAIN">
+			<BEGIN>&lt;script language="jscript"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="javascript::MAIN">
+			<BEGIN>&lt;script language="javascript"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="javascript::MAIN">
+			<BEGIN>&lt;script&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP">
+			<BEGIN>&lt;!-=-#</BEGIN>
+			<END>-=-&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;!-=-</BEGIN>
+			<END>-=-&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="css::MAIN">
+			<BEGIN>&lt;STYLE&gt;</BEGIN>
+			<END>&lt;/STYLE&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="ASPJS_TAGS">
+			<BEGIN>&lt;/</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="ASPJS_TAGS">
+			<BEGIN>&lt;</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="LITERAL2" NO_WORD_BREAK="TRUE">
+			<BEGIN>&amp;</BEGIN>
+			<END>;</END>
+		</SPAN>
+	</RULES> -->
+
+	<!-- ******************************************************************
+	     ASP with PerlScript as default script engine
+	     ****************************************************************** -->
+	<!-- <RULES SET="ASPPL" IGNORE_CASE="TRUE">
+		<WHITESPACE> </WHITESPACE>
+		<WHITESPACE>	</WHITESPACE>
+
+		<SPAN TYPE="MARKUP" DELEGATE="perl::MAIN">
+			<BEGIN>&lt;%</BEGIN>
+			<END>%&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="vbscript::MAIN">
+			<BEGIN>&lt;script language="vbscript" runat="server"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="NULL" DELEGATE="JS">
+			<BEGIN>&lt;script language="jscript" runat="server"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="NULL" DELEGATE="JS">
+			<BEGIN>&lt;script language="javascript" runat="server"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="perl::MAIN">
+			<BEGIN>&lt;script language="perlscript" runat="server"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="NULL" DELEGATE="JS">
+			<BEGIN>&lt;script language="jscript"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="NULL" DELEGATE="JS">
+			<BEGIN>&lt;script language="javascript"&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="NULL" DELEGATE="CSSRULES">
+			<BEGIN>&lt;script&gt;</BEGIN>
+			<END>&lt;/script&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP">
+			<BEGIN>&lt;!-=-#</BEGIN>
+			<END>-=-&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;!-=-</BEGIN>
+			<END>-=-&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="css::MAIN">
+			<BEGIN>&lt;STYLE&gt;</BEGIN>
+			<END>&lt;/STYLE&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="ASPPL_TAGS">
+			<BEGIN>&lt;/</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="MARKUP" DELEGATE="ASPPL_TAGS">
+			<BEGIN>&lt;</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="LITERAL2" NO_WORD_BREAK="TRUE">
+			<BEGIN>&amp;</BEGIN>
+			<END>;</END>
+		</SPAN>
+	</RULES> -->
+
+	<!-- ******************************************************************
+	     HTML Tags
+	     ****************************************************************** -->
+	<!-- <RULES SET="ASPVB_TAGS" DEFAULT="MARKUP">
+		<SPAN TYPE="MARKUP" DELEGATE="vbscript::MAIN">
+			<BEGIN>&lt;%</BEGIN>
+			<END>%&gt;</END>
+		</SPAN>
+	</RULES>
+
+	<RULES SET="ASPJS_TAGS" DEFAULT="MARKUP">
+		<SPAN TYPE="MARKUP" DELEGATE="javascript::MAIN">
+			<BEGIN>&lt;%</BEGIN>
+			<END>%&gt;</END>
+		</SPAN>
+	</RULES>
+
+	<RULES SET="ASPPL_TAGS" DEFAULT="MARKUP">
+		<SPAN TYPE="MARKUP" DELEGATE="perl::MAIN">
+			<BEGIN>&lt;%</BEGIN>
+			<END>%&gt;</END>
+		</SPAN>
+	</RULES> -->
+	
+	<RULES SET="JSRULES" DEFAULT="NULL">
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">script</SEQ>
+		&javascriptrules;
+	</RULES>
+	
+	<RULES SET="CSSRULES" DEFAULT="NULL">
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">style</SEQ>
+		&cssrules;
+	</RULES>
+	
+	<RULES SET="VBRULES" DEFAULT="NULL">
+		<SPAN TYPE="MARKUP">
+			<BEGIN>&lt;SCRIPT</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+		
+		<SPAN TYPE="MARKUP">
+			<BEGIN>&lt;/SCRIPT</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+		
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;%--</BEGIN>
+			<END>--%&gt;</END>
+		</SPAN>
+		
+		<SEQ TYPE="KEYWORD2">&lt;%</SEQ>
+		<SEQ TYPE="KEYWORD2">%&gt;</SEQ>
+		<SEQ TYPE="LABEL">@</SEQ>
+		<SEQ TYPE="LABEL">=</SEQ>
+		<SEQ TYPE="LABEL">#</SEQ>
+		
+		<!-- since the keywords are defined in the vb section, we'll
+		 fake out the keyword section a bit to get the top of the
+		 page declares to look somewhat correct -->
+		<SEQ TYPE="KEYWORD1">Page</SEQ>
+		<SEQ TYPE="KEYWORD1">Language</SEQ>
+		<SEQ TYPE="KEYWORD1">AutoEventWireup</SEQ>
+		<SEQ TYPE="KEYWORD1">Codebehind</SEQ>
+		<SEQ TYPE="KEYWORD1">TagPrefix</SEQ>
+		<SEQ TYPE="KEYWORD1">Register</SEQ>
+		<SEQ TYPE="KEYWORD1">Src</SEQ>
+		<SEQ TYPE="KEYWORD1">TagName</SEQ>
+		<SEQ TYPE="KEYWORD1">SmartNavigation</SEQ>
+		
+		&vbrules;
+	</RULES>
+	
+	<RULES SET="TAGS" DEFAULT="MARKUP">
+		&htmlrules;
+	</RULES>
+	
+	<RULES SET="EXCLAIMRULES" DEFAULT="LABEL">
+		&dtdrules;
+	</RULES>
+</MODE>

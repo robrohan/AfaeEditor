@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="commentStart" VALUE="/*" />
+		<PROPERTY NAME="commentEnd" VALUE="*/" />
+		<PROPERTY NAME="indentOpenBrackets" VALUE="{" />
+		<PROPERTY NAME="indentCloseBrackets" VALUE="}" />
+		<PROPERTY NAME="noWordSep" VALUE="-" />
+	</PROPS>
+	
+	<RULES ESCAPE="\" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cssrules;
+	</RULES>
+	
+	<RULES SET="LITERAL" DEFAULT="LITERAL1" ESCAPE="\">
+		
+	</RULES>
+</MODE>

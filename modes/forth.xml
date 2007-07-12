@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<!-- RetroForth is one of the nicest Forth implementations, so we
+support that one. You can extend this to your own Forth's vocabulary
+easily. -->
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="indentNextLines" VALUE="^:[^;]*"/>
+		<PROPERTY NAME="unindentNextLines" VALUE="^.*;$"/>
+		<PROPERTY NAME="commentStart" VALUE="("/>
+		<PROPERTY NAME="commentEnd" VALUE=")"/>
+		<PROPERTY NAME="lineComment" VALUE="|"/>
+		<PROPERTY NAME="noWordSep" VALUE="+-*=&gt;&lt;;.?/'()%,_|$"/>
+	</PROPS>
+	
+	<RULES IGNORE_CASE="FALSE"
+		NO_WORD_SEP="+-*=&gt;&lt;;.?/'&quot;()%,_$"
+		HIGHLIGHT_DIGITS="TRUE"
+		DIGIT_RE="|-?\d+([./]\d+)?">
+
+		<EOL_SPAN TYPE="COMMENT1" AT_WORD_START="TRUE">| </EOL_SPAN>
+		<EOL_SPAN TYPE="COMMENT1" AT_WORD_START="TRUE">\</EOL_SPAN>
+
+		<!-- <MARK_FOLLOWING TYPE="DIGIT" AT_WORD_START="TRUE">$</MARK_FOLLOWING>
+		<MARK_FOLLOWING TYPE="LITERAL1" AT_WORD_START="TRUE">'</MARK_FOLLOWING> -->
+
+		<!-- parsing words -->
+		<!-- <SEQ_REGEXP TYPE="MARKUP"
+			HASH_CHAR=":"
+			AT_WORD_START="TRUE">:\s+(\S+)</SEQ_REGEXP> -->
+
+		<!-- <SPAN TYPE="COMMENT3" DELEGATE="STACK_EFFECT">
+			<BEGIN>( </BEGIN>
+			<END>)</END>
+		</SPAN> -->
+
+		<SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE"
+			AT_WORD_START="TRUE">
+			<BEGIN>s"</BEGIN>
+			<END>"</END>
+		</SPAN>
+
+		<SPAN TYPE="LITERAL2" NO_LINE_BREAK="TRUE"
+			AT_WORD_START="TRUE">
+			<BEGIN>."</BEGIN>
+			<END>"</END>
+		</SPAN>
+
+		<SPAN TYPE="LITERAL2" NO_LINE_BREAK="TRUE"
+			AT_WORD_START="TRUE">
+			<BEGIN>f"</BEGIN>
+			<END>"</END>
+		</SPAN>
+
+		<SPAN TYPE="LITERAL2" NO_LINE_BREAK="TRUE"
+			AT_WORD_START="TRUE">
+			<BEGIN>m"</BEGIN>
+			<END>"</END>
+		</SPAN>
+
+		<SPAN TYPE="LITERAL2" NO_LINE_BREAK="TRUE"
+			AT_WORD_START="TRUE">
+			<BEGIN>"</BEGIN>
+			<END>"</END>
+		</SPAN>
+
+		<KEYWORDS>
+			<MARKUP>:</MARKUP>
+			<MARKUP>;</MARKUP>
+			<MARKUP>;;</MARKUP>
+			<MARKUP>0;</MARKUP>
+			<MARKUP>::</MARKUP>
+
+			<KEYWORD1>swap</KEYWORD1>
+			<KEYWORD1>drop</KEYWORD1>
+			<KEYWORD1>dup</KEYWORD1>
+			<KEYWORD1>nip</KEYWORD1>
+			<KEYWORD1>over</KEYWORD1>
+			<KEYWORD1>rot</KEYWORD1>
+			<KEYWORD1>-rot</KEYWORD1>
+			<KEYWORD1>2dup</KEYWORD1>
+			<KEYWORD1>2drop</KEYWORD1>
+			<KEYWORD1>2over</KEYWORD1>
+			<KEYWORD1>2swap</KEYWORD1>
+			<KEYWORD1>&gt;r</KEYWORD1>
+			<KEYWORD1>r&gt;</KEYWORD1>
+
+			<KEYWORD2>and</KEYWORD2>
+			<KEYWORD2>or</KEYWORD2>
+			<KEYWORD2>xor</KEYWORD2>
+			<KEYWORD2>&gt;&gt;</KEYWORD2>
+			<KEYWORD2>&lt;&lt;</KEYWORD2>
+			<KEYWORD2>not</KEYWORD2>
+			<KEYWORD2>+</KEYWORD2>
+			<KEYWORD2>*</KEYWORD2>
+			<KEYWORD2>negate</KEYWORD2>
+			<KEYWORD2>-</KEYWORD2>
+			<KEYWORD2>/</KEYWORD2>
+			<KEYWORD2>mod</KEYWORD2>
+			<KEYWORD2>/mod</KEYWORD2>
+			<KEYWORD2>*/</KEYWORD2>
+			<KEYWORD2>1+</KEYWORD2>
+			<KEYWORD2>1-</KEYWORD2>
+			<KEYWORD2>base</KEYWORD2>
+			<KEYWORD2>hex</KEYWORD2>
+			<KEYWORD2>decimal</KEYWORD2>
+			<KEYWORD2>binary</KEYWORD2>
+			<KEYWORD2>octal</KEYWORD2>
+
+			<KEYWORD3>@</KEYWORD3>
+			<KEYWORD3>!</KEYWORD3>
+			<KEYWORD3>c@</KEYWORD3>
+			<KEYWORD3>c!</KEYWORD3>
+			<KEYWORD3>+!</KEYWORD3>
+			<KEYWORD3>cell+</KEYWORD3>
+			<KEYWORD3>cells</KEYWORD3>
+			<KEYWORD3>char+</KEYWORD3>
+			<KEYWORD3>chars</KEYWORD3>
+
+			<KEYWORD3>[</KEYWORD3>
+			<KEYWORD3>]</KEYWORD3>
+			<KEYWORD3>create</KEYWORD3>
+			<KEYWORD3>does&gt;</KEYWORD3>
+			<KEYWORD3>variable</KEYWORD3>
+			<KEYWORD3>variable,</KEYWORD3>
+			<KEYWORD3>literal</KEYWORD3>
+			<KEYWORD3>last</KEYWORD3>
+			<KEYWORD3>1,</KEYWORD3>
+			<KEYWORD3>2,</KEYWORD3>
+			<KEYWORD3>3,</KEYWORD3>
+			<KEYWORD3>,</KEYWORD3>
+			<KEYWORD3>here</KEYWORD3>
+			<KEYWORD3>allot</KEYWORD3>
+			<KEYWORD3>parse</KEYWORD3>
+			<KEYWORD3>find</KEYWORD3>
+			<KEYWORD3>compile</KEYWORD3>
+
+			<OPERATOR>if</OPERATOR>
+			<OPERATOR>=if</OPERATOR>
+			<OPERATOR>&lt;if</OPERATOR>
+			<OPERATOR>&gt;if</OPERATOR>
+			<OPERATOR>&lt;&gt;if</OPERATOR>
+			<OPERATOR>then</OPERATOR>
+			<OPERATOR>repeat</OPERATOR>
+			<OPERATOR>until</OPERATOR>
+
+			<OPERATOR>forth</OPERATOR>
+			<OPERATOR>macro</OPERATOR>
+		</KEYWORDS>
+	</RULES>
+
+	<!-- <RULES SET="STACK_EFFECT" DEFAULT="COMMENT4">
+		<SEQ TYPE="COMMENT3">-=-</SEQ>
+	</RULES> -->
+</MODE>

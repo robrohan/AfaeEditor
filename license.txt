@@ -1,0 +1,4 @@
+Copyright(c) 2004-2006, Rob Rohan and others
+
+See https://mirror2.cvsdude.com/trac/robrohan/AfaeEditor/wiki/EditorLicense for all 
+the licenses and conditions.

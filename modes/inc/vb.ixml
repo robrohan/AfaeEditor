@@ -1,0 +1,210 @@
+<!-- whitespace: (space and tab) -->
+<!-- <WHITESPACE> </WHITESPACE>
+<WHITESPACE>	</WHITESPACE> -->
+
+<SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE">
+	<BEGIN>"</BEGIN>
+	<END>"</END>
+</SPAN>
+
+<!-- conditional compilation -->
+<EOL_SPAN TYPE="KEYWORD2">#if</EOL_SPAN>
+<EOL_SPAN TYPE="KEYWORD2">#else</EOL_SPAN>
+<EOL_SPAN TYPE="KEYWORD2">#end</EOL_SPAN>
+
+<EOL_SPAN TYPE="COMMENT1">'</EOL_SPAN>
+<EOL_SPAN TYPE="COMMENT1">rem </EOL_SPAN>
+<SEQ TYPE="NULL">)</SEQ>
+<SEQ TYPE="NULL">(</SEQ>
+
+<!-- Comparison operators -->
+<SEQ TYPE="OPERATOR">&lt;</SEQ>
+<SEQ TYPE="OPERATOR">&lt;=</SEQ>
+<SEQ TYPE="OPERATOR">&gt;=</SEQ>
+<SEQ TYPE="OPERATOR">&gt;</SEQ>
+<SEQ TYPE="OPERATOR">=</SEQ>
+<SEQ TYPE="OPERATOR">&lt;&gt;</SEQ>
+<SEQ TYPE="OPERATOR">.</SEQ>
+<!-- See in keywords: is -->
+
+<!-- Arithmetic operators -->
+<SEQ TYPE="OPERATOR">+</SEQ>
+<SEQ TYPE="OPERATOR">-</SEQ>
+<SEQ TYPE="OPERATOR">*</SEQ>
+<SEQ TYPE="OPERATOR">/</SEQ>
+<SEQ TYPE="OPERATOR">\</SEQ>
+<!-- See in keywords: mod -->
+<SEQ TYPE="OPERATOR">^</SEQ>
+
+<!-- Concatenation operators -->
+<SEQ TYPE="OPERATOR">&amp;</SEQ>
+<!-- <SEQ TYPE="OPERATOR">+</SEQ> -->
+ 
+		<!-- Logical operators -->
+<!-- See in keywords: and, or, not, xor, eqv -->
+
+<!-- EOL Continuation -->
+<!--	<SEQ TYPE="NULL">_</SEQ>-->
+<!-- Instruction separator -->
+<MARK_PREVIOUS TYPE="LABEL" EXCLUDE_MATCH="TRUE"
+	AT_LINE_START="TRUE">:</MARK_PREVIOUS>
+<SEQ TYPE="NULL">:</SEQ>
+
+<!-- for regions -->
+<EOL_SPAN TYPE="LABEL">#</EOL_SPAN>
+
+<KEYWORDS IGNORE_CASE="TRUE">
+	<!-- Conditional Statements -->
+	<KEYWORD1>if</KEYWORD1>
+	<KEYWORD1>then</KEYWORD1>
+	<KEYWORD1>else</KEYWORD1>
+	<KEYWORD1>elseif</KEYWORD1>
+	<KEYWORD1>select</KEYWORD1>
+	<KEYWORD1>case</KEYWORD1>
+
+	<!-- Loop Statements -->
+	<!-- For..Next -->
+	<KEYWORD1>for</KEYWORD1>
+	<KEYWORD1>to</KEYWORD1>
+	<KEYWORD1>step</KEYWORD1>
+	<KEYWORD1>next</KEYWORD1>
+	<!-- For Each..Next -->
+	<KEYWORD1>each</KEYWORD1>
+	<KEYWORD1>in</KEYWORD1>
+	<!-- Do..Loop -->
+	<KEYWORD1>do</KEYWORD1>
+	<KEYWORD1>while</KEYWORD1>
+	<KEYWORD1>until</KEYWORD1>
+	<KEYWORD1>loop</KEYWORD1>
+	<!-- While..Wend 
+	<KEYWORD1>wend</KEYWORD1> -->
+
+	<!-- Closing, Exit Statements -->
+	<KEYWORD1>exit</KEYWORD1>
+	<KEYWORD1>end</KEYWORD1>
+
+	<!-- Methods, Functions, Class, Properties, Variables -->
+	<KEYWORD1>function</KEYWORD1>
+	<KEYWORD1>sub</KEYWORD1>
+	<KEYWORD1>class</KEYWORD1>
+	<KEYWORD1>property</KEYWORD1>
+	<KEYWORD1>get</KEYWORD1>
+	<!-- <KEYWORD1>let</KEYWORD1> -->
+	<KEYWORD1>set</KEYWORD1>
+	<KEYWORD1>return</KEYWORD1>
+	
+	<!-- .net stuff (that I can think of) -->
+	<KEYWORD1>mustinherit</KEYWORD1>
+	<KEYWORD1>inherits</KEYWORD1>
+	<KEYWORD1>mustoverride</KEYWORD1>
+	<KEYWORD1>overrides</KEYWORD1>
+	<KEYWORD1>syncLock</KEYWORD1>
+	<KEYWORD1>imports</KEYWORD1>
+	<KEYWORD1>interface</KEYWORD1>
+	<KEYWORD1>namespace</KEYWORD1>
+	<KEYWORD1>overloads</KEYWORD1>
+	<KEYWORD1>overrides</KEYWORD1>
+	<KEYWORD1>overridable</KEYWORD1>
+	<KEYWORD1>structure</KEYWORD1>
+	<KEYWORD1>try</KEYWORD1>
+	<KEYWORD1>catch</KEYWORD1>
+	<KEYWORD1>throw</KEYWORD1>
+	<KEYWORD1>finally</KEYWORD1>
+	<KEYWORD1>shared</KEYWORD1>
+	<KEYWORD1>readonly</KEYWORD1>
+	<KEYWORD1>writeonly</KEYWORD1>
+	<KEYWORD1>assembly</KEYWORD1>
+	<KEYWORD1>optional</KEYWORD1>
+	<KEYWORD1>friend</KEYWORD1>
+	<KEYWORD1>enum</KEYWORD1>
+	<KEYWORD1>paramarray</KEYWORD1>
+	<KEYWORD1>implements</KEYWORD1>
+	<KEYWORD1>typeof</KEYWORD1>
+	
+	<KEYWORD1>delegate</KEYWORD1>
+	<KEYWORD1>event</KEYWORD1>
+	<KEYWORD1>addhandler</KEYWORD1>
+	<KEYWORD1>addressof</KEYWORD1>
+	<KEYWORD1>raiseevent</KEYWORD1>
+	<KEYWORD1>removehandler</KEYWORD1>
+	<KEYWORD1>withevents</KEYWORD1>
+	<KEYWORD1>handles</KEYWORD1>
+	
+	<!-- ? -->
+	<KEYWORD1>module</KEYWORD1>
+	
+	
+	<!-- Parameters passing -->
+	<KEYWORD1>byval</KEYWORD1>
+	<KEYWORD1>byref</KEYWORD1>
+
+	<!-- Declaration -->
+	<KEYWORD1>const</KEYWORD1>
+	<KEYWORD1>dim</KEYWORD1>
+	<KEYWORD1>redim</KEYWORD1>
+	<KEYWORD1>preserve</KEYWORD1>
+	<KEYWORD1>as</KEYWORD1>
+	
+	<!-- Object Assignement/Instantiation -->
+	<KEYWORD1>with</KEYWORD1>
+	<KEYWORD1>new</KEYWORD1>
+	
+	<!-- Visibility -->
+	<KEYWORD1>public</KEYWORD1>
+	<KEYWORD1>default</KEYWORD1>
+	<KEYWORD1>private</KEYWORD1>
+	<KEYWORD1>protected</KEYWORD1>
+
+	<!-- Comments 
+	<KEYWORD1>rem</KEYWORD1>-->
+
+	<!-- Function Call - Dynamic Evaluation -->
+	<KEYWORD1>call</KEYWORD1>
+	<KEYWORD1>execute</KEYWORD1>
+	<KEYWORD1>eval</KEYWORD1>
+
+	<!-- Miscellaneous -->
+	<KEYWORD1>on</KEYWORD1>
+	<!-- <KEYWORD1>error</KEYWORD1> -->
+	<KEYWORD1>goto</KEYWORD1>
+	<!-- <KEYWORD1>resume</KEYWORD1> -->
+	<KEYWORD1>option</KEYWORD1>
+	<KEYWORD1>explicit</KEYWORD1>
+	<KEYWORD1>erase</KEYWORD1>
+	<!-- <KEYWORD1>randomize</KEYWORD1> -->
+
+	<!-- Operators -->
+	<!-- Comparison operators -->
+	<KEYWORD1>is</KEYWORD1>
+	<!-- Arithmetic operators -->
+	<OPERATOR>mod</OPERATOR>
+	<!-- Logical operators -->
+	<KEYWORD1>and</KEYWORD1>
+	<KEYWORD1>or</KEYWORD1>
+	<KEYWORD1>not</KEYWORD1>
+	<KEYWORD1>xor</KEYWORD1>
+	<KEYWORD1>andalso</KEYWORD1>
+	<KEYWORD1>orelse</KEYWORD1>
+	
+	<!-- <OPERATOR>imp</OPERATOR> -->
+
+	<!-- Datatypes Constants/Literals -->
+	<KEYWORD3>false</KEYWORD3>
+	<KEYWORD3>true</KEYWORD3>
+	<KEYWORD3>empty</KEYWORD3>
+	<KEYWORD3>nothing</KEYWORD3>
+	<!-- <KEYWORD3>null</KEYWORD3> -->
+
+	<KEYWORD3>object</KEYWORD3>
+	<KEYWORD3>integer</KEYWORD3>
+	<KEYWORD3>byte</KEYWORD3>
+	<KEYWORD3>short</KEYWORD3>
+	<KEYWORD3>long</KEYWORD3>
+	<KEYWORD3>single</KEYWORD3>
+	<KEYWORD3>double</KEYWORD3>
+	<KEYWORD3>decimal</KEYWORD3>
+	<KEYWORD3>string</KEYWORD3>
+	<KEYWORD3>char</KEYWORD3>
+	<KEYWORD3>date</KEYWORD3>
+	<KEYWORD3>boolean</KEYWORD3>
+</KEYWORDS>

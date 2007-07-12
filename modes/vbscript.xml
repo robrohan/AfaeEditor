@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<!-- VBScript mode by Andre Kaplan -->
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="lineComment" VALUE="'" />
+	</PROPS>
+
+	<RULES IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&vbrules;
+	</RULES>
+</MODE>

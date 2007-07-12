@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="commentStart" VALUE="&lt;%--" />
+		<PROPERTY NAME="commentEnd" VALUE="--%&gt;" />
+	</PROPS>
+	
+	<RULES IGNORE_CASE="TRUE">
+		<!-- JSP comment -->
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;%--</BEGIN>
+			<END>--%&gt;</END>
+		</SPAN>
+
+		<!-- JSP directive -->
+		<SPAN TYPE="KEYWORD1" DELEGATE="DIRECTIVES">
+			<BEGIN>&lt;%@</BEGIN>
+			<END>%&gt;</END>
+		</SPAN>
+
+		<!-- JSP scriptlet expression -->
+		<SPAN TYPE="NULL" DELEGATE="JAVARULES">
+			<BEGIN>&lt;%=</BEGIN>
+			<END>%&gt;</END>
+		</SPAN>
+		
+		<!-- JSP scriptlet code block -->
+		<SPAN TYPE="NULL" DELEGATE="JAVARULES">
+			<BEGIN>&lt;%!</BEGIN>
+			<END>%&gt;</END>
+		</SPAN>
+		
+		<!-- JSP scriptlet -->
+		<SPAN TYPE="NULL" DELEGATE="JAVARULES">
+			<BEGIN>&lt;%</BEGIN>
+			<END>%&gt;</END>
+		</SPAN>
+
+		<!-- SGML comment -->
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;!--</BEGIN>
+			<END>--&gt;</END>
+		</SPAN>
+
+		<!-- DTD instructions -->
+		<SPAN TYPE="NULL" DELEGATE="EXCLAIMRULES">
+			<BEGIN>&lt;!</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+		
+		<!-- SGML entities -->
+		<SPAN TYPE="LABEL" NO_WORD_BREAK="TRUE">
+			<BEGIN>&amp;</BEGIN>
+			<END>;</END>
+		</SPAN>
+		
+		<!-- first try all html tags (and end tags) -->
+		&htmlspans;
+		
+		&cssspans;
+		
+		<!-- finally now try js tags. Since this is a REGEX tag
+			and REGEXs are very expensive and we should try to limit the number
+			of times the rules are run (hence they are last rules) 
+		-->
+		&javascriptspans;
+		
+		<SPAN TYPE="MARKUP">
+			<BEGIN>&lt;</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+	</RULES>
+	
+	<RULES SET="JAVARULES" IGNORE_CASE="FALSE">
+		<SEQ TYPE="KEYWORD3">&lt;%</SEQ>
+		<SEQ TYPE="KEYWORD3">&lt;%!</SEQ>
+		<SEQ TYPE="KEYWORD3">&lt;%=</SEQ>
+		<SEQ TYPE="KEYWORD3">%&gt;</SEQ>
+		&javarules;
+	</RULES>
+	
+	<RULES SET="JSRULES">
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">script</SEQ>
+		&javascriptrules;
+	</RULES>
+	
+	<RULES SET="CSSRULES">
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">style</SEQ>
+		&cssrules;
+	</RULES>
+    
+	<RULES SET="DIRECTIVES" DEFAULT="MARKUP">
+		<!-- JSP scriptlet expression -->
+		<SPAN TYPE="KEYWORD3" DELEGATE="JAVARULES">
+			<BEGIN>&lt;%=</BEGIN>
+			<END>%&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="LITERAL2">
+			<BEGIN>"</BEGIN>
+			<END>"</END>
+		</SPAN>
+
+		<SPAN TYPE="LITERAL2">
+			<BEGIN>'</BEGIN>
+			<END>'</END>
+		</SPAN>
+
+		<SEQ TYPE="MARKUP">/</SEQ>
+		<SEQ TYPE="NULL">=</SEQ>
+		<!-- <MARK_PREVIOUS TYPE="LABEL" EXCLUDE_MATCH="TRUE">:</MARK_PREVIOUS>-->
+		<SEQ TYPE="OPERATOR">:</SEQ>
+
+		<KEYWORDS>
+			<KEYWORD1>taglib</KEYWORD1>
+			<KEYWORD1>include</KEYWORD1>
+			<KEYWORD1>page</KEYWORD1>
+			<KEYWORD1>tag</KEYWORD1>
+			<KEYWORD1>tagAttribute</KEYWORD1>
+			<KEYWORD1>tagVariable</KEYWORD1>
+
+			<KEYWORD2>language</KEYWORD2>
+			<KEYWORD2>session</KEYWORD2>
+			<KEYWORD2>contentType</KEYWORD2>
+			<KEYWORD2>charset</KEYWORD2>
+			<KEYWORD2>import</KEYWORD2>
+			<KEYWORD2>buffer</KEYWORD2>
+			<KEYWORD2>autoflush</KEYWORD2>
+			<KEYWORD2>isThreadSafe</KEYWORD2>
+			<KEYWORD2>info</KEYWORD2>
+			<KEYWORD2>errorPage</KEYWORD2>
+			<KEYWORD2>isErrorpage</KEYWORD2>
+			<KEYWORD2>extends</KEYWORD2>
+			<KEYWORD2>file</KEYWORD2>
+			<KEYWORD2>uri</KEYWORD2>
+			<KEYWORD2>prefix</KEYWORD2>
+			<KEYWORD2>method</KEYWORD2>
+			<KEYWORD2>name</KEYWORD2>
+			<KEYWORD2>default</KEYWORD2>
+			<KEYWORD2>required</KEYWORD2>
+			<KEYWORD2>rtexprvalue</KEYWORD2>
+			<KEYWORD2>id</KEYWORD2>
+			<KEYWORD2>type</KEYWORD2>
+			<KEYWORD2>scope</KEYWORD2>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="TAGS" DEFAULT="MARKUP">
+		<!-- JSP comment -->
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;%--</BEGIN>
+			<END>--%&gt;</END>
+		</SPAN>
+
+		<!-- JSP scriptlet expression -->
+		<SPAN TYPE="KEYWORD3" DELEGATE="java::MAIN">
+			<BEGIN>&lt;%=</BEGIN>
+			<END>%&gt;</END>
+		</SPAN>
+
+		&htmlrules;
+	</RULES>
+	
+	<RULES SET="ATTRVALUE" DEFAULT="LITERAL1">
+		<!-- JSP scriptlet expression -->
+		<SPAN TYPE="KEYWORD1" DELEGATE="JAVARULES">
+			<BEGIN>&lt;%=</BEGIN>
+			<END>%&gt;</END>
+		</SPAN>
+	</RULES>
+	
+	<RULES SET="EXCLAIMRULES" DEFAULT="LABEL">
+		&dtdrules;
+	</RULES>
+</MODE>

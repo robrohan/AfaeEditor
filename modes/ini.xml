@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="lineComment" VALUE=";" />
+		<PROPERTY NAME="commentStart" VALUE=";" />
+		<PROPERTY NAME="commentEnd" VALUE=" " />
+	</PROPS>
+	
+	<RULES HIGHLIGHT_DIGITS="TRUE">
+		<SPAN TYPE="LABEL" AT_LINE_START="TRUE">
+			<BEGIN>[</BEGIN>
+			<END>]</END>
+		</SPAN>
+		
+		<EOL_SPAN TYPE="COMMENT1" AT_LINE_START="TRUE">;</EOL_SPAN>
+		<EOL_SPAN TYPE="COMMENT1" AT_LINE_START="TRUE">#</EOL_SPAN>
+		
+		<EOL_SPAN TYPE="NULL" DELEGATE="PROPVALUES">=</EOL_SPAN>
+		
+		<!-- This works, but EOL is faster (see above)
+		<SPAN_REGEXP HASH_CHAR="=" TYPE="LITERAL1">
+			<BEGIN>^=(.*)$</BEGIN>
+			<END></END>
+		</SPAN_REGEXP> -->
+	</RULES>
+	
+	<RULES SET="PROPVALUES" DEFAULT="LITERAL1">
+		<SEQ TYPE="LABEL">=</SEQ>
+	</RULES>
+	
+</MODE>

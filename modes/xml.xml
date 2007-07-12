@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="commentStart" VALUE="&lt;!--" />
+		<PROPERTY NAME="commentEnd" VALUE="--&gt;" />
+	</PROPS>
+	
+	<RULES>
+		<!-- SGML comment -->
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;!--</BEGIN>
+			<END>--&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="LABEL">
+			<BEGIN>&lt;![</BEGIN>
+			<END>]&gt;</END>
+		</SPAN>
+
+		<!-- CDATA sections -->
+		<SPAN TYPE="NULL" DELEGATE="EXCLAIMRULES">
+			<BEGIN>&lt;!</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<!-- PI directives -->
+		<SPAN TYPE="KEYWORD3">
+			<BEGIN>&lt;?</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<!-- markup tags -->
+		<SPAN TYPE="MARKUP" DELEGATE="TAGS">
+			<BEGIN>&lt;</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<!-- SGML entities -->
+		<SPAN TYPE="LITERAL2" NO_WORD_BREAK="TRUE">
+			<BEGIN>&amp;</BEGIN>
+			<END>;</END>
+		</SPAN>
+	</RULES>
+	
+	<RULES SET="TAGS" DEFAULT="MARKUP">
+		<!-- SGML comment -->
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;!--</BEGIN>
+			<END>--&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="LITERAL2">
+			<BEGIN>"</BEGIN>
+			<END>"</END>
+		</SPAN>
+
+		<SPAN TYPE="LITERAL2">
+			<BEGIN>'</BEGIN>
+			<END>'</END>
+		</SPAN>
+
+		<SEQ TYPE="MARKUP">/</SEQ>
+		<SEQ TYPE="NULL">=</SEQ>
+		<SEQ TYPE="LABEL">:</SEQ>
+		
+		<!-- <MARK_PREVIOUS TYPE="LABEL" EXCLUDE_MATCH="FALSE">:</MARK_PREVIOUS> -->
+		<!-- <SEQ TYPE="OPERATOR">:</SEQ> -->
+	</RULES>
+	
+	<!-- <RULES SET="DTD-TAGS" DEFAULT="NULL">
+		
+	</RULES> -->
+	
+	<RULES SET="EXCLAIMRULES" DEFAULT="NULL">
+		<!-- <SPAN TYPE="LABEL">
+			<BEGIN>&lt;![</BEGIN>
+			<END>]]&gt;</END>
+		</SPAN> -->
+		
+		&dtdrules;
+	</RULES>
+</MODE>

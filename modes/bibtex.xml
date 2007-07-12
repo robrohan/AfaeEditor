@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<!-- BibTeX mode, by Nils Krahnstoever, krahnsto@cse.psu.edu
+     based PV-WAVE mode by Ed Stewarton and tex mode by unknown author. -->
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="lineComment" VALUE="%" />
+		<PROPERTY NAME="commentStart" VALUE="%" />
+		<PROPERTY NAME="commentEnd" VALUE=" " />
+	</PROPS>
+	
+	<RULES>
+		<!-- <WHITESPACE> </WHITESPACE>
+		<WHITESPACE>	</WHITESPACE> -->
+		
+		<!-- @... commands -->
+		<!-- <MARK_FOLLOWING TYPE="KEYWORD2">@</MARK_FOLLOWING> -->
+		
+		<!-- comments -->
+		<EOL_SPAN TYPE="COMMENT1">%</EOL_SPAN>
+		
+		<SPAN TYPE="LITERAL1"> <!-- DELEGATE="ITEM" -->
+			<BEGIN>"</BEGIN>
+			<END>"</END>
+		</SPAN>
+	
+		<SEQ TYPE="OPERATOR">=</SEQ>
+		<SEQ TYPE="OPERATOR">,</SEQ>
+	
+		<SEQ TYPE="MARKUP">{</SEQ>
+		<SEQ TYPE="MARKUP">}</SEQ>
+		
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD1>address</KEYWORD1>
+			<KEYWORD1>annote</KEYWORD1>
+			<KEYWORD1>author</KEYWORD1>
+			<KEYWORD1>title</KEYWORD1>
+			<KEYWORD1>type</KEYWORD1>
+			<KEYWORD1>abstract</KEYWORD1>
+			<KEYWORD1>volume</KEYWORD1>
+			<KEYWORD1>pages</KEYWORD1>
+			<KEYWORD1>number</KEYWORD1>
+			<KEYWORD1>note</KEYWORD1>
+			<KEYWORD1>key</KEYWORD1>
+			<KEYWORD1>organization</KEYWORD1>
+			<KEYWORD1>school</KEYWORD1>
+			<KEYWORD1>series</KEYWORD1>
+			<KEYWORD1>chapter</KEYWORD1>
+			<KEYWORD1>month</KEYWORD1>
+			<KEYWORD1>department</KEYWORD1>
+			<KEYWORD1>keywords</KEYWORD1>
+			<KEYWORD1>howpublished</KEYWORD1>
+			<KEYWORD1>institution</KEYWORD1>
+			<KEYWORD1>journal</KEYWORD1>
+			<KEYWORD1>publisher</KEYWORD1>
+			<KEYWORD1>editon</KEYWORD1>
+			<KEYWORD1>editor</KEYWORD1>
+			<KEYWORD1>year</KEYWORD1>
+			<KEYWORD1>booktitle</KEYWORD1>
+			
+			<!-- -->
+			<KEYWORD2>@string</KEYWORD2>
+			
+			<!-- Standard entry types -->
+			<KEYWORD2>@article</KEYWORD2>
+			<KEYWORD2>@book</KEYWORD2>
+			<KEYWORD2>@booklet</KEYWORD2>
+			<KEYWORD2>@conference</KEYWORD2>
+			<KEYWORD2>@inbook</KEYWORD2>
+			<KEYWORD2>@incollection</KEYWORD2>
+			<KEYWORD2>@inproceedings</KEYWORD2>
+			<KEYWORD2>@manual</KEYWORD2>
+			<KEYWORD2>@mastersthesis</KEYWORD2>
+			<KEYWORD2>@misc</KEYWORD2>
+			<KEYWORD2>@phdthesis</KEYWORD2>
+			<KEYWORD2>@proceedings</KEYWORD2>
+			<KEYWORD2>@techreport</KEYWORD2>
+			<KEYWORD2>@unpublished</KEYWORD2>
+
+			<!-- Other entry types -->
+			<KEYWORD2>@collection</KEYWORD2>
+			<KEYWORD2>@patent</KEYWORD2>
+			
+			<!-- Other fields -->
+			<KEYWORD1>affiliation</KEYWORD1>
+			<KEYWORD1>abstract</KEYWORD1>
+			<KEYWORD1>contents</KEYWORD1>
+			<KEYWORD1>copyright</KEYWORD1>
+			<KEYWORD1>ISBN</KEYWORD1>
+			<KEYWORD1>ISSN</KEYWORD1>
+			<KEYWORD1>keywords</KEYWORD1>
+			<KEYWORD1>language</KEYWORD1>
+			<KEYWORD1>location</KEYWORD1>
+			<KEYWORD1>LCCN</KEYWORD1>
+			<KEYWORD1>mrnumber</KEYWORD1>
+			<KEYWORD1>price</KEYWORD1>
+			<KEYWORD1>size</KEYWORD1>
+			<KEYWORD1>URL</KEYWORD1>
+		</KEYWORDS>
+	</RULES>
+</MODE>

@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="commentStart" VALUE="&lt;!--" />
+		<PROPERTY NAME="commentEnd" VALUE="--&gt;" />
+	</PROPS>
+	
+	<RULES IGNORE_CASE="TRUE">
+		<!-- SGML comment -->
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;!--</BEGIN>
+			<END>--&gt;</END>
+		</SPAN>
+		
+		<!-- SGML entities -->
+		<SPAN TYPE="LABEL" NO_WORD_BREAK="TRUE">
+			<BEGIN>&amp;</BEGIN>
+			<END>;</END>
+		</SPAN>
+		
+		<!-- first try all html tags (and end tags) -->
+		&htmlspans;
+		
+		&cssspans;
+		
+		<!-- finally now try js tags. Since this is a REGEX tag
+			and REGEXs are very expensive and we should try to limit the number
+			of times the rules are run (hence they are last rules) 
+		-->
+		&javascriptspans;
+		
+		<!-- markup tags -->
+		<SPAN TYPE="MARKUP">
+			<BEGIN>&lt;</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+		
+		<EOL_SPAN DELEGATE="BLOGHEADERS">UserID:</EOL_SPAN>
+		<EOL_SPAN DELEGATE="BLOGHEADERS">Created:</EOL_SPAN>
+		<EOL_SPAN DELEGATE="BLOGHEADERS">ID:</EOL_SPAN>
+		<EOL_SPAN DELEGATE="BLOGHEADERS">Description:</EOL_SPAN>
+		<EOL_SPAN DELEGATE="BLOGHEADERS">Title:</EOL_SPAN>
+		<EOL_SPAN DELEGATE="BLOGHEADERS">Link:</EOL_SPAN>
+		<EOL_SPAN DELEGATE="BLOGHEADERS">PermaLink:</EOL_SPAN>
+		<EOL_SPAN DELEGATE="BLOGHEADERS">Excerpt:</EOL_SPAN>
+		<EOL_SPAN DELEGATE="BLOGHEADERS">Comments:</EOL_SPAN>
+		<EOL_SPAN DELEGATE="BLOGHEADERS">Pings:</EOL_SPAN>
+		<EOL_SPAN DELEGATE="BLOGHEADERS">ConvertBreaks:</EOL_SPAN>
+		<EOL_SPAN DELEGATE="BLOGHEADERS">Keywords:</EOL_SPAN>
+		<EOL_SPAN DELEGATE="BLOGHEADERS">Categories:</EOL_SPAN>
+	</RULES>
+
+	<RULES SET="BLOGHEADERS" DEFAULT="KEYWORD3">
+		<EOL_SPAN TYPE="LITERAL2" EXCLUDE_MATCH="TRUE">:</EOL_SPAN>
+	</RULES>
+
+	<RULES SET="TAGS" DEFAULT="MARKUP">
+		&htmlrules;
+	</RULES>
+	
+	<RULES SET="JSRULES" DEFAULT="NULL">
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">script</SEQ>
+		&javascriptrules;
+	</RULES>
+	
+	<RULES SET="CSSRULES" DEFAULT="NULL">
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">style</SEQ>
+		&cssrules;
+	</RULES>
+</MODE>

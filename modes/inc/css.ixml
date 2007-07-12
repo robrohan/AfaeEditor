@@ -1,0 +1,217 @@
+
+<SEQ TYPE="OPERATOR">:</SEQ>
+<SEQ TYPE="NULL">;</SEQ>
+
+<SPAN TYPE="LITERAL1">
+	<BEGIN>(</BEGIN>
+	<END>)</END>
+</SPAN>
+
+<SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE" ESCAPE="\">
+	<BEGIN>"</BEGIN>
+	<END>"</END>
+</SPAN>
+
+<SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE" ESCAPE="\">
+	<BEGIN>'</BEGIN>
+	<END>'</END>
+</SPAN>
+
+<SEQ TYPE="OPERATOR">!</SEQ>
+
+<!-- no end so it doesn't go over a single line -->
+<SPAN_REGEXP HASH_CHAR="#" TYPE="DIGIT" IGNORE_CASE="TRUE" EXCLUDE_MATCH="TRUE">
+	<BEGIN>^#[a-fA-F0-9]{2,}[^\s]</BEGIN>
+	<END>;</END>
+</SPAN_REGEXP>
+
+<SPAN TYPE="COMMENT1">
+	<BEGIN>/*</BEGIN>
+	<END>*/</END>
+</SPAN>
+
+<KEYWORDS>
+	<!-- Box properties -->
+	<KEYWORD2>margin</KEYWORD2>
+	<KEYWORD2>margin-top</KEYWORD2>
+	<KEYWORD2>margin-right</KEYWORD2>
+	<KEYWORD2>margin-bottom</KEYWORD2>
+	<KEYWORD2>margin-left</KEYWORD2>
+	<KEYWORD2>padding</KEYWORD2>
+	<KEYWORD2>padding-top</KEYWORD2>
+	<KEYWORD2>padding-right</KEYWORD2>
+	<KEYWORD2>padding-bottom</KEYWORD2>
+	<KEYWORD2>padding-left</KEYWORD2>
+	<KEYWORD2>border</KEYWORD2>
+	<KEYWORD2>border-top</KEYWORD2>
+	<KEYWORD2>border-bottom</KEYWORD2>
+	<KEYWORD2>border-right</KEYWORD2>
+	<KEYWORD2>border-left</KEYWORD2>
+	<KEYWORD2>border-color</KEYWORD2>
+	<KEYWORD2>border-top-color</KEYWORD2>
+	<KEYWORD2>border-right-color</KEYWORD2>
+	<KEYWORD2>border-bottom-color</KEYWORD2>
+	<KEYWORD2>border-left-color</KEYWORD2>
+	<KEYWORD2>border-style</KEYWORD2>
+	<KEYWORD2>border-top-style</KEYWORD2>
+	<KEYWORD2>border-right-style</KEYWORD2>
+	<KEYWORD2>border-bottom-style</KEYWORD2>
+	<KEYWORD2>border-left-style</KEYWORD2>
+	<KEYWORD2>border-width</KEYWORD2>
+	<KEYWORD2>border-top-width</KEYWORD2>
+	<KEYWORD2>border-right-width</KEYWORD2>
+	<KEYWORD2>border-bottom-width</KEYWORD2>
+	<KEYWORD2>border-left-width</KEYWORD2>
+	
+	<!-- positioning -->
+	<KEYWORD2>display</KEYWORD2>
+	<KEYWORD2>position</KEYWORD2>
+	<KEYWORD2>top</KEYWORD2>
+	<KEYWORD2>right</KEYWORD2>
+	<KEYWORD2>bottom</KEYWORD2>
+	<KEYWORD2>left</KEYWORD2>
+	<KEYWORD2>float</KEYWORD2>
+	<KEYWORD2>clear</KEYWORD2>
+	<KEYWORD2>z-index</KEYWORD2>
+	<KEYWORD2>direction</KEYWORD2>
+	<KEYWORD2>unicode-bidi</KEYWORD2>
+	<KEYWORD2>overflow</KEYWORD2>
+	<KEYWORD2>clip</KEYWORD2>
+	<KEYWORD2>visibility</KEYWORD2>
+	
+	<!-- dimensions -->
+	<KEYWORD2>width</KEYWORD2>
+	<KEYWORD2>min-width</KEYWORD2>
+	<KEYWORD2>max-width</KEYWORD2>
+	<KEYWORD2>height</KEYWORD2>
+	<KEYWORD2>min-height</KEYWORD2>
+	<KEYWORD2>max-height</KEYWORD2>
+	<KEYWORD2>line-height</KEYWORD2>
+	<KEYWORD2>vertical-align</KEYWORD2>
+	
+	<!-- misc -->
+	<KEYWORD2>content</KEYWORD2>
+	<KEYWORD2>quotes</KEYWORD2>
+	<KEYWORD2>counter-reset</KEYWORD2>
+	<KEYWORD2>counter-increment</KEYWORD2>
+	<KEYWORD2>marker-offset</KEYWORD2>
+	<KEYWORD2>list-style</KEYWORD2>
+	<KEYWORD2>list-style-type</KEYWORD2>
+	<KEYWORD2>list-style-image</KEYWORD2>
+	<KEYWORD2>list-style-position</KEYWORD2>
+	
+	<!-- paging -->
+	<KEYWORD2>size</KEYWORD2>
+	<KEYWORD2>marks</KEYWORD2>
+	<KEYWORD2>page-break-before</KEYWORD2>
+	<KEYWORD2>page-break-after</KEYWORD2>
+	<KEYWORD2>page-break-inside</KEYWORD2>
+	<KEYWORD2>page</KEYWORD2>
+	<KEYWORD2>orphans</KEYWORD2>
+	<KEYWORD2>windows</KEYWORD2>
+	
+	<!-- color -->
+	<KEYWORD2>color</KEYWORD2>
+	<KEYWORD2>background</KEYWORD2>
+	<KEYWORD2>background-color</KEYWORD2>
+	<KEYWORD2>background-image</KEYWORD2>
+	<KEYWORD2>background-repeat</KEYWORD2>
+	<KEYWORD2>background-attachment</KEYWORD2>
+	<KEYWORD2>background-position</KEYWORD2>
+	
+	<!-- fonts -->
+	<KEYWORD2>font</KEYWORD2>
+	<KEYWORD2>font-family</KEYWORD2>
+	<KEYWORD2>font-style</KEYWORD2>
+	<KEYWORD2>font-variant</KEYWORD2>
+	<KEYWORD2>font-weight</KEYWORD2>
+	<KEYWORD2>font-stretch</KEYWORD2>
+	<KEYWORD2>font-size</KEYWORD2>
+	<KEYWORD2>font-size-adjust</KEYWORD2>
+	
+	<!-- text -->
+	<KEYWORD2>text-indent</KEYWORD2>
+	<KEYWORD2>text-align</KEYWORD2>
+	<KEYWORD2>text-decoration</KEYWORD2>
+	<KEYWORD2>text-shadow</KEYWORD2>
+	<KEYWORD2>letter-spacing</KEYWORD2>
+	<KEYWORD2>word-spacing</KEYWORD2>
+	<KEYWORD2>text-transform</KEYWORD2>
+	<KEYWORD2>white-space</KEYWORD2>
+	
+	<!-- tabels -->
+	<KEYWORD2>caption-side</KEYWORD2>
+	<KEYWORD2>table-layout</KEYWORD2>
+	<KEYWORD2>border-collapse</KEYWORD2>
+	<KEYWORD2>border-spacing</KEYWORD2>
+	<KEYWORD2>empty-cells</KEYWORD2>
+	<KEYWORD2>speak-header</KEYWORD2>
+	
+	<!-- interface -->
+	<KEYWORD2>cursor</KEYWORD2>
+	<KEYWORD2>outline</KEYWORD2>
+	<KEYWORD2>outline-width</KEYWORD2>
+	<KEYWORD2>outline-style</KEYWORD2>
+	<KEYWORD2>outline-color</KEYWORD2>
+	
+	<!-- aural -->
+	<KEYWORD2>volume</KEYWORD2>
+	<KEYWORD2>speak</KEYWORD2>
+	<KEYWORD2>pause</KEYWORD2>
+	<KEYWORD2>pause-before</KEYWORD2>
+	<KEYWORD2>pause-after</KEYWORD2>
+	<KEYWORD2>cue</KEYWORD2>
+	<KEYWORD2>cue-before</KEYWORD2>
+	<KEYWORD2>cue-after</KEYWORD2>
+	<KEYWORD2>play-during</KEYWORD2>
+	<KEYWORD2>azimuth</KEYWORD2>
+	<KEYWORD2>elevation</KEYWORD2>
+	<KEYWORD2>speech-rate</KEYWORD2>
+	<KEYWORD2>voice-family</KEYWORD2>
+	<KEYWORD2>pitch</KEYWORD2>
+	<KEYWORD2>pitch-range</KEYWORD2>
+	<KEYWORD2>stress</KEYWORD2>
+	<KEYWORD2>richness</KEYWORD2>
+	<KEYWORD2>speak-punctuation</KEYWORD2>
+	<KEYWORD2>speak-numeral</KEYWORD2>
+	
+	<!-- others -->
+	<KEYWORD2>important</KEYWORD2>
+	
+	<KEYWORD3>@import</KEYWORD3>
+	<KEYWORD3>@media</KEYWORD3>
+	<KEYWORD3>rgb</KEYWORD3>
+	<KEYWORD3>url</KEYWORD3>
+
+	<!-- measurement units -->
+	<LABEL>px</LABEL>
+	<LABEL>pt</LABEL>
+	<LABEL>mm</LABEL>
+	<LABEL>cm</LABEL>
+	<LABEL>in</LABEL>
+	<LABEL>em</LABEL>
+	
+	<!-- media types -->
+	<LABEL>all</LABEL>
+	<LABEL>braille</LABEL>
+	<LABEL>embossed</LABEL>
+	<LABEL>handheld</LABEL>
+	<LABEL>print</LABEL>
+	<LABEL>projection</LABEL>
+	<LABEL>screen</LABEL>
+	<LABEL>speech</LABEL>
+	<LABEL>tty</LABEL>
+	<LABEL>tv</LABEL>
+	
+	<!-- pseudo-selectors -->
+	<!-- <LABEL>:first-child</LABEL>
+	<LABEL>:first-line</LABEL>
+	<LABEL>:first-letter</LABEL>
+	<LABEL>:hover</LABEL>
+	<LABEL>:active</LABEL>
+	<LABEL>:focus</LABEL>
+	<LABEL>:link</LABEL>
+	<LABEL>:visited</LABEL>
+	<LABEL>:lang</LABEL> -->
+	
+</KEYWORDS>
