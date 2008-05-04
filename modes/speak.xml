@@ -1,0 +1,441 @@
+<?xml version="1.0"?>
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+<!-- Speak mode by Rob Rohan (2008/05/02) -->
+<!-- Extended from AppleScript mode by Kris Kopicki (21/8/2002) -->
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="doubleBracketIndent" VALUE="false" />
+		<!-- <PROPERTY NAME="commentStart" VALUE="(*" />
+		<PROPERTY NAME="commentEnd" VALUE="*)" /> -->
+		<PROPERTY NAME="lineComment" VALUE="--" />
+		<!-- <PROPERTY NAME="wordBreakChars" VALUE=",+-=&lt;&gt;/?^&amp;*" /> -->
+	</PROPS>
+	<RULES ESCAPE="\" IGNORE_CASE="FALSE" HIGHLIGHT_DIGITS="TRUE">
+
+		<!-- <SPAN TYPE="COMMENT1">
+			<BEGIN>(*</BEGIN>
+			<END>*)</END>
+		</SPAN> -->
+		
+		<EOL_SPAN TYPE="COMMENT1">--</EOL_SPAN>
+
+		<SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE">
+			<BEGIN>"</BEGIN>
+			<END>"</END>
+		</SPAN>
+		
+		<!-- I dont think this is right there are a lot of
+			AppleScript's type commands
+		<SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE">
+			<BEGIN>'</BEGIN>
+			<END>'</END>
+		</SPAN> -->
+		
+		<!-- Operators -->
+		<!-- text operators are in keywords -->
+		<SEQ TYPE="OPERATOR">+</SEQ>
+		<SEQ TYPE="OPERATOR">-</SEQ>
+		<SEQ TYPE="OPERATOR">*</SEQ>
+		<SEQ TYPE="OPERATOR">/</SEQ>
+		<SEQ TYPE="OPERATOR">=</SEQ>
+		<SEQ TYPE="OPERATOR">is</SEQ>
+		<SEQ TYPE="OPERATOR">&lt;&gt;</SEQ>
+		<!-- does not equal -->
+		<SEQ TYPE="OPERATOR">&lt;</SEQ>
+		<SEQ TYPE="OPERATOR">&lt;=</SEQ>
+		<!-- less than or equal to -->
+		<SEQ TYPE="OPERATOR">&gt;</SEQ>		
+		<SEQ TYPE="OPERATOR">&gt;=</SEQ>
+		<!-- greater than or equal to -->
+		<SEQ TYPE="OPERATOR">&amp;</SEQ>
+		<SEQ TYPE="OPERATOR">&amp;&amp;</SEQ>
+				
+		<SEQ TYPE="OPERATOR">(</SEQ>
+		<SEQ TYPE="OPERATOR">)</SEQ>	
+		<SEQ TYPE="OPERATOR">^</SEQ>
+		
+		<!-- 
+		<SEQ_REGEXP TYPE="FUNCTION" HASH_CHAR="t" 
+			AT_WORD_START="TRUE"
+		>test[a-zA-Z]+</SEQ_REGEXP>
+
+		<SEQ_REGEXP TYPE="FUNCTION" HASH_CHAR="a" 
+			AT_WORD_START="TRUE"
+		>assert[a-zA-Z]+</SEQ_REGEXP>
+		-->
+				
+		<KEYWORDS>
+			<!-- Commands Keywords -->
+			<KEYWORD1>add</KEYWORD1>
+			<KEYWORD1>answer</KEYWORD1>
+			<KEYWORD1>ask</KEYWORD1>
+			<KEYWORD1>beep</KEYWORD1>
+			<KEYWORD1>choose</KEYWORD1>
+			<KEYWORD1>click</KEYWORD1>
+			<KEYWORD1>close</KEYWORD1>
+			<KEYWORD1>convert</KEYWORD1>
+			<KEYWORD1>create</KEYWORD1>
+			<KEYWORD1>debug</KEYWORD1>
+			<KEYWORD1>delete</KEYWORD1>
+			<KEYWORD1>dial</KEYWORD1>
+			<KEYWORD1>disable</KEYWORD1>
+			<KEYWORD1>divide</KEYWORD1>
+			<KEYWORD1>do</KEYWORD1>
+			<KEYWORD1>doMenu</KEYWORD1>
+			<KEYWORD1>drag</KEYWORD1>
+			<KEYWORD1>edit</KEYWORD1>
+			<KEYWORD1>enable</KEYWORD1>
+			<KEYWORD1>exit</KEYWORD1>
+			<KEYWORD1>export</KEYWORD1>
+			<KEYWORD1>find</KEYWORD1>
+			<KEYWORD1>flash</KEYWORD1>
+			<KEYWORD1>get</KEYWORD1>
+			<KEYWORD1>global</KEYWORD1>
+			<KEYWORD1>go</KEYWORD1>
+			<KEYWORD1>help</KEYWORD1>
+			<KEYWORD1>hide</KEYWORD1>
+			<KEYWORD1>import</KEYWORD1>
+			<KEYWORD1>lock</KEYWORD1>
+			<KEYWORD1>mark</KEYWORD1>
+			<KEYWORD1>multiply</KEYWORD1>
+			<KEYWORD1>open</KEYWORD1>
+			<KEYWORD1>palette</KEYWORD1>
+			<KEYWORD1>pass</KEYWORD1>
+			<KEYWORD1>picture</KEYWORD1>
+			<KEYWORD1>play</KEYWORD1>
+			<KEYWORD1>pop</KEYWORD1>
+			<KEYWORD1>print</KEYWORD1>
+			<KEYWORD1>push</KEYWORD1>
+			<KEYWORD1>put</KEYWORD1>
+			<KEYWORD1>read</KEYWORD1>
+			<KEYWORD1>reply</KEYWORD1>
+			<KEYWORD1>request</KEYWORD1>
+			<KEYWORD1>reset</KEYWORD1>
+			<KEYWORD1>save</KEYWORD1>
+			<KEYWORD1>select</KEYWORD1>
+			<KEYWORD1>send</KEYWORD1>
+			<KEYWORD1>set</KEYWORD1>
+			<KEYWORD1>show</KEYWORD1>
+			<KEYWORD1>sort</KEYWORD1>
+			<KEYWORD1>start</KEYWORD1>
+			<KEYWORD1>stop</KEYWORD1>
+			<KEYWORD1>subtract</KEYWORD1>
+			<KEYWORD1>type</KEYWORD1>
+			<KEYWORD1>unlock</KEYWORD1>
+			<KEYWORD1>unmark</KEYWORD1>
+			<KEYWORD1>visual</KEYWORD1>
+			<KEYWORD1>wait</KEYWORD1>
+			<KEYWORD1>write</KEYWORD1>
+			<KEYWORD1>into</KEYWORD1>
+			<KEYWORD1>end</KEYWORD1>
+			<KEYWORD1>on</KEYWORD1>
+			
+			<!-- speak specific -->
+			<KEYWORD1>extends</KEYWORD1>
+			<KEYWORD1>function</KEYWORD1>
+			<KEYWORD1>framework</KEYWORD1>
+			
+			<!-- Properties (Global) -->
+			<KEYWORD2>address</KEYWORD2>
+			<KEYWORD2>blindTyping</KEYWORD2>
+			<KEYWORD2>cursor</KEYWORD2>
+			<KEYWORD2>debugger</KEYWORD2>
+			<KEYWORD2>dialingType</KEYWORD2>
+			<KEYWORD2>dialingVolume</KEYWORD2>
+			<KEYWORD2>dragSpeed</KEYWORD2>
+			<KEYWORD2>editBkgnd</KEYWORD2>
+			<KEYWORD2>environment</KEYWORD2>
+			<KEYWORD2>id</KEYWORD2>
+			<KEYWORD2>itemDelimiter</KEYWORD2>
+			<KEYWORD2>language</KEYWORD2>
+			<KEYWORD2>lockErrorDialogs</KEYWORD2>
+			<KEYWORD2>lockMessages</KEYWORD2>
+			<KEYWORD2>lockRecent</KEYWORD2>
+			<KEYWORD2>lockScreen</KEYWORD2>
+			<KEYWORD2>longWindowTitles</KEYWORD2>
+			<KEYWORD2>messageWatcher</KEYWORD2>
+			<KEYWORD2>name</KEYWORD2>
+			<KEYWORD2>numberFormat</KEYWORD2>
+			<KEYWORD2>powerKeys</KEYWORD2>
+			<KEYWORD2>printMargins</KEYWORD2>
+			<KEYWORD2>printTextAlign</KEYWORD2>
+			<KEYWORD2>printTextFont</KEYWORD2>
+			<KEYWORD2>printTextHeight</KEYWORD2>
+			<KEYWORD2>printTextSize</KEYWORD2>
+			<KEYWORD2>printTextStyle</KEYWORD2>
+			<KEYWORD2>scriptEditor</KEYWORD2>
+			<KEYWORD2>scriptTextFont</KEYWORD2>
+			<KEYWORD2>scriptTextSize</KEYWORD2>
+			<KEYWORD2>stacksInUse</KEYWORD2>
+			<KEYWORD2>suspended</KEYWORD2>
+			<KEYWORD2>textArrows</KEYWORD2>
+			<KEYWORD2>traceDelay</KEYWORD2>
+			<KEYWORD2>userLevel</KEYWORD2>
+			<KEYWORD2>userModify</KEYWORD2>
+			<KEYWORD2>variableWatcher</KEYWORD2>
+			
+			<!-- Properties (Menu) -->
+			<KEYWORD2>checkMark</KEYWORD2>
+			<KEYWORD2>cmdChar</KEYWORD2>
+			<KEYWORD2>commandChar</KEYWORD2>
+			<KEYWORD2>enabled</KEYWORD2>
+			<KEYWORD2>markChar</KEYWORD2>
+			<KEYWORD2>menuMessage</KEYWORD2>
+			<KEYWORD2>menuMsg</KEYWORD2>
+			<KEYWORD2>name</KEYWORD2>
+			<KEYWORD2>rect</KEYWORD2>
+			<KEYWORD2>textStyle</KEYWORD2>
+			<KEYWORD2>visible</KEYWORD2>
+			
+			<!-- Properties (Window) -->
+			<KEYWORD2>botRight</KEYWORD2>
+			<KEYWORD2>bottom</KEYWORD2>
+			<KEYWORD2>bottomRight</KEYWORD2>
+			<KEYWORD2>bottomCount</KEYWORD2>
+			<KEYWORD2>commands</KEYWORD2>
+			<KEYWORD2>dithering</KEYWORD2>
+			<KEYWORD2>globalLoc</KEYWORD2>
+			<KEYWORD2>globalRect</KEYWORD2>
+			<KEYWORD2>hBarLoc</KEYWORD2>
+			<KEYWORD2>height</KEYWORD2>
+			<KEYWORD2>hideIdle</KEYWORD2>
+			<KEYWORD2>hideUnused</KEYWORD2>
+			<KEYWORD2>hilitedBottom</KEYWORD2>
+			<KEYWORD2>left</KEYWORD2>
+			<KEYWORD2>loc</KEYWORD2>
+			<KEYWORD2>location</KEYWORD2>
+			<KEYWORD2>nextLine</KEYWORD2>
+			<KEYWORD2>number</KEYWORD2>
+			<KEYWORD2>owner</KEYWORD2>
+			<KEYWORD2>properties</KEYWORD2>
+			<KEYWORD2>rect</KEYWORD2>
+			<KEYWORD2>rectangle</KEYWORD2>
+			<KEYWORD2>right</KEYWORD2>
+			<KEYWORD2>scale</KEYWORD2>
+			<KEYWORD2>scroll</KEYWORD2>
+			<KEYWORD2>top</KEYWORD2>
+			<KEYWORD2>topLeft</KEYWORD2>
+			<KEYWORD2>vBarLoc</KEYWORD2>
+			<KEYWORD2>visible</KEYWORD2>
+			<KEYWORD2>width</KEYWORD2>
+			<KEYWORD2>zoom</KEYWORD2>
+			<KEYWORD2>zoomed</KEYWORD2>
+			
+			<!-- Properties (Painting) -->
+			<KEYWORD2>brush</KEYWORD2>
+			<KEYWORD2>centered</KEYWORD2>
+			<KEYWORD2>filled</KEYWORD2>
+			<KEYWORD2>grid</KEYWORD2>
+			<KEYWORD2>lineSize</KEYWORD2>
+			<KEYWORD2>multiple</KEYWORD2>
+			<KEYWORD2>multiSpace</KEYWORD2>
+			<KEYWORD2>pattern</KEYWORD2>
+			<KEYWORD2>polySides</KEYWORD2>
+			<KEYWORD2>textAlign</KEYWORD2>
+			<KEYWORD2>textFont</KEYWORD2>
+			<KEYWORD2>textHeight</KEYWORD2>
+			<KEYWORD2>textSize</KEYWORD2>
+			<KEYWORD2>textStyle</KEYWORD2>
+			
+			<!-- Properties (Stack) -->
+			<KEYWORD2>cantAbort</KEYWORD2>
+			<KEYWORD2>cantDelete</KEYWORD2>
+			<KEYWORD2>cantModify</KEYWORD2>
+			<KEYWORD2>cantPeek</KEYWORD2>
+			<KEYWORD2>freesize</KEYWORD2>
+			<KEYWORD2>size</KEYWORD2>
+			<KEYWORD2>reportTemplates</KEYWORD2>
+			<KEYWORD2>script</KEYWORD2>
+			<KEYWORD2>scriptLanguage</KEYWORD2>
+			
+			<!-- Properties (Background) -->
+			<KEYWORD2>showPict</KEYWORD2>
+			
+			<!-- Properties (Card) -->
+			<KEYWORD2>marked</KEYWORD2>
+			
+			<!-- Properties (Field) -->
+			<KEYWORD2>autoSelect</KEYWORD2>
+			<KEYWORD2>autoTab</KEYWORD2>
+			<KEYWORD2>dontSearch</KEYWORD2>
+			<KEYWORD2>dontWrap</KEYWORD2>
+			<KEYWORD2>fixedLineHeight</KEYWORD2>
+			<KEYWORD2>lockText</KEYWORD2>
+			<KEYWORD2>multipleLines</KEYWORD2>
+			<KEYWORD2>partNumber</KEYWORD2>
+			<KEYWORD2>scroll</KEYWORD2>
+			<KEYWORD2>sharedText</KEYWORD2>
+			<KEYWORD2>showLines</KEYWORD2>
+			<KEYWORD2>style</KEYWORD2>
+			<KEYWORD2>top</KEYWORD2>
+			<KEYWORD2>topLeft</KEYWORD2>
+			<KEYWORD2>visible</KEYWORD2>
+			<KEYWORD2>wideMargins</KEYWORD2>
+			
+			<!-- Properties (Button) -->
+			<KEYWORD2>autoHilite</KEYWORD2>
+			<KEYWORD2>family</KEYWORD2>
+			<KEYWORD2>hilite</KEYWORD2>
+			<KEYWORD2>icon</KEYWORD2>
+			<KEYWORD2>sharedHilite</KEYWORD2>
+			<KEYWORD2>showName</KEYWORD2>
+			<KEYWORD2>titleWidth</KEYWORD2>
+			
+			<!-- Functions -->
+			
+			<!-- SANE Functions -->
+		
+			<!-- Commands -->
+			
+			
+			<!-- Messages (System) -->
+			<FUNCTION>appleEvent</FUNCTION>
+			<FUNCTION>arrowKey</FUNCTION>
+			<FUNCTION>close</FUNCTION>
+			<FUNCTION>closeBackground</FUNCTION>
+			<FUNCTION>closeCard</FUNCTION>
+			<FUNCTION>closeField</FUNCTION>
+			<FUNCTION>closePalette</FUNCTION>
+			<FUNCTION>closePicture</FUNCTION>
+			<FUNCTION>closeStack</FUNCTION>
+			<FUNCTION>commandKeyDown</FUNCTION>
+			<FUNCTION>controlKey</FUNCTION>
+			<FUNCTION>deleteBackground</FUNCTION>
+			<FUNCTION>deleteButton</FUNCTION>
+			<FUNCTION>deleteCard</FUNCTION>
+			<FUNCTION>deleteField</FUNCTION>
+			<FUNCTION>deleteStack</FUNCTION>
+			<FUNCTION>doMenu</FUNCTION>
+			<FUNCTION>enterInField</FUNCTION>
+			<FUNCTION>enterKey</FUNCTION>
+			<FUNCTION>exitField</FUNCTION>
+			<FUNCTION>functionKey</FUNCTION>
+			<FUNCTION>help</FUNCTION>
+			<FUNCTION>idle</FUNCTION>
+			<FUNCTION>keyDown</FUNCTION>
+			<FUNCTION>mouseDoubleClick</FUNCTION>
+			<FUNCTION>mouseDown</FUNCTION>
+			<FUNCTION>mouseDownInPicture</FUNCTION>
+			<FUNCTION>mouseEnter</FUNCTION>
+			<FUNCTION>mouseLeave</FUNCTION>
+			<FUNCTION>mouseStillDown</FUNCTION>
+			<FUNCTION>mouseUp</FUNCTION>
+			<FUNCTION>mouseUpInPicture</FUNCTION>
+			<FUNCTION>mouseWithin</FUNCTION>
+			<FUNCTION>mouseWindow</FUNCTION>
+			<FUNCTION>newBackground</FUNCTION>
+			<FUNCTION>newButton</FUNCTION>
+			<FUNCTION>newCard</FUNCTION>
+			<FUNCTION>newField</FUNCTION>
+			<FUNCTION>newStack</FUNCTION>
+			<FUNCTION>openBackground</FUNCTION>
+			<FUNCTION>openCard</FUNCTION>
+			<FUNCTION>openField</FUNCTION>
+			<FUNCTION>openPalette</FUNCTION>
+			<FUNCTION>openPicture</FUNCTION>
+			<FUNCTION>openStack</FUNCTION>
+			<FUNCTION>quit</FUNCTION>
+			<FUNCTION>resume</FUNCTION>
+			<FUNCTION>resumeStack</FUNCTION>
+			<FUNCTION>returnInField</FUNCTION>
+			<FUNCTION>returnKey</FUNCTION>
+			<FUNCTION>sizeWindow</FUNCTION>
+			<FUNCTION>startup</FUNCTION>
+			<FUNCTION>suspend</FUNCTION>
+			<FUNCTION>suspendStack</FUNCTION>
+			<FUNCTION>tabKey</FUNCTION>
+			
+			
+			<!-- Text Operators -->
+			<OPERATOR>and</OPERATOR>
+			<OPERATOR>contains</OPERATOR>
+			<OPERATOR>div</OPERATOR>
+			<OPERATOR>is</OPERATOR>
+			<OPERATOR>a</OPERATOR>
+			<OPERATOR>an</OPERATOR>
+			<OPERATOR>in</OPERATOR>
+			<OPERATOR>not</OPERATOR>		
+			<OPERATOR>mod</OPERATOR>
+			<OPERATOR>or</OPERATOR>
+			<OPERATOR>there</OPERATOR>
+			<OPERATOR>no</OPERATOR>
+			<OPERATOR>within</OPERATOR>
+			<OPERATOR>equal</OPERATOR>
+			<OPERATOR>equals</OPERATOR>
+			<OPERATOR>isn't</OPERATOR>
+			<OPERATOR>of</OPERATOR>
+			
+			<!-- Control Structures -->
+			<OPERATOR>exit</OPERATOR>
+			<OPERATOR>repeat</OPERATOR>
+			<OPERATOR>if</OPERATOR>
+			<OPERATOR>then</OPERATOR>
+			<OPERATOR>else</OPERATOR>
+			<OPERATOR>next</OPERATOR>
+			<OPERATOR>pass</OPERATOR>
+			<OPERATOR>for</OPERATOR>
+			<OPERATOR>until</OPERATOR>
+			<OPERATOR>while</OPERATOR>
+			<OPERATOR>with</OPERATOR>
+			<OPERATOR>reply</OPERATOR>
+			<OPERATOR>return</OPERATOR>
+			<OPERATOR>down</OPERATOR>
+			<OPERATOR>up</OPERATOR>
+			<OPERATOR>to</OPERATOR>
+			<OPERATOR>times</OPERATOR>
+			
+			
+			
+			<!-- Booleans -->
+			<LITERAL2>false</LITERAL2>
+			<LITERAL2>true</LITERAL2>
+			
+			<!-- Date & Time -->
+			<LITERAL2>weekday</LITERAL2>
+			<LITERAL2>monday</LITERAL2>
+			<LITERAL2>mon</LITERAL2>
+			<LITERAL2>tuesday</LITERAL2>
+			<LITERAL2>tue</LITERAL2>
+			<LITERAL2>wednesday</LITERAL2>
+			<LITERAL2>wed</LITERAL2>
+			<LITERAL2>thursday</LITERAL2>
+			<LITERAL2>thu</LITERAL2>
+			<LITERAL2>friday</LITERAL2>
+			<LITERAL2>fri</LITERAL2>
+			<LITERAL2>saturday</LITERAL2>
+			<LITERAL2>sat</LITERAL2>
+			<LITERAL2>sunday</LITERAL2>
+			<LITERAL2>sun</LITERAL2>
+			
+			<LITERAL2>month</LITERAL2>
+			<LITERAL2>january</LITERAL2>
+			<LITERAL2>jan</LITERAL2>
+			<LITERAL2>february</LITERAL2>
+			<LITERAL2>feb</LITERAL2>
+			<LITERAL2>march</LITERAL2>
+			<LITERAL2>mar</LITERAL2>
+			<LITERAL2>april</LITERAL2>
+			<LITERAL2>apr</LITERAL2>
+			<LITERAL2>may</LITERAL2>
+			<LITERAL2>june</LITERAL2>
+			<LITERAL2>jun</LITERAL2>
+			<LITERAL2>july</LITERAL2>
+			<LITERAL2>jul</LITERAL2>
+			<LITERAL2>august</LITERAL2>
+			<LITERAL2>aug</LITERAL2>
+			<LITERAL2>september</LITERAL2>
+			<LITERAL2>sep</LITERAL2>
+			<LITERAL2>october</LITERAL2>
+			<LITERAL2>oct</LITERAL2>
+			<LITERAL2>november</LITERAL2>
+			<LITERAL2>nov</LITERAL2>
+			<LITERAL2>december</LITERAL2>
+			<LITERAL2>dec</LITERAL2>
+			
+			<LITERAL2>minutes</LITERAL2>
+			<LITERAL2>hours</LITERAL2>
+			<LITERAL2>days</LITERAL2>
+			<LITERAL2>weeks</LITERAL2>
+		</KEYWORDS>
+	</RULES>
+</MODE>

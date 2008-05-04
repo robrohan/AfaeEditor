@@ -33,6 +33,10 @@
 	<MODE NAME="applescript"  FILE="applescript.xml"
 		FILE_NAME_GLOB="*.{applescript,scpt}" 
 	/>
+	
+	<MODE NAME="speak"  FILE="speak.xml"
+		FILE_NAME_GLOB="*.speak" 
+	/>
 
 	<MODE NAME="asp" FILE="asp.xml"
 		FILE_NAME_GLOB="*.{asp,asa,aspx,asax}" 
@@ -130,7 +134,7 @@
 
 	<!-- XHTML is here for the script and css blocks -->
 	<MODE NAME="html" FILE="html.xml"
-		FILE_NAME_GLOB="*.{html,[Hh][Tt][Mm],xhtml}" 
+		FILE_NAME_GLOB="*.{html,[Hh][Tt][Mm],xhtml,ftl}" 
 	/>
 	
 	<!-- Blog posting -->
