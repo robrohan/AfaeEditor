@@ -39,11 +39,14 @@
 	<FUNCTION>ACos</FUNCTION>
 	<FUNCTION>AddSOAPRequestHeader</FUNCTION>
 	<FUNCTION>AddSOAPResponseHeader</FUNCTION>
+	<FUNCTION>AjaxLink</FUNCTION>				<!-- New -->
+	<FUNCTION>AjaxOnLoad</FUNCTION>			<!-- New -->
 	<FUNCTION>ArrayAppend</FUNCTION>
 	<FUNCTION>ArrayAvg</FUNCTION>
 	<FUNCTION>ArrayClear</FUNCTION>
 	<FUNCTION>ArrayDeleteAt</FUNCTION>
 	<FUNCTION>ArrayInsertAt</FUNCTION>
+	<FUNCTION>ArrayIsDefined</FUNCTION>	<!-- New -->
 	<FUNCTION>ArrayIsEmpty</FUNCTION>
 	<FUNCTION>ArrayLen</FUNCTION>
 	<FUNCTION>ArrayMax</FUNCTION>
@@ -59,6 +62,8 @@
 	<FUNCTION>Asc</FUNCTION>
 	<FUNCTION>ASin</FUNCTION>
 	<FUNCTION>Atn</FUNCTION>
+	<FUNCTION>AuthenticatedContext</FUNCTION>	<!-- New -->
+	<FUNCTION>AuthenticatedUser</FUNCTION>		<!-- New -->
 	<FUNCTION>BinaryDecode</FUNCTION>
 	<FUNCTION>BinaryEncode</FUNCTION>
 	<FUNCTION>BitAnd</FUNCTION>
@@ -105,15 +110,31 @@
 	<FUNCTION>Decrypt</FUNCTION>
 	<FUNCTION>DecryptBinary</FUNCTION>
 	<FUNCTION>DeleteClientVariable</FUNCTION>
+	<FUNCTION>DeserializeJSON</FUNCTION>	<!-- New -->
 	<FUNCTION>DirectoryExists</FUNCTION>
 	<FUNCTION>DollarFormat</FUNCTION>
+	<FUNCTION>DotNetToCFType</FUNCTION>	<!-- New -->
 	<FUNCTION>Duplicate</FUNCTION>
 	<FUNCTION>Encrypt</FUNCTION>
 	<FUNCTION>EncryptBinary</FUNCTION>
 	<FUNCTION>Evaluate</FUNCTION>
 	<FUNCTION>Exp</FUNCTION>
 	<FUNCTION>ExpandPath</FUNCTION>
+	<FUNCTION>FileClose</FUNCTION>	<!-- New -->
+	<FUNCTION>FileCopy</FUNCTION>	<!-- New -->
+	<FUNCTION>FileDelete</FUNCTION>	<!-- New -->
 	<FUNCTION>FileExists</FUNCTION>
+	<FUNCTION>FileIsEOF</FUNCTION>	<!-- New -->
+	<FUNCTION>FileMove</FUNCTION>	<!-- New -->
+	<FUNCTION>FileOpen</FUNCTION>	<!-- New -->
+	<FUNCTION>FileRead</FUNCTION>	<!-- New -->
+	<FUNCTION>FileReadBinary</FUNCTION>	<!-- New -->
+	<FUNCTION>FileReadLine</FUNCTION>	<!-- New -->
+	<FUNCTION>FileSetAccessMode</FUNCTION>	<!-- New -->
+	<FUNCTION>FileSetAttribute</FUNCTION>	<!-- New -->
+	<FUNCTION>FileSetAccessMode</FUNCTION>	<!-- New -->
+	<FUNCTION>FileWrite</FUNCTION>	<!-- New -->
+	<FUNCTION>FileWriteLine</FUNCTION>	<!-- New -->
 	<FUNCTION>Find</FUNCTION>
 	<FUNCTION>FindNoCase</FUNCTION>
 	<FUNCTION>FindOneOf</FUNCTION>
@@ -125,59 +146,130 @@
 	<FUNCTION>GetBaseTagList</FUNCTION>
 	<FUNCTION>GetBaseTemplatePath</FUNCTION>
 	<FUNCTION>GetClientVariablesList</FUNCTION>
+	<FUNCTION>GetComponentMetaData</FUNCTION>	<!-- New -->
+	<FUNCTION>GetContextRoot</FUNCTION>	<!-- New -->
 	<FUNCTION>GetCurrentTemplatePath</FUNCTION>
 	<FUNCTION>GetDirectoryFromPath</FUNCTION>
 	<FUNCTION>GetEncoding</FUNCTION>
 	<FUNCTION>GetException</FUNCTION>
+	<FUNCTION>GetFileInfo</FUNCTION>	<!-- New -->
 	<FUNCTION>GetFileFromPath</FUNCTION>
 	<FUNCTION>GetFunctionList</FUNCTION>
 	<FUNCTION>GetGatewayHelper</FUNCTION>
 	<FUNCTION>GetHttpRequestData</FUNCTION>
 	<FUNCTION>GetHttpTimeString</FUNCTION>
+	<FUNCTION>GetK2ServerDocCount</FUNCTION>	<!-- New -->
+	<FUNCTION>GetK2ServerDocCountLimit</FUNCTION>	<!-- New -->
 	<FUNCTION>GetLocale</FUNCTION>
 	<FUNCTION>GetLocaleDisplayName</FUNCTION>
 	<FUNCTION>GetLocalHostIP</FUNCTION>
 	<FUNCTION>GetMetaData</FUNCTION>
 	<FUNCTION>GetMetricData</FUNCTION>
 	<FUNCTION>GetPageContext</FUNCTION>
+	<FUNCTION>GetPrinterInfo</FUNCTION>	<!-- New -->
 	<FUNCTION>GetProfileSections</FUNCTION>
 	<FUNCTION>GetProfileString</FUNCTION>
+	<FUNCTION>GetReadableImageFormats</FUNCTION>	<!-- New -->
 	<FUNCTION>GetSOAPRequest</FUNCTION>
 	<FUNCTION>GetSOAPRequestHeader</FUNCTION>
 	<FUNCTION>GetSOAPResponse</FUNCTION>
 	<FUNCTION>GetSOAPResponseHeader</FUNCTION>
 	<FUNCTION>GetTempDirectory</FUNCTION>
-	<FUNCTION>GetTempDirectory</FUNCTION>
 	<FUNCTION>GetTempFile</FUNCTION>
+	<FUNCTION>GetTempFilePath</FUNCTION>	<!-- New -->
 	<FUNCTION>GetTickCount</FUNCTION>
 	<FUNCTION>GetTimeZoneInfo</FUNCTION>
 	<FUNCTION>GetToken</FUNCTION>
+	<FUNCTION>GetUserRoles</FUNCTION>	<!-- New -->
+	<FUNCTION>GetWriteableImageFormats</FUNCTION>	<!-- New -->
 	<FUNCTION>Hash</FUNCTION>
 	<FUNCTION>Hour</FUNCTION>
 	<FUNCTION>HTMLCodeFormat</FUNCTION>
 	<FUNCTION>HTMLEditFormat</FUNCTION>
 	<FUNCTION>IIf</FUNCTION>
+	<FUNCTION>ImageAddBorder</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageBlur</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageClearRect</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageCopy</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageCrop</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageDrawArc</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageDrawBeveledRect</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageDrawCubicCurve</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageDrawLine</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageDrawLines</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageDrawOval</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageDrawPoint</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageDrawQuadraticCurve</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageDrawRect</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageDrawRoundRect</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageDrawText</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageFlip</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageGetBlob</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageGetBufferedImage</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageGetEXIFMetaData</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageGetEXIFTag</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageGetHeight</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageGetIPTCMetaData</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageGetIPCTTag</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageGetWidth</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageGrayscale</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageInfo</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageNegative</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageNew</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageOverlay</FUNCTION>	<!-- New -->
+	<FUNCTION>ImagePaste</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageRead</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageReadBase64</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageResize</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageRotate</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageRotateDrawingAxis</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageScaleToFit</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageSetAntialiasing</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageSetBackgroundColor</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageSetDrawingColor</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageSetDrawingStroke</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageSetDrawingTransparency</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageSharpen</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageShear</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageShearDrawingAxis</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageTranslate</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageTranslateDrawingAxis</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageWrite</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageWriteBase64</FUNCTION>	<!-- New -->
+	<FUNCTION>ImageXORDrawingMode</FUNCTION>	<!-- New -->
 	<FUNCTION>IncrementValue</FUNCTION>
 	<FUNCTION>InputBaseN</FUNCTION>
 	<FUNCTION>Insert</FUNCTION>
 	<FUNCTION>Int</FUNCTION>
 	<FUNCTION>IsArray</FUNCTION>
+	<FUNCTION>IsAuthenticated</FUNCTION>	<!-- New -->
 	<FUNCTION>IsBinary</FUNCTION>
 	<FUNCTION>IsBoolean</FUNCTION>
 	<FUNCTION>IsCustomFunction</FUNCTION>
 	<FUNCTION>IsDate</FUNCTION>
+	<FUNCTION>IsDDX</FUNCTION>	<!-- New -->
 	<FUNCTION>IsDebugMode</FUNCTION>
 	<FUNCTION>IsDefined</FUNCTION>
+	<FUNCTION>IsImage</FUNCTION>	<!-- New -->
+	<FUNCTION>IsImageFile</FUNCTION>	<!-- New -->
+	<FUNCTION>IsInstanceOf</FUNCTION>	<!-- New -->
+	<FUNCTION>IsJSON</FUNCTION>	<!-- New -->
+	<FUNCTION>IsK2ServerABroker</FUNCTION>	<!-- New -->
+	<FUNCTION>IsK2ServerOnline</FUNCTION>	<!-- New -->
 	<FUNCTION>IsLeapYear</FUNCTION>
 	<FUNCTION>IsLocalHost</FUNCTION>
 	<FUNCTION>IsNumeric</FUNCTION>
 	<FUNCTION>IsNumericDate</FUNCTION>
 	<FUNCTION>IsObject</FUNCTION>
+	<FUNCTION>IsPDFFile</FUNCTION>	<!-- New -->
+	<FUNCTION>IsPDFObject</FUNCTION>	<!-- New -->
+	<FUNCTION>IsProtected</FUNCTION>	<!-- New -->
 	<FUNCTION>IsQuery</FUNCTION>
 	<FUNCTION>IsSimpleValue</FUNCTION>
 	<FUNCTION>IsSOAPRequest</FUNCTION>
 	<FUNCTION>IsStruct</FUNCTION>
 	<FUNCTION>IsUserInRole</FUNCTION>
+	<FUNCTION>IsUserLoggedIn</FUNCTION>
 	<FUNCTION>IsValid</FUNCTION>
 	<FUNCTION>IsWDDX</FUNCTION>
 	<FUNCTION>IsXML</FUNCTION>
@@ -236,12 +328,14 @@
 	<FUNCTION>Now</FUNCTION>
 	<FUNCTION>NumberFormat</FUNCTION>
 	<FUNCTION>ParagraphFormat</FUNCTION>
+	<FUNCTION>ParameterExists</FUNCTION>	<!-- New -->
 	<FUNCTION>ParseDateTime</FUNCTION>
 	<FUNCTION>Pi</FUNCTION>
 	<FUNCTION>PreserveSingleQuotes</FUNCTION>
 	<FUNCTION>Quarter</FUNCTION>
 	<FUNCTION>QueryAddColumn</FUNCTION>
 	<FUNCTION>QueryAddRow</FUNCTION>
+	<FUNCTION>QueryConvertForGrid</FUNCTION>	<!-- New -->
 	<FUNCTION>QueryNew</FUNCTION>
 	<FUNCTION>QuerySetCell</FUNCTION>
 	<FUNCTION>QuotedValueList</FUNCTION>
@@ -250,6 +344,8 @@
 	<FUNCTION>RandRange</FUNCTION>
 	<FUNCTION>REFind</FUNCTION>
 	<FUNCTION>REFindNoCase</FUNCTION>
+	<FUNCTION>REMatch</FUNCTION>	<!-- New -->
+	<FUNCTION>REMatchNoCase</FUNCTION>	<!-- New -->
 	<FUNCTION>ReleaseComObject</FUNCTION>
 	<FUNCTION>RemoveChars</FUNCTION>
 	<FUNCTION>RepeatString</FUNCTION>
@@ -265,6 +361,7 @@
 	<FUNCTION>RTrim</FUNCTION>
 	<FUNCTION>Second</FUNCTION>
 	<FUNCTION>SendGatewayMessage</FUNCTION>
+	<FUNCTION>SerializeJSON</FUNCTION>	<!-- New -->
 	<FUNCTION>SetEncoding</FUNCTION>
 	<FUNCTION>SetLocale</FUNCTION>
 	<FUNCTION>SetProfileString</FUNCTION>
@@ -305,6 +402,7 @@
 	<FUNCTION>URLSessionFormat</FUNCTION>
 	<FUNCTION>Val</FUNCTION>
 	<FUNCTION>ValueList</FUNCTION>
+	<FUNCTION>VerifyClient</FUNCTION>	<!-- New -->
 	<FUNCTION>Week</FUNCTION>
 	<FUNCTION>Wrap</FUNCTION>
 	<FUNCTION>WriteOutput</FUNCTION>
