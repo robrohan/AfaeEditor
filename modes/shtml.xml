@@ -7,137 +7,132 @@
 		<PROPERTY NAME="commentStart" VALUE="&lt;!--" />
 		<PROPERTY NAME="commentEnd" VALUE="--&gt;" />
 	</PROPS>
+	
 	<RULES IGNORE_CASE="TRUE">
-		<!-- whitespace: (space and tab) -->
-		<!-- <WHITESPACE> </WHITESPACE>
-		<WHITESPACE>	</WHITESPACE> -->
-
-
-		<!-- SSI -->
-		<!-- SSI directives should ALWAYS end like this, with a space
-			before the tag end, so let's make it colorize poorly otherwise -->
-		<SPAN TYPE="KEYWORD3" DELEGATE="SSI">
+		<!-- SSI directives: -->
+		<!-- This assumes the default SSI start and end tags; this may 
+			need to be adjusted if you've configured Apache to use something
+			else, along with the corresponding KEYWORDs in the SSIRULES set
+		-->
+		<SPAN TYPE="NULL" DELEGATE="SSIRULES" EXCLUDE_MATCH="FALSE">
 			<BEGIN>&lt;!--#</BEGIN>
 			<END> --&gt;</END>
 		</SPAN>
-
+	
 		<!-- SGML comment -->
 		<SPAN TYPE="COMMENT1">
 			<BEGIN>&lt;!--</BEGIN>
 			<END>--&gt;</END>
 		</SPAN>
 
-		<!-- JavaScript -->
-		<SPAN TYPE="MARKUP" DELEGATE="javascript::MAIN">
-			<BEGIN>&lt;SCRIPT&gt;</BEGIN>
-			<END>&lt;/SCRIPT&gt;</END>
-		</SPAN>
-
-		<SPAN TYPE="MARKUP" DELEGATE="javascript::MAIN">
-			<BEGIN>&lt;SCRIPT language="JavaScript"&gt;</BEGIN>
-			<END>&lt;/SCRIPT&gt;</END>
-		</SPAN>
-
-		<SPAN TYPE="MARKUP" DELEGATE="javascript::MAIN">
-			<BEGIN>&lt;SCRIPT language="JavaScript1.1"&gt;</BEGIN>
-			<END>&lt;/SCRIPT&gt;</END>
-		</SPAN>
-
-		<SPAN TYPE="MARKUP" DELEGATE="javascript::MAIN">
-			<BEGIN>&lt;SCRIPT language="JavaScript1.2"&gt;</BEGIN>
-			<END>&lt;/SCRIPT&gt;</END>
-		</SPAN>
-
-		<!-- stylesheet -->
-		<SPAN TYPE="MARKUP" DELEGATE="css::MAIN">
-			<BEGIN>&lt;STYLE&gt;</BEGIN>
-			<END>&lt;/STYLE&gt;</END>
-		</SPAN>
-
-		<!-- DTD instructions -->
-		<SPAN TYPE="KEYWORD2" DELEGATE="xml::DTD-TAGS">
+		<SPAN TYPE="NULL" DELEGATE="EXCLAIMRULES">
 			<BEGIN>&lt;!</BEGIN>
 			<END>&gt;</END>
 		</SPAN>
-
-		<!-- markup tags -->
-		<SPAN TYPE="MARKUP" DELEGATE="TAGS">
-			<BEGIN>&lt;</BEGIN>
-			<END>&gt;</END>
-		</SPAN>
-
+		
 		<!-- SGML entities -->
 		<SPAN TYPE="LITERAL2" NO_WORD_BREAK="TRUE">
 			<BEGIN>&amp;</BEGIN>
 			<END>;</END>
 		</SPAN>
+		
+		<!-- First try all html tags (and end tags): -->
+		&htmlspans;
+		
+		<!-- Delegates to "CSSRULES": -->
+		&cssspans;
+		
+		<!-- Delegates to "JSRULES": -->
+		&javascriptspans;
+		
 	</RULES>
 
-	<RULES SET="TAGS" DEFAULT="MARKUP">
-		<!-- whitespace: (space and tab) -->
-		<!-- <WHITESPACE> </WHITESPACE>
-		<WHITESPACE>	</WHITESPACE> -->
-
-		<SPAN TYPE="LITERAL1">
-			<BEGIN>"</BEGIN>
-			<END>"</END>
-		</SPAN>
-
-		<SPAN TYPE="LITERAL1">
-			<BEGIN>'</BEGIN>
-			<END>'</END>
-		</SPAN>
-
-		<SEQ TYPE="OPERATOR">=</SEQ>
+	<RULES SET="TAGS" DEFAULT="LABEL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&htmlrules;
 	</RULES>
-
-	<RULES SET="SSI" DEFAULT="KEYWORD3">
-		<!-- <WHITESPACE> </WHITESPACE>
-		<WHITESPACE>	</WHITESPACE> -->
-
-		<SPAN TYPE="LITERAL1" EXCLUDE_MATCH="TRUE" DELEGATE="SSI-EXPRESSION">
-			<BEGIN>"</BEGIN>
-			<END>"</END>
-		</SPAN>
-
-		<!-- MD: i don't think this is valid
-		<SPAN TYPE="LITERAL1" EXCLUDE_MATCH="TRUE" DELEGATE="SSI-EXPRESSION">
-			<BEGIN>'</BEGIN>
-			<END>'</END>
-		</SPAN>
+	
+	<RULES SET="JSRULES" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">&lt;script</SEQ>
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">&lt;/script&gt;</SEQ>
+		&javascriptrules;
+	</RULES>
+	
+	<RULES SET="CSSRULES" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">&lt;style</SEQ>
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">&lt;/style&gt;</SEQ>
+		&cssrules;
+	</RULES>
+		
+	<RULES SET="EXCLAIMRULES" DEFAULT="LABEL" HIGHLIGHT_DIGITS="TRUE">
+		&dtdrules;
+	</RULES>
+	
+	<RULES SET="SSIRULES" DEFAULT="KEYWORD1" IGNORE_CASE="FALSE" HIGHLIGHT_DIGITS="TRUE">
+		<!-- RPS Note: Until we can have arbitrarily deeper delegation, we can't 
+			really handle the more elaborate stuff that can be done in the strings in
+			SSI directives, so we'll just color them as LITERALS for now...
 		-->
-
+		<!-- TODO: Delegation for variable evaluation and expression testing for "set" and "if/elif" -->
+		<SPAN TYPE="LITERAL1">
+			<BEGIN>"</BEGIN>
+			<END>"</END>
+		</SPAN>
+		
+		<!-- Always supposed to end with a space before the closing tag, so we'll make the color poorly if not -->
+		<!-- You'll want to supplement these if you've changed Apaches start and end tags for SSI directives -->
+		<SEQ TYPE="KEYWORD1">&lt;--#</SEQ>
+		<SEQ TYPE="KEYWORD1"> --></SEQ>
+		
 		<SEQ TYPE="OPERATOR">=</SEQ>
 
 		<KEYWORDS>
-			<KEYWORD1>config</KEYWORD1>
-			<KEYWORD1>echo</KEYWORD1>
-			<KEYWORD1>exec</KEYWORD1>
-			<KEYWORD1>flastmod</KEYWORD1>
-			<KEYWORD1>fsize</KEYWORD1>
-			<KEYWORD1>include</KEYWORD1>
+			<KEYWORD2>config</KEYWORD2>
+			<KEYWORD2>echo</KEYWORD2>
+			<KEYWORD2>exec</KEYWORD2>
+			<KEYWORD2>flastmod</KEYWORD2>
+			<KEYWORD2>fsize</KEYWORD2>
+			<KEYWORD2>include</KEYWORD2>
+			<KEYWORD2>printenv</KEYWORD2>
+			<KEYWORD2>set</KEYWORD2>
+			
+			<!-- Flow control: -->
+			<KEYWORD2>if</KEYWORD2>
+			<KEYWORD2>elif</KEYWORD2>
+			<KEYWORD2>else</KEYWORD2>
+			<KEYWORD2>endif</KEYWORD2>
 
-			<KEYWORD2>cgi</KEYWORD2>
-			<KEYWORD2>errmsg</KEYWORD2>
-			<KEYWORD2>file</KEYWORD2>
-			<KEYWORD2>sizefmt</KEYWORD2>
-			<KEYWORD2>timefmt</KEYWORD2>
-			<KEYWORD2>var</KEYWORD2>
-			<KEYWORD2>cmd</KEYWORD2>
+			<!-- config attributes: -->
+			<KEYWORD3>echomsg</KEYWORD3> <!-- Apache 2.1 and later... -->
+			<KEYWORD3>errmsg</KEYWORD3>
+			<KEYWORD3>sizefmt</KEYWORD3>
+			<KEYWORD3>timefmt</KEYWORD3>
+
+			<!-- exec attributes: -->
+			<KEYWORD3>cgi</KEYWORD3>
+			<KEYWORD3>cmd</KEYWORD3>
+
+			<!-- fsize and include attributes: -->
+			<KEYWORD3>file</KEYWORD3>
+			<KEYWORD3>virtual</KEYWORD3>
+			
+			<!-- echo attributes: -->
+			<KEYWORD3>var</KEYWORD3>
+			<KEYWORD3>encoding</KEYWORD3>
+			
+			<!-- set attributes (already have "var" above): -->
+			<KEYWORD3>value</KEYWORD3>
+			
+			<!-- if/elif expressions: -->
+			<KEYWORD3>expr</KEYWORD3>
+			
+			<!-- Predefined variables: -->
+			<LITERAL2>DATE_GMT</LITERAL2>
+			<LITERAL2>DATE_LOCAL</LITERAL2>
+			<LITERAL2>DOCUMENT_NAME</LITERAL2>
+			<LITERAL2>DOCUMENT_URI</LITERAL2>
+			<LITERAL2>LAST_MODIFIED</LITERAL2>
+			<LITERAL2>QUERY_STRING_UNESCAPED</LITERAL2>
 		</KEYWORDS>
 	</RULES>
-
-	<RULES SET="SSI-EXPRESSION" DEFAULT="LITERAL1" ESCAPE="\">
-
-		<!-- <MARK_FOLLOWING TYPE="KEYWORD2">$</MARK_FOLLOWING> -->
-
-		<SEQ TYPE="OPERATOR">=</SEQ>
-		<SEQ TYPE="OPERATOR">!=</SEQ>
-		<SEQ TYPE="OPERATOR">&lt;</SEQ>
-		<SEQ TYPE="OPERATOR">&lt;=</SEQ>
-		<SEQ TYPE="OPERATOR">&gt;</SEQ>
-		<SEQ TYPE="OPERATOR">&gt;=</SEQ>
-		<SEQ TYPE="OPERATOR">&amp;&amp;</SEQ>
-		<SEQ TYPE="OPERATOR">||</SEQ>
-	</RULES>
+	
 </MODE>

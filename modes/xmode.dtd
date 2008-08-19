@@ -22,6 +22,8 @@
 <!ENTITY rubyrules 				SYSTEM "inc/ruby.ixml">
 <!ENTITY tsqlrules				SYSTEM "inc/tsql.ixml">
 <!ENTITY coldfusionrules		SYSTEM "inc/coldfusion.ixml">
+<!ENTITY cfsharedrules		SYSTEM "inc/coldfusion_shared.ixml">
+<!ENTITY cfscriptrules			SYSTEM "inc/cfscript.ixml">
 
 <!-- common spans (used for marking partitions) -->
 <!ENTITY javascriptspans 		SYSTEM "inc/javascript_spans.ixml">
@@ -132,7 +134,8 @@
 <!ATTLIST EOL_SPAN
 	%att-standard-mix;
 	%att-exclude-match;
-	%att-delegate; >
+	%att-delegate; 
+	IGNORE_CASE %att-bool; "FALSE" >
 
 <!-- EOL_SPAN_REGEXP element -->
 <!ELEMENT EOL_SPAN_REGEXP ( #PCDATA ) >

@@ -20,31 +20,68 @@
 <SEQ TYPE="NULL">)</SEQ>
 <SEQ TYPE="NULL">(</SEQ>
 
-<SEQ TYPE="OPERATOR">=</SEQ>
-<SEQ TYPE="OPERATOR">!</SEQ>
-<SEQ TYPE="OPERATOR">&gt;=</SEQ>
-<SEQ TYPE="OPERATOR">&lt;=</SEQ>
+<!-- Arithmetic operators: -->
 <SEQ TYPE="OPERATOR">+</SEQ>
+<SEQ TYPE="OPERATOR">++</SEQ>
 <SEQ TYPE="OPERATOR">-</SEQ>
-<SEQ TYPE="OPERATOR">/</SEQ>
+<SEQ TYPE="OPERATOR">--</SEQ>
 <SEQ TYPE="OPERATOR">*</SEQ>
+<SEQ TYPE="OPERATOR">/</SEQ>
+<SEQ TYPE="OPERATOR">+-</SEQ>
+<SEQ TYPE="OPERATOR">%</SEQ>
+
+<!-- Logical operators: -->
+<SEQ TYPE="OPERATOR">&amp;&amp;</SEQ>
+<SEQ TYPE="OPERATOR">||</SEQ>
+<SEQ TYPE="OPERATOR">!</SEQ>
+
+<!-- Bitwise operators: -->
+<SEQ TYPE="OPERATOR">&amp;</SEQ>
+<SEQ TYPE="OPERATOR">^</SEQ>
+<SEQ TYPE="OPERATOR">!</SEQ>
+<SEQ TYPE="OPERATOR">~</SEQ>
+<SEQ TYPE="OPERATOR">&gt;&gt;</SEQ>
+<SEQ TYPE="OPERATOR">&lt;&lt;</SEQ>
+<SEQ TYPE="OPERATOR">&gt;&gt;&gt;</SEQ>
+
+<!-- Assignment operators: -->
+<SEQ TYPE="OPERATOR">=</SEQ>
+<SEQ TYPE="OPERATOR">+=</SEQ>
+<SEQ TYPE="OPERATOR">-=</SEQ>
+<SEQ TYPE="OPERATOR">/=</SEQ>
+<SEQ TYPE="OPERATOR">*=</SEQ>
+<SEQ TYPE="OPERATOR">%=</SEQ>
+<SEQ TYPE="OPERATOR">&amp;=</SEQ>
+<SEQ TYPE="OPERATOR">^=</SEQ>
+<SEQ TYPE="OPERATOR">|=</SEQ>
+<SEQ TYPE="OPERATOR">&lt;&lt;=</SEQ>
+<SEQ TYPE="OPERATOR">&gt;&gt;=</SEQ>
+<SEQ TYPE="OPERATOR">&gt;&gt;&gt;=</SEQ>
+
+<!-- Comparison operators: -->
+<SEQ TYPE="OPERATOR">==</SEQ>
+<SEQ TYPE="OPERATOR">!=</SEQ>
+<SEQ TYPE="OPERATOR">===</SEQ>
+<SEQ TYPE="OPERATOR">!==</SEQ>
 <SEQ TYPE="OPERATOR">&gt;</SEQ>
 <SEQ TYPE="OPERATOR">&lt;</SEQ>
-<SEQ TYPE="OPERATOR">%</SEQ>
-<SEQ TYPE="OPERATOR">&amp;</SEQ>
-<SEQ TYPE="OPERATOR">|</SEQ>
-<SEQ TYPE="OPERATOR">^</SEQ>
-<SEQ TYPE="OPERATOR">~</SEQ>
+<SEQ TYPE="OPERATOR">&gt;=</SEQ>
+<SEQ TYPE="OPERATOR">&lt;=</SEQ>
+
+<!-- Special and pseudo-operators (from the language or for syntax highlighting anomalies): -->
 <SEQ TYPE="OPERATOR">.</SEQ>
-<!-- <SEQ TYPE="OPERATOR">}</SEQ>
-<SEQ TYPE="OPERATOR">{</SEQ> -->
+<!-- 
+<SEQ TYPE="OPERATOR">}</SEQ>
+<SEQ TYPE="OPERATOR">{</SEQ> 
+-->
 <SEQ TYPE="OPERATOR">,</SEQ>
 <SEQ TYPE="OPERATOR">;</SEQ>
 <SEQ TYPE="OPERATOR">]</SEQ>
 <SEQ TYPE="OPERATOR">[</SEQ>
 <SEQ TYPE="OPERATOR">?</SEQ>
-<!-- <MARK_PREVIOUS TYPE="LABEL" EXCLUDE_MATCH="TRUE" AT_LINE_START="TRUE">:</MARK_PREVIOUS>
- -->
+<!-- 
+<MARK_PREVIOUS TYPE="LABEL" EXCLUDE_MATCH="TRUE" AT_LINE_START="TRUE">:</MARK_PREVIOUS>
+-->
 <SEQ TYPE="OPERATOR">:</SEQ>
 
 <KEYWORDS IGNORE_CASE="FALSE">
@@ -126,6 +163,38 @@
 	<KEYWORD3>Object</KEYWORD3>
 	<KEYWORD3>RegExp</KEYWORD3><!-- Not ECMA -->
 	<KEYWORD3>String</KEYWORD3>
+	
+	<!-- Other Object Classes: -->
+	<KEYWORD3>Anchor</KEYWORD3>
+	<KEYWORD3>Applet</KEYWORD3>
+	<KEYWORD3>Area</KEYWORD3>
+	<KEYWORD3>Button</KEYWORD3>
+	<KEYWORD3>Checkbox</KEYWORD3>
+	<KEYWORD3>FileUpload</KEYWORD3>
+	<KEYWORD3>Form</KEYWORD3>
+	<KEYWORD3>Frame</KEYWORD3>
+	<KEYWORD3>Hidden</KEYWORD3>
+	<KEYWORD3>History</KEYWORD3>
+	<KEYWORD3>Image</KEYWORD3>
+	<KEYWORD3>Layer</KEYWORD3>
+	<KEYWORD3>Link</KEYWORD3>
+	<KEYWORD3>Location</KEYWORD3>
+	<KEYWORD3>MimeType</KEYWORD3>
+	<KEYWORD3>Option</KEYWORD3>
+	<KEYWORD3>Password</KEYWORD3>
+	<KEYWORD3>Plugin</KEYWORD3>
+	<KEYWORD3>Radio</KEYWORD3>
+	<KEYWORD3>Reset</KEYWORD3>
+	<KEYWORD3>Select</KEYWORD3>
+	<KEYWORD3>Style</KEYWORD3>
+	<KEYWORD3>Submit</KEYWORD3>
+	<KEYWORD3>Text</KEYWORD3>
+	<KEYWORD3>TextArea</KEYWORD3>
+
+	<KEYWORD3>document</KEYWORD3>
+	<KEYWORD3>event</KEYWORD3>
+	<KEYWORD3>navigator</KEYWORD3>
+	<KEYWORD3>window</KEYWORD3>
 
 	<!-- Literals -->
 	<LITERAL2>false</LITERAL2>
@@ -134,6 +203,15 @@
 
 	<LITERAL2>NaN</LITERAL2>
 	<LITERAL2>Infinity</LITERAL2>
+	
+	<!-- Attributes common to all objects: -->
+	<LITERAL2>constructor</LITERAL2>
+	<LITERAL2>prototype</LITERAL2>
+	<METHOD>eval</METHOD>
+	<METHOD>toSource</METHOD>
+	<METHOD>toString</METHOD>
+	<METHOD>unwatch</METHOD>
+	<METHOD>watch</METHOD>
 
 	<!-- Global functions -->
 	<FUNCTION>eval</FUNCTION>
@@ -143,7 +221,186 @@
 	<FUNCTION>unescape</FUNCTION>
 	<FUNCTION>isNaN</FUNCTION>
 	<FUNCTION>isFinite</FUNCTION>
-	<FUNCTION>isFinite</FUNCTION>
+
+	<!-- These aren't really global functions but they're used like them... -->
 	<FUNCTION>alert</FUNCTION>
+	<FUNCTION>confirm</FUNCTION>
 	<FUNCTION>prompt</FUNCTION>
+
+
+	<!-- jQuery and jQuery UI: -->
+	<!-- Based on jQuery API 1.2 documentation: http://docs.jquery.com -->
+	<!-- Updated 06/05/2008 to include methods from the dimensions plugin, as this now part of the core as of v. 1.2.6 -->
+
+	<!-- Core -->
+	<FUNCTION>jQuery</FUNCTION>
+	<FUNCTION>$</FUNCTION>
+	<FUNCTION>each</FUNCTION>
+	<LITERAL2>length</LITERAL2>
+	<FUNCTION>eq</FUNCTION>
+	<FUNCTION>get</FUNCTION>
+	<FUNCTION>index</FUNCTION>
+	<FUNCTION>data</FUNCTION>
+	<FUNCTION>removeData</FUNCTION>
+	<FUNCTION>fn.extend</FUNCTION>
+	<FUNCTION>extend</FUNCTION>
+	<FUNCTION>noConflict</FUNCTION>
+
+	<!-- Selectors: -->
+	<!-- I don't think there is anything to do here, as these are all in string arguments to functions -->
+
+	<!-- Attributes: -->
+	<FUNCTION>attr</FUNCTION>
+	<FUNCTION>removeAttr</FUNCTION>
+	<FUNCTION>addClass</FUNCTION>
+	<FUNCTION>hasClass</FUNCTION>
+	<FUNCTION>removeClass</FUNCTION>
+	<FUNCTION>toggleClass</FUNCTION>
+	<FUNCTION>html</FUNCTION>
+	<FUNCTION>text</FUNCTION>
+	<FUNCTION>val</FUNCTION>
+
+	<!-- Traversing: -->
+	<!-- Already covered above: eq(), hasClass() -->
+	<FUNCTION>filter</FUNCTION>
+	<FUNCTION>is</FUNCTION>
+	<FUNCTION>map</FUNCTION>
+	<FUNCTION>not</FUNCTION>
+	<FUNCTION>slice</FUNCTION>
+	<FUNCTION>add</FUNCTION>
+	<FUNCTION>children</FUNCTION>
+	<FUNCTION>contents</FUNCTION>
+	<FUNCTION>find</FUNCTION>
+	<FUNCTION>next</FUNCTION>
+	<FUNCTION>nextAll</FUNCTION>
+	<FUNCTION>parent</FUNCTION>
+	<FUNCTION>parents</FUNCTION>
+	<FUNCTION>prev</FUNCTION>
+	<FUNCTION>prevAll</FUNCTION>
+	<FUNCTION>siblings</FUNCTION>
+	<FUNCTION>andSelf</FUNCTION>
+	<FUNCTION>end</FUNCTION>
+
+	<!-- Manipulation: -->
+	<!-- Already covered above: html(), text() -->
+	<FUNCTION>append</FUNCTION>
+	<FUNCTION>appendTo</FUNCTION>
+	<FUNCTION>prepend</FUNCTION>
+	<FUNCTION>prependTo</FUNCTION>
+	<FUNCTION>after</FUNCTION>
+	<FUNCTION>before</FUNCTION>
+	<FUNCTION>insertAfter</FUNCTION>
+	<FUNCTION>insertBefore</FUNCTION>
+	<FUNCTION>wrapAll</FUNCTION>
+	<FUNCTION>wrapInner</FUNCTION>
+	<FUNCTION>replaceAll</FUNCTION>
+	<FUNCTION>replaceWith</FUNCTION>
+	<FUNCTION>empty</FUNCTION>
+	<FUNCTION>remove</FUNCTION>
+	<FUNCTION>clone</FUNCTION>
+
+	<!-- CSS: -->
+	<FUNCTION>css</FUNCTION>
+	<FUNCTION>offset</FUNCTION>
+	<FUNCTION>height</FUNCTION>
+	<FUNCTION>width</FUNCTION>
+
+	<!-- Events: -->
+	<FUNCTION>ready</FUNCTION>
+	<FUNCTION>bind</FUNCTION>
+	<FUNCTION>one</FUNCTION>
+	<FUNCTION>trigger</FUNCTION>
+	<FUNCTION>triggerHandler</FUNCTION>
+	<FUNCTION>unbind</FUNCTION>
+	<FUNCTION>hover</FUNCTION>
+	<FUNCTION>toggle</FUNCTION>
+	<FUNCTION>blur</FUNCTION>
+	<FUNCTION>change</FUNCTION>
+	<FUNCTION>click</FUNCTION>
+	<FUNCTION>dblclick</FUNCTION>
+	<FUNCTION>error</FUNCTION>
+	<FUNCTION>focus</FUNCTION>
+	<FUNCTION>keydown</FUNCTION>
+	<FUNCTION>keypress</FUNCTION>
+	<FUNCTION>keyup</FUNCTION>
+	<FUNCTION>load</FUNCTION>
+	<FUNCTION>mousedown</FUNCTION>
+	<FUNCTION>mouseover</FUNCTION>
+	<FUNCTION>mouseout</FUNCTION>
+	<FUNCTION>mouseup</FUNCTION>
+	<FUNCTION>resize</FUNCTION>
+	<FUNCTION>scroll</FUNCTION>
+	<FUNCTION>select</FUNCTION>
+	<FUNCTION>submit</FUNCTION>
+	<FUNCTION>unload</FUNCTION>
+
+	<!-- Effects: -->
+	<!-- Already covered above: toggle() -->
+	<FUNCTION>show</FUNCTION>
+	<FUNCTION>hide</FUNCTION>
+	<FUNCTION>slideDown</FUNCTION>
+	<FUNCTION>slideUp</FUNCTION>
+	<FUNCTION>slideToggle</FUNCTION>
+	<FUNCTION>fadeIn</FUNCTION>
+	<FUNCTION>fadeOut</FUNCTION>
+	<FUNCTION>fadeTo</FUNCTION>
+	<FUNCTION>animate</FUNCTION>
+	<FUNCTION>stop</FUNCTION>
+	<FUNCTION>queue</FUNCTION>
+	<FUNCTION>dequeue</FUNCTION>
+
+	<!-- AJAX: -->
+	<!-- Already covered above: load(), get() -->
+	<FUNCTION>ajax</FUNCTION>
+	<FUNCTION>getJSON</FUNCTION>
+	<FUNCTION>getScript</FUNCTION>
+	<FUNCTION>post</FUNCTION>
+	<FUNCTION>ajaxComplete</FUNCTION>
+	<FUNCTION>ajaxError</FUNCTION>
+	<FUNCTION>ajaxSend</FUNCTION>
+	<FUNCTION>ajaxStart</FUNCTION>
+	<FUNCTION>ajaxStop</FUNCTION>
+	<FUNCTION>ajaxSuccess</FUNCTION>
+	<FUNCTION>ajaxSetup</FUNCTION>
+	<FUNCTION>serialize</FUNCTION>
+	<FUNCTION>serializeArray</FUNCTION>
+
+	<!-- Utilities: -->
+	<!-- Already covered above: each(), extend(), map() -->
+	<LITERAL2>browser</LITERAL2> <!-- for jQuery.browser -->
+	<LITERAL2>version</LITERAL2> <!-- for jQuery.browser.version -->
+	<LITERAL2>boxModel</LITERAL2> <!-- for jQuery.boxModel -->
+	<FUNCTION>grep</FUNCTION>
+	<FUNCTION>makeArray</FUNCTION>
+	<FUNCTION>inArray</FUNCTION>
+	<FUNCTION>unique</FUNCTION>
+	<FUNCTION>isFunction</FUNCTION>
+	<FUNCTION>trim</FUNCTION>
+	
+	<!-- Dimensions:  -->
+	<!-- Was a separate plugin, but as of 1.2.6 is now part of the core -->
+	<FUNCTION>innerHeight</FUNCTION>
+	<FUNCTION>innerWidth</FUNCTION>
+	<FUNCTION>outerHeight</FUNCTION>
+	<FUNCTION>outerWidth</FUNCTION>
+	<FUNCTION>scrollLeft</FUNCTION>
+	<FUNCTION>scrollTop</FUNCTION>
+	<FUNCTION>position</FUNCTION>
+	<FUNCTION>offsetParent</FUNCTION>
+	
+	<!-- jQuery UI -->
+	<!-- Based on documentation at http://docs.jquery.com/ui/ -->
+	<!-- Mouse interactions: -->
+	<FUNCTION>draggable</FUNCTION>
+	<FUNCTION>droppable</FUNCTION>
+	<FUNCTION>sortable</FUNCTION>
+	<FUNCTION>selectable</FUNCTION>
+	<FUNCTION>resizable</FUNCTION>
+
+	<!-- User interface extensions: -->
+	<FUNCTION>accordian</FUNCTION>
+	<FUNCTION>datepicker</FUNCTION>
+	<FUNCTION>dialog</FUNCTION>
+	<FUNCTION>slider</FUNCTION>
+	<FUNCTION>tabs</FUNCTION>
 </KEYWORDS>
