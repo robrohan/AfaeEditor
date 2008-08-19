@@ -134,7 +134,12 @@
 
 	<!-- XHTML is here for the script and css blocks -->
 	<MODE NAME="html" FILE="html.xml"
-		FILE_NAME_GLOB="*.{html,[Hh][Tt][Mm],xhtml,ftl}" 
+		FILE_NAME_GLOB="*.{html,[Hh][Tt][Mm],xhtml}" 
+	/>
+	
+	<!-- freemarker template. Similar to HTML and SSI -->
+	<MODE NAME="ftl" FILE="ftl.xml"
+		FILE_NAME_GLOB="*.{[fF][tT][lL]}" 
 	/>
 	
 	<!-- Blog posting -->

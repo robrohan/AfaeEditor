@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="commentStart" VALUE="&lt;!--" />
+		<PROPERTY NAME="commentEnd" VALUE="--&gt;" />
+	</PROPS>
+	
+	<RULES IGNORE_CASE="TRUE">
+		<!-- SGML comment -->
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;!--</BEGIN>
+			<END>--&gt;</END>
+		</SPAN>
+
+		<SPAN TYPE="NULL" DELEGATE="EXCLAIMRULES">
+			<BEGIN>&lt;!</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+		
+		<!-- SGML entities -->
+		<SPAN TYPE="LITERAL2" NO_WORD_BREAK="TRUE">
+			<BEGIN>&amp;</BEGIN>
+			<END>;</END>
+		</SPAN>
+		
+		<SPAN TYPE="LITERAL2">
+			<BEGIN>&lt;#</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+		<SPAN TYPE="LITERAL2">
+			<BEGIN>&lt;/#</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+		
+		<SPAN TYPE="LITERAL2">
+			<BEGIN>&lt;@</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+		<SPAN TYPE="LITERAL2">
+			<BEGIN>&lt;/@</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+		
+		<SPAN TYPE="LITERAL2">
+			<BEGIN>${</BEGIN>
+			<END>}</END>
+		</SPAN>
+		
+		<!-- First try all html tags (and end tags): -->
+		&htmlspans;
+		
+		<!-- Delegates to "CSSRULES", below: -->
+		&cssspans;
+		
+		<!-- Delegates to "JSRULES", below: -->
+		&javascriptspans;
+		
+	</RULES>
+
+	<RULES SET="TAGS" DEFAULT="LABEL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&htmlrules;
+	</RULES>
+	
+	<RULES SET="JSRULES" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">&lt;script</SEQ>
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">&lt;/script&gt;</SEQ>
+		&javascriptrules;
+	</RULES>
+	
+	<RULES SET="CSSRULES" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">&lt;style</SEQ>
+		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">&lt;/style&gt;</SEQ>
+		&cssrules;
+	</RULES>
+	
+	<RULES SET="EXCLAIMRULES" DEFAULT="LABEL">
+		&dtdrules;
+	</RULES>
+</MODE>
