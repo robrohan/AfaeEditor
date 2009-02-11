@@ -10,25 +10,20 @@
 	taken the pre-process way out and created common entites for reused
 	rule sets. The following section is for reuseable rules
 	================================================================== -->
-<!ENTITY actionscriptrules 		SYSTEM "inc/actionscript.ixml">
+<!ENTITY actionscriptrules  SYSTEM "inc/actionscript.ixml">
 <!ENTITY javascriptrules 		SYSTEM "inc/javascript.ixml">
-<!ENTITY htmlrules		 		SYSTEM "inc/html.ixml">
-
-<!ENTITY cssrules 				SYSTEM "inc/css.ixml">
-<!ENTITY vbrules 				SYSTEM "inc/vb.ixml">
-<!ENTITY cssrules 				SYSTEM "inc/css.ixml">
-<!ENTITY dtdrules 				SYSTEM "inc/dtd.ixml">
-<!ENTITY javarules 				SYSTEM "inc/java.ixml">
-<!ENTITY rubyrules 				SYSTEM "inc/ruby.ixml">
-<!ENTITY tsqlrules				SYSTEM "inc/tsql.ixml">
-<!ENTITY coldfusionrules		SYSTEM "inc/coldfusion.ixml">
-<!ENTITY cfsharedrules		SYSTEM "inc/coldfusion_shared.ixml">
-<!ENTITY cfscriptrules			SYSTEM "inc/cfscript.ixml">
-
-<!-- common spans (used for marking partitions) -->
-<!ENTITY javascriptspans 		SYSTEM "inc/javascript_spans.ixml">
-<!ENTITY cssspans 				SYSTEM "inc/css_spans.ixml">
-<!ENTITY htmlspans 				SYSTEM "inc/html_spans.ixml">
+<!ENTITY htmlrules          SYSTEM "inc/html.ixml">
+<!ENTITY htmlspans          SYSTEM "inc/html_spans.ixml">
+<!ENTITY htmlcloserules     SYSTEM "inc/html_close.ixml">
+<!ENTITY vbrules            SYSTEM "inc/vb.ixml">
+<!ENTITY cssrules           SYSTEM "inc/css.ixml">
+<!ENTITY dtdrules           SYSTEM "inc/dtd.ixml">
+<!ENTITY javarules          SYSTEM "inc/java.ixml">
+<!ENTITY rubyrules          SYSTEM "inc/ruby.ixml">
+<!ENTITY tsqlrules          SYSTEM "inc/tsql.ixml">
+<!ENTITY cfmlsharedrules    SYSTEM "inc/cfml_shared.ixml">
+<!ENTITY cfscriptrules      SYSTEM "inc/cfscript.ixml">
+<!ENTITY cftagrules         SYSTEM "inc/cftag_shared.ixml">
 
 <!-- =================================================================
 	Main DTD begins...

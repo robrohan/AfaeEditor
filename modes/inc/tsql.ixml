@@ -247,7 +247,13 @@
 	<LITERAL2>int</LITERAL2>
 	<LITERAL2>integer</LITERAL2>
 	<LITERAL2>money</LITERAL2>
+	<!-- 
+		RPS 11.26.2008: 
+		I've commented this out intentionally; I had to make a choice between the "name" attribute of
+		CFML's CFQUERY tag being highlighted correctly and use of this as a SQL data type. Given that the "name"
+		attribute is required, and I have never seen the use of this as a data type, it was an easy choice.			
 	<LITERAL2>name</LITERAL2>
+	-->
 	<LITERAL2>numeric</LITERAL2>
 	<LITERAL2>nchar</LITERAL2>
 	<LITERAL2>nvarchar</LITERAL2>

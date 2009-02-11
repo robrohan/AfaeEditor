@@ -91,7 +91,7 @@
 		FILE_NAME_GLOB="*.{cbl,cob}" 
 	/>
 
-	<MODE NAME="coldfusion" FILE="coldfusion.xml"
+	<MODE NAME="cfml" FILE="cfml.xml"
 		FILE_NAME_GLOB="*.{cfm,cfml,cfc}" 
 	/>
 

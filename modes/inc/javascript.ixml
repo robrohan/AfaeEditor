@@ -229,14 +229,18 @@
 
 
 	<!-- jQuery and jQuery UI: -->
-	<!-- Based on jQuery API 1.2 documentation: http://docs.jquery.com -->
-	<!-- Updated 06/05/2008 to include methods from the dimensions plugin, as this now part of the core as of v. 1.2.6 -->
+	<!-- Based on jQuery API 1.3 documentation: http://docs.jquery.com -->
+	<!-- Updated 06/05/2008 to include methods from the dimensions plugin, as this now part of the core as of v. 1.2.6 
+			 Updated 01/21/2009: changes from 1.3
+	-->
 
 	<!-- Core -->
 	<FUNCTION>jQuery</FUNCTION>
 	<FUNCTION>$</FUNCTION>
 	<FUNCTION>each</FUNCTION>
+	<LITERAL2>context</LITERAL2> <!-- New in 1.3 -->
 	<LITERAL2>length</LITERAL2>
+	<LITERAL2>selector</LITERAL2> <!-- New in 1.3 -->
 	<FUNCTION>eq</FUNCTION>
 	<FUNCTION>get</FUNCTION>
 	<FUNCTION>index</FUNCTION>
@@ -245,6 +249,8 @@
 	<FUNCTION>fn.extend</FUNCTION>
 	<FUNCTION>extend</FUNCTION>
 	<FUNCTION>noConflict</FUNCTION>
+	<FUNCTION>queue</FUNCTION>	<!-- New in 1.3 -->
+	<FUNCTION>dequeue</FUNCTION> <!-- New in 1.3 -->
 
 	<!-- Selectors: -->
 	<!-- I don't think there is anything to do here, as these are all in string arguments to functions -->
@@ -280,6 +286,7 @@
 	<FUNCTION>siblings</FUNCTION>
 	<FUNCTION>andSelf</FUNCTION>
 	<FUNCTION>end</FUNCTION>
+	<FUNCTION>closest</FUNCTION> <!-- New in 1.3 -->
 
 	<!-- Manipulation: -->
 	<!-- Already covered above: html(), text() -->
@@ -333,9 +340,11 @@
 	<FUNCTION>select</FUNCTION>
 	<FUNCTION>submit</FUNCTION>
 	<FUNCTION>unload</FUNCTION>
+	<FUNCTION>live</FUNCTION> <!-- New in 1.3 -->
+	<FUNCTION>die</FUNCTION> <!-- New in 1.3 -->
 
 	<!-- Effects: -->
-	<!-- Already covered above: toggle() -->
+	<!-- Already covered above: toggle(), queue(), dequeue() -->
 	<FUNCTION>show</FUNCTION>
 	<FUNCTION>hide</FUNCTION>
 	<FUNCTION>slideDown</FUNCTION>
@@ -346,8 +355,6 @@
 	<FUNCTION>fadeTo</FUNCTION>
 	<FUNCTION>animate</FUNCTION>
 	<FUNCTION>stop</FUNCTION>
-	<FUNCTION>queue</FUNCTION>
-	<FUNCTION>dequeue</FUNCTION>
 
 	<!-- AJAX: -->
 	<!-- Already covered above: load(), get() -->
@@ -376,6 +383,7 @@
 	<FUNCTION>unique</FUNCTION>
 	<FUNCTION>isFunction</FUNCTION>
 	<FUNCTION>trim</FUNCTION>
+	<FUNCTION>isArray</FUNCTION> <!-- New in 1.3 -->
 	
 	<!-- Dimensions:  -->
 	<!-- Was a separate plugin, but as of 1.2.6 is now part of the core -->
@@ -403,4 +411,5 @@
 	<FUNCTION>dialog</FUNCTION>
 	<FUNCTION>slider</FUNCTION>
 	<FUNCTION>tabs</FUNCTION>
+	<FUNCTION>progressbar</FUNCTION>	<!-- New in jQuery UI 1.6 -->
 </KEYWORDS>

@@ -11,192 +11,198 @@
 <SEQ TYPE="OPERATOR">=</SEQ>
 
 <!-- Closings for opening tags: -->
+<SEQ TYPE="MARKUP">&lt;</SEQ>
 <SEQ TYPE="MARKUP">&gt;</SEQ>
 <SEQ TYPE="MARKUP">/&gt;</SEQ>
 
-<!-- All valid HTML open tags with a trailing space for attributes 
-	(except style and script, as those are delegated elsewhere:
--->
-<SEQ TYPE="MARKUP">&lt;a </SEQ>
-<SEQ TYPE="MARKUP">&lt;abbr </SEQ>
-<SEQ TYPE="MARKUP">&lt;acronym </SEQ>
-<SEQ TYPE="MARKUP">&lt;address </SEQ>
-<SEQ TYPE="MARKUP">&lt;applet </SEQ>
-<SEQ TYPE="MARKUP">&lt;area </SEQ>
-<SEQ TYPE="MARKUP">&lt;b </SEQ>
-<SEQ TYPE="MARKUP">&lt;base </SEQ>
-<SEQ TYPE="MARKUP">&lt;basefont </SEQ>
-<SEQ TYPE="MARKUP">&lt;bdo </SEQ>
-<SEQ TYPE="MARKUP">&lt;big </SEQ>
-<SEQ TYPE="MARKUP">&lt;blockquote </SEQ>
-<SEQ TYPE="MARKUP">&lt;body </SEQ>
-<SEQ TYPE="MARKUP">&lt;br </SEQ>
-<SEQ TYPE="MARKUP">&lt;button </SEQ>
-<SEQ TYPE="MARKUP">&lt;caption </SEQ>
-<SEQ TYPE="MARKUP">&lt;center </SEQ>
-<SEQ TYPE="MARKUP">&lt;cite </SEQ>
-<SEQ TYPE="MARKUP">&lt;code </SEQ>
-<SEQ TYPE="MARKUP">&lt;col </SEQ>
-<SEQ TYPE="MARKUP">&lt;colgroup </SEQ>
-<SEQ TYPE="MARKUP">&lt;dd </SEQ>
-<SEQ TYPE="MARKUP">&lt;del </SEQ>
-<SEQ TYPE="MARKUP">&lt;dir </SEQ>
-<SEQ TYPE="MARKUP">&lt;div </SEQ>
-<SEQ TYPE="MARKUP">&lt;dfn </SEQ>
-<SEQ TYPE="MARKUP">&lt;dl </SEQ>
-<SEQ TYPE="MARKUP">&lt;dt </SEQ>
-<SEQ TYPE="MARKUP">&lt;em </SEQ>
-<SEQ TYPE="MARKUP">&lt;fieldset </SEQ>
-<SEQ TYPE="MARKUP">&lt;font </SEQ>
-<SEQ TYPE="MARKUP">&lt;form </SEQ>
-<SEQ TYPE="MARKUP">&lt;frame </SEQ>
-<SEQ TYPE="MARKUP">&lt;frameset </SEQ>
-<SEQ TYPE="MARKUP">&lt;h1 </SEQ>
-<SEQ TYPE="MARKUP">&lt;h2 </SEQ>
-<SEQ TYPE="MARKUP">&lt;h3 </SEQ>
-<SEQ TYPE="MARKUP">&lt;h4 </SEQ>
-<SEQ TYPE="MARKUP">&lt;h5 </SEQ>
-<SEQ TYPE="MARKUP">&lt;h6 </SEQ>
-<SEQ TYPE="MARKUP">&lt;head </SEQ>
-<SEQ TYPE="MARKUP">&lt;hr </SEQ>
-<SEQ TYPE="MARKUP">&lt;html </SEQ>
-<SEQ TYPE="MARKUP">&lt;i </SEQ>
-<SEQ TYPE="MARKUP">&lt;iframe </SEQ>
-<SEQ TYPE="MARKUP">&lt;img </SEQ>
-<SEQ TYPE="MARKUP">&lt;input </SEQ>
-<SEQ TYPE="MARKUP">&lt;ins </SEQ>
-<SEQ TYPE="MARKUP">&lt;isindex </SEQ>
-<SEQ TYPE="MARKUP">&lt;kbd </SEQ>
-<SEQ TYPE="MARKUP">&lt;label </SEQ>
-<SEQ TYPE="MARKUP">&lt;legend </SEQ>
-<SEQ TYPE="MARKUP">&lt;li </SEQ>
-<SEQ TYPE="MARKUP">&lt;link </SEQ>
-<SEQ TYPE="MARKUP">&lt;map </SEQ>
-<SEQ TYPE="MARKUP">&lt;menu </SEQ>
-<SEQ TYPE="MARKUP">&lt;meta </SEQ>
-<SEQ TYPE="MARKUP">&lt;noframes </SEQ>
-<SEQ TYPE="MARKUP">&lt;noscript </SEQ>
-<SEQ TYPE="MARKUP">&lt;object </SEQ>
-<SEQ TYPE="MARKUP">&lt;ol </SEQ>
-<SEQ TYPE="MARKUP">&lt;optgroup </SEQ>
-<SEQ TYPE="MARKUP">&lt;option </SEQ>
-<SEQ TYPE="MARKUP">&lt;p </SEQ>
-<SEQ TYPE="MARKUP">&lt;param </SEQ>
-<SEQ TYPE="MARKUP">&lt;pre </SEQ>
-<SEQ TYPE="MARKUP">&lt;q </SEQ>
-<SEQ TYPE="MARKUP">&lt;s </SEQ>
-<SEQ TYPE="MARKUP">&lt;samp </SEQ>
-<SEQ TYPE="MARKUP">&lt;select </SEQ>
-<SEQ TYPE="MARKUP">&lt;small </SEQ>
-<SEQ TYPE="MARKUP">&lt;span </SEQ>
-<SEQ TYPE="MARKUP">&lt;strike </SEQ>
-<SEQ TYPE="MARKUP">&lt;strong </SEQ>
-<SEQ TYPE="MARKUP">&lt;sub </SEQ>
-<SEQ TYPE="MARKUP">&lt;sup </SEQ>
-<SEQ TYPE="MARKUP">&lt;table </SEQ>
-<SEQ TYPE="MARKUP">&lt;tbody </SEQ>
-<SEQ TYPE="MARKUP">&lt;td </SEQ>
-<SEQ TYPE="MARKUP">&lt;textarea </SEQ>
-<SEQ TYPE="MARKUP">&lt;tfoot </SEQ>
-<SEQ TYPE="MARKUP">&lt;th </SEQ>
-<SEQ TYPE="MARKUP">&lt;thead </SEQ>
-<SEQ TYPE="MARKUP">&lt;title </SEQ>
-<SEQ TYPE="MARKUP">&lt;tr </SEQ>
-<SEQ TYPE="MARKUP">&lt;tt </SEQ>
-<SEQ TYPE="MARKUP">&lt;u </SEQ>
-<SEQ TYPE="MARKUP">&lt;ul </SEQ>
-<SEQ TYPE="MARKUP">&lt;var </SEQ>
-<SEQ TYPE="MARKUP">&lt;xmp </SEQ>
-
-<!-- All valid HTML open tags with no attributes: -->
-<SEQ TYPE="MARKUP">&lt;a&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;abbr&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;acronym&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;address&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;applet&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;area&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;b&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;base&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;basefont&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;bdo&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;big&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;blockquote&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;body&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;br&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;button&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;caption&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;center&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;cite&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;code&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;col&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;colgroup&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;dd&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;del&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;dir&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;div&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;dfn&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;dl&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;dt&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;em&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;fieldset&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;font&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;form&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;frame&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;frameset&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;h1&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;h2&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;h3&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;h4&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;h5&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;h6&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;head&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;hr&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;html&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;i&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;iframe&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;img&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;input&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;ins&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;isindex&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;kbd&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;label&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;legend&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;li&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;link&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;map&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;menu&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;meta&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;noframes&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;noscript&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;object&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;ol&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;optgroup&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;option&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;p&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;param&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;pre&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;q&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;s&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;samp&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;select&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;small&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;span&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;strike&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;strong&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;sub&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;sup&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;table&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;tbody&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;td&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;textarea&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;tfoot&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;th&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;thead&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;title&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;tr&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;tt&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;u&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;ul&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;var&gt;</SEQ>
-<SEQ TYPE="MARKUP">&lt;xmp&gt;</SEQ>
- 
+<KEYWORDS IGNORE_CASE="TRUE">
+	<!-- HTML tags: -->
+	<MARKUP>a</MARKUP>
+	<MARKUP>abbr</MARKUP>
+	<MARKUP>acronym</MARKUP>
+	<MARKUP>address</MARKUP>
+	<MARKUP>applet</MARKUP>
+	<MARKUP>area</MARKUP>
+	<MARKUP>b</MARKUP>
+	<MARKUP>base</MARKUP>
+	<MARKUP>basefont</MARKUP>
+	<MARKUP>bdo</MARKUP>
+	<MARKUP>big</MARKUP>
+	<MARKUP>blockquote</MARKUP>
+	<MARKUP>body</MARKUP>
+	<MARKUP>br</MARKUP>
+	<MARKUP>button</MARKUP>
+	<MARKUP>caption</MARKUP>
+	<MARKUP>center</MARKUP>
+	<MARKUP>cite</MARKUP>
+	<MARKUP>code</MARKUP>
+	<MARKUP>col</MARKUP>
+	<MARKUP>colgroup</MARKUP>
+	<MARKUP>dd</MARKUP>
+	<MARKUP>del</MARKUP>
+	<MARKUP>dir</MARKUP>
+	<MARKUP>div</MARKUP>
+	<MARKUP>dfn</MARKUP>
+	<MARKUP>dl</MARKUP>
+	<MARKUP>dt</MARKUP>
+	<MARKUP>em</MARKUP>
+	<MARKUP>fieldset</MARKUP>
+	<MARKUP>font</MARKUP>
+	<MARKUP>form</MARKUP>
+	<MARKUP>frame</MARKUP>
+	<MARKUP>frameset</MARKUP>
+	<MARKUP>h1</MARKUP>
+	<MARKUP>h2</MARKUP>
+	<MARKUP>h3</MARKUP>
+	<MARKUP>h4</MARKUP>
+	<MARKUP>h5</MARKUP>
+	<MARKUP>h6</MARKUP>
+	<MARKUP>head</MARKUP>
+	<MARKUP>hr</MARKUP>
+	<MARKUP>html</MARKUP>
+	<MARKUP>i</MARKUP>
+	<MARKUP>iframe</MARKUP>
+	<MARKUP>img</MARKUP>
+	<MARKUP>input</MARKUP>
+	<MARKUP>ins</MARKUP>
+	<MARKUP>isindex</MARKUP>
+	<MARKUP>kbd</MARKUP>
+	<MARKUP>label</MARKUP>
+	<MARKUP>legend</MARKUP>
+	<MARKUP>li</MARKUP>
+	<MARKUP>link</MARKUP>
+	<MARKUP>map</MARKUP>
+	<MARKUP>menu</MARKUP>
+	<MARKUP>meta</MARKUP>
+	<MARKUP>noframes</MARKUP>
+	<MARKUP>noscript</MARKUP>
+	<MARKUP>object</MARKUP>
+	<MARKUP>ol</MARKUP>
+	<MARKUP>optgroup</MARKUP>
+	<MARKUP>option</MARKUP>
+	<MARKUP>p</MARKUP>
+	<MARKUP>param</MARKUP>
+	<MARKUP>pre</MARKUP>
+	<MARKUP>q</MARKUP>
+	<MARKUP>s</MARKUP>
+	<MARKUP>samp</MARKUP>
+	<MARKUP>select</MARKUP>
+	<MARKUP>small</MARKUP>
+	<MARKUP>span</MARKUP>
+	<MARKUP>strike</MARKUP>
+	<MARKUP>strong</MARKUP>
+	<MARKUP>sub</MARKUP>
+	<MARKUP>sup</MARKUP>
+	<MARKUP>table</MARKUP>
+	<MARKUP>tbody</MARKUP>
+	<MARKUP>td</MARKUP>
+	<MARKUP>textarea</MARKUP>
+	<MARKUP>tfoot</MARKUP>
+	<MARKUP>th</MARKUP>
+	<MARKUP>thead</MARKUP>
+	<MARKUP>title</MARKUP>
+	<MARKUP>tr</MARKUP>
+	<MARKUP>tt</MARKUP>
+	<MARKUP>u</MARKUP>
+	<MARKUP>ul</MARKUP>
+	<MARKUP>var</MARKUP>
+	<MARKUP>xmp</MARKUP>
+	
+	<!-- Additional HTML5 opening tags: -->
+	<MARKUP>article</MARKUP>
+	<MARKUP>aside</MARKUP>
+	<MARKUP>audio</MARKUP>
+	<MARKUP>bb</MARKUP>
+	<MARKUP>canvas</MARKUP>
+	<MARKUP>command</MARKUP>
+	<MARKUP>datagrid</MARKUP>
+	<MARKUP>datalist</MARKUP>
+	<MARKUP>details</MARKUP>
+	<MARKUP>dialog</MARKUP>
+	<MARKUP>embed</MARKUP>
+	<MARKUP>eventsource</MARKUP>
+	<MARKUP>figure</MARKUP>
+	<MARKUP>footer</MARKUP>
+	<MARKUP>header</MARKUP>
+	<MARKUP>mark</MARKUP>
+	<MARKUP>meter</MARKUP>
+	<MARKUP>nav</MARKUP>
+	<MARKUP>output</MARKUP>
+	<MARKUP>progress</MARKUP>
+	<MARKUP>q</MARKUP>
+	<MARKUP>rp</MARKUP>
+	<MARKUP>rt</MARKUP>
+	<MARKUP>ruby</MARKUP>
+	<MARKUP>section</MARKUP>
+	<MARKUP>source</MARKUP>
+	<MARKUP>time</MARKUP>
+	<MARKUP>video</MARKUP>
+	
+	!-- Valid attributes for HTML tags: -->
+	<!-- 
+		RPS 11/2008: This is actually a big simplification to say that all of these
+		attributes are valid for all HTML tags, but it is a start. Really, there should
+		be a couple of different rulesets for HTML to separate those elements into piles
+		for which these groups of attributes, based on the HTML spec, are actually 
+		valid, but we'll save that for later.
+	-->
+	<!-- 1. Core attributes: -->
+	<LABEL>id</LABEL>
+	<LABEL>class</LABEL>
+	<LABEL>style</LABEL>
+	<LABEL>title</LABEL>
+	
+	<!-- 2. Events: -->
+	<LABEL>onclick</LABEL>
+	<LABEL>ondblclick</LABEL>
+	<LABEL>onmousedown</LABEL>
+	<LABEL>onmouseup</LABEL>
+	<LABEL>onmouseover</LABEL>
+	<LABEL>onmousemove</LABEL>
+	<LABEL>onmouseout</LABEL>
+	<LABEL>onkeypress</LABEL>
+	<LABEL>onkeyup</LABEL>
+	<LABEL>onkeykeydown</LABEL>
+	
+	<!-- 3. i18n: -->
+	<LABEL>lang</LABEL>
+	<LABEL>dir</LABEL>
+	
+	<!-- HTML5 core attributes (in addition to the above): -->
+	<LABEL>contenteditable</LABEL>
+	<LABEL>contextmenu</LABEL>
+	<LABEL>dir</LABEL>
+	<LABEL>draggable</LABEL>
+	<LABEL>hidden</LABEL>
+	<LABEL>lang</LABEL>
+	<LABEL>ref</LABEL>
+	<LABEL>registrationmark</LABEL>
+	<LABEL>tabindex</LABEL>
+	
+	<!-- HTML5 events (in addition to the above): -->
+	<LABEL>onabort</LABEL>
+	<LABEL>onbeforeunload</LABEL>
+	<LABEL>onblur</LABEL>
+	<LABEL>onchange</LABEL>
+	<LABEL>oncontextmenu</LABEL>
+	<LABEL>ondrag</LABEL>
+	<LABEL>ondragend</LABEL>
+	<LABEL>ondragenter</LABEL>
+	<LABEL>ondragleave</LABEL>
+	<LABEL>ondragover</LABEL>
+	<LABEL>ondragstart</LABEL>
+	<LABEL>ondrop</LABEL>
+	<LABEL>onerror</LABEL>
+	<LABEL>onfocus</LABEL>
+	<LABEL>onhashchange</LABEL>
+	<LABEL>onload</LABEL>
+	<LABEL>onmessage</LABEL>
+	<LABEL>onmousewheel</LABEL>
+	<LABEL>onresize</LABEL>
+	<LABEL>onscroll</LABEL>
+	<LABEL>onselect</LABEL>
+	<LABEL>onstorage</LABEL>
+	<LABEL>onsubmit</LABEL>
+	<LABEL>onunload</LABEL>
+	
+</KEYWORDS>

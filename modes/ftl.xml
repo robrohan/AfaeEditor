@@ -49,30 +49,55 @@
 			<END>}</END>
 		</SPAN>
 		
-		<!-- First try all html tags (and end tags): -->
+		<!-- HTML: -->
 		&htmlspans;
-		
-		<!-- Delegates to "CSSRULES", below: -->
-		&cssspans;
-		
-		<!-- Delegates to "JSRULES", below: -->
-		&javascriptspans;
 		
 	</RULES>
 
-	<RULES SET="TAGS" DEFAULT="LABEL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+	<RULES SET="HTMLTAGS" DEFAULT="LABEL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
 		&htmlrules;
 	</RULES>
 	
-	<RULES SET="JSRULES" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
-		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">&lt;script</SEQ>
-		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">&lt;/script&gt;</SEQ>
+	<RULES SET="HTMLTAGS_CLOSE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="FALSE">
+		&htmlcloserules;
+	</RULES>
+	
+	<RULES SET="JAVASCRIPT" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		<!-- Stuff to get the script tag itself marked up correctly: -->
+		<SEQ TYPE="MARKUP">&lt;script </SEQ>
+		<SEQ TYPE="MARKUP">&lt;/script&gt;</SEQ>
+
+		<!-- TODO: Document this hack and its implications (RPS 11/27/2008) -->
+		<SEQ TYPE="MARKUP">&gt;</SEQ>
+		
+		<!-- Attributes for this tag: -->
+		<SEQ TYPE="LABEL">charset</SEQ>
+		<SEQ TYPE="LABEL">type</SEQ>
+		<SEQ TYPE="LABEL">language</SEQ>
+		<SEQ TYPE="LABEL">defer</SEQ>
+		<SEQ TYPE="LABEL">event</SEQ>
+		<SEQ TYPE="LABEL">for</SEQ>	
+		<SEQ TYPE="LABEL">async</SEQ> <!-- HTML5 -->	
+		
 		&javascriptrules;
 	</RULES>
 	
-	<RULES SET="CSSRULES" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
-		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">&lt;style</SEQ>
-		<SEQ TYPE="MARKUP" IGNORE_CASE="TRUE">&lt;/style&gt;</SEQ>
+	<RULES SET="CSS" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		<!-- Stuff to get the style tag itself marked up correctly: -->
+		<SEQ TYPE="MARKUP">&lt;style </SEQ>
+		<SEQ TYPE="MARKUP">&lt;/style&gt;</SEQ>
+
+		<!-- TODO: Document this hack and its implications (RPS 11/27/2008) -->
+		<SEQ TYPE="MARKUP">&gt;</SEQ>
+
+		<!-- Attributes for this tag: -->
+		<SEQ TYPE="LABEL">lang</SEQ>
+		<SEQ TYPE="LABEL">dir</SEQ>
+		<SEQ TYPE="LABEL">type</SEQ>
+		<SEQ TYPE="LABEL">media</SEQ>
+		<SEQ TYPE="LABEL">title</SEQ>
+		<SEQ TYPE="LABEL">scoped</SEQ> <!-- HTML5 -->
+
 		&cssrules;
 	</RULES>
 	

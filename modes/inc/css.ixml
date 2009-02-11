@@ -1,3 +1,4 @@
+<!-- TODO: Need to look at CSS spec for other operators... (RPS 11/27/08) -->
 
 <SEQ TYPE="OPERATOR">:</SEQ>
 <SEQ TYPE="NULL">;</SEQ>
@@ -20,10 +21,12 @@
 <SEQ TYPE="OPERATOR">!</SEQ>
 
 <!-- no end so it doesn't go over a single line -->
+<!--
 <SPAN_REGEXP HASH_CHAR="#" TYPE="DIGIT" IGNORE_CASE="TRUE" EXCLUDE_MATCH="TRUE">
-	<BEGIN>^#[a-fA-F0-9]{2,}[^\s]</BEGIN>
-	<END>;</END>
+	<BEGIN>#([a-fA-F0-9]{2}|[a-fA-F0-9]{3}|[a-fA-F0-9]{6})(;|\s)+?</BEGIN>
+	<END>(;|\s)+?</END>
 </SPAN_REGEXP>
+-->
 
 <SPAN TYPE="COMMENT1">
 	<BEGIN>/*</BEGIN>
