@@ -1,0 +1,13 @@
+<!-- Common SEQ and SPAN declarations for most CFML tags: -->
+<!-- Common stuff for most CF tags attributes: -->
+<SPAN TYPE="LITERAL1"><BEGIN>"</BEGIN><END>"</END></SPAN>
+<SPAN TYPE="LITERAL1"><BEGIN>'</BEGIN><END>'</END></SPAN>
+<SEQ TYPE="OPERATOR">=</SEQ>
+
+<!-- The tag start and end: 
+     Note that an XML-style close is NOT defined here, because some tags can't be written that
+     way and this it would not be common to all tags.
+-->
+<SEQ TYPE="KEYWORD2">&lt;</SEQ>
+<SEQ TYPE="KEYWORD2">&gt;</SEQ>
+

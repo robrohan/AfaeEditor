@@ -1,0 +1,3686 @@
+<?xml version="1.0"?>
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="commentStart" VALUE="&lt;!---" />
+		<PROPERTY NAME="commentEnd" VALUE="---&gt;" />
+	</PROPS>
+
+	<RULES IGNORE_CASE="TRUE">
+		<SPAN TYPE="COMMENT2">
+			<BEGIN>&lt;!---</BEGIN>
+			<END>---&gt;</END>
+		</SPAN> 
+
+		<!-- SGML comment -->
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>&lt;!--</BEGIN>
+			<END>--&gt;</END>
+		</SPAN>
+
+		<!-- Delegate anything else that looks like an exclamation (e.g., DTDs): -->
+		<SPAN TYPE="LABEL" DELEGATE="EXCLAIMRULES" AT_LINE_START="TRUE">
+			<BEGIN>&lt;!</BEGIN>
+			<END>&gt;</END>
+		</SPAN>
+
+		<!-- CFML tags: -->
+		<!-- 1. Tags that we will delegate to special rulesets (other than just normal CFML tags): -->
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFQUERY" IGNORE_CASE="TRUE"><BEGIN>&lt;cfquery </BEGIN><END>&lt;/cfquery&gt;</END></SPAN>		
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSCRIPT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfscript&gt;</BEGIN><END>&lt;/cfscript&gt;</END></SPAN>
+		
+
+		<!-- 2. Normal CF tags (and closing tags, where appropriate); note that most of these are
+						listed alphabetically, except where we've had to override that based on similarity of
+						tag names): 
+		-->
+		
+		<!-- 2a. Tags from other CFML engines than Adobe's:
+						NewAtlanta's BlueDragon (as of 02/07/2009, based on BlueDragon CFML Compatibility Guide
+						  and What's New in BlueDragon 7.1)
+						OpenBD (as of 12/18/2008, http://wiki.openbluedragon.org/wiki/index.php/Category:Tags)
+						Railo (as of 01/18/2009, http://www.railo-technologies.com/en/index.cfm?treeID=116)
+		
+						RPS: I've left these as a lump, because a couple of them are named in a way that would
+						necessitate putting them into the list of tag rules in non-alphabetic form (e.g., cfxmlrpc
+						and cfxml), but I'd really like to keep them separate from the "base" CFML tagset.
+		-->
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFADMIN" IGNORE_CASE="TRUE"><BEGIN>&lt;cfadmin</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFASSERT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfassert</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFBASE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfbase</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCACHECONTENT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcachecontent</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCHARTDOMAINMARKER" IGNORE_CASE="TRUE"><BEGIN>&lt;cfchartdomainmarker</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCHARTLEGEND" IGNORE_CASE="TRUE"><BEGIN>&lt;cfchartlegend</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCHARTIMAGE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfchartimage</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCHARTRANGEMARKER" IGNORE_CASE="TRUE"><BEGIN>&lt;cfchartrangemarker</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCHARTTITLE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcharttitle</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_1" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcontinue</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFDEBUGGER" IGNORE_CASE="TRUE"><BEGIN>&lt;cfdebugger</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_2" IGNORE_CASE="TRUE"><BEGIN>&lt;cffinally</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFORWARD" IGNORE_CASE="TRUE"><BEGIN>&lt;cfforward</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFINTERRUPT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfinterrupt</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFIMAP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfimap</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFJOIN" IGNORE_CASE="TRUE"><BEGIN>&lt;cfjoin</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMAPPING" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmapping</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMP3" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmp3</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMULTICAST" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmulticast</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPAUSE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfpause</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFTHROTTLE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfthrottle</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFVIDEOPLAYERPARAM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfvideoplayerparam</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFVIDEOPLAYER" IGNORE_CASE="TRUE"><BEGIN>&lt;cfvideoplayer</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFVIDEO" IGNORE_CASE="TRUE"><BEGIN>&lt;cfvideo</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXPRESSION_TAG" IGNORE_CASE="TRUE"><BEGIN>&lt;cfwhile</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFXMLRPC" IGNORE_CASE="TRUE"><BEGIN>&lt;cfxmlrpc</BEGIN><END>&gt;</END></SPAN>
+		
+		<!-- 2b. All other CFML tags (i.e., from Adobe, although some are extended by other engines): -->
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFABORT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfabort</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFAJAXIMPORT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfajaximport</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFAJAXPROXY" IGNORE_CASE="TRUE"><BEGIN>&lt;cfajaxproxy</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFAPPLET" IGNORE_CASE="TRUE"><BEGIN>&lt;cfapplet</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFAPPLICATION" IGNORE_CASE="TRUE"><BEGIN>&lt;cfapplication</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFARGUMENT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfargument</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFASSOCIATE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfassociate</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_1" IGNORE_CASE="TRUE"><BEGIN>&lt;cfbreak</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCACHE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcache</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCALENDAR" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcalendar</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCASE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcase</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCATCH" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcatch</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCHARTDATA" IGNORE_CASE="TRUE"><BEGIN>&lt;cfchartdata</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCHARTSERIES" IGNORE_CASE="TRUE"><BEGIN>&lt;cfchartseries</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCHART" IGNORE_CASE="TRUE"><BEGIN>&lt;cfchart</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCOLLECTION" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcollection</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCOL" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcol</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCOMPONENT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcomponent</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCONTENT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcontent</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCOOKIE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcookie</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFDBINFO" IGNORE_CASE="TRUE"><BEGIN>&lt;cfdbinfo</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_2" IGNORE_CASE="TRUE"><BEGIN>&lt;cfdefaultcase</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFDIRECTORY" IGNORE_CASE="TRUE"><BEGIN>&lt;cfdirectory</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFDIV" IGNORE_CASE="TRUE"><BEGIN>&lt;cfdiv</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFDOCUMENTITEM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfdocumentitem</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFDOCUMENTSECTION" IGNORE_CASE="TRUE"><BEGIN>&lt;cfdocumentsection</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFDOCUMENT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfdocument</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFDUMP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfdump</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXPRESSION_TAG" IGNORE_CASE="TRUE"><BEGIN>&lt;cfelseif</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_2" IGNORE_CASE="TRUE"><BEGIN>&lt;cfelse</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFERROR" IGNORE_CASE="TRUE"><BEGIN>&lt;cferror</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXCHANGECALENDAR" IGNORE_CASE="TRUE"><BEGIN>&lt;cfexchangecalendar</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXCHANGECONNECTION" IGNORE_CASE="TRUE"><BEGIN>&lt;cfexchangeconnection</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXCHANGECONTACT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfexchangecontact</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXCHANGEFILTER" IGNORE_CASE="TRUE"><BEGIN>&lt;cfexchangefilter</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXCHANGEMAIL" IGNORE_CASE="TRUE"><BEGIN>&lt;cfexchangemail</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXCHANGETASK" IGNORE_CASE="TRUE"><BEGIN>&lt;cfexchangetask</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXECUTE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfexecute</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXIT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfexit</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFEED" IGNORE_CASE="TRUE"><BEGIN>&lt;cffeed</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFILE" IGNORE_CASE="TRUE"><BEGIN>&lt;cffile</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFLUSH" IGNORE_CASE="TRUE"><BEGIN>&lt;cfflush</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFORMGROUP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfformgroup</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFORMITEM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfformitem</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFORM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfform</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFTP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfftp</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFUNCTION" IGNORE_CASE="TRUE"><BEGIN>&lt;cffunction</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFGRIDCOLUMN" IGNORE_CASE="TRUE"><BEGIN>&lt;cfgridcolumn</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFGRIDROW" IGNORE_CASE="TRUE"><BEGIN>&lt;cfgridrow</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFGRIDUPDATE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfgridupdate</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFGRID" IGNORE_CASE="TRUE"><BEGIN>&lt;cfgrid</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFHEADER" IGNORE_CASE="TRUE"><BEGIN>&lt;cfheader</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFHTMLHEAD" IGNORE_CASE="TRUE"><BEGIN>&lt;cfhtmlhead</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFHTTPPARAM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfhttpparam</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFHTTP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfhttp</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXPRESSION_TAG" IGNORE_CASE="TRUE"><BEGIN>&lt;cfif</BEGIN><END>&gt;</END></SPAN>		
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFIMAGE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfimage</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFIMPORT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfimport</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFINCLUDE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfinclude</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFINDEX" IGNORE_CASE="TRUE"><BEGIN>&lt;cfindex</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFINPUT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfinput</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFINSERT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfinsert</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFINTERFACE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfinterface</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFINVOKEARGUMENT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfinvokeargument</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFINVOKE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfinvoke</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFLAYOUTAREA" IGNORE_CASE="TRUE"><BEGIN>&lt;cflayoutarea</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFLAYOUT" IGNORE_CASE="TRUE"><BEGIN>&lt;cflayout</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFLDAP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfldap</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFLOCATION" IGNORE_CASE="TRUE"><BEGIN>&lt;cflocation</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFLOCK" IGNORE_CASE="TRUE"><BEGIN>&lt;cflock</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFLOGINUSER" IGNORE_CASE="TRUE"><BEGIN>&lt;cfloginuser</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFLOGIN" IGNORE_CASE="TRUE"><BEGIN>&lt;cflogin</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_1" IGNORE_CASE="TRUE"><BEGIN>&lt;cflogout</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFLOG" IGNORE_CASE="TRUE"><BEGIN>&lt;cflog</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFLOOP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfloop</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMAILPARAM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmailparam</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMAILPART" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmailpart</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMAIL" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmail</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMENUITEM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmenuitem</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMENU" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmenu</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMODULE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmodule</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFNTAUTHENTICATE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfntauthenticate</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFOBJECTCACHE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfobjectcache</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFOBJECT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfobject</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFOUTPUT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfoutput</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPARAM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfparam</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPDFFORMPARAM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfpdfformparam</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPDFFORM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfpdfform</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPDFPARAM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfpdfparam</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPDFSUBFORM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfpdfsubform</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPDF" IGNORE_CASE="TRUE"><BEGIN>&lt;cfpdf</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPOD" IGNORE_CASE="TRUE"><BEGIN>&lt;cfpod</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPOP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfpop</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPRESENTATIONSLIDE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfpresentationslide</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPRESENTATION" IGNORE_CASE="TRUE"><BEGIN>&lt;cfpresentation</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPRESENTER" IGNORE_CASE="TRUE"><BEGIN>&lt;cfpresenter</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPRINT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfprint</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPROCESSINGDIRECTIVE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfprocessingdirective</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPROCPARAM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfprocparam</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPROCRESULT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfprocresult</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPROPERTY" IGNORE_CASE="TRUE"><BEGIN>&lt;cfproperty</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFREGISTRY" IGNORE_CASE="TRUE"><BEGIN>&lt;cfregistry</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFREPORTPARAM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfreportparam</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFREPORT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfreport</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_2" IGNORE_CASE="TRUE"><BEGIN>&lt;cfrethrow</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXPRESSION_TAG" IGNORE_CASE="TRUE"><BEGIN>&lt;cfreturn</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSAVECONTENT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfsavecontent</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSCHEDULE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfschedule</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSEARCH" IGNORE_CASE="TRUE"><BEGIN>&lt;cfsearch</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSELECT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfselect</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSETTING" IGNORE_CASE="TRUE"><BEGIN>&lt;cfsetting</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSET" IGNORE_CASE="TRUE"><BEGIN>&lt;cfset</BEGIN><END>&gt;</END></SPAN>		
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_2" IGNORE_CASE="TRUE"><BEGIN>&lt;cfsilent</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSLIDER" IGNORE_CASE="TRUE"><BEGIN>&lt;cfslider</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSPRYDATASET" IGNORE_CASE="TRUE"><BEGIN>&lt;cfsprydataset</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSTOREDPROC" IGNORE_CASE="TRUE"><BEGIN>&lt;cfstoredproc</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSWITCH" IGNORE_CASE="TRUE"><BEGIN>&lt;cfswitch</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFTABLE" IGNORE_CASE="TRUE"><BEGIN>&lt;cftable</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFTEXTAREA" IGNORE_CASE="TRUE"><BEGIN>&lt;cftextarea</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFTHREAD" IGNORE_CASE="TRUE"><BEGIN>&lt;cfthread</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFTHROW" IGNORE_CASE="TRUE"><BEGIN>&lt;cfthrow</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFTIMER" IGNORE_CASE="TRUE"><BEGIN>&lt;cftimer</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFTOOLTIP" IGNORE_CASE="TRUE"><BEGIN>&lt;cftooltip</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFTRACE" IGNORE_CASE="TRUE"><BEGIN>&lt;cftrace</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFTRANSACTION" IGNORE_CASE="TRUE"><BEGIN>&lt;cftransaction</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFTREEITEM" IGNORE_CASE="TRUE"><BEGIN>&lt;cftreeitem</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFTREE" IGNORE_CASE="TRUE"><BEGIN>&lt;cftree</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_2" IGNORE_CASE="TRUE"><BEGIN>&lt;cftry</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFUPDATE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfupdate</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFWDDX" IGNORE_CASE="TRUE"><BEGIN>&lt;cfwddx</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFWINDOW" IGNORE_CASE="TRUE"><BEGIN>&lt;cfwindow</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFXML" IGNORE_CASE="TRUE"><BEGIN>&lt;cfxml</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFZIPPARAM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfzipparam</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFZIP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfzip</BEGIN><END>&gt;</END></SPAN>
+
+		<!-- Tags considered obsolete, according to the Adobe docs: 
+			cfauthenticate
+			cfgraph
+			cfgraphdata
+			cfservlet
+			cfservletparam
+			cftextinput
+		-->
+		
+		<!-- Handling for CF custom tags: -->
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CUSTOMOPEN" IGNORE_CASE="TRUE"><BEGIN>&lt;cf_</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CUSTOMCLOSE" IGNORE_CASE="TRUE"><BEGIN>&lt;/cf_</BEGIN><END>&gt;</END></SPAN>
+
+		<!-- Close tags: -->
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFMLTAGS_CLOSE" IGNORE_CASE="TRUE"><BEGIN>&lt;/cf</BEGIN><END>&gt;</END></SPAN>
+
+		<!-- CFML-crunched stuff: -->
+		<SPAN TYPE="NULL" DELEGATE="CFML_CRUNCHED" IGNORE_CASE="TRUE"><BEGIN>#</BEGIN><END>#</END></SPAN>
+		
+		<!-- HTML: -->
+		&htmlspans;
+		
+	</RULES>
+
+	<!-- Additional rulesets to which we've delegated, from above: -->
+	<RULES SET="EXCLAIMRULES" DEFAULT="LABEL">
+		&dtdrules;
+	</RULES>
+	
+	<RULES SET="JAVASCRIPT" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		<!-- Stuff to get the script tag itself marked up correctly: -->
+		<SEQ TYPE="MARKUP">&lt;script </SEQ>
+		<SEQ TYPE="MARKUP">&lt;/script&gt;</SEQ>
+
+		<!-- TODO: Document this hack and its implications (RPS 11/27/2008) -->
+		<SEQ TYPE="MARKUP">&gt;</SEQ>
+
+		<!-- Attributes for this tag: -->
+		<SEQ TYPE="LABEL">charset</SEQ>
+		<SEQ TYPE="LABEL">type</SEQ>
+		<SEQ TYPE="LABEL">language</SEQ>
+		<SEQ TYPE="LABEL">defer</SEQ>
+		<SEQ TYPE="LABEL">event</SEQ>
+		<SEQ TYPE="LABEL">for</SEQ>	
+		<SEQ TYPE="LABEL">async</SEQ> <!-- HTML5 -->	
+
+		<!-- Rudimentary CFML tag and comment stuff within this context: -->
+		<SPAN TYPE="KEYWORD2" IGNORE_CASE="TRUE"><BEGIN>&lt;cf</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" IGNORE_CASE="TRUE"><BEGIN>&lt;/cf</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="COMMENT2"><BEGIN>&lt;!---</BEGIN><END>---&gt;</END></SPAN>
+
+		&javascriptrules;
+	</RULES>
+	
+	<RULES SET="CSS" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		<!-- Stuff to get the style tag itself marked up correctly: -->
+		<SEQ TYPE="MARKUP">&lt;style </SEQ>
+		<SEQ TYPE="MARKUP">&lt;/style&gt;</SEQ>
+
+		<!-- TODO: Document this hack and its implications (RPS 11/27/2008) -->
+		<SEQ TYPE="MARKUP">&gt;</SEQ>
+
+		<!-- Attributes for this tag: -->
+		<SEQ TYPE="LABEL">lang</SEQ>
+		<SEQ TYPE="LABEL">dir</SEQ>
+		<SEQ TYPE="LABEL">type</SEQ>
+		<SEQ TYPE="LABEL">media</SEQ>
+		<SEQ TYPE="LABEL">title</SEQ>
+		<SEQ TYPE="LABEL">scoped</SEQ> <!-- HTML5 -->
+		
+		<!-- Rudimentary CFML tag and comment stuff within this context: -->
+		<SPAN TYPE="KEYWORD2" IGNORE_CASE="TRUE"><BEGIN>&lt;cf</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" IGNORE_CASE="TRUE"><BEGIN>&lt;/cf</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="COMMENT2"><BEGIN>&lt;!---</BEGIN><END>---&gt;</END></SPAN>
+
+		&cssrules;
+	</RULES>
+	
+	<RULES SET="HTMLTAGS" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&htmlrules;
+	</RULES>
+	
+	<RULES SET="HTMLTAGS_CLOSE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="FALSE">
+		&htmlcloserules;
+	</RULES>
+	
+	<RULES SET="CFML_CRUNCHED" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		<SPAN TYPE="LITERAL1"><BEGIN>"</BEGIN><END>"</END></SPAN>
+		<SPAN TYPE="LITERAL1"><BEGIN>'</BEGIN><END>'</END></SPAN>
+		<SEQ TYPE="LABEL">#</SEQ>
+
+		&cfmlsharedrules;
+	</RULES>
+
+	<!-- All valid CFML close tags: -->
+	<RULES SET="CFMLTAGS_CLOSE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHTLIGHT_DIGITS="TRUE">
+		<SEQ TYPE="KEYWORD2">&lt;/</SEQ>
+		<SEQ TYPE="KEYWORD2">&gt;</SEQ>
+		
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfcase</KEYWORD2>
+			<KEYWORD2>cfcatch</KEYWORD2>
+			<KEYWORD2>cfchartseries</KEYWORD2>
+			<KEYWORD2>cfchart</KEYWORD2>
+			<KEYWORD2>cfdiv</KEYWORD2>
+			<KEYWORD2>cfdefaultcase</KEYWORD2>
+			<KEYWORD2>cfcomponent</KEYWORD2>
+			<KEYWORD2>cfdocumentitem</KEYWORD2>
+			<KEYWORD2>cfdocumentsection</KEYWORD2>
+			<KEYWORD2>cfdocument</KEYWORD2>
+			<KEYWORD2>cfexchangemail</KEYWORD2>
+			<KEYWORD2>cfexecute</KEYWORD2>
+			<KEYWORD2>cfformgroup</KEYWORD2>
+			<KEYWORD2>cfformitem</KEYWORD2>
+			<KEYWORD2>cfform</KEYWORD2>
+			<KEYWORD2>cffunction</KEYWORD2>
+			<KEYWORD2>cfgrid</KEYWORD2>
+			<KEYWORD2>cfhttp</KEYWORD2>
+			<KEYWORD2>cfif</KEYWORD2>
+			<KEYWORD2>cfinterface</KEYWORD2>
+			<KEYWORD2>cfinvoke</KEYWORD2>
+			<KEYWORD2>cflayoutarea</KEYWORD2>
+			<KEYWORD2>cflayout</KEYWORD2>
+			<KEYWORD2>cflock</KEYWORD2>
+			<KEYWORD2>cflogin</KEYWORD2>
+			<KEYWORD2>cfloop</KEYWORD2>
+			<KEYWORD2>cfmailpart</KEYWORD2>
+			<KEYWORD2>cfmenuitem</KEYWORD2>
+			<KEYWORD2>cfmenu</KEYWORD2>
+			<KEYWORD2>cfmail</KEYWORD2>
+			<KEYWORD2>cfoutput</KEYWORD2>
+			<KEYWORD2>cfpdfform</KEYWORD2>
+			<KEYWORD2>cfpdfsubform</KEYWORD2>
+			<KEYWORD2>cfpdf</KEYWORD2>
+			<KEYWORD2>cfpod</KEYWORD2>
+			<KEYWORD2>cfpresentationslide</KEYWORD2>
+			<KEYWORD2>cfpresentation</KEYWORD2>
+			<KEYWORD2>cfprocessingdirective</KEYWORD2>
+			<KEYWORD2>cfreport</KEYWORD2>
+			<KEYWORD2>cfsavecontent</KEYWORD2>
+			<KEYWORD2>cfselect</KEYWORD2>
+			<KEYWORD2>cfsilent</KEYWORD2>
+			<KEYWORD2>cfstoredproc</KEYWORD2>
+			<KEYWORD2>cfswitch</KEYWORD2>
+			<KEYWORD2>cftable</KEYWORD2>
+			<KEYWORD2>cftextarea</KEYWORD2>
+			<KEYWORD2>cfthread</KEYWORD2>
+			<KEYWORD2>cftimer</KEYWORD2>
+			<KEYWORD2>cftooltip</KEYWORD2>
+			<KEYWORD2>cftrace</KEYWORD2>
+			<KEYWORD2>cftransaction</KEYWORD2>
+			<KEYWORD2>cftree</KEYWORD2>
+			<KEYWORD2>cftry</KEYWORD2>
+			<KEYWORD2>cfwindow</KEYWORD2>
+			<KEYWORD2>cfxml</KEYWORD2>
+			<KEYWORD2>cfzip</KEYWORD2>
+			
+			<!-- BD -->
+			<KEYWORD2>cfcachecontent</KEYWORD2>
+			<KEYWORD2>cfthrottle</KEYWORD2>
+			<KEYWORD2>cfxmlrpc</KEYWORD2>
+			
+			<!-- Railo -->
+			<KEYWORD2>cffinally</KEYWORD2>
+			<KEYWORD2>cfvideoplayer</KEYWORD2>
+			<KEYWORD2>cfwhile</KEYWORD2>
+		</KEYWORDS>
+	</RULES>
+
+	<!-- RPS: I've left this here as it is fundamentally different from the other CFML tag rules -->
+	<RULES SET="CFML_CFQUERY" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+
+		<!-- Stuff to get the CFQUERY tag itself marked up correctly: -->
+		<SEQ TYPE="KEYWORD2">&lt;cfquery </SEQ>
+		<SEQ TYPE="KEYWORD2">&lt;/cfquery&gt;</SEQ>
+
+		<!-- RPS 11.26.2008: A couple of minor hacks to get the CFML CFQUERY tag marked up correctly:
+			a. "NAME" is both a common attribute for the CFQUERY tag and a SQL datatype. I care more (in this
+				context that it gets marked as the tag attribute. Based on this, I have also commented out the
+				entry in the T-SQL rules (included below) that defines "NAME" as a data type.
+			b. There are also likely conflicts with some of the other attributes for the CFQUERY and
+				CFQUERYPARAM tags with stuff that may show up in the SQL itself as column names, etc. Not
+				sure how to work around those within this context.
+			c. The ">" character both closes the CFQUERY tag and is a SQL operator. Again within this context
+				I care more about getting the tag marked up correctly. The operator definition for this still
+				exists within the T-SQL rules, so within other contexts (anything other than SQL embedded within
+				CFML markup), it will get handled correctly.
+		-->
+		<SEQ TYPE="LABEL">NAME</SEQ>
+		<SEQ TYPE="KEYWORD2">&gt;</SEQ>
+		
+		<!-- Additional CFQUERY attributes: -->
+		<SEQ TYPE="LABEL">attributeCollection</SEQ>
+		<SEQ TYPE="LABEL">blockfactor</SEQ>
+		<SEQ TYPE="LABEL">cachedafter</SEQ>
+		<SEQ TYPE="LABEL">cachedwithin</SEQ>
+		<SEQ TYPE="LABEL">datasource</SEQ>
+		<SEQ TYPE="LABEL">dbtype</SEQ>
+		<SEQ TYPE="LABEL">debug</SEQ>
+		<SEQ TYPE="LABEL">maxrows</SEQ>
+		<SEQ TYPE="LABEL">password</SEQ>
+		<SEQ TYPE="LABEL">result</SEQ>
+		<SEQ TYPE="LABEL">timeout</SEQ>
+		<SEQ TYPE="LABEL">username</SEQ>
+		
+		<SEQ TYPE="LABEL">background</SEQ> <!-- BD -->
+		<SEQ TYPE="LABEL">cachedUntilChange</SEQ> <!-- BD -->
+		<SEQ TYPE="LABEL">cacheName</SEQ> <!-- BD -->		
+		<SEQ TYPE="LABEL">connectString</SEQ> <!-- BD -->
+		<SEQ TYPE="LABEL">preserveSingleQuotes</SEQ> <!-- BD -->
+		
+		<!-- Handling for CFQUERYPARAM -->
+		<SEQ TYPE="KEYWORD2">&lt;cfqueryparam</SEQ>
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_BIGINT</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_BIT</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_CHAR</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_BLOB</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_CLOB</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_DATE</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_DECIMAL</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_DOUBLE</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_FLOAT</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_IDSTAMP</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_INTEGER</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_LONGVARCHAR</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_MONEY</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_MONEY4</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_NUMERIC</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_REAL</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_REFCURSOR</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_SMALLINT</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_TIME</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_TIMESTAMP</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_TINYINT</SEQ>
+		<SEQ TYPE="KEYWORD2">CF_SQL_VARCHAR</SEQ>
+		
+		<SEQ TYPE="KEYWORD2">CF_SQL_BINARY</SEQ> <!-- BD -->
+		<SEQ TYPE="KEYWORD2">CF_SQL_VARBINARY</SEQ> <!-- BD -->
+		<SEQ TYPE="KEYWORD2">CF_SQL_NCLOB</SEQ> <!-- BD -->
+		<SEQ TYPE="KEYWORD2">CF_SQL_NCHAR</SEQ> <!-- BD -->
+		<SEQ TYPE="KEYWORD2">CF_SQL_NVARCHAR</SEQ> <!-- BD -->
+		
+		<SEQ TYPE="LABEL">cfsqltype</SEQ>
+		<SEQ TYPE="LABEL">list</SEQ>
+		<SEQ TYPE="LABEL">maxlength</SEQ>
+		<SEQ TYPE="LABEL">null</SEQ>
+		<SEQ TYPE="LABEL">scale</SEQ>
+		<SEQ TYPE="LABEL">separator</SEQ>
+
+
+		<!-- Handling for embedded CF; this is kind of clunky, but at least it gets the embeded
+				CFML stuff set off in a different color, even if it doesn't look completely like
+				the rest of the CFML outside of CFQUERY:
+		-->
+		<SPAN TYPE="KEYWORD2"><BEGIN>&lt;cf</BEGIN><END>&gt;</END></SPAN>				<!-- CFML open tag -->
+		<SPAN TYPE="KEYWORD2"><BEGIN>&lt;/cf</BEGIN><END>&gt;</END></SPAN>			<!-- CFML close tag -->
+		<SPAN TYPE="COMMENT2"><BEGIN>&lt;!---</BEGIN><END>---&gt;</END></SPAN>	<!-- CFML comment -->
+		
+		<!-- Delegate the rest of the heavy lifting to the existing T-SQL rules: -->
+		&tsqlrules;		
+	</RULES>
+
+	<!-- CF custom tag opens/closes: -->
+	<RULES SET="CFML_CUSTOMOPEN" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<SPAN TYPE="KEYWORD2"><BEGIN>cf_</BEGIN><END> </END></SPAN>
+	</RULES>
+
+	<RULES SET="CFML_CUSTOMCLOSE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		<SPAN TYPE="KEYWORD2"><BEGIN>&lt;/cf_</BEGIN><END>&gt;</END></SPAN>
+	</RULES>
+
+	<!-- Rules for all CFML tags, organized pretty much alphabetically by tag name: -->
+	<RULES SET="CFML_CFABORT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag and attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfabort</KEYWORD2>
+			<LABEL>showError</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFADMIN" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag and attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfadmin</KEYWORD2>
+			
+			<!-- TODO: RPS 01/2009 - This is a Railo-specific tag; no docs? -->
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFAJAXIMPORT" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfajaximport</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>cssSrc</LABEL>
+			<LABEL>scriptSrc</LABEL>
+			<LABEL>tags</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFAJAXPROXY" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfajaxproxy</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>bind</LABEL>
+			<LABEL>cfc</LABEL>
+			<LABEL>jscClassName</LABEL>
+			<LABEL>onError</LABEL>
+			<LABEL>onSuccess</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFAPPLET" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfapplet</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>appletSource</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>align</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>hSpace</LABEL>
+			<LABEL>notSupported</LABEL>
+			<LABEL>vSpace</LABEL>
+			<LABEL>width</LABEL>
+		</KEYWORDS>
+
+		<!-- TODO: Support for the param_n attribute (RPS 11/27/08) -->
+	</RULES>
+
+	<RULES SET="CFML_CFAPPLICATION" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfapplication</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>applicationTimeout</LABEL>
+			<LABEL>clientManagement</LABEL>
+			<LABEL>clientStorage</LABEL>
+			<LABEL>loginStorage</LABEL>
+			<LABEL>scriptProtect</LABEL>
+			<LABEL>secureJSON</LABEL>
+			<LABEL>secureJSONPrefix</LABEL>
+			<LABEL>sessionManagement</LABEL>
+			<LABEL>sessionTimeout</LABEL>
+			<LABEL>setClientCookies</LABEL>
+			<LABEL>setDomainCookies</LABEL>
+			
+			<LABEL>mappings</LABEL>	<!-- R3 -->
+			<LABEL>customTags</LABEL>	<!-- R3 -->
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFARGUMENT" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfargument</KEYWORD2>
+			<LABEL>name</LABEL>
+			<LABEL>default</LABEL>
+			<LABEL>displayName</LABEL>
+			<LABEL>hint</LABEL>
+			<LABEL>required</LABEL>
+			<LABEL>type</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFASSERT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		<!-- The tag start and end: -->
+		<SEQ TYPE="KEYWORD2">&lt;cfassert</SEQ>
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ>
+		<SEQ TYPE="KEYWORD2">&gt;</SEQ>
+		
+		<!-- Common stuff for most CF tags attributes: -->
+		<SPAN TYPE="LITERAL1"><BEGIN>"</BEGIN><END>"</END></SPAN>
+		<SPAN TYPE="LITERAL1"><BEGIN>'</BEGIN><END>'</END></SPAN>
+		<SEQ TYPE="OPERATOR">=</SEQ>
+		
+		&cfmlsharedrules;
+	</RULES>
+
+	<RULES SET="CFML_CFASSOCIATE" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfassociate</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>baseTag</LABEL>
+			<LABEL>dataCollection</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFBASE" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfbase</KEYWORD2>
+			<LABEL>target</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCACHE" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfcache</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>directory</LABEL>
+			<LABEL>expireURL</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>port</LABEL>
+			<LABEL>protocol</LABEL>
+			<LABEL>timespan</LABEL>
+			<LABEL>username</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCACHECONTENT" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfcachecontent</KEYWORD2>
+			<LABEL>action</LABEL>
+			<LABEL>cachedWithin</LABEL>
+			<LABEL>cacheName</LABEL>
+			<LABEL>group</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCALENDAR" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfcalendar</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>dayNames</LABEL>
+			<LABEL>disabled</LABEL>
+			<LABEL>enabled</LABEL>
+			<LABEL>endRange</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>mask</LABEL>
+			<LABEL>monthNames</LABEL>
+			<LABEL>onBlur</LABEL>
+			<LABEL>onChange</LABEL>
+			<LABEL>onFocus</LABEL>
+			<LABEL>selectedDate</LABEL>
+			<LABEL>startRange</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>tooltip</LABEL>
+			<LABEL>visible</LABEL>
+			<LABEL>width</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCASE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfcase</KEYWORD2>
+			<LABEL>value</LABEL>
+			<LABEL>delimiters</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCATCH" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfcatch</KEYWORD2>
+			<LABEL>type</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCHARTDATA" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfchartdata</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>item</LABEL>
+			<LABEL>value</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCHARTDOMAINMARKER" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfchartdomainmarker</KEYWORD2>
+			<LABEL>color</LABEL>
+			<LABEL>end</LABEL>
+			<LABEL>font</LABEL>
+			<LABEL>fontBold</LABEL>
+			<LABEL>fontItalic</LABEL>
+			<LABEL>fontSize</LABEL>
+			<LABEL>label</LABEL>
+			<LABEL>labelColor</LABEL>
+			<LABEL>labelPosition</LABEL>
+			<LABEL>start</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCHARTIMAGE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfchartimage</KEYWORD2>
+			<LABEL>file</LABEL>
+			<LABEL>uriDirectory</LABEL>
+			<LABEL>alignment</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCHARTLEGEND" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfchartlegend</KEYWORD2>
+			<LABEL>backgroundColor</LABEL>
+			<LABEL>font</LABEL>
+			<LABEL>fontBold</LABEL>
+			<LABEL>fontItalic</LABEL>
+			<LABEL>fontSize</LABEL>
+			<LABEL>labelColor</LABEL>
+			<LABEL>position</LABEL>
+			<LABEL>showBorder</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCHARTRANGEMARKER" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfchartrangemarker</KEYWORD2>
+			<LABEL>color</LABEL>
+			<LABEL>end</LABEL>
+			<LABEL>font</LABEL>
+			<LABEL>fontBold</LABEL>
+			<LABEL>fontItalic</LABEL>
+			<LABEL>fontSize</LABEL>
+			<LABEL>label</LABEL>
+			<LABEL>labelColor</LABEL>
+			<LABEL>labelPosition</LABEL>
+			<LABEL>start</LABEL>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFCHARTSERIES" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfchartseries</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>itemColumn</LABEL>
+			<LABEL>valueColumn</LABEL>
+			<LABEL>colorList</LABEL>
+			<LABEL>dataLabelAngle</LABEL> <!-- BD -->
+			<LABEL>dataLabelColor</LABEL> <!-- BD -->
+			<LABEL>dataLabelFont</LABEL> <!-- BD -->
+			<LABEL>dataLabelFontBold</LABEL> <!-- BD -->
+			<LABEL>dataLabelFontItalic</LABEL> <!-- BD -->
+			<LABEL>dataLabelFontSize</LABEL> <!-- BD -->
+			<LABEL>dataLabelStyle</LABEL>
+			<LABEL>markerStyle</LABEL>
+			<LABEL>negativeDataLabelPosition</LABEL> <!-- BD -->
+			<LABEL>paintStyle</LABEL>
+			<LABEL>positiveDataLabelPosition</LABEL> <!-- BD -->
+			<LABEL>query</LABEL>
+			<LABEL>seriesColor</LABEL>
+			<LABEL>seriesLabel</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCHARTTITLE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfcharttitle</KEYWORD2>
+			<LABEL>text</LABEL>
+			<LABEL>backgroundColor</LABEL>
+			<LABEL>font</LABEL>
+			<LABEL>fontBold</LABEL>
+			<LABEL>fontItalic</LABEL>
+			<LABEL>fontSize</LABEL>
+			<LABEL>labelColor</LABEL>
+			<LABEL>margin</LABEL>
+			<LABEL>padding</LABEL>
+			<LABEL>position</LABEL>
+			<LABEL>showBorder</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCHART" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfchart</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>backgroundColor</LABEL>
+			<LABEL>chartHeight</LABEL>
+			<LABEL>chartWidth</LABEL>
+			<LABEL>dataBackgroundColor</LABEL>
+			<LABEL>font</LABEL>
+			<LABEL>fontBold</LABEL>
+			<LABEL>fontItalic</LABEL>
+			<LABEL>fontSize</LABEL>
+			<LABEL>foregroundColor</LABEL>
+			<LABEL>format</LABEL>
+			<LABEL>gridlines</LABEL>
+			<LABEL>labelFormat</LABEL>
+			<LABEL>markerSize</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>pieSliceStyle</LABEL>
+			<LABEL>scaleFrom</LABEL>
+			<LABEL>scaleTo</LABEL>
+			<LABEL>seriesPlacement</LABEL>
+			<LABEL>show3D</LABEL>
+			<LABEL>showBorder</LABEL>
+			<LABEL>showLegend</LABEL>
+			<LABEL>showMarkers</LABEL>
+			<LABEL>showXGridlines</LABEL>
+			<LABEL>showYGridlines</LABEL>
+			<LABEL>sortXAxis</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>title</LABEL>
+			<LABEL>tipbgcolor</LABEL>
+			<LABEL>tipStyle</LABEL>
+			<LABEL>url</LABEL>
+			<LABEL>xAxisTitle</LABEL>
+			<LABEL>xAxisType</LABEL>
+			<LABEL>xOffset</LABEL>
+			<LABEL>yAxisTitle</LABEL>
+			<LABEL>yAxisType</LABEL>
+			<LABEL>yOffset</LABEL>
+
+			<LABEL>default</LABEL> <!-- BD -->
+			<LABEL>maxCategoryLabelLines</LABEL> <!-- BD -->
+			<LABEL>xAxixUpperMargin</LABEL> <!-- BD -->
+			<LABEL>yAxisUnits</LABEL> <!-- BD -->
+			<LABEL>yAxxisUpperMargin</LABEL> <!-- BD -->
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCOL" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfcol</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>text</LABEL>
+			<LABEL>align</LABEL>
+			<LABEL>width</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCOLLECTION" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfcollection</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>collection</LABEL>
+			<LABEL>language</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>path</LABEL>
+			
+			<LABEL>wait</LABEL> <!-- BD -->
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFCOMPONENT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfcomponent</KEYWORD2>
+			<LABEL>bindingName</LABEL>
+			<LABEL>displayName</LABEL>
+			<LABEL>extends</LABEL>
+			<LABEL>hint</LABEL>
+			<LABEL>implements</LABEL>
+			<LABEL>nameSpace</LABEL>
+			<LABEL>output</LABEL>
+			<LABEL>portTypeName</LABEL>
+			<LABEL>serviceAddress</LABEL>
+			<LABEL>servicePortName</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>wsdlFile</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCONTENT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfcontent</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>deleteFile</LABEL>
+			<LABEL>file</LABEL>
+			<LABEL>reset</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>variable</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCOOKIE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfcookie</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>domain</LABEL>
+			<LABEL>expires</LABEL>
+			<LABEL>path</LABEL>
+			<LABEL>secure</LABEL>
+			<LABEL>value</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFDBINFO" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfdbinfo</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>dataSource</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>dbName</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>pattern</LABEL>
+			<LABEL>table</LABEL>
+			<LABEL>userName</LABEL>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFDEBUGGER" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfdebugger</KEYWORD2>
+			<LABEL>logFile</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFDIRECTORY" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfdirectory</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>directory</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>filter</LABEL>
+			<LABEL>listInfo</LABEL>
+			<LABEL>mode</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>newDirectory</LABEL>
+			<LABEL>recurse</LABEL>
+			<LABEL>sort</LABEL>
+			<LABEL>type</LABEL>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFDIV" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfdiv</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>bindOnLoad</LABEL>
+			<LABEL>bind</LABEL>
+			<LABEL>ID</LABEL>
+			<LABEL>onBindError</LABEL>
+			<LABEL>tagName</LABEL>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFDOCUMENT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfdocument</KEYWORD2>
+			<LABEL>format</LABEL>
+			<LABEL>authPassword</LABEL>
+			<LABEL>authUser</LABEL>
+			<LABEL>backgroundVisible</LABEL>
+			<LABEL>bookmark</LABEL>
+			<LABEL>encryption</LABEL>
+			<LABEL>filename</LABEL>
+			<LABEL>fontEmbed</LABEL>
+			<LABEL>localUrl</LABEL>
+			<LABEL>marginBottom</LABEL>
+			<LABEL>marginLeft</LABEL>
+			<LABEL>marginRight</LABEL>
+			<LABEL>marginTop</LABEL>
+			<LABEL>mimeType</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>orientation</LABEL>
+			<LABEL>overwrite</LABEL>
+			<LABEL>ownerPassword</LABEL>
+			<LABEL>pageHeight</LABEL>
+			<LABEL>pageType</LABEL>
+			<LABEL>pageWidth</LABEL>
+			<LABEL>permissions</LABEL>
+			<LABEL>proxyHost</LABEL>
+			<LABEL>proxyPassword</LABEL>
+			<LABEL>proxyPort</LABEL>
+			<LABEL>proxyUser</LABEL>
+			<LABEL>saveAsName</LABEL>
+			<LABEL>scale</LABEL>
+			<LABEL>src</LABEL>
+			<LABEL>srcfile</LABEL>
+			<LABEL>unit</LABEL>
+			<LABEL>userAgent</LABEL>
+			<LABEL>userPassword</LABEL>
+
+			<LABEL>author</LABEL> <!-- BD -->
+			<LABEL>subject</LABEL> <!-- BD -->
+			<LABEL>title</LABEL> <!-- BD -->
+			<LABEL>keywords</LABEL> <!-- BD -->
+			<LABEL>timeout</LABEL> <!-- BD -->
+			<LABEL>watermarkImage</LABEL> <!-- BD -->
+			<LABEL>watermark</LABEL> <!-- BD -->
+			
+			<LABEL>htmlBookmark</LABEL> <!-- R3 -->
+			
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFDOCUMENTITEM" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfdocumentitem</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>type</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFDOCUMENTSECTION" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfdocumentsection</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>authPassword</LABEL>
+			<LABEL>authUser</LABEL>
+			<LABEL>marginBottom</LABEL>
+			<LABEL>marginLeft</LABEL>
+			<LABEL>marginRight</LABEL>
+			<LABEL>marginTop</LABEL>
+			<LABEL>mimeType</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>src</LABEL>
+			<LABEL>srcFile</LABEL>
+			<LABEL>userAgent</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFDUMP" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfdump</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>var</LABEL>
+			<LABEL>expand</LABEL>
+			<LABEL>format</LABEL>
+			<LABEL>hide</LABEL>
+			<LABEL>keys</LABEL>
+			<LABEL>label</LABEL>
+			<LABEL>metaInfo</LABEL>
+			<LABEL>output</LABEL>
+			<LABEL>show</LABEL>
+			<LABEL>showUDFs</LABEL>
+			<LABEL>top</LABEL>
+			
+			<LABEL>version</LABEL> <!-- BD -->
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFERROR" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cferror</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>exception</LABEL>
+			<LABEL>mailTo</LABEL>
+			<LABEL>template</LABEL>
+			<LABEL>type</LABEL>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFEXCHANGECALENDAR" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfexchangecalendar</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>attachmentPath</LABEL>
+			<LABEL>connection</LABEL>
+			<LABEL>event</LABEL>
+			<LABEL>generateUniqueFilenames</LABEL>
+			<LABEL>message</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>notify</LABEL>
+			<LABEL>responseType</LABEL>
+			<LABEL>result</LABEL>
+			<LABEL>uid</LABEL>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFEXCHANGECONNECTION" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfexchangeconnection</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>connection</LABEL>
+			<LABEL>ExchangeServerLanguage</LABEL>
+			<LABEL>folder</LABEL>
+			<LABEL>formBasedAuthentication</LABEL>
+			<LABEL>mailboxName</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>port</LABEL>
+			<LABEL>protocol</LABEL>
+			<LABEL>proxyHost</LABEL>
+			<LABEL>proxyPort</LABEL>
+			<LABEL>recurse</LABEL>
+			<LABEL>server</LABEL>
+			<LABEL>username</LABEL>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFEXCHANGECONTACT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfexchangecontact</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>attachmentPath</LABEL>
+			<LABEL>connection</LABEL>
+			<LABEL>contact</LABEL>
+			<LABEL>generateUniqueFilenames</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>result</LABEL>
+			<LABEL>uid</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFEXCHANGEFILTER" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfexchangefilter</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>value</LABEL>
+			<LABEL>from</LABEL>
+			<LABEL>to</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFEXCHANGEMAIL" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfexchangemail</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>attachmentPath</LABEL>
+			<LABEL>connection</LABEL>
+			<LABEL>destinationFolder</LABEL>
+			<LABEL>folder</LABEL>
+			<LABEL>generateUniqueFilenames</LABEL>
+			<LABEL>mailUID</LABEL>
+			<LABEL>meetingUID</LABEL>
+			<LABEL>message</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>uid</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFEXCHANGETASK" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfexchangetask</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>attachmentPath</LABEL>
+			<LABEL>connection</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>result</LABEL>
+			<LABEL>task</LABEL>
+			<LABEL>uid</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFEXECUTE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfexecute</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>arguments</LABEL>
+			<LABEL>errorFile</LABEL> <!-- OpenBD -->
+			<LABEL>errorVariable</LABEL> <!-- OpenBD -->
+			<LABEL>name</LABEL>
+			<LABEL>outputFile</LABEL>
+			<LABEL>timeout</LABEL>
+			<LABEL>variable</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFEXIT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfexit</KEYWORD2>
+			<LABEL>method</LABEL>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFFEED" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cffeed</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>columnMap</LABEL>
+			<LABEL>enclosureDir</LABEL>
+			<LABEL>ignoreEnclosureDir</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>outputFile</LABEL>
+			<LABEL>overwrite</LABEL>
+			<LABEL>overwriteEnclosure</LABEL>
+			<LABEL>properties</LABEL>
+			<LABEL>proxyPassword</LABEL>
+			<LABEL>proxyPort</LABEL>
+			<LABEL>proxyServer</LABEL>
+			<LABEL>query</LABEL>
+			<LABEL>source</LABEL>
+			<LABEL>timeout</LABEL>
+			<LABEL>userAgent</LABEL>
+			<LABEL>xmlVar</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFFILE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cffile</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>accept</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>addNewLine</LABEL>
+			<LABEL>attributes</LABEL>
+			<LABEL>charset</LABEL>
+			<LABEL>destination</LABEL>
+			<LABEL>file</LABEL>
+			<LABEL>fileField</LABEL>
+			<LABEL>fixNewLine</LABEL>
+			<LABEL>mode</LABEL>
+			<LABEL>nameConflict</LABEL>
+			<LABEL>output</LABEL>
+			<LABEL>result</LABEL>
+			<LABEL>source</LABEL>
+			<LABEL>variable</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFFLUSH" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfflush</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>interval</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFFORM" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfform</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>accessible</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>archive</LABEL>
+			<LABEL>codeBase</LABEL>
+			<LABEL>format</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>id</LABEL>
+			<LABEL>method</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>onError</LABEL>
+			<LABEL>onLoad</LABEL>
+			<LABEL>onReset</LABEL>
+			<LABEL>onSubmit</LABEL>
+			<LABEL>onSuccess</LABEL>
+			<LABEL>preloader</LABEL>
+			<LABEL>preserveData</LABEL>
+			<LABEL>scriptSrc</LABEL>
+			<LABEL>skin</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>timeout</LABEL>
+			<LABEL>width</LABEL>
+			<LABEL>wMode</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFFORMGROUP" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfformgroup</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>enabled</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>id</LABEL>
+			<LABEL>label</LABEL>
+			<LABEL>maxRows</LABEL>
+			<LABEL>onChange</LABEL>
+			<LABEL>query</LABEL>
+			<LABEL>selectedIndex</LABEL>
+			<LABEL>startRow</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>tooltip</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>visible</LABEL>
+			<LABEL>width</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFFORMITEM" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfformitem</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>bind</LABEL>
+			<LABEL>enabled</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>tooltip</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>visible</LABEL>
+			<LABEL>width</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFFORWARD" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfforward</KEYWORD2>
+			<LABEL>template</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFFTP" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfftp</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>actionparam</LABEL>
+			<LABEL>ASCIIExtensionList</LABEL>
+			<LABEL>buffersize</LABEL>
+			<LABEL>connection</LABEL>
+			<LABEL>directory</LABEL>
+			<LABEL>existing</LABEL>
+			<LABEL>failIfExists</LABEL>
+			<LABEL>fingerprint</LABEL>
+			<LABEL>item</LABEL>
+			<LABEL>key</LABEL>
+			<LABEL>localFile</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>new</LABEL>
+			<LABEL>passive</LABEL>
+			<LABEL>passphrase</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>port</LABEL>
+			<LABEL>proxyServer</LABEL>
+			<LABEL>remoteFile</LABEL>
+			<LABEL>result</LABEL>
+			<LABEL>retryCount</LABEL>
+			<LABEL>secure</LABEL>
+			<LABEL>server</LABEL>
+			<LABEL>stopOnError</LABEL>
+			<LABEL>timeout</LABEL>
+			<LABEL>transferMode</LABEL>
+			<LABEL>username</LABEL>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFFUNCTION" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cffunction</KEYWORD2>
+			<LABEL>name</LABEL>
+			<LABEL>access</LABEL>
+			<LABEL>description</LABEL>
+			<LABEL>displayName</LABEL>
+			<LABEL>hint</LABEL>
+			<LABEL>output</LABEL>
+			<LABEL>returnFormat</LABEL>
+			<LABEL>returnType</LABEL>
+			<LABEL>roles</LABEL>
+			<LABEL>secureJSON</LABEL>
+			<LABEL>verifyClient</LABEL>
+			
+			<LABEL>type</LABEL> <!-- BD -->
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFGRID" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfgrid</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>align</LABEL>
+			<LABEL>appendKey</LABEL>
+			<LABEL>autoWidth</LABEL>
+			<LABEL>bgColor</LABEL>
+			<LABEL>bind</LABEL>
+			<LABEL>bindOnLoad</LABEL>
+			<LABEL>bold</LABEL>
+			<LABEL>colHeaderAlign</LABEL>
+			<LABEL>colHeaderBold</LABEL>
+			<LABEL>colHeaderFont</LABEL>
+			<LABEL>colHeaderFontSize</LABEL>
+			<LABEL>colHeaderItalic</LABEL>
+			<LABEL>colHeaders</LABEL>
+			<LABEL>colHeaderTextColor</LABEL>
+			<LABEL>delete</LABEL>
+			<LABEL>deleteButton</LABEL>
+			<LABEL>enabled</LABEL>
+			<LABEL>font</LABEL>
+			<LABEL>fontSize</LABEL>
+			<LABEL>format</LABEL>
+			<LABEL>gridDataAlign</LABEL>
+			<LABEL>gridLines</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>highlightHref</LABEL>
+			<LABEL>href</LABEL>
+			<LABEL>hrefKey</LABEL>
+			<LABEL>hSpace</LABEL>
+			<LABEL>insert</LABEL>
+			<LABEL>insertButton</LABEL>
+			<LABEL>italic</LABEL>
+			<LABEL>maxRows</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>notSupported</LABEL>
+			<LABEL>onBlur</LABEL>
+			<LABEL>onChange</LABEL>
+			<LABEL>onError</LABEL>
+			<LABEL>onFocus</LABEL>
+			<LABEL>onValidate</LABEL>
+			<LABEL>pageSize</LABEL>
+			<LABEL>pictureBar</LABEL>
+			<LABEL>preservePageOnSort</LABEL>
+			<LABEL>query</LABEL>
+			<LABEL>rowHeaderAlign</LABEL>
+			<LABEL>rowHeaderBold</LABEL>
+			<LABEL>rowHeaderFont</LABEL>
+			<LABEL>rowHeaderFontSize</LABEL>
+			<LABEL>rowHeaderItalic</LABEL>
+			<LABEL>rowHeaders</LABEL>
+			<LABEL>rowHeaderTextColor</LABEL>
+			<LABEL>rowHeight</LABEL>
+			<LABEL>selectColor</LABEL>
+			<LABEL>selectMode</LABEL>
+			<LABEL>selectOnLoad</LABEL>
+			<LABEL>sort</LABEL>
+			<LABEL>sortAscendingButton</LABEL>
+			<LABEL>sortDescendingButton</LABEL>
+			<LABEL>stripeRowColor</LABEL>
+			<LABEL>stripeRows</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>target</LABEL>
+			<LABEL>textColor</LABEL>
+			<LABEL>tooltip</LABEL>
+			<LABEL>visible</LABEL>
+			<LABEL>vSpace</LABEL>
+			<LABEL>width</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFGRIDCOLUMN" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfgridcolumn</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>bgColor</LABEL>
+			<LABEL>bold</LABEL>
+			<LABEL>dataAlign</LABEL>
+			<LABEL>display</LABEL>
+			<LABEL>font</LABEL>
+			<LABEL>fontSize</LABEL>
+			<LABEL>header</LABEL>
+			<LABEL>headerAlign</LABEL>
+			<LABEL>headerBold</LABEL>
+			<LABEL>headerFont</LABEL>
+			<LABEL>headerFontSize</LABEL>
+			<LABEL>headerItalic</LABEL>
+			<LABEL>headerTextColor</LABEL>
+			<LABEL>href</LABEL>
+			<LABEL>hrefKey</LABEL>
+			<LABEL>italic</LABEL>
+			<LABEL>mask</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>numberFormat</LABEL>
+			<LABEL>select</LABEL>
+			<LABEL>target</LABEL>
+			<LABEL>textColor</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>valuesDelimiter</LABEL>
+			<LABEL>valuesDisplay</LABEL>
+			<LABEL>values</LABEL>
+			<LABEL>width</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFGRIDROW" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfgridrow</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>data</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFGRIDUPDATE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfgridupdate</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>dataSource</LABEL>
+			<LABEL>grid</LABEL>
+			<LABEL>keyOnly</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>tableName</LABEL>
+			<LABEL>tableOwner</LABEL>
+			<LABEL>tableQualifier</LABEL>
+			<LABEL>userName</LABEL>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFHEADER" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfheader</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>charset</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>value</LABEL>
+			<LABEL>statusCode</LABEL>
+			<LABEL>statusText</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFHTMLHEAD" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfhtmlhead</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>text</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFHTTP" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfhttp</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>charset</LABEL>
+			<LABEL>clientCert</LABEL>
+			<LABEL>clientCertPassword</LABEL>
+			<LABEL>columns</LABEL>
+			<LABEL>delimiter</LABEL>
+			<LABEL>file</LABEL>
+			<LABEL>firstrowasheaders</LABEL>
+			<LABEL>getAsBinary</LABEL>
+			<LABEL>method</LABEL>
+			<LABEL>multipart</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>path</LABEL>
+			<LABEL>port</LABEL>
+			<LABEL>proxyServer</LABEL>
+			<LABEL>proxyPort</LABEL>
+			<LABEL>proxyUser</LABEL>
+			<LABEL>proxyPassword</LABEL>
+			<LABEL>redirect</LABEL>
+			<LABEL>resolveURL</LABEL>
+			<LABEL>result</LABEL>
+			<LABEL>taglib</LABEL>
+			<LABEL>textQualifier</LABEL>
+			<LABEL>throwOnError</LABEL>
+			<LABEL>timeout</LABEL>
+			<LABEL>url</LABEL>
+			<LABEL>userAgent</LABEL>
+			<LABEL>username</LABEL>
+			
+			<LABEL>addToken</LABEL>	<!-- R3 -->
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFHTTPPARAM" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfhttpparam</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>encoded</LABEL>
+			<LABEL>file</LABEL>
+			<LABEL>mimeType</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>value</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFIMAGE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfimage</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>angle</LABEL>
+			<LABEL>color</LABEL>
+			<LABEL>destination</LABEL>
+			<LABEL>difficulty</LABEL>
+			<LABEL>fonts</LABEL>
+			<LABEL>fontSize</LABEL>
+			<LABEL>format</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>isBase64</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>overwrite</LABEL>
+			<LABEL>quality</LABEL>
+			<LABEL>source</LABEL>
+			<LABEL>structname</LABEL>
+			<LABEL>text</LABEL>
+			<LABEL>thickness</LABEL>
+			<LABEL>width</LABEL>
+			
+			<!-- BD -->
+			<LABEL>brightness</LABEL>
+			<LABEL>contrast</LABEL>
+			<LABEL>destFile</LABEL>
+			<LABEL>fontColor</LABEL>
+			<LABEL>position</LABEL>
+			<LABEL>nameConflict</LABEL>
+			<LABEL>srcFile</LABEL>
+			<LABEL>thickness</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>uriDirectory</LABEL>
+			<LABEL>x</LABEL>
+			<LABEL>y</LABEL>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFIMAP" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfimap</KEYWORD2>
+			<LABEL>action</LABEL>
+			<LABEL>connection</LABEL>
+			<LABEL>folder</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>maxRows</LABEL>
+			<LABEL>reverse</LABEL>
+			<LABEL>server</LABEL>
+			<LABEL>service</LABEL>
+			<LABEL>startRow</LABEL>
+			<LABEL>username</LABEL>
+			
+			<!-- BD -->
+			<LABEL>attachmentURI</LABEL>
+			<LABEL>password</LABEL>	<!-- Really just BD? -->
+			<LABEL>destFolder</LABEL>
+			<LABEL>messageID</LABEL>
+			<LABEL>messageList</LABEL>
+			<LABEL>newFolder</LABEL>
+			<LABEL>oldFolder</LABEL>
+			<LABEL>answered</LABEL>
+			<LABEL>deleted</LABEL>
+			<LABEL>draft</LABEL>
+			<LABEL>flagged</LABEL>
+			<LABEL>recent</LABEL>
+			<LABEL>seen</LABEL>
+			
+			<!-- Railo -->
+			<LABEL>action</LABEL>
+			<LABEL>attachmentPath</LABEL>
+			<LABEL>generateUniqueFilenames</LABEL>
+			<LABEL>messageNumber</LABEL>
+			<LABEL>port</LABEL>
+			<LABEL>timeout</LABEL>
+			<LABEL>uid</LABEL>
+
+			<!-- Railo attributes already present above...
+			<LABEL>maxRows</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>server</LABEL>
+			<LABEL>startRow</LABEL>
+			<LABEL>username</LABEL>
+			-->
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFIMPORT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfimport</KEYWORD2>
+			<LABEL>prefix</LABEL>
+			<LABEL>taglib</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFINCLUDE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfinclude</KEYWORD2>
+			<LABEL>template</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFINDEX" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfindex</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>collection</LABEL>
+			<LABEL>body</LABEL>
+			<LABEL>category</LABEL>
+			<LABEL>categoryTree</LABEL>
+			<LABEL>custom1</LABEL>
+			<LABEL>custom2</LABEL>
+			<LABEL>custom3</LABEL>
+			<LABEL>custom4</LABEL>
+			<LABEL>extensions</LABEL>
+			<LABEL>key</LABEL>
+			<LABEL>language</LABEL>
+			<LABEL>prefix</LABEL>
+			<LABEL>query</LABEL>
+			<LABEL>recurse</LABEL>
+			<LABEL>status</LABEL>
+			<LABEL>title</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>URLpath</LABEL>
+			
+			<LABEL>wait</LABEL> <!-- BD -->
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFINPUT" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfinput</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>autosuggestBindDelay</LABEL>
+			<LABEL>autosuggestMinLength</LABEL>
+			<LABEL>autosuggest</LABEL>
+			<LABEL>bind</LABEL>
+			<LABEL>bindAttribute</LABEL>
+			<LABEL>bindOnLoad</LABEL>
+			<LABEL>checked</LABEL>
+			<LABEL>dayNames</LABEL>
+			<LABEL>delimiter</LABEL>
+			<LABEL>disabled</LABEL>
+			<LABEL>enabled</LABEL>
+			<LABEL>firstDayOfWeek</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>id</LABEL>
+			<LABEL>label</LABEL>
+			<LABEL>mask</LABEL>
+			<LABEL>maxLength</LABEL>
+			<LABEL>maxResultsDisplayed</LABEL>
+			<LABEL>message</LABEL>
+			<LABEL>monthNames</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>onBindError</LABEL>
+			<LABEL>onChange</LABEL>
+			<LABEL>onClick</LABEL>
+			<LABEL>onError</LABEL>
+			<LABEL>onKeyDown</LABEL>
+			<LABEL>onKeyUp</LABEL>
+			<LABEL>onMouseDown</LABEL>
+			<LABEL>onMouseUp</LABEL>
+			<LABEL>onValidate</LABEL>
+			<LABEL>pattern</LABEL>
+			<LABEL>range</LABEL>
+			<LABEL>required</LABEL>
+			<LABEL>showAutosuggestLoadingIcon</LABEL>
+			<LABEL>size</LABEL>
+			<LABEL>sourceForToolTip</LABEL>
+			<LABEL>src</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>tooltip</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>typeahead</LABEL>
+			<LABEL>validate</LABEL>
+			<LABEL>validateAt</LABEL>
+			<LABEL>value</LABEL>
+			<LABEL>visible</LABEL>
+			<LABEL>width</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFINSERT" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfinsert</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>dataSource</LABEL>
+			<LABEL>tableName</LABEL>
+			<LABEL>formFields</LABEL>
+			<LABEL>tableOwner</LABEL>
+			<LABEL>tableQualifier</LABEL>
+			<LABEL>userName</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFINTERFACE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfinterface</KEYWORD2>
+			<LABEL>displayName</LABEL>
+			<LABEL>extends</LABEL>
+			<LABEL>hint</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFINTERRUPT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfinterrupt</KEYWORD2>
+			<LABEL>thread</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFINVOKE" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfinvoke</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>argumentCollection</LABEL>
+			<LABEL>component</LABEL>
+			<LABEL>method</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>proxyPassword</LABEL>
+			<LABEL>proxyPort</LABEL>
+			<LABEL>proxyServer</LABEL>
+			<LABEL>proxyUser</LABEL>
+			<LABEL>refreshWSDL</LABEL>
+			<LABEL>returnVariable</LABEL>
+			<LABEL>servicePort</LABEL>
+			<LABEL>timeout</LABEL>
+			<LABEL>username</LABEL>
+			<LABEL>webservice</LABEL>
+			<LABEL>wsdl2javaArgs</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFINVOKEARGUMENT" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfinvokeargument</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>omit</LABEL>
+			<LABEL>value</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFJOIN" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfjoin</KEYWORD2>
+			<LABEL>thread</LABEL>
+			<LABEL>timeout</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFLAYOUT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cflayout</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>align</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>padding</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>tabHeight</LABEL>
+			<LABEL>tabPosition</LABEL>
+			<LABEL>type</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFLAYOUTAREA" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cflayoutarea</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>align</LABEL>
+			<LABEL>closable</LABEL>
+			<LABEL>collapsible</LABEL>
+			<LABEL>disabled</LABEL>
+			<LABEL>initcollapsed</LABEL>
+			<LABEL>inithide</LABEL>
+			<LABEL>maxSize</LABEL>
+			<LABEL>minSize</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>onBindError</LABEL>
+			<LABEL>overflow</LABEL>
+			<LABEL>position</LABEL>
+			<LABEL>refreshOnActivate</LABEL>
+			<LABEL>selected</LABEL>
+			<LABEL>size</LABEL>
+			<LABEL>source</LABEL>
+			<LABEL>splitter</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>title</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFLDAP" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfldap</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>attributes</LABEL>
+			<LABEL>delimiter</LABEL>
+			<LABEL>dn</LABEL>
+			<LABEL>filter</LABEL>
+			<LABEL>maxRows</LABEL>
+			<LABEL>modifyType</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>port</LABEL>
+			<LABEL>rebind</LABEL>
+			<LABEL>referral</LABEL>
+			<LABEL>returnAsBinary</LABEL>
+			<LABEL>scope</LABEL>
+			<LABEL>secure</LABEL>
+			<LABEL>separator</LABEL>
+			<LABEL>server</LABEL>
+			<LABEL>sort</LABEL>
+			<LABEL>sortControl</LABEL>
+			<LABEL>start</LABEL>
+			<LABEL>startRow</LABEL>
+			<LABEL>timeout</LABEL>
+			<LABEL>username</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFLOCATION" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cflocation</KEYWORD2>
+			<LABEL>url</LABEL>
+			<LABEL>addToken</LABEL>
+			<LABEL>statusCode</LABEL>
+			
+			<LABEL>abort</LABEL> <!-- BD -->
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFLOCK" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cflock</KEYWORD2>
+			<LABEL>timeout</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>scope</LABEL>
+			<LABEL>throwOnTimeout</LABEL>
+			<LABEL>type</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFLOG" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cflog</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>application</LABEL>
+			<LABEL>file</LABEL>
+			<LABEL>log</LABEL>
+			<LABEL>text</LABEL>
+			<LABEL>type</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFLOGIN" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cflogin</KEYWORD2>
+			<LABEL>applicationToken</LABEL>
+			<LABEL>cookieDomain</LABEL>
+			<LABEL>idleTimeout</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFLOGINUSER" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfloginuser</KEYWORD2>
+			<LABEL>name</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>roles</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFLOOP" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfloop</KEYWORD2>
+			<LABEL>index</LABEL>
+			<LABEL>from</LABEL>
+			<LABEL>to</LABEL>
+			<LABEL>step</LABEL>
+	
+			<LABEL>condition</LABEL>
+	
+			<LABEL>query</LABEL>
+			<LABEL>startrow</LABEL>
+			<LABEL>endrow</LABEL>
+	
+			<LABEL>list</LABEL>
+			<LABEL>array</LABEL>
+			<LABEL>characters</LABEL>
+			<LABEL>delimiters</LABEL>
+			<LABEL>file</LABEL>
+	
+			<LABEL>collection</LABEL>
+			<LABEL>item</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFMAIL" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfmail</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>from</LABEL>
+			<LABEL>to</LABEL>
+			<LABEL>bcc</LABEL>
+			<LABEL>cc</LABEL>
+			<LABEL>charset</LABEL>
+			<LABEL>debug</LABEL>
+			<LABEL>failto</LABEL>
+			<LABEL>groupcasesensitive</LABEL>
+			<LABEL>group</LABEL>
+			<LABEL>mailerID</LABEL>
+			<LABEL>maxrows</LABEL>
+			<LABEL>mimeattach</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>port</LABEL>
+			<LABEL>priority</LABEL>
+			<LABEL>query</LABEL>
+			<LABEL>replyto</LABEL>
+			<LABEL>server</LABEL>
+			<LABEL>spoolenable</LABEL>
+			<LABEL>startrow</LABEL>
+			<LABEL>subject</LABEL>
+			<LABEL>timeout</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>username</LABEL>
+			<LABEL>useSSL</LABEL>
+			<LABEL>useTLS</LABEL>
+			<LABEL>wraptext</LABEL>
+			
+			<LABEL>imapConnection</LABEL> <!-- BD -->
+			<LABEL>imapFolder</LABEL> <!-- BD -->
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFMAILPARAM" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfmailparam</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>value</LABEL>
+			
+			<LABEL>dispostion</LABEL> <!-- BD -->
+			<LABEL>contentID</LABEL> <!-- BD -->
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFMAILPART" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfmailpart</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>charset</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>wrapText</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFMAPPING" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfmapping</KEYWORD2>
+			<LABEL>directoryPath</LABEL>
+			<LABEL>logicalPath</LABEL>
+			<LABEL>relativePath</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFMENU" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfmenu</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>bgcolor</LABEL>
+			<LABEL>childStyle</LABEL>
+			<LABEL>font</LABEL>
+			<LABEL>fontColor</LABEL>
+			<LABEL>fontSize</LABEL>
+			<LABEL>menuStyle</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>selectedFontColor</LABEL>
+			<LABEL>selectedItemColor</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>width</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFMENUITEM" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfmenuitem</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>childStyle</LABEL>
+			<LABEL>display</LABEL>
+			<LABEL>divider</LABEL>
+			<LABEL>href</LABEL>
+			<LABEL>image</LABEL>
+			<LABEL>menuStyle</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>target</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFMODULE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfmodule</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>template</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFMP3" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfmp3</KEYWORD2>
+			<LABEL>file</LABEL>
+			<LABEL>uriDirectory</LABEL>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFMULTICAST" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfmulticast</KEYWORD2>
+			<LABEL>action</LABEL>
+			<LABEL>address</LABEL>
+			<LABEL>cfc</LABEL>
+			<LABEL>cfcFunction</LABEL>
+			<LABEL>cfmlData</LABEL>
+			<LABEL>port</LABEL>
+			<LABEL>textData</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFNTAUTHENTICATE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfntauthenticate</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>domain</LABEL>
+			<LABEL>listGroups</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>result</LABEL>
+			<LABEL>throwOnError</LABEL>
+			<LABEL>username</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFOBJECT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfobject</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<!-- for .NET: -->
+			<LABEL>class</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>assembly</LABEL>
+			<LABEL>port</LABEL>
+			<LABEL>protocol</LABEL>
+			<LABEL>secure</LABEL>
+			<LABEL>server</LABEL>
+
+			<!-- Additional attibutes for COM: -->
+			<LABEL>context</LABEL>
+
+			<!-- ... and for component: -->
+			<LABEL>component</LABEL>
+
+			<!-- ... and for CORBA: -->
+			<LABEL>locale</LABEL>
+
+			<!-- ... and for Java/EJB: -->
+
+			<!-- ... and for web service: -->
+			<LABEL>webService</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>proxyPassword</LABEL>
+			<LABEL>proxyUser</LABEL>
+			<LABEL>refreshWSDL</LABEL>
+			<LABEL>wsld2javaArgs</LABEL>
+			<LABEL>wsPortName</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFOBJECTCACHE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfobjectcache</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			
+			<LABEL>cacheDomain</LABEL> <!-- BD -->
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFOUTPUT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfoutput</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>group</LABEL>
+			<LABEL>groupCaseSensitive</LABEL>
+			<LABEL>maxRows</LABEL>
+			<LABEL>query</LABEL>
+			<LABEL>startRow</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFPARAM" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfparam</KEYWORD2>
+			<LABEL>name</LABEL>
+			<LABEL>default</LABEL>
+			<LABEL>max</LABEL>
+			<LABEL>min</LABEL>
+			<LABEL>pattern</LABEL>
+			<LABEL>type</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFPAUSE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfpause</KEYWORD2>
+			<LABEL>interval</LABEL>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFPDF" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfpdf</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>ascending</LABEL>
+			<LABEL>copyfrom</LABEL>
+			<LABEL>ddxfile</LABEL>
+			<LABEL>destination</LABEL>
+			<LABEL>directory</LABEL>
+			<LABEL>encrypt</LABEL>
+			<LABEL>flatten</LABEL>
+			<LABEL>foreground</LABEL>
+			<LABEL>format</LABEL>
+			<LABEL>image</LABEL>
+			<LABEL>imagePrefix</LABEL>
+			<LABEL>info</LABEL>
+			<LABEL>inputfiles</LABEL>
+			<LABEL>isBase64</LABEL>
+			<LABEL>keepBookmark</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>newOwnerPassword</LABEL>
+			<LABEL>newUserPassword</LABEL>
+			<LABEL>opacity</LABEL>
+			<LABEL>order</LABEL>
+			<LABEL>outputfiles</LABEL>
+			<LABEL>overwrite</LABEL>
+			<LABEL>pages</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>permissions</LABEL>
+			<LABEL>position</LABEL>
+			<LABEL>resolution</LABEL>
+			<LABEL>rotation</LABEL>
+			<LABEL>saveOption</LABEL>
+			<LABEL>scale</LABEL>
+			<LABEL>showonprint</LABEL>
+			<LABEL>source</LABEL>
+			<LABEL>stopOnError</LABEL>
+			<LABEL>transparent</LABEL>
+			<LABEL>version</LABEL>
+			
+			<LABEL>filter</LABEL>	<!-- R3 -->
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFPDFFORM" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfpdfform</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>destination</LABEL>
+			<LABEL>overwrite</LABEL>
+			<LABEL>source</LABEL>
+			<LABEL>result</LABEL>
+			<LABEL>xmlData</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFPDFFORMPARAM" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfpdfformparam</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>index</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>value</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFPDFPARAM" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfpdfparam</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>pages</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>source</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFPDFSUBFORM" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfpdfsubform</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>index</LABEL>
+			<LABEL>name</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFPOD" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfpod</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>bodyStyle</LABEL>
+			<LABEL>headerStyle</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>onBindError</LABEL>
+			<LABEL>title</LABEL>
+			<LABEL>source</LABEL>
+			<LABEL>width</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFPOP" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfpop</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>attachmentPath</LABEL>
+			<LABEL>debug</LABEL>
+			<LABEL>generateUniqueFilenames</LABEL>
+			<LABEL>maxRows</LABEL>
+			<LABEL>messageNumber</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>port</LABEL>
+			<LABEL>server</LABEL>
+			<LABEL>startRow</LABEL>
+			<LABEL>timeout</LABEL>
+			<LABEL>uid</LABEL>
+			<LABEL>username</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFPRESENTATION" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfpresentation</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>authPassword</LABEL>
+			<LABEL>authUser</LABEL>
+			<LABEL>autoPlay</LABEL>
+			<LABEL>backgroundColor</LABEL>
+			<LABEL>control</LABEL>
+			<LABEL>controlLocation</LABEL>
+			<LABEL>directory</LABEL>
+			<LABEL>glowColor</LABEL>
+			<LABEL>initialTab</LABEL>
+			<LABEL>lightColor</LABEL>
+			<LABEL>loop</LABEL>
+			<LABEL>overwrite</LABEL>
+			<LABEL>primaryColor</LABEL>
+			<LABEL>proxyHost</LABEL>
+			<LABEL>proxyPassword</LABEL>
+			<LABEL>proxyPort</LABEL>
+			<LABEL>proxyUser</LABEL>
+			<LABEL>shadowColor</LABEL>
+			<LABEL>showNotes</LABEL>
+			<LABEL>showOutline</LABEL>
+			<LABEL>showSearch</LABEL>
+			<LABEL>textColor</LABEL>
+			<LABEL>title</LABEL>
+			<LABEL>userAgent</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFPRESENTATIONSLIDE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfpresentationslide</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>advance</LABEL>
+			<LABEL>audio</LABEL>
+			<LABEL>authPassword</LABEL>
+			<LABEL>authUser</LABEL>
+			<LABEL>duration</LABEL>
+			<LABEL>marginBottom</LABEL>
+			<LABEL>marginLeft</LABEL>
+			<LABEL>marginRight</LABEL>
+			<LABEL>marginTop</LABEL>
+			<LABEL>notes</LABEL>
+			<LABEL>presenter</LABEL>
+			<LABEL>scale</LABEL>
+			<LABEL>src</LABEL>
+			<LABEL>title</LABEL>
+			<LABEL>userAgent</LABEL>
+			<LABEL>video</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFPRESENTER" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfpresenter</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>biography</LABEL>
+			<LABEL>email</LABEL>
+			<LABEL>image</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>logo</LABEL>
+			<LABEL>title</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFREGISTRY" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfregistry</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>branch</LABEL>
+			<LABEL>entry</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>sort</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>value</LABEL>
+			<LABEL>variable</LABEL>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFREPORT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfreport</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>dataSource</LABEL>
+			<LABEL>encryption</LABEL>
+			<LABEL>filename</LABEL>
+			<LABEL>format</LABEL>
+			<LABEL>formula</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>orderBy</LABEL>
+			<LABEL>ownerpassword</LABEL>
+			<LABEL>overwrite</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>permissions</LABEL>
+			<LABEL>query</LABEL>
+			<LABEL>report</LABEL>
+			<LABEL>resourceTimespan</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>template</LABEL>
+			<LABEL>timeout</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>username</LABEL>
+			<LABEL>userpassword</LABEL>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFREPORTPARAM" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfreportparam</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>chart</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>query</LABEL>
+			<LABEL>series</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>subreport</LABEL>
+			<LABEL>value</LABEL>
+		</KEYWORDS>
+	</RULES>
+	
+	<RULES SET="CFML_CFPRINT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfprint</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>attributeStruct</LABEL>
+			<LABEL>color</LABEL>
+			<LABEL>copies</LABEL>
+			<LABEL>fidelity</LABEL>
+			<LABEL>pages</LABEL>
+			<LABEL>paper</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>printer</LABEL>
+			<LABEL>source</LABEL>
+			<LABEL>type</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFPROCESSINGDIRECTIVE" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfprocessingdirective</KEYWORD2>
+			<LABEL>pageEncoding</LABEL>
+			<LABEL>suppressWhitespace</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFPROCPARAM" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfprocparam</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>cfSQLtype</LABEL>
+			<LABEL>maxLength</LABEL>
+			<LABEL>null</LABEL>
+			<LABEL>scale</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>value</LABEL>
+			<LABEL>variable</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFPROCRESULT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfprocresult</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>maxRows</LABEL>
+			<LABEL>resultSet</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFPROPERTY" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfproperty</KEYWORD2>
+			<LABEL>default</LABEL>
+			<LABEL>displayName</LABEL>
+			<LABEL>hint</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>required</LABEL>
+			<LABEL>type</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFSAVECONTENT" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfsavecontent</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>variable</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFSCHEDULE" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfschedule</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>endDate</LABEL>
+			<LABEL>endTime</LABEL>
+			<LABEL>file</LABEL>
+			<LABEL>interval</LABEL>
+			<LABEL>operation</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>path</LABEL>
+			<LABEL>port</LABEL>
+			<LABEL>proxyPassword</LABEL>
+			<LABEL>proxyPort</LABEL>
+			<LABEL>proxyServer</LABEL>
+			<LABEL>proxyUser</LABEL>
+			<LABEL>publish</LABEL>
+			<LABEL>requestTimeOut</LABEL>
+			<LABEL>resolveURL</LABEL>
+			<LABEL>startDate</LABEL>
+			<LABEL>startTime</LABEL>
+			<LABEL>task</LABEL>
+			<LABEL>url</LABEL>
+			<LABEL>username</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFSCRIPT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		<!-- Stuff to get the CFSCRIPT open/close tags marked up correctly: -->
+		<SPAN TYPE="KEYWORD2"><BEGIN>&lt;cfscript</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2"><BEGIN>&lt;/cfscript</BEGIN><END>&gt;</END></SPAN>
+
+		&cfscriptrules;
+		&cfmlsharedrules;
+	</RULES>
+	
+	<RULES SET="CFML_CFSEARCH" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfsearch</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>category</LABEL> 
+			<LABEL>categoryTree</LABEL>
+			<LABEL>collection</LABEL>
+			<LABEL>contextBytes</LABEL>
+			<LABEL>contextHighlightBegin</LABEL>
+			<LABEL>contextHighlightEnd</LABEL>
+			<LABEL>contextPassages</LABEL>
+			<LABEL>criteria</LABEL>
+			<LABEL>language</LABEL>
+			<LABEL>maxRows</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>previousCriteria</LABEL>
+			<LABEL>startRow</LABEL>
+			<LABEL>status</LABEL>
+			<LABEL>suggestions</LABEL>
+			<LABEL>type</LABEL>
+			
+			<LABEL>minScore</LABEL> <!-- BD -->
+			<LABEL>sort</LABEL> <!-- BD -->
+			<LABEL>sortDirection</LABEL> <!-- BD -->
+			<LABEL>sortType</LABEL> <!-- BD -->
+
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFSELECT" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfselect</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>bind</LABEL>
+			<LABEL>bindAttribute</LABEL>
+			<LABEL>bindOnLoad</LABEL>
+			<LABEL>display</LABEL>
+			<LABEL>editable</LABEL>
+			<LABEL>enabled</LABEL>
+			<LABEL>group</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>id</LABEL>
+			<LABEL>label</LABEL>
+			<LABEL>message</LABEL>
+			<LABEL>multiple</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>onBindError</LABEL>
+			<LABEL>onChange</LABEL>
+			<LABEL>onClick</LABEL>
+			<LABEL>onError</LABEL>
+			<LABEL>onKeyDown</LABEL>
+			<LABEL>onKeyUp</LABEL>
+			<LABEL>onMouseDown</LABEL>
+			<LABEL>onMouseUp</LABEL>
+			<LABEL>query</LABEL>
+			<LABEL>queryPosition</LABEL>
+			<LABEL>required</LABEL>
+			<LABEL>selected</LABEL>
+			<LABEL>size</LABEL>
+			<LABEL>sourceForTooltip</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>tooltip</LABEL>
+			<LABEL>value</LABEL>
+			<LABEL>visible</LABEL>
+			<LABEL>width</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFSET" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		<!-- The tag start and end: -->
+		<SEQ TYPE="KEYWORD2">&lt;cfset</SEQ>
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ>
+		<SEQ TYPE="KEYWORD2">&gt;</SEQ>
+		
+		<!-- Common stuff for most CF tags attributes: -->
+		<SPAN TYPE="LITERAL1"><BEGIN>"</BEGIN><END>"</END></SPAN>
+		<SPAN TYPE="LITERAL1"><BEGIN>'</BEGIN><END>'</END></SPAN>
+		<SEQ TYPE="OPERATOR">=</SEQ>
+		
+		&cfmlsharedrules;
+	</RULES>
+
+	<RULES SET="CFML_CFSETTING" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfsetting</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>enableCFOutputOnly</LABEL>
+			<LABEL>requestTimeout</LABEL>
+			<LABEL>showDebugOutput</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFSLIDER" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfslider</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>align</LABEL>
+			<LABEL>bgColor</LABEL>
+			<LABEL>bold</LABEL>
+			<LABEL>font</LABEL>
+			<LABEL>fontSize</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>hSpace</LABEL>
+			<LABEL>italic</LABEL>
+			<LABEL>lookAndFeel</LABEL>
+			<LABEL>message</LABEL>
+			<LABEL>notSupported</LABEL>
+			<LABEL>onError</LABEL>
+			<LABEL>onValidate</LABEL>
+			<LABEL>range</LABEL>
+			<LABEL>scale</LABEL>
+			<LABEL>textColor</LABEL>
+			<LABEL>value</LABEL>
+			<LABEL>vertical</LABEL>
+			<LABEL>vSpace</LABEL>
+			<LABEL>width</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+
+	<RULES SET="CFML_CFSPRYDATASET" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfsprydataset</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>bind</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>onBindError</LABEL>
+			<LABEL>options</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>xpath</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFSTOREDPROC" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close (which would imply no args and no resultset) -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfstoredproc</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>blockFactor</LABEL>
+			<LABEL>dataSource</LABEL>
+			<LABEL>debug</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>procedure</LABEL>
+			<LABEL>result</LABEL>
+			<LABEL>returnCode</LABEL>
+			<LABEL>userName</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFSWITCH" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfswitch</KEYWORD2>
+			<LABEL>expression</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFTABLE" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cftable</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>border</LABEL>
+			<LABEL>colHeaders</LABEL>
+			<LABEL>colSpacing</LABEL>
+			<LABEL>headerLines</LABEL>
+			<LABEL>htmlTable</LABEL>
+			<LABEL>maxRows</LABEL>
+			<LABEL>query</LABEL>
+			<LABEL>startRow</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFTEXTAREA" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cftextarea</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>basepath</LABEL>
+			<LABEL>bind</LABEL>
+			<LABEL>bindAttribute</LABEL>
+			<LABEL>bindOnLoad</LABEL>
+			<LABEL>disabled</LABEL>
+			<LABEL>enabled</LABEL>
+			<LABEL>fontFormats</LABEL>
+			<LABEL>fontNames</LABEL>
+			<LABEL>fontSizes</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>html</LABEL>
+			<LABEL>label</LABEL>
+			<LABEL>maxlength</LABEL>
+			<LABEL>message</LABEL>
+			<LABEL>onBindError</LABEL>
+			<LABEL>onChange</LABEL>
+			<LABEL>onClick</LABEL>
+			<LABEL>onError</LABEL>
+			<LABEL>onKeyDown</LABEL>
+			<LABEL>onKeyUp</LABEL>
+			<LABEL>onMouseDown</LABEL>
+			<LABEL>onMouseUp</LABEL>
+			<LABEL>onValidate</LABEL>
+			<LABEL>pattern</LABEL>
+			<LABEL>range</LABEL>
+			<LABEL>required</LABEL>
+			<LABEL>richtext</LABEL>
+			<LABEL>skin</LABEL>
+			<LABEL>sourceForToolTip</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>stylesXML</LABEL>
+			<LABEL>templatesXML</LABEL>
+			<LABEL>toolbar</LABEL>
+			<LABEL>toolbarOnFocus</LABEL>
+			<LABEL>tooltip</LABEL>
+			<LABEL>validate</LABEL>
+			<LABEL>validateAt</LABEL>
+			<LABEL>value</LABEL>
+			<LABEL>visible</LABEL>
+			<LABEL>width</LABEL>
+			<LABEL>wrap</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFTHREAD" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfthread</KEYWORD2>
+			<LABEL>action</LABEL>
+			<LABEL>duration</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>priority</LABEL>
+			<LABEL>timeout</LABEL>
+			
+			<LABEL>attributeCollection</LABEL>	<!-- BD -->
+			<LABEL>output</LABEL>	<!-- BD -->
+			
+			<LABEL>retryInterval</LABEL>	<!-- R3 -->
+			<LABEL>type</LABEL>	<!-- R3 -->
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFTHROTTLE" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfthrottle</KEYWORD2>
+			<LABEL>action</LABEL>
+			<LABEL>history</LABEL>
+			<LABEL>hitThreshold</LABEL>
+			<LABEL>hitTimePeriod</LABEL>
+			<LABEL>minHitTime</LABEL>
+			<LABEL>token</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+
+	<RULES SET="CFML_CFTHROW" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfthrow</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>detail</LABEL>
+			<LABEL>errorCode</LABEL>
+			<LABEL>extendedInfo</LABEL>
+			<LABEL>message</LABEL>
+			<LABEL>object</LABEL>
+			<LABEL>type</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFTIMER" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cftimer</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>label</LABEL>
+			<LABEL>type</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFTOOLTIP" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cftooltip</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>autoDismissDelay</LABEL>
+			<LABEL>hideDelay</LABEL>
+			<LABEL>preventOverlap</LABEL>
+			<LABEL>showDelay</LABEL>
+			<LABEL>sourceForTooltip</LABEL>
+			<LABEL>tooltip</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFTRACE" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cftrace</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>abort</LABEL>
+			<LABEL>category</LABEL>
+			<LABEL>inline</LABEL>
+			<LABEL>text</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>var</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFTRANSACTION" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cftransaction</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>isolation</LABEL>
+			<LABEL>savePoint</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFTREE" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cftree</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>align</LABEL>
+			<LABEL>appendKey</LABEL>
+			<LABEL>bold</LABEL>
+			<LABEL>border</LABEL>
+			<LABEL>cache</LABEL>
+			<LABEL>completePath</LABEL>
+			<LABEL>delimiter</LABEL>
+			<LABEL>enabled</LABEL>
+			<LABEL>font</LABEL>
+			<LABEL>fontSize</LABEL>
+			<LABEL>format</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>highlightHref</LABEL>
+			<LABEL>hScroll</LABEL>
+			<LABEL>hSpace</LABEL>
+			<LABEL>italic</LABEL>
+			<LABEL>lookAndFeel</LABEL>
+			<LABEL>message</LABEL>
+			<LABEL>notSupported</LABEL>
+			<LABEL>onBlur</LABEL>
+			<LABEL>onChange</LABEL>
+			<LABEL>onError</LABEL>
+			<LABEL>onFocus</LABEL>
+			<LABEL>onValidate</LABEL>
+			<LABEL>required</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>tooltip</LABEL>
+			<LABEL>visible</LABEL>
+			<LABEL>vScroll</LABEL>
+			<LABEL>vSpace</LABEL>
+			<LABEL>width</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFTREEITEM" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cftreeitem</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>bind</LABEL>
+			<LABEL>display</LABEL>
+			<LABEL>expand</LABEL>
+			<LABEL>href</LABEL>
+			<LABEL>img</LABEL>
+			<LABEL>imgopen</LABEL>
+			<LABEL>onBindError</LABEL>
+			<LABEL>parent</LABEL>
+			<LABEL>query</LABEL>
+			<LABEL>queryAsRoot</LABEL>
+			<LABEL>target</LABEL>
+			<LABEL>value</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFUPDATE" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfupdate</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>dataSource</LABEL>
+			<LABEL>formFields</LABEL>
+			<LABEL>tableName</LABEL>
+			<LABEL>tableOwner</LABEL>
+			<LABEL>tableQualifier</LABEL>
+			<LABEL>userName</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFVIDEO" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfvideo</KEYWORD2>
+			<LABEL>action</LABEL>
+			<LABEL>aspectRatio</LABEL>
+			<LABEL>audioBitRate</LABEL>
+			<LABEL>audioCodec</LABEL>
+			<LABEL>audioSampleRate</LABEL>
+			<LABEL>author</LABEL>
+			<LABEL>bufferSize</LABEL>
+			<LABEL>comment</LABEL>
+			<LABEL>copyright</LABEL>
+			<LABEL>debug</LABEL>
+			<LABEL>destination</LABEL>
+			<LABEL>execution</LABEL>
+			<LABEL>fps</LABEL>
+			<LABEL>frameRate</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>max</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>nameConflict</LABEL>
+			<LABEL>profile</LABEL>
+			<LABEL>result</LABEL>
+			<LABEL>source</LABEL>
+			<LABEL>source1</LABEL>
+			<LABEL>source2</LABEL>
+			<LABEL>start</LABEL>
+			<LABEL>title</LABEL>
+			<LABEL>videoBitRate</LABEL>
+			<LABEL>videoBitRateMax</LABEL>
+			<LABEL>videoBitRateMin</LABEL>
+			<LABEL>videoBitRateTolerance</LABEL>
+			<LABEL>videoCodec</LABEL>
+			<LABEL>width</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFVIDEOPLAYER" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfvideoplayer</KEYWORD2>
+			<LABEL>allowFullScreen</LABEL>
+			<LABEL>autoStart</LABEL>
+			<LABEL>background</LABEL>
+			<LABEL>backgroundColor</LABEL>
+			<LABEL>bgColor</LABEL>
+			<LABEL>debug</LABEL>
+			<LABEL>fgColor</LABEL>
+			<LABEL>foreground</LABEL>
+			<LABEL>foregroundColor</LABEL>
+			<LABEL>group</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>id</LABEL>
+			<LABEL>lightColor</LABEL>
+			<LABEL>linkFromDisplay</LABEL>
+			<LABEL>linkTarget</LABEL>
+			<LABEL>overStretch</LABEL>
+			<LABEL>passThrough</LABEL>
+			<LABEL>playList</LABEL>
+			<LABEL>playListSize</LABEL>
+			<LABEL>playListThumbnails</LABEL>
+			<LABEL>preview</LABEL>
+			<LABEL>screenColor</LABEL>
+			<LABEL>showPause</LABEL>
+			<LABEL>showPlay</LABEL>
+			<LABEL>showTimeline</LABEL>
+			<LABEL>target</LABEL>
+			<LABEL>thumbnails</LABEL>
+			<LABEL>thumbs</LABEL>
+			<LABEL>video</LABEL>
+			<LABEL>width</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFVIDEOPLAYERPARAM" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfvideoplayerparam</KEYWORD2>
+			<LABEL>author</LABEL>
+			<LABEL>flash</LABEL>
+			<LABEL>image</LABEL>
+			<LABEL>index</LABEL>
+			<LABEL>link</LABEL>
+			<LABEL>preview</LABEL>
+			<LABEL>show</LABEL>
+			<LABEL>title</LABEL>
+			<LABEL>video</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFWDDX" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfwddx</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>input</LABEL>
+			<LABEL>output</LABEL>
+			<LABEL>topLevelVariable</LABEL>
+			<LABEL>userTimeZoneInfo</LABEL>
+			<LABEL>validate</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFWINDOW" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfwindow</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>bodyStyle</LABEL>
+			<LABEL>center</LABEL>
+			<LABEL>closable</LABEL>
+			<LABEL>draggable</LABEL>
+			<LABEL>headerStyle</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>initShow</LABEL>
+			<LABEL>minHeight</LABEL>
+			<LABEL>minWidth</LABEL>
+			<LABEL>modal</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>onBindError</LABEL>
+			<LABEL>refreshOnShow</LABEL>
+			<LABEL>resizable</LABEL>
+			<LABEL>source</LABEL>
+			<LABEL>title</LABEL>
+			<LABEL>width</LABEL>
+			<LABEL>x</LABEL>
+			<LABEL>y</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFXML" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfxml</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>caseSensitive</LABEL>
+			<LABEL>variable</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFXMLRPC" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfxmlrpc</KEYWORD2>
+			<LABEL>method</LABEL>
+			<LABEL>params</LABEL>
+			<LABEL>server</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFZIP" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfzip</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>charSet</LABEL>
+			<LABEL>destination</LABEL>
+			<LABEL>entryPath</LABEL>
+			<LABEL>file</LABEL>
+			<LABEL>filter</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>overWrite</LABEL>
+			<LABEL>prefix</LABEL>
+			<LABEL>recurse</LABEL>
+			<LABEL>showDirectory</LABEL>
+			<LABEL>source</LABEL>
+			<LABEL>storePath</LABEL>
+			<LABEL>variable</LABEL>
+			
+			<!-- BD -->
+			<LABEL>compressionLevel</LABEL>
+			<LABEL>flatten</LABEL>
+			<LABEL>newPath</LABEL>
+			<LABEL>timeout</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFZIPPARAM" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfzipparam</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>charSet</LABEL>
+			<LABEL>content</LABEL>
+			<LABEL>entryPath</LABEL>
+			<LABEL>filter</LABEL>
+			<LABEL>prefix</LABEL>
+			<LABEL>recurse</LABEL>
+			<LABEL>source</LABEL>
+			
+			<!-- BD -->
+			<LABEL>newPath</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<!-- Semi-generic CFML rulesets: -->
+	<!-- 1. Open tags with no attributes that can be written in XML style: -->
+	<RULES SET="CFML_CFSIMPLE_1" DEFAULT="KEYWORD2" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfbreak</KEYWORD2>
+			<KEYWORD2>cflogout</KEYWORD2>
+			
+			<!-- BD -->
+			<KEYWORD2>cfcontinue</KEYWORD2>
+		</KEYWORDS>
+	</RULES>
+	
+	<!-- 2. Open tags with no attributes that CAN'T be written in XML style: -->
+	<RULES SET="CFML_CFSIMPLE_2" DEFAULT="KEYWORD2" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfdefaultcase</KEYWORD2>
+			<KEYWORD2>cfelse</KEYWORD2>
+			<KEYWORD2>cfrethrow</KEYWORD2>
+			<KEYWORD2>cfsilent</KEYWORD2>
+			<KEYWORD2>cftry</KEYWORD2>
+			
+			<!-- Railo -->
+			<KEYWORD2>cffinally</KEYWORD2>
+		</KEYWORDS>
+	</RULES>
+
+	<!-- 3. Tags that include the opening tag and some sort of expression: -->
+	<RULES SET="CFML_CFEXPRESSION_TAG" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		<!-- The tag start and end: -->
+		<SEQ TYPE="KEYWORD2">&lt;cfif</SEQ>
+		<SEQ TYPE="KEYWORD2">&lt;cfelseif</SEQ>
+		<SEQ TYPE="KEYWORD2">&lt;cfreturn</SEQ>
+		<SEQ TYPE="KEYWORD2">&lt;cfwhile</SEQ> <!-- Railo -->	
+		<SEQ TYPE="KEYWORD2">&gt;</SEQ>
+		
+		<!-- Common stuff for most CF tags attributes: -->
+		<SPAN TYPE="LITERAL1"><BEGIN>"</BEGIN><END>"</END></SPAN>
+		<SPAN TYPE="LITERAL1"><BEGIN>'</BEGIN><END>'</END></SPAN>
+		<SEQ TYPE="OPERATOR">=</SEQ>
+		
+		&cfmlsharedrules;
+	</RULES>
+
+</MODE>

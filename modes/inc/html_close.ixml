@@ -1,0 +1,147 @@
+<SEQ TYPE="MARKUP">&lt;/</SEQ>
+<SEQ TYPE="MARKUP">&gt;</SEQ>
+
+<!-- RPS 11/2008:
+	Closing tags for all valid HTML elements, except those that can't actually have them
+	and for those that are handled in other ways (like SCRIPT and STYLE, where the closing
+	tags are handled as part of separate rulesets):
+	
+	Per http://www.w3.org/TR/html401/index/elements.html the following HTML 4.01 elements
+	cannot have closing tags:
+		area
+		base
+		basefont
+		br
+		col
+		frame
+		hr
+		img
+		input
+		isindex
+		link
+		meta
+		param
+		
+	Per http://www.w3.org/html/wg/html5/#syntax, the following HTML5 elements are "void" 
+	elements (i.e., elements that cannot have end tags):
+		area
+		base
+		br
+		col
+		command
+		embed
+		eventsource
+		hr
+		img
+		input
+		link
+		meta
+		param
+		source
+-->
+<KEYWORDS IGNORE_CASE="TRUE">
+	<!-- Pre-HTML5: -->
+	<MARKUP>a</MARKUP>
+	<MARKUP>abbr</MARKUP>
+	<MARKUP>acronym</MARKUP>
+	<MARKUP>address</MARKUP>
+	<MARKUP>applet</MARKUP>
+	<MARKUP>b</MARKUP>
+	<MARKUP>bdo</MARKUP>
+	<MARKUP>big</MARKUP>
+	<MARKUP>blockquote</MARKUP>
+	<MARKUP>body</MARKUP>
+	<MARKUP>button</MARKUP>
+	<MARKUP>caption</MARKUP>
+	<MARKUP>center</MARKUP>
+	<MARKUP>cite</MARKUP>
+	<MARKUP>code</MARKUP>
+	<MARKUP>colgroup</MARKUP>
+	<MARKUP>dd</MARKUP>
+	<MARKUP>del</MARKUP>
+	<MARKUP>dir</MARKUP>
+	<MARKUP>div</MARKUP>
+	<MARKUP>dfn</MARKUP>
+	<MARKUP>dl</MARKUP>
+	<MARKUP>dt</MARKUP>
+	<MARKUP>em</MARKUP>
+	<MARKUP>fieldset</MARKUP>
+	<MARKUP>font</MARKUP>
+	<MARKUP>form</MARKUP>
+	<MARKUP>frameset</MARKUP>
+	<MARKUP>h1</MARKUP>
+	<MARKUP>h2</MARKUP>
+	<MARKUP>h3</MARKUP>
+	<MARKUP>h4</MARKUP>
+	<MARKUP>h5</MARKUP>
+	<MARKUP>h6</MARKUP>
+	<MARKUP>head</MARKUP>
+	<MARKUP>html</MARKUP>
+	<MARKUP>i</MARKUP>
+	<MARKUP>iframe</MARKUP>
+	<MARKUP>ins</MARKUP>
+	<MARKUP>kbd</MARKUP>
+	<MARKUP>label</MARKUP>
+	<MARKUP>legend</MARKUP>
+	<MARKUP>li</MARKUP>
+	<MARKUP>map</MARKUP>
+	<MARKUP>menu</MARKUP>
+	<MARKUP>noframes</MARKUP>
+	<MARKUP>noscript</MARKUP>
+	<MARKUP>object</MARKUP>
+	<MARKUP>ol</MARKUP>
+	<MARKUP>optgroup</MARKUP>
+	<MARKUP>option</MARKUP>
+	<MARKUP>p</MARKUP>
+	<MARKUP>pre</MARKUP>
+	<MARKUP>q</MARKUP>
+	<MARKUP>s</MARKUP>
+	<MARKUP>samp</MARKUP>
+	<MARKUP>select</MARKUP>
+	<MARKUP>small</MARKUP>
+	<MARKUP>span</MARKUP>
+	<MARKUP>strike</MARKUP>
+	<MARKUP>strong</MARKUP>
+	<MARKUP>sub</MARKUP>
+	<MARKUP>sup</MARKUP>
+	<MARKUP>table</MARKUP>
+	<MARKUP>tbody</MARKUP>
+	<MARKUP>td</MARKUP>
+	<MARKUP>textarea</MARKUP>
+	<MARKUP>tfoot</MARKUP>
+	<MARKUP>th</MARKUP>
+	<MARKUP>thead</MARKUP>
+	<MARKUP>title</MARKUP>
+	<MARKUP>tr</MARKUP>
+	<MARKUP>tt</MARKUP>
+	<MARKUP>u</MARKUP>
+	<MARKUP>ul</MARKUP>
+	<MARKUP>var</MARKUP>
+	<MARKUP>xmp</MARKUP>
+	
+	<!-- HTML5 close tags: -->
+	<MARKUP>article</MARKUP>
+	<MARKUP>aside</MARKUP>
+	<MARKUP>audio</MARKUP>
+	<MARKUP>bb</MARKUP>
+	<MARKUP>canvas</MARKUP>
+	<MARKUP>datagrid</MARKUP>
+	<MARKUP>datalist</MARKUP>
+	<MARKUP>details</MARKUP>
+	<MARKUP>dialog</MARKUP>
+	<MARKUP>figure</MARKUP>
+	<MARKUP>footer</MARKUP>
+	<MARKUP>header</MARKUP>
+	<MARKUP>mark</MARKUP>
+	<MARKUP>meter</MARKUP>
+	<MARKUP>nav</MARKUP>
+	<MARKUP>output</MARKUP>
+	<MARKUP>progress</MARKUP>
+	<MARKUP>q</MARKUP>
+	<MARKUP>rp</MARKUP>
+	<MARKUP>rt</MARKUP>
+	<MARKUP>ruby</MARKUP>
+	<MARKUP>section</MARKUP>
+	<MARKUP>time</MARKUP>
+	<MARKUP>video</MARKUP>		
+</KEYWORDS>
