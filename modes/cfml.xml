@@ -39,7 +39,7 @@
 		<!-- 2a. Tags from other CFML engines than Adobe's:
 						NewAtlanta's BlueDragon (as of 02/07/2009, based on BlueDragon CFML Compatibility Guide
 						  and What's New in BlueDragon 7.1)
-						OpenBD (as of 12/18/2008, http://wiki.openbluedragon.org/wiki/index.php/Category:Tags)
+						OpenBD (as of 04/30/2009, http://wiki.openbluedragon.org/wiki/index.php/Category:Tags)
 						Railo (as of 01/18/2009, http://www.railo-technologies.com/en/index.cfm?treeID=116)
 		
 						RPS: I've left these as a lump, because a couple of them are named in a way that would
@@ -50,6 +50,7 @@
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFASSERT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfassert</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFBASE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfbase</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCACHECONTENT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcachecontent</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCAPTCHA" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcaptcha</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCHARTDOMAINMARKER" IGNORE_CASE="TRUE"><BEGIN>&lt;cfchartdomainmarker</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCHARTLEGEND" IGNORE_CASE="TRUE"><BEGIN>&lt;cfchartlegend</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCHARTIMAGE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfchartimage</BEGIN><END>&gt;</END></SPAN>
@@ -61,16 +62,18 @@
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFORWARD" IGNORE_CASE="TRUE"><BEGIN>&lt;cfforward</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFINTERRUPT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfinterrupt</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFIMAP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfimap</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFJAVASCRIPT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfjavascript</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFJOIN" IGNORE_CASE="TRUE"><BEGIN>&lt;cfjoin</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMAPPING" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmapping</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMP3" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmp3</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMULTICAST" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmulticast</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPAUSE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfpause</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSTYLESHEET" IGNORE_CASE="TRUE"><BEGIN>&lt;cfstylesheet</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFTHROTTLE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfthrottle</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFVIDEOPLAYERPARAM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfvideoplayerparam</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFVIDEOPLAYER" IGNORE_CASE="TRUE"><BEGIN>&lt;cfvideoplayer</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFVIDEO" IGNORE_CASE="TRUE"><BEGIN>&lt;cfvideo</BEGIN><END>&gt;</END></SPAN>
-		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXPRESSION_TAG" IGNORE_CASE="TRUE"><BEGIN>&lt;cfwhile</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXPRESSION_TAG2" IGNORE_CASE="TRUE"><BEGIN>&lt;cfwhile</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFXMLRPC" IGNORE_CASE="TRUE"><BEGIN>&lt;cfxmlrpc</BEGIN><END>&gt;</END></SPAN>
 		
 		<!-- 2b. All other CFML tags (i.e., from Adobe, although some are extended by other engines): -->
@@ -102,7 +105,7 @@
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFDOCUMENTSECTION" IGNORE_CASE="TRUE"><BEGIN>&lt;cfdocumentsection</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFDOCUMENT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfdocument</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFDUMP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfdump</BEGIN><END>&gt;</END></SPAN>
-		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXPRESSION_TAG" IGNORE_CASE="TRUE"><BEGIN>&lt;cfelseif</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXPRESSION_TAG2" IGNORE_CASE="TRUE"><BEGIN>&lt;cfelseif</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_2" IGNORE_CASE="TRUE"><BEGIN>&lt;cfelse</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFERROR" IGNORE_CASE="TRUE"><BEGIN>&lt;cferror</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXCHANGECALENDAR" IGNORE_CASE="TRUE"><BEGIN>&lt;cfexchangecalendar</BEGIN><END>&gt;</END></SPAN>
@@ -129,7 +132,7 @@
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFHTMLHEAD" IGNORE_CASE="TRUE"><BEGIN>&lt;cfhtmlhead</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFHTTPPARAM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfhttpparam</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFHTTP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfhttp</BEGIN><END>&gt;</END></SPAN>
-		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXPRESSION_TAG" IGNORE_CASE="TRUE"><BEGIN>&lt;cfif</BEGIN><END>&gt;</END></SPAN>		
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXPRESSION_TAG2" IGNORE_CASE="TRUE"><BEGIN>&lt;cfif</BEGIN><END>&gt;</END></SPAN>		
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFIMAGE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfimage</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFIMPORT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfimport</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFINCLUDE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfinclude</BEGIN><END>&gt;</END></SPAN>
@@ -179,13 +182,13 @@
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFREPORTPARAM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfreportparam</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFREPORT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfreport</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_2" IGNORE_CASE="TRUE"><BEGIN>&lt;cfrethrow</BEGIN><END>&gt;</END></SPAN>
-		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXPRESSION_TAG" IGNORE_CASE="TRUE"><BEGIN>&lt;cfreturn</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXPRESSION_TAG1" IGNORE_CASE="TRUE"><BEGIN>&lt;cfreturn</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSAVECONTENT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfsavecontent</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSCHEDULE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfschedule</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSEARCH" IGNORE_CASE="TRUE"><BEGIN>&lt;cfsearch</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSELECT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfselect</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSETTING" IGNORE_CASE="TRUE"><BEGIN>&lt;cfsetting</BEGIN><END>&gt;</END></SPAN>
-		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSET" IGNORE_CASE="TRUE"><BEGIN>&lt;cfset</BEGIN><END>&gt;</END></SPAN>		
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXPRESSION_TAG1" IGNORE_CASE="TRUE"><BEGIN>&lt;cfset</BEGIN><END>&gt;</END></SPAN>		
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_2" IGNORE_CASE="TRUE"><BEGIN>&lt;cfsilent</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSLIDER" IGNORE_CASE="TRUE"><BEGIN>&lt;cfslider</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSPRYDATASET" IGNORE_CASE="TRUE"><BEGIN>&lt;cfsprydataset</BEGIN><END>&gt;</END></SPAN>
@@ -375,6 +378,10 @@
 			<KEYWORD2>cffinally</KEYWORD2>
 			<KEYWORD2>cfvideoplayer</KEYWORD2>
 			<KEYWORD2>cfwhile</KEYWORD2>
+			
+			<!-- OpenBD -->
+			<KEYWORD2>cfjavascript</KEYWORD2>
+			<KEYWORD2>cfstylesheet</KEYWORD2>
 		</KEYWORDS>
 	</RULES>
 
@@ -505,6 +512,13 @@
 			<KEYWORD2>cfadmin</KEYWORD2>
 			
 			<!-- TODO: RPS 01/2009 - This is a Railo-specific tag; no docs? -->
+			<LABEL>action</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>dbPassword</LABEL>
+			<LABEL>dbUsername</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>returnVariable</LABEL>
+			<LABEL>type</LABEL>
 		</KEYWORDS>
 	</RULES>
 
@@ -580,6 +594,7 @@
 			<LABEL>setClientCookies</LABEL>
 			<LABEL>setDomainCookies</LABEL>
 			
+			<LABEL>action</LABEL> <!-- R3 -->
 			<LABEL>mappings</LABEL>	<!-- R3 -->
 			<LABEL>customTags</LABEL>	<!-- R3 -->
 		</KEYWORDS>
@@ -668,6 +683,21 @@
 			<LABEL>cachedWithin</LABEL>
 			<LABEL>cacheName</LABEL>
 			<LABEL>group</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFCAPTCHA" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfcaptcha</KEYWORD2>
+			<LABEL>border</LABEL>
+			<LABEL>displayString</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>width</LABEL>
 		</KEYWORDS>
 	</RULES>
 
@@ -957,6 +987,8 @@
 			<LABEL>servicePortName</LABEL>
 			<LABEL>style</LABEL>
 			<LABEL>wsdlFile</LABEL>
+			
+			<LABEL>type</LABEL> <!-- OpenBD -->
 		</KEYWORDS>
 	</RULES>
 
@@ -2078,6 +2110,19 @@
 		</KEYWORDS>
 	</RULES>
 
+	<RULES SET="CFML_CFJAVASCRIPT" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfjavascript</KEYWORD2>
+			<LABEL>minimize</LABEL>
+			<LABEL>munge</LABEL>
+			<LABEL>src</LABEL>
+		</KEYWORDS>
+	</RULES>
+
 	<RULES SET="CFML_CFLAYOUT" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
 		&cftagrules;
 		
@@ -3042,20 +3087,6 @@
 		</KEYWORDS>
 	</RULES>
 
-	<RULES SET="CFML_CFSET" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
-		<!-- The tag start and end: -->
-		<SEQ TYPE="KEYWORD2">&lt;cfset</SEQ>
-		<SEQ TYPE="KEYWORD2">/&gt;</SEQ>
-		<SEQ TYPE="KEYWORD2">&gt;</SEQ>
-		
-		<!-- Common stuff for most CF tags attributes: -->
-		<SPAN TYPE="LITERAL1"><BEGIN>"</BEGIN><END>"</END></SPAN>
-		<SPAN TYPE="LITERAL1"><BEGIN>'</BEGIN><END>'</END></SPAN>
-		<SEQ TYPE="OPERATOR">=</SEQ>
-		
-		&cfmlsharedrules;
-	</RULES>
-
 	<RULES SET="CFML_CFSETTING" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
 		&cftagrules;
 		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
@@ -3136,6 +3167,20 @@
 			<LABEL>result</LABEL>
 			<LABEL>returnCode</LABEL>
 			<LABEL>userName</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFSTYLESHEET" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ>
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfstylesheet</KEYWORD2>
+			<LABEL>src</LABEL>
+			<LABEL>mimimize</LABEL>
+			<LABEL>media</LABEL>
+			<LABEL>path</LABEL>
 		</KEYWORDS>
 	</RULES>
 
@@ -3464,6 +3509,7 @@
 		<KEYWORDS IGNORE_CASE="TRUE">
 			<KEYWORD2>cfvideoplayer</KEYWORD2>
 			<LABEL>allowFullScreen</LABEL>
+			<LABEL>autoPlay</LABEL> <!-- OpenBD -->
 			<LABEL>autoStart</LABEL>
 			<LABEL>background</LABEL>
 			<LABEL>backgroundColor</LABEL>
@@ -3478,8 +3524,12 @@
 			<LABEL>lightColor</LABEL>
 			<LABEL>linkFromDisplay</LABEL>
 			<LABEL>linkTarget</LABEL>
+			<LABEL>linkURL</LABEL> <!-- OpenBD -->
+			<LABEL>linkWindow</LABEL> <!-- OpenBD -->
+			<LABEL>mute</LABEL> <!-- OpenBD -->
 			<LABEL>overStretch</LABEL>
 			<LABEL>passThrough</LABEL>
+			<LABEL>play</LABEL> <!-- OpenBD -->
 			<LABEL>playList</LABEL>
 			<LABEL>playListSize</LABEL>
 			<LABEL>playListThumbnails</LABEL>
@@ -3488,10 +3538,12 @@
 			<LABEL>showPause</LABEL>
 			<LABEL>showPlay</LABEL>
 			<LABEL>showTimeline</LABEL>
+			<LABEL>stop</LABEL> <!-- OpenBD -->
 			<LABEL>target</LABEL>
 			<LABEL>thumbnails</LABEL>
 			<LABEL>thumbs</LABEL>
 			<LABEL>video</LABEL>
+			<LABEL>volume</LABEL> <!-- OpenBD -->
 			<LABEL>width</LABEL>
 		</KEYWORDS>
 	</RULES>
@@ -3647,7 +3699,7 @@
 			<KEYWORD2>cfbreak</KEYWORD2>
 			<KEYWORD2>cflogout</KEYWORD2>
 			
-			<!-- BD -->
+			<!-- BD, OpenBD -->
 			<KEYWORD2>cfcontinue</KEYWORD2>
 		</KEYWORDS>
 	</RULES>
@@ -3666,13 +3718,12 @@
 		</KEYWORDS>
 	</RULES>
 
-	<!-- 3. Tags that include the opening tag and some sort of expression: -->
-	<RULES SET="CFML_CFEXPRESSION_TAG" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+	<!-- 3. Tags that include the opening tag, some sort of expression, and can be written with an XML-style close: -->
+	<RULES SET="CFML_CFEXPRESSION_TAG1" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
 		<!-- The tag start and end: -->
-		<SEQ TYPE="KEYWORD2">&lt;cfif</SEQ>
-		<SEQ TYPE="KEYWORD2">&lt;cfelseif</SEQ>
+		<SEQ TYPE="KEYWORD2">&lt;cfset</SEQ>
 		<SEQ TYPE="KEYWORD2">&lt;cfreturn</SEQ>
-		<SEQ TYPE="KEYWORD2">&lt;cfwhile</SEQ> <!-- Railo -->	
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ>
 		<SEQ TYPE="KEYWORD2">&gt;</SEQ>
 		
 		<!-- Common stuff for most CF tags attributes: -->
@@ -3683,4 +3734,19 @@
 		&cfmlsharedrules;
 	</RULES>
 
+	<!-- 4. Tags that include the opening tag and some sort of expression: -->
+	<RULES SET="CFML_CFEXPRESSION_TAG2" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		<!-- The tag start and end: -->
+		<SEQ TYPE="KEYWORD2">&lt;cfif</SEQ>
+		<SEQ TYPE="KEYWORD2">&lt;cfelseif</SEQ>
+		<SEQ TYPE="KEYWORD2">&lt;cfwhile</SEQ> <!-- Railo -->	
+		<SEQ TYPE="KEYWORD2">&gt;</SEQ>
+		
+		<!-- Common stuff for most CF tags attributes: -->
+		<SPAN TYPE="LITERAL1"><BEGIN>"</BEGIN><END>"</END></SPAN>
+		<SPAN TYPE="LITERAL1"><BEGIN>'</BEGIN><END>'</END></SPAN>
+		<SEQ TYPE="OPERATOR">=</SEQ>
+		
+		&cfmlsharedrules;
+	</RULES>
 </MODE>

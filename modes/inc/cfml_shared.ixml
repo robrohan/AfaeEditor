@@ -16,6 +16,10 @@
 <SEQ TYPE="OPERATOR">&amp;</SEQ>
 <SEQ TYPE="OPERATOR">=</SEQ>
 
+<!-- Railo's ternary operator: -->
+<SEQ TYPE="OPERATOR">?</SEQ>
+<SEQ TYPE="OPERATOR">:</SEQ>
+
 <KEYWORDS IGNORE_CASE="TRUE">
 	<!-- Operators: -->
 	<OPERATOR>IS</OPERATOR>
@@ -39,6 +43,10 @@
 	<!-- Treat true/false as language keywords: -->
 	<LITERAL2>true</LITERAL2>
 	<LITERAL2>false</LITERAL2>
+	
+	<!-- Same for yes/no (Railo) -->
+	<LITERAL2>yes</LITERAL2>
+	<LITERAL2>no</LITERAL2>
 
 	<!-- CFQUERYPARAM data types: -->
 	<KEYWORD2>CF_SQL_BIGINT</KEYWORD2>
@@ -479,7 +487,8 @@
 	<!-- R = Railo -->
 	<!-- R3 = Railo 3 (as of 01/2009, http://www.railo-technologies.com/en/index.cfm?treeID=356) -->
 	<!-- O = OpenBD (as of 12/18/2008, http://wiki.openbluedragon.org/wiki/index.php/Category:Functions)
-			 and as updated in the OpenBD 1.0.1 release notes at http://blog.openbluedragon.org/openbd_101_release.htm) 
+			 as updated in the OpenBD 1.0.1 release notes at http://blog.openbluedragon.org/openbd_101_release.htm,
+			 as updated in the OpenBD 1.1 release notes at http://wiki.openbluedragon.org/wiki/index.php/ReleaseNotes_1-1
 	-->
 	<FUNCTION>AmazonSimpleDB</FUNCTION> <!-- O -->
 	<FUNCTION>Array</FUNCTION>	<!-- R -->
@@ -507,6 +516,7 @@
 	<FUNCTION>Dump</FUNCTION>	<!-- R, R3 -->
 	<FUNCTION>Echo</FUNCTION>	<!-- R -->
 	<FUNCTION>Extract</FUNCTION>	<!-- R -->
+	<FUNCTION>FileSeparator</FUNCTION> <!-- O -->
 	<FUNCTION>FromBase62</FUNCTION> <!-- O -->
 	<FUNCTION>GetAllThreads</FUNCTION>	<!-- BD -->
 	<FUNCTION>GetBytesSent</FUNCTION> <!-- O -->
@@ -526,6 +536,7 @@
 	<FUNCTION>ListSDBDomains</FUNCTION>	<!-- O -->
 	<FUNCTION>ListTrim</FUNCTION>	<!-- R -->
 	<FUNCTION>Metaphone</FUNCTION>	<!-- R -->
+	<FUNCTION>Millisecond</FUNCTION> <!-- R -->
 	<FUNCTION>MonthShortAsString</FUNCTION>	<!-- R -->
 	<FUNCTION>NowServer</FUNCTION>	<!-- R -->
 	<FUNCTION>NullValue</FUNCTION>	<!-- R -->
@@ -537,9 +548,12 @@
 	<FUNCTION>SerializeJSON</FUNCTION>	<!-- O -->
 	<FUNCTION>Serialize</FUNCTION>	<!-- R -->
 	<FUNCTION>SetSDBAttribute</FUNCTION> <!-- O -->
+	<FUNCTION>SetTimezone</FUNCTION> <!-- R -->
+	<FUNCTION>SizeOf</FUNCTION> <!-- R -->
 	<FUNCTION>Sleep</FUNCTION> <!-- O -->
 	<FUNCTION>Soundex</FUNCTION>	<!-- R -->
 	<FUNCTION>Struct</FUNCTION>	<!-- R -->
+	<FUNCTION>StructValueArray</FUNCTION>	<!-- O -->
 	<FUNCTION>SystemReloadConfig</FUNCTION> <!-- O -->
 	<FUNCTION>ThreadInterrupt</FUNCTION>	<!-- BD -->
 	<FUNCTION>ThreadIsAlive</FUNCTION>	<!-- BD -->
