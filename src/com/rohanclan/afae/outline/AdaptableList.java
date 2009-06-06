@@ -47,9 +47,9 @@ public class AdaptableList implements IWorkbenchAdapter, IAdaptable {
      * Adds all the adaptable objects in the given enumeration to this list.
      * Returns this list.
      */
-    public AdaptableList add(Iterator iterator) {
+    public AdaptableList add(Iterator<IAdaptable> iterator) {
         while (iterator.hasNext()) {
-            add((IAdaptable) iterator.next());
+            add(iterator.next());
         }
         return this;
     }
@@ -66,6 +66,7 @@ public class AdaptableList implements IWorkbenchAdapter, IAdaptable {
     /* (non-Javadoc)
      * Method declared on IAdaptable
      */
+    @SuppressWarnings("unchecked")
     public Object getAdapter(Class adapter) {
         if (adapter == IWorkbenchAdapter.class)
             return this;

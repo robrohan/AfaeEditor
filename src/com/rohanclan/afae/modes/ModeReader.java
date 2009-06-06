@@ -60,6 +60,7 @@ public class ModeReader implements IModeConstants {
 	 * 
 	 * @param filename
 	 */
+	@SuppressWarnings("unchecked")
 	public void read(String filename) {
 		SAXReader reader = new SAXReader();
 		Document doc = null;
@@ -76,10 +77,11 @@ public class ModeReader implements IModeConstants {
 		}
 
 		Element root = doc.getRootElement();
-
+		
+		
 		// parse the properties (if they exist)
 		if (root.element(TAG_PROPS) != null) {
-			for (Iterator z = root.element(TAG_PROPS).elements(TAG_PROPERTY).iterator(); z.hasNext();) {
+			for (Iterator<Element> z = root.element(TAG_PROPS).elements(TAG_PROPERTY).iterator(); z.hasNext();) {
 				Element singleprop = (Element) z.next();
 				String name = singleprop.attributeValue(ATTR_NAME, "");
 				String value = singleprop.attributeValue(ATTR_VALUE);
@@ -90,11 +92,13 @@ public class ModeReader implements IModeConstants {
 				} else if (name.equals(ATTR_VALUE_STOP_COMMENT)) {
 					listener.setEndComment(value);
 				}
+				
+				//Should we add the properties we don't understand?
 			}
 		}
 
 		// Loop over all the rule in the mode file
-		for (Iterator iter = root.elementIterator(TAG_RULES); iter.hasNext();) {
+		for (Iterator<Element> iter = root.elementIterator(TAG_RULES); iter.hasNext();) {
 			Element rulesElement = (Element) iter.next();
 			createRule(rulesElement);
 
@@ -102,8 +106,8 @@ public class ModeReader implements IModeConstants {
 			 * Because order of rules is important we must read the elements in
 			 * order instead of using elementIterators("SPAN", etc)
 			 */
-			List allTypes = rulesElement.elements();
-			for (Iterator allTypesI = allTypes.iterator(); allTypesI.hasNext();) {
+			List<Element> allTypes = rulesElement.elements();
+			for (Iterator<Element> allTypesI = allTypes.iterator(); allTypesI.hasNext();) {
 				Element element = (Element) allTypesI.next();
 				// does a bit switch...
 				createType(element);
@@ -147,6 +151,7 @@ public class ModeReader implements IModeConstants {
 	 * 
 	 * @param keywordsE
 	 */
+	@SuppressWarnings("unchecked")
 	private void createKeywords(Element keywordsE) {
 		KeywordMap keywords = new KeywordMap( bool(keywordsE, "IGNORE_CASE", true) );
 		keywords.setAtLineStart( bool(keywordsE,"AT_LINE_START",false) );
@@ -193,13 +198,13 @@ public class ModeReader implements IModeConstants {
 	 *            a list of DOM elements of
 	 * @return
 	 */
-	private String[] toStringArray(List list) {
+	private String[] toStringArray(List<Element> list) {
 		if (list.isEmpty())
 			return new String[0];
 		String[] strings = new String[list.size()];
 		int i = 0;
 
-		for (Iterator iter = list.iterator(); iter.hasNext();) {
+		for (Iterator<Element> iter = list.iterator(); iter.hasNext();) {
 			strings[i] = ((Element) iter.next()).getText();
 			i++;
 		}

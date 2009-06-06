@@ -68,7 +68,7 @@ public class AfaePlugin extends AbstractUIPlugin implements IAfaeExtensionIds, I
 	private AfaeEditorTools editorTools;
 	private static ColorManager colorManager;
 	
-	private static List loglisteners;
+	private static List<ILogListener> loglisteners;
 	
 	/**
 	 * The constructor.
@@ -117,7 +117,7 @@ public class AfaePlugin extends AbstractUIPlugin implements IAfaeExtensionIds, I
 	 * Gets a list of log listeners from the plugin.xml files
 	 * @return
 	 */
-	private static List getLogListeners()
+	private static List<ILogListener> getLogListeners()
 	{
 		if(loglisteners == null)
 		{
@@ -130,7 +130,7 @@ public class AfaePlugin extends AbstractUIPlugin implements IAfaeExtensionIds, I
 	 * 
 	 * @return
 	 */
-	private static List computeLogListeners()
+	private static List<ILogListener> computeLogListeners()
 	{
 		IExtensionRegistry registry = Platform.getExtensionRegistry();
 		IExtensionPoint extensionPoint = registry.getExtensionPoint(EXT_LOG_LISTENER_ID);
@@ -333,6 +333,7 @@ public class AfaePlugin extends AbstractUIPlugin implements IAfaeExtensionIds, I
 	 * @param exception the exception
 	 * @param klass the class where the exception happened (Thing.class)
 	 */
+	@SuppressWarnings("unchecked")
 	public static void logError(String message, Exception exception, Class klass) 
 	{
 		logCommon(message,exception,klass,LOG_ERROR);
@@ -345,6 +346,7 @@ public class AfaePlugin extends AbstractUIPlugin implements IAfaeExtensionIds, I
 	 * @param exception the exception
 	 * @param klass the class where the exception happened (Thing.class)
 	 */
+	@SuppressWarnings("unchecked")
 	public static void logWarn(String message, Exception exception, Class klass) 
 	{
 		logCommon(message,exception,klass,LOG_WARN);
@@ -357,6 +359,7 @@ public class AfaePlugin extends AbstractUIPlugin implements IAfaeExtensionIds, I
 	 * @param exception the exception
 	 * @param klass the class where the exception happened (Thing.class)
 	 */
+	@SuppressWarnings("unchecked")
 	public static void logDebug(String message, Exception exception, Class klass) 
 	{
 		logCommon(message,exception,klass,LOG_DEBUG);
@@ -369,6 +372,7 @@ public class AfaePlugin extends AbstractUIPlugin implements IAfaeExtensionIds, I
 	 * @param exception the exception
 	 * @param klass the class where the exception happened (Thing.class)
 	 */
+	@SuppressWarnings("unchecked")
 	public static void logInfo(String message, Exception exception, Class klass) 
 	{
 		logCommon(message,exception,klass,LOG_INFO);
@@ -382,9 +386,10 @@ public class AfaePlugin extends AbstractUIPlugin implements IAfaeExtensionIds, I
 	 * @param klass
 	 * @param type
 	 */
+	@SuppressWarnings("unchecked")
 	private static void logCommon(final String message, final Exception e, final Class klass, final byte type)
 	{
-		for(final Iterator all = getLogListeners().iterator(); all.hasNext();)
+		for(final Iterator<ILogListener> all = getLogListeners().iterator(); all.hasNext();)
 		{
 			final ILogListener each = (ILogListener)all.next();
 			

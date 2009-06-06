@@ -40,7 +40,7 @@ import com.rohanclan.afae.AfaePlugin;
 import com.rohanclan.afae.editor.ModeCache;
 
 /**
- * Represenets one instance of a mode file
+ * Represents one instance of a mode file
  * 
  * @author robrohan
  */
@@ -123,10 +123,13 @@ public class Mode {
 		public void setEndComment(String end) {
 			setStopComment(end);
 		}
-		
+
+		public void addProperty(String name, String value) {
+			addProperty(name, value);
+		}
 	}
 
-	protected Map properties;
+	protected Map<String, String> properties;
 
 	/** the rules for this Mode */
 	protected Map<String, Rule> rules;
@@ -162,7 +165,7 @@ public class Mode {
 	 */
 	public Mode(String name) {
 		super();
-		properties = new HashMap();
+		properties = new HashMap<String, String>();
 		this.name = name.toLowerCase();
 		rules = new HashMap<String, Rule>();
 		delegates = new HashMap<String, Rule>();
@@ -174,7 +177,7 @@ public class Mode {
 	 * 
 	 * @return
 	 */
-	public Collection getRules() {
+	public Collection<Rule> getRules() {
 		return rules.values();
 	}
 
@@ -259,7 +262,7 @@ public class Mode {
 		return re.match(aFilename);
 	}
 
-	public Map getDelegates() {
+	public Map<String, Rule> getDelegates() {
 		return delegates;
 	}
 
@@ -358,8 +361,8 @@ public class Mode {
 			Set<String> contentTypesList = new HashSet<String>(15);
 			contentTypesList.add(IDocument.DEFAULT_CONTENT_TYPE);
 			Rule rule = getDefaultRuleSet();
-			List allTypes = rule.getTypes();
-			for (Iterator typeI = allTypes.iterator(); typeI.hasNext();) {
+			List<Type> allTypes = rule.getTypes();
+			for (Iterator<Type> typeI = allTypes.iterator(); typeI.hasNext();) {
 				Type type = (Type) typeI.next();
 				contentTypesList.add(type.getContentType());
 				if (type instanceof Span && ((Span) type).hasDelegate()) {
@@ -447,4 +450,9 @@ public class Mode {
 		if (endComment != null)
 			this.endComment = endComment;
 	}
+	
+	public void addProperty(String name, String value) {
+		this.properties.put(name, value);
+	}
+	
 }

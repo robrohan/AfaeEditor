@@ -128,16 +128,21 @@ public class Rule
 	
 	/**
 	 * Get a list of types from this Rule by Name
+	 * 
 	 * TODO: it looks like "type" is by Type.getColor() ?? thats odd
 	 * @param type
 	 * @return
 	 */
-	public List get(String type)
+	public List<Type> get(String type)
 	{
-		List all = (List)types.get(type);
+		List<Type> all = types.get(type);
 		
-		if(all == null) 
-			return Collections.EMPTY_LIST;
+		if(all == null) {
+			@SuppressWarnings("unchecked")
+			List<Type> emptyList = (List<Type>)Collections.EMPTY_LIST;
+			return emptyList;
+		}
+		
 		return all;
 	}
 	
@@ -165,7 +170,7 @@ public class Rule
 	 * Get all the types this Rule has
 	 * @return
 	 */
-	public List getTypes() 
+	public List<Type> getTypes() 
 	{
 		return orderdList;
 	}

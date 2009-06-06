@@ -28,6 +28,8 @@ public class TextThemes implements IPreferenceConstants {
 	
 	public void applyTheme() {
 		IPreferenceStore store = AfaePlugin.getDefault().getPreferenceStore();
+		
+		@SuppressWarnings("unchecked")
 		Enumeration e = p.keys();
 		
 		//System.err.println("File: " + this.fname);

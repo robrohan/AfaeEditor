@@ -223,8 +223,8 @@ public class ColorManager {
 	}
 	
 	public void dispose() {
-		Collection colors = colorMap.values();
-		for (Iterator iter = colors.iterator(); iter.hasNext();) {
+		Collection<Color> colors = colorMap.values();
+		for (Iterator<Color> iter = colors.iterator(); iter.hasNext();) {
 			Color color = (Color) iter.next();
 			colorMap.remove(color);
 			color.dispose();

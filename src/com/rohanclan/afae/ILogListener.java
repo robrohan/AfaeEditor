@@ -36,6 +36,7 @@ public interface ILogListener
 	 * @param e the exception could be null
 	 * @param klass the class that had this event could be null
 	 */
+	@SuppressWarnings("unchecked")
 	public void logDebug(String message, Exception e, Class klass);
 	/**
 	 * Handle a warn message
@@ -43,6 +44,7 @@ public interface ILogListener
 	 * @param e the exception could be null
 	 * @param klass the class that had this event could be null
 	 */
+	@SuppressWarnings("unchecked")
 	public void logWarn(String message, Exception e, Class klass);
 	/**
 	 * Handle a error message
@@ -50,6 +52,7 @@ public interface ILogListener
 	 * @param e the exception could be null
 	 * @param klass the class that had this event could be null
 	 */
+	@SuppressWarnings("unchecked")
 	public void logError(String message, Exception e, Class klass);
 	/**
 	 * Handle a info message
@@ -57,5 +60,6 @@ public interface ILogListener
 	 * @param e the exception could be null
 	 * @param klass the class that had this event could be null
 	 */
+	@SuppressWarnings("unchecked")
 	public void logInfo(String message, Exception e, Class klass);
 }

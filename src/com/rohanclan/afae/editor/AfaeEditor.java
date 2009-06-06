@@ -201,6 +201,7 @@ public class AfaeEditor extends TextEditor implements IPreferenceConstants, IMod
 	/** (non-Javadoc)
      * Method declared on IAdaptable
      */
+	@SuppressWarnings({"unchecked"})
     public Object getAdapter(Class key) {
         if (key.equals(IContentOutlinePage.class)) {
             IEditorInput input = getEditorInput();
@@ -577,7 +578,8 @@ public class AfaeEditor extends TextEditor implements IPreferenceConstants, IMod
 		support.setMatchingCharacterPainterPreferenceKeys(P_BRACKET_MATCHING_ENABLED, P_BRACKET_MATCHING_COLOR);
 
 		super.configureSourceViewerDecorationSupport(support);
-
+		
+		@SuppressWarnings({"unchecked"})
 		Iterator e = getAnnotationPreferences().getAnnotationPreferences().iterator();
 
 		while (e.hasNext()) {

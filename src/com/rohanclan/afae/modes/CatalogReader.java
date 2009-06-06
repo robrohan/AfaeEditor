@@ -25,7 +25,7 @@ package com.rohanclan.afae.modes;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
+//import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -66,12 +66,11 @@ public class CatalogReader {
 	 * @return the modes in the file or a new blank Mode[0]
 	 */
 	public Mode[] read(String filename) {
-		URL mode = null;
+		//URL mode = null;
 		try {
 			return readFile(AfaeEditorTools.getFile(filename));
 		} catch (Exception e) {
-			AfaePlugin.logError("Error reading catalog file " + mode.getFile(),
-					e, CatalogReader.class);
+			AfaePlugin.logError("Error reading catalog file ", e, CatalogReader.class);
 			e.printStackTrace();
 			return new Mode[0];
 		}
@@ -85,18 +84,20 @@ public class CatalogReader {
 	 * @throws DocumentException
 	 * @throws IOException
 	 */
+	@SuppressWarnings("unchecked")
 	protected Mode[] readFile(File file) throws DocumentException, IOException {
 		// parse the file into a new DOM and grab the root node
 		SAXReader reader = new SAXReader();
 		Document doc = null;
 		doc = reader.read(file);
 		Element root = doc.getRootElement();
-		List modeE = root.elements("MODE");
+		
+		List<Element> modeE = root.elements("MODE");
 
 		// assume we'll have about 50 modes (see the catalog file)
 		List<Mode> modes = new ArrayList<Mode>(50);
 
-		for (Iterator iter = modeE.iterator(); iter.hasNext();) {
+		for (Iterator<Element> iter = modeE.iterator(); iter.hasNext();) {
 			Element modeElement = (Element) iter.next();
 			modes.add(newMode(modeElement));
 		}

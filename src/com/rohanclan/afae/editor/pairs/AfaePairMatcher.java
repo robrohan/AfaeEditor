@@ -24,6 +24,7 @@ package com.rohanclan.afae.editor.pairs;
 
 import java.util.Iterator;
 import java.util.Stack;
+import java.util.Collection;
 
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
@@ -36,7 +37,7 @@ import org.eclipse.jface.text.source.ICharacterPairMatcher;
  */
 public class AfaePairMatcher implements ICharacterPairMatcher
 {
-	private java.util.Collection pairs;
+	private Collection<Pair> pairs;
 	private int currentAnchor;
 	private Pair matchingPair;
 	
@@ -51,7 +52,7 @@ public class AfaePairMatcher implements ICharacterPairMatcher
 	/** The constructor for the pair matcher
 	 * @param pairs
 	 */
-	public AfaePairMatcher(java.util.Collection pairs) {
+	public AfaePairMatcher(Collection<Pair> pairs) {
 		this.pairs = pairs;
 		this.currentAnchor = AfaePairMatcher.UNSET_ANCHOR;
 		this.matchingPair = null;
@@ -97,7 +98,7 @@ public class AfaePairMatcher implements ICharacterPairMatcher
 		if( document != null && offset>=0) {
 			//loop through the collection to see if we can find a match
 			//and identify the pair we're working with
-			Iterator pairIterator = pairs.iterator();
+			Iterator<Pair> pairIterator = pairs.iterator();
 			while(matchingPair==null && pairIterator.hasNext())	{
 				Pair currentPair = (Pair)pairIterator.next();
 				

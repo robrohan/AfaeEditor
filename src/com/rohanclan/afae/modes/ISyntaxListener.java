@@ -69,4 +69,12 @@ public interface ISyntaxListener {
 	 * @param end
 	 */
 	void setEndComment(String end);
+	
+	/**
+	 * Add a property name / value from the mode file.
+	 * 
+	 * @param name
+	 * @param value
+	 */
+	void addProperty(String name, String value);
 }

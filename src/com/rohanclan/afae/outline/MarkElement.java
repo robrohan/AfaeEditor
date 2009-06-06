@@ -67,6 +67,7 @@ public class MarkElement implements IWorkbenchAdapter, IAdaptable {
     /* (non-Javadoc)
      * Method declared on IAdaptable
      */
+    @SuppressWarnings("unchecked")
     public Object getAdapter(Class adapter) {
         if (adapter == IWorkbenchAdapter.class)
             return this;

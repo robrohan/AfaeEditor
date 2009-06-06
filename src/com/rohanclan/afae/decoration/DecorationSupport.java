@@ -213,7 +213,7 @@ public class DecorationSupport extends SourceViewerDecorationSupport implements 
 	 * 
 	 * @since 3.0
 	 */
-	private static IDrawingStrategy fgSquigglesStrategy = new AnnotationPainter.SquigglesStrategy();
+	//private static IDrawingStrategy fgSquigglesStrategy = new AnnotationPainter.SquigglesStrategy();
 
 	/*
 	 * @see IPropertyChangeListener
@@ -376,7 +376,7 @@ public class DecorationSupport extends SourceViewerDecorationSupport implements 
 		else
 			hideWhitespaceCharacters();
 
-		Iterator e = fAnnotationTypeKeyMap.keySet().iterator();
+		Iterator<Object> e = fAnnotationTypeKeyMap.keySet().iterator();
 
 		while (e.hasNext()) {
 			Object type = e.next();
@@ -525,7 +525,7 @@ public class DecorationSupport extends SourceViewerDecorationSupport implements 
 	 */
 	public void updateOverviewDecorations() {
 		if (fOverviewRuler != null) {
-			Iterator e = fAnnotationTypeKeyMap.keySet().iterator();
+			Iterator<Object> e = fAnnotationTypeKeyMap.keySet().iterator();
 			while (e.hasNext()) {
 				Object type = e.next();
 				//TODO: fix this hack. It is only here so that I can use the
@@ -572,7 +572,7 @@ public class DecorationSupport extends SourceViewerDecorationSupport implements 
 	 */
 	private AnnotationPreference getAnnotationPreferenceInfo(
 			String preferenceKey) {
-		Iterator e = fAnnotationTypeKeyMap.values().iterator();
+		Iterator<AnnotationPreference> e = fAnnotationTypeKeyMap.values().iterator();
 		while (e.hasNext()) {
 			AnnotationPreference info = (AnnotationPreference) e.next();
 			if (info != null && info.isPreferenceKey(preferenceKey))
@@ -1013,7 +1013,7 @@ public class DecorationSupport extends SourceViewerDecorationSupport implements 
 		
 		painter.addDrawingStrategy(AnnotationPreference.STYLE_BOX, fgBoxStrategy);
 		painter.addDrawingStrategy(AnnotationPreference.STYLE_NONE, fgNullStrategy);
-		painter.addDrawingStrategy(AnnotationPreference.STYLE_SQUIGGLES, fgSquigglesStrategy);
+		//painter.addDrawingStrategy(AnnotationPreference.STYLE_SQUIGGLES, fgSquigglesStrategy);
 		painter.addDrawingStrategy(AnnotationPreference.STYLE_UNDERLINE, fgUnderlineStrategy);
 		painter.addDrawingStrategy(AnnotationPreference.STYLE_IBEAM, fgIBeamStrategy);
 
@@ -1179,7 +1179,7 @@ public class DecorationSupport extends SourceViewerDecorationSupport implements 
 	 */
 	public void hideAnnotationOverview() {
 		if (fOverviewRuler != null) {
-			Iterator e = fAnnotationTypeKeyMap.keySet().iterator();
+			Iterator<Object> e = fAnnotationTypeKeyMap.keySet().iterator();
 			while (e.hasNext())
 				fOverviewRuler.removeAnnotationType(e.next());
 			fOverviewRuler.update();

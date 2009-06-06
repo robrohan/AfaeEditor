@@ -81,7 +81,7 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 	protected IAutoEditStrategy chevronIndentStrategy;
 	
 	protected Map<String, IToken> tokenMap;
-	protected Map markTokenMap;
+	//protected Map markTokenMap;
 	
 	private Mode mode;
 	private PreferenceListener prefListener;
@@ -326,10 +326,10 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 	 */
 	private void addDelegatedKeywords(PresentationReconciler reconciler) {
 		//get all the delegates out of the mode (javascript::MAIN for example)
-		Collection delegates = mode.getDelegates().keySet();
+		Collection<String> delegates = mode.getDelegates().keySet();
 		
 		//loop over each delegate and get out the set of jEdit mode rules they have
-		for(Iterator rules = delegates.iterator(); rules.hasNext();) {
+		for(Iterator<String> rules = delegates.iterator(); rules.hasNext();) {
 			String mungedName = (String)rules.next();
 			
 			Rule rule = (Rule)mode.getDelegates().get(mungedName);
@@ -644,8 +644,8 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 			}
 		}
 		
-		List allOfType = ruleSet.get(type);
-		for (Iterator allI = allOfType.iterator(); allI.hasNext();) {
+		List<Type> allOfType = ruleSet.get(type);
+		for (Iterator<Type> allI = allOfType.iterator(); allI.hasNext();) {
 			Type aType = (Type) allI.next();
 			if(aType.getType() == Type.SEQ && 
 				wordDetector.isWordStart(((TextSequence)aType).getText().charAt(0))) {

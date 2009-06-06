@@ -33,26 +33,31 @@ public class DefaultLogger implements ILogListener
 	/** to toggle error messages */
 	public static final boolean ERROR_ON 	= true;
 	
+	@SuppressWarnings("unchecked")
 	public void logDebug(String message, Exception e, Class klass) {
 		if(DEBUG_ON)
 			System.out.println("DEBUG: " + buildSafeString(message, e, klass));
 	}
 
+	@SuppressWarnings("unchecked")
 	public void logWarn(String message, Exception e, Class klass) {
 		if(WARN_ON)
 			System.out.println("WARN: " + buildSafeString(message, e, klass));
 	}
 
+	@SuppressWarnings("unchecked")
 	public void logError(String message, Exception e, Class klass) {
 		if(ERROR_ON)
 			System.err.println("ERROR: " + buildSafeString(message, e, klass));
 	}
 
+	@SuppressWarnings("unchecked")
 	public void logInfo(String message, Exception e, Class klass) {
 		if(INFO_ON)
 			System.out.println("INFO: " + buildSafeString(message, e, klass));
 	}
 	
+	@SuppressWarnings("unchecked")
 	private String buildSafeString(String message, Exception e, Class klass)
 	{
 		String buffer = " ";

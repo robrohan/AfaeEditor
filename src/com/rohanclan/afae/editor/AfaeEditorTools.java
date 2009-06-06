@@ -27,12 +27,12 @@ package com.rohanclan.afae.editor;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.Iterator;
 //import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
+//import java.util.Map;
+//import java.util.Set;
 //import java.util.TreeSet;
 
 import org.eclipse.core.runtime.FileLocator;
@@ -75,7 +75,7 @@ public class AfaeEditorTools {
 	protected static ColoringWordDetector wordDetector = new ColoringWordDetector();
 
 	// the filename to methods tie
-	protected static Map<String, Set<DocumentJumpItem>> documentItemStore = new HashMap<String, Set<DocumentJumpItem>>();
+	//protected static Map<String, Set<DocumentJumpItem>> documentItemStore = new HashMap<String, Set<DocumentJumpItem>>();
 
 	/**
 	 * Changes jedit mode rules to eclipse rules ready to add to scanners
@@ -88,10 +88,10 @@ public class AfaeEditorTools {
 	 *            factory used to get tokens
 	 */
 	public static void add(Rule rule, List<Object> rules, ITokenFactory factory) {
-		List allTypes = rule.getTypes();
+		List<Type> allTypes = rule.getTypes();
 
-		for (Iterator typeI = allTypes.iterator(); typeI.hasNext();) {
-			Type type = (Type) typeI.next();
+		for (Iterator<Type> typeI = allTypes.iterator(); typeI.hasNext();) {
+			Type type = typeI.next();
 			add(rule, type, factory, rules);
 		}
 	}

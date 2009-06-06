@@ -69,6 +69,7 @@ public class AfaeAnnotationHover implements IAnnotationHover {
 	 * @param line
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	private String[] getMessagesForLine(ISourceViewer viewer, int line) {
 		IDocument document = viewer.getDocument();
 		IAnnotationModel model = viewer.getAnnotationModel();
