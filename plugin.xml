@@ -2,8 +2,8 @@
 <?eclipse version="3.0"?>
 <plugin id="com.rohanclan.afae"
 	name="Afae Plugin"
-	version="1.1.7"
-	provider-name="RohanClan"
+	version="1.1.8"
+	provider-name="Rob Rohan"
 	class="com.rohanclan.afae.AfaePlugin"
 >
 	<runtime>
@@ -61,7 +61,7 @@
 		<editor
 			class="com.rohanclan.afae.editor.AfaeEditor"
 			contributorClass="com.rohanclan.afae.editor.AfaeEditorContribution"
-			extensions="svg,xsl,xslt,xsd,dtd,as,jsp,asp,php,php3,php4,properties,props,ini,config,log,bsh,csh,sh,tsh,bat,4gl,ada,adb,ads,asa,asm,awk,bas,bbj,bib,c,cbl,cc,changes,classpath,cls,cpp,cs,cxx,diff,dpk,dpr,dsl,e,el,eps,f,h,hh,hpp,hs,i,i3,icc,idl,imp,in,inc,jhtml,jmk,jou,jsf,jspf,lisp,lsp,ltx,m,m3,mak,makefile,mch,mips,ml,nrx,orx,p,pas,patch,phtml,pl,pls,pm,pov,povray,prg,pro,project,ps,py,pyw,r,rb,rbw,ref,reg,rex,rvw,scm,sgm,sgml,shtm,shtml,sml,sources,spec,sqc,sqr,st,sty,tcl,tex,texi,txt,v,vbs,ver,vh,vm,w,xom,aspx,vb,thx,xdf,xml,lzx,mxml,js,css,plist,xmi,xhtml,wsdl,rss,htm,html,sql,java,scpt,applescript,resx,strings,xq,xquery,rng,mod,dbm,wsdd,htaccess,ixml,rhtml,yml,rake,hex,txt,f,4th,jjt,jj,gladep,glade,cfm,cfml,cfc,blog,note,ftl,speak,conf"
+			extensions="svg,xsl,xslt,xsd,dtd,as,jsp,asp,php,php3,php4,properties,props,ini,config,log,bsh,csh,sh,tsh,bat,4gl,ada,adb,ads,asa,asm,awk,bas,bbj,bib,c,cbl,cc,changes,classpath,cls,cpp,cs,cxx,diff,dpk,dpr,dsl,e,el,eps,f,h,hh,hpp,hs,i,i3,icc,idl,imp,in,inc,jhtml,jmk,jou,jsf,jspf,lisp,lsp,ltx,m,m3,mak,makefile,mch,mips,ml,nrx,orx,p,pas,patch,phtml,pl,pls,pm,pov,povray,prg,pro,project,ps,py,pyw,r,rb,rbw,ref,reg,rex,rvw,scm,sgm,sgml,shtm,shtml,sml,sources,spec,sqc,sqr,st,sty,tcl,tex,texi,txt,v,vbs,ver,vh,vm,w,xom,aspx,vb,thx,xdf,xml,lzx,mxml,js,css,plist,xmi,xhtml,wsdl,rss,htm,html,sql,java,scpt,applescript,resx,strings,xq,xquery,rng,mod,dbm,wsdd,htaccess,ixml,rhtml,yml,rake,hex,txt,f,4th,jjt,jj,gladep,glade,cfm,cfml,cfc,blog,note,ftl,speak,conf,g,gd,gi"
 			filenames="Makefile,Rakefile,COPYING,INSTALL,README,HACKING,CHANGELOG,TODO,catalog"
 			icon="icons/obj16/default.gif"
 			id="com.rohanclan.afae.editor.AfaeEditor"
@@ -628,6 +628,6 @@
 	<!-- //////////////////////////// source control //////////////////////////// -->
 	<!-- //////////////////////////////////////////////////////////////////////// -->
 	<extension point="org.eclipse.team.core.fileTypes">
-		<fileTypes extension="dtd,as,4gl,ada,adb,ads,as,asa,asm,awk,log,bas,jsf,ref,reg,rex,rvw,bsh,sml,sources,spec,sqc,sqr,st,strings,csh,m,m3,pov,povray,prg,pro,project,ps,py,sh,mch,mips,ml,nrx,orx,p,pas,patch,phtml,pl,tsh,c,cbl,cc,changes,classpath,cls,cpp,bat,i,i3,icc,idl,imp,properties,xmi,xhtml,wsdl,rss,htm,html,xsl,xslt,xsd,svg,props,xquery,ini,w,xom,aspx,vb,thx,xdf,xml,config,scm,sgm,sgml,shtm,shtml,sty,tcl,tex,texi,jsp,jspf,lisp,lsp,ltx,pyw,r,rb,rbw,asp,mak,makefile,pls,pm,scpt,applescript,php,dpk,dpr,dsl,e,el,eps,f,h,hh,hpp,hs,inc,jhtml,jmk,jou,php3,bbj,bib,cs,cxx,dbm,diff,resx,xq,mod,ixml,htaccess,rhtml,yml,rake,php4,txt,v,vbs,ver,vh,vm,lzx,mxml,js,css,plist,sql,java,rng,wsdd,in,txt,f,4th,jjt,jj,gladep,glade,cfm,cfml,cfc,blog,note,ftl,speak,conf" type="text" />
+		<fileTypes extension="dtd,as,4gl,ada,adb,ads,as,asa,asm,awk,log,bas,jsf,ref,reg,rex,rvw,bsh,sml,sources,spec,sqc,sqr,st,strings,csh,m,m3,pov,povray,prg,pro,project,ps,py,sh,mch,mips,ml,nrx,orx,p,pas,patch,phtml,pl,tsh,c,cbl,cc,changes,classpath,cls,cpp,bat,i,i3,icc,idl,imp,properties,xmi,xhtml,wsdl,rss,htm,html,xsl,xslt,xsd,svg,props,xquery,ini,w,xom,aspx,vb,thx,xdf,xml,config,scm,sgm,sgml,shtm,shtml,sty,tcl,tex,texi,jsp,jspf,lisp,lsp,ltx,pyw,r,rb,rbw,asp,mak,makefile,pls,pm,scpt,applescript,php,dpk,dpr,dsl,e,el,eps,f,h,hh,hpp,hs,inc,jhtml,jmk,jou,php3,bbj,bib,cs,cxx,dbm,diff,resx,xq,mod,ixml,htaccess,rhtml,yml,rake,php4,txt,v,vbs,ver,vh,vm,lzx,mxml,js,css,plist,sql,java,rng,wsdd,in,txt,f,4th,jjt,jj,gladep,glade,cfm,cfml,cfc,blog,note,ftl,speak,conf,g,gd,gi" type="text" />
 	</extension>
 </plugin>

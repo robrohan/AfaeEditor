@@ -373,4 +373,8 @@
 	<MODE NAME="apacheconf" FILE="apacheconf.xml"
        FILE_NAME_GLOB="{.conf,default,ssl,.htaccess}"
    />
+   
+	<MODE NAME="GAP" FILE="gap.xml"
+		FILE_NAME_GLOB="*.{g,gd,gi}"
+	/>
 </MODES>

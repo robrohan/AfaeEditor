@@ -16,6 +16,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 import com.rohanclan.afae.editor.AfaeEditorTools;
+import com.rohanclan.afae.prefs.textthemes.TextThemes;
 
 public class ThemePreferencePage extends PreferencePage implements IWorkbenchPreferencePage {
 
@@ -35,16 +36,18 @@ public class ThemePreferencePage extends PreferencePage implements IWorkbenchPre
 		methodpulldown = new Combo(composite, SWT.READ_ONLY);
 		methodpulldown.add("--- theme pulldown ---");
 		fillCombo(methodpulldown);
+		
 		methodpulldown.addSelectionListener(new SelectionListener(){
 
-			public void widgetDefaultSelected(SelectionEvent e) {
-			}
+			public void widgetDefaultSelected(SelectionEvent e) {}
 
 			public void widgetSelected(SelectionEvent e) {
 				String name = methodpulldown.getItem(methodpulldown.getSelectionIndex());
-				////System.err.println(e.getSource().toString());
+				
 				try {
-					if(itemImage != null) itemImage.dispose();
+					if(itemImage != null) {
+						itemImage.dispose();
+					}
 					
 					File f;
 					try {

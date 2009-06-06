@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<!-- Computational algebra system GAP 
+     (http://www.gap-system.org) mode 
+     by Alexander Konovalov -->
+     
+<MODE>
+    <PROPS>
+        <PROPERTY NAME="lineComment" VALUE="#" />
+    </PROPS>
+
+    <RULES IGNORE_CASE="FALSE" HIGHLIGHT_DIGITS="TRUE">
+
+        <EOL_SPAN TYPE="COMMENT1">#</EOL_SPAN>
+
+        <SPAN TYPE="LITERAL1" NO_LINE_BREAK="TRUE">
+            <BEGIN>"</BEGIN>
+            <END>"</END>
+        </SPAN>
+
+<!--
+
+Operator and delimiter symbols are:
+
++    -    *    /    ^    ~   !.
+=    <>   <    <=   >    >=  ![
+:=   .    ..   ->   ,    ;   !{
+[    ]    {    }    (    )    :
+
+-->
+
+        <SEQ TYPE="OPERATOR">+</SEQ>
+        <SEQ TYPE="OPERATOR">-</SEQ>
+        <SEQ TYPE="OPERATOR">*</SEQ>
+        <SEQ TYPE="OPERATOR">/</SEQ>
+        <SEQ TYPE="OPERATOR">^</SEQ>
+        <SEQ TYPE="OPERATOR">~</SEQ>
+        <SEQ TYPE="OPERATOR">!.</SEQ>
+        <SEQ TYPE="OPERATOR">=</SEQ>
+        <SEQ TYPE="OPERATOR">&lt;&gt;</SEQ>
+        <SEQ TYPE="OPERATOR">&lt;</SEQ>
+        <SEQ TYPE="OPERATOR">&lt;=</SEQ>
+        <SEQ TYPE="OPERATOR">&gt;</SEQ>
+        <SEQ TYPE="OPERATOR">&gt;=</SEQ>
+        <SEQ TYPE="OPERATOR">![</SEQ>
+        <SEQ TYPE="OPERATOR">:=</SEQ>
+        <SEQ TYPE="OPERATOR">.</SEQ>
+        <SEQ TYPE="OPERATOR">..</SEQ>
+        <SEQ TYPE="OPERATOR">-></SEQ>
+        <SEQ TYPE="OPERATOR">,</SEQ>
+        <SEQ TYPE="OPERATOR">;</SEQ>
+        <SEQ TYPE="OPERATOR">[</SEQ>
+        <SEQ TYPE="OPERATOR">]</SEQ>
+        <SEQ TYPE="OPERATOR">{</SEQ>
+        <SEQ TYPE="OPERATOR">}</SEQ>
+        <SEQ TYPE="OPERATOR">(</SEQ>
+        <SEQ TYPE="OPERATOR">)</SEQ>
+        <SEQ TYPE="OPERATOR">:</SEQ>
+
+        <KEYWORDS IGNORE_CASE="FALSE">
+<!-- 
+
+The keywords are
+and     do       elif   else    end     fi
+for     function if     in      local   mod
+not     od       or     repeat  return  then
+until   while    quit   QUIT    break   rec 
+continue
+
+A number of tokens that appear to be normal identifiers representing 
+functions or literals of various kinds are actually implemented as 
+keywords for technical reasons. These keywords are:
+
+false 	true	IsBound	Unbind	TryNextMethod	
+Info	Assert	SaveWorkspace   fail
+
+-->
+            <KEYWORD1>and</KEYWORD1>
+            <KEYWORD1>do</KEYWORD1>
+		    <KEYWORD1>elif</KEYWORD1>
+		    <KEYWORD1>else</KEYWORD1>
+		    <KEYWORD1>end</KEYWORD1>
+		    <KEYWORD1>fi</KEYWORD1>
+		    <KEYWORD1>for</KEYWORD1>
+		    <KEYWORD1>function</KEYWORD1>
+		    <KEYWORD1>if</KEYWORD1>
+		    <KEYWORD1>in</KEYWORD1>
+		    <KEYWORD1>local</KEYWORD1>
+		    <KEYWORD1>mod</KEYWORD1>
+		    <KEYWORD1>not</KEYWORD1>
+		    <KEYWORD1>od</KEYWORD1>
+		    <KEYWORD1>or</KEYWORD1>
+		    <KEYWORD1>repeat</KEYWORD1>
+		    <KEYWORD1>return</KEYWORD1>
+		    <KEYWORD1>then</KEYWORD1>
+		    <KEYWORD1>until</KEYWORD1>
+		    <KEYWORD1>while</KEYWORD1>
+		    <KEYWORD1>quit</KEYWORD1>
+		    <KEYWORD1>QUIT</KEYWORD1>                                 
+		    <KEYWORD1>break</KEYWORD1>
+		    <KEYWORD1>rec</KEYWORD1>
+		    <KEYWORD1>continue</KEYWORD1>
+		    <KEYWORD2>IsBound</KEYWORD2>
+		    <KEYWORD2>Unbind</KEYWORD2>
+		    <KEYWORD2>TryNextMethod</KEYWORD2>
+		    <KEYWORD2>Info</KEYWORD2>
+		    <KEYWORD2>Assert</KEYWORD2>
+		    <KEYWORD2>SaveWorkspace</KEYWORD2>
+            <LITERAL2>fail</LITERAL2>
+            <LITERAL2>false</LITERAL2>
+            <LITERAL2>true</LITERAL2>
+        </KEYWORDS>
+    </RULES>
+</MODE>

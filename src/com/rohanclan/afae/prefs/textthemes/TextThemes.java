@@ -1,4 +1,4 @@
-package com.rohanclan.afae.prefs;
+package com.rohanclan.afae.prefs.textthemes;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,21 +9,20 @@ import org.eclipse.jface.preference.IPreferenceStore;
 
 import com.rohanclan.afae.AfaePlugin;
 import com.rohanclan.afae.editor.AfaeEditorTools;
+import com.rohanclan.afae.prefs.IPreferenceConstants;
 
 public class TextThemes implements IPreferenceConstants {
-	/** the direcotry where the themes are: textthemes/ */
+	/** the directory where the themes are: textthemes/ */
 	public static final String THEME_DIR = "textthemes/";
 	public static final String THEME_EXT = ".properties";
 	public static final String THEME_PREVIEW_EXT = ".jpg";
 	public static final String THEME_FALL_BACK = "Afae";
 	
 	protected Properties p;
-	//private String fname = "";
 	
 	public void loadTheme(String name) throws IOException {
 		p = new Properties();
 		p.load(new FileInputStream(AfaeEditorTools.getFile(THEME_DIR + name + THEME_EXT)));
-		//this.fname = name;
 	}
 	
 	public void applyTheme() {
@@ -32,17 +31,17 @@ public class TextThemes implements IPreferenceConstants {
 		@SuppressWarnings("unchecked")
 		Enumeration e = p.keys();
 		
-		//System.err.println("File: " + this.fname);
 		while(e.hasMoreElements()){
 			String key = (String)e.nextElement();
 			try{
 				//if the key contains "color" and not "bold" assume it's a color
 				//otherwise assume the value is boolean.
 				
-				
 				//set the new style text decoration rule
-				if( key.toLowerCase().indexOf("color") > 0 && key.indexOf(TEXT_PROPERTY_SUFFIX) > 0 ) {
+				if( key.toLowerCase().indexOf("color") > 0 && key.indexOf(TEXT_PROPERTY_SUFFIX) > 0 ) 
+				{
 					//System.err.println("key_1: " + key + " value: " + p.getProperty(key));
+					
 					String prop = p.getProperty(key);
 					String[] textattrs = prop.split(",");
 					//should be boolean, boolean, boolean, boolean if not
@@ -61,7 +60,7 @@ public class TextThemes implements IPreferenceConstants {
 				}
 				//is this a text attribute background color setting
 				else if( key.toLowerCase().indexOf("color") > 0 && key.indexOf(BACKGROUND_COLOR_SUFFIX) > 0 ) {
-					//System.err.println("key_2: " + key + " value: " + p.getProperty(key));
+					System.err.println("This is a background color property: " + key + " value: " + p.getProperty(key));
 					store.setValue(key, p.getProperty(key));
 				}
 				//not a text attribute setting, perhaps just a color setting
@@ -69,11 +68,11 @@ public class TextThemes implements IPreferenceConstants {
 					(key.indexOf(BOLD_SUFFIX) < 0 && key.indexOf(ITALIC_SUFFIX) < 0
 					 && key.indexOf(TEXT_PROPERTY_SUFFIX) < 0 && key.indexOf(BACKGROUND_COLOR_SUFFIX) < 0) 
 				) {
-					//System.err.println("key_3: " + key + " value: " + p.getProperty(key));
+					System.err.println("This is a Color setting (not background): " + key + " value: " + p.getProperty(key));
 					store.setValue(key, p.getProperty(key));
 				//it's none of those, assume it's just a boolean setting
 				} else {
-					//System.err.println("key_4: " + key + " value: " + p.getProperty(key));
+					System.err.println("This is a boolean setting: " + key + " value: " + p.getProperty(key));
 					store.setValue(key, Boolean.valueOf(p.getProperty(key)));	
 				}	
 			} catch (Exception ex) {
