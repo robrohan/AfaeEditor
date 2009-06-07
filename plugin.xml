@@ -430,28 +430,33 @@
 			></action>
 			
 			<!-- toggle white space -->
-			<action id="com_rohanclan_afae_ShowWhitespacee"
-				label="Toggle Whitespace"
-				tooltip="Toggle editor whitespace"
-				icon="icons/obj16/showwhitespace.gif"
-				class="com.rohanclan.afae.editor.actions.TogglePreferenceAction"
-				menubarPath="AfaeEditor.afaemenu/maingroup"
-				toolbarPath="AfaeEditorToolbar"
-			></action>
+			<action
+         class="com.rohanclan.afae.editor.actions.ToggleWhitespace"
+         definitionId="Afae.ActionShowWhitespace"
+         icon="icons/obj16/showwhitespace.gif"
+         id="Afae.ActionShowWhitespace"
+         label="Toggle Whitespace"
+         menubarPath="AfaeEditor.afaemenu/maingroup"
+         style="push"
+         toolbarPath="AfaeEditorToolbar"
+         tooltip="Toggle editor whitespace"></action>
 			
 			<!-- toggle print margin -->
-			<action id="printMargin"
-				label="Toggle Print Margin"
-				tooltip="Toggle print margin"
-				icon="icons/obj16/margin.gif"
-				class="com.rohanclan.afae.editor.actions.TogglePreferenceAction"
-				menubarPath="AfaeEditor.afaemenu/maingroup"
-				toolbarPath="AfaeEditorToolbar"
-			></action>
+			<action
+         class="com.rohanclan.afae.editor.actions.TogglePrintMargin"
+         definitionId="Afae.ActionTogglePrintMargin"
+         icon="icons/obj16/margin.gif"
+         id="Afae.ActionTogglePrintMargin"
+         label="Toggle Print Margin"
+         menubarPath="AfaeEditor.afaemenu/maingroup"
+         style="push"
+         toolbarPath="AfaeEditorToolbar"
+         tooltip="Toggle print margin"></action>
    <action
          class="com.rohanclan.afae.editor.actions.ToggleTextModeAction"
+         definitionId="AfaeEditor.ActionToggleTextMode"
          icon="icons/obj16/text_block.gif"
-         id="AfaeEditor.toggleTextMode"
+         id="AfaeEditor.ActionToggleTextMode"
          label="Toggle Text Mode"
          menubarPath="AfaeEditor.afaemenu/maingroup"
          style="push"
@@ -495,15 +500,21 @@
 			name="Toggle Whitespace"
 			description="Toggles the editor whitespace display"
 			categoryId="Afae.commandCategory"
-			id="com_rohanclan_afae_ShowWhitespacee">
+			id="Afae.ActionShowWhitespace">
 		</command>
 		
 		<command 
 			name="Toggle Print Margin"
 			description="Toggles the print margin display"
 			categoryId="Afae.commandCategory"
-			id="printMargin">
+			id="Afae.ActionTogglePrintMargin">
 		</command>
+  <command
+        categoryId="Afae.commandCategory"
+        description="Toggle Text Mode"
+        id="AfaeEditor.ActionToggleTextMode"
+        name="Toggle Text Mode">
+  </command>
 		
 	</extension>
 	
@@ -584,6 +595,18 @@
 			contextId="org.eclipse.ui.textEditorScope"
 			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
 		</key>
+  <key
+        commandId="AfaeEditor.ActionToggleTextMode"
+        contextId="org.eclipse.ui.textEditorScope"
+        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+        sequence="M1+M2+T">
+  </key>
+  <key
+        commandId="Afae.ActionShowWhitespace"
+        contextId="org.eclipse.ui.textEditorScope"
+        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+        sequence="M1+M2+I">
+  </key>
 	</extension>
 	
 	<!-- //////////////////////////// popup menu //////////////////////////////// -->
@@ -592,19 +615,31 @@
 			targetID="#EditorContext"
 			id="Afae.PopupMenu">
 			
-			<action id="Afae.ActionWrapComment"
-				icon="icons/obj16/comment.gif"
-				menubarPath="additions"
-				label="Insert Comment"
-				class="com.rohanclan.afae.editor.actions.ActionWrapComment"
-			></action>
+			<action
+         class="com.rohanclan.afae.editor.actions.ActionWrapComment"
+         definitionId="Afae.ActionWrapComment"
+         icon="icons/obj16/comment.gif"
+         id="Afae.ActionWrapComment"
+         label="Insert Comment"
+         menubarPath="additions"></action>
 			
-			<action id="com_rohanclan_afae_ShowWhitespacee"
-				icon="icons/obj16/showwhitespace.gif"
-				menubarPath="additions"
-				label="Toggle Whitespace"
-				class="com.rohanclan.afae.editor.actions.TogglePreferenceAction"
-			></action>
+			<action
+         class="com.rohanclan.afae.editor.actions.ToggleWhitespace"
+         definitionId="Afae.ActionShowWhitespace"
+         icon="icons/obj16/showwhitespace.gif"
+         id="Afae.ActionShowWhitespace"
+         label="Toggle Whitespace"
+         menubarPath="additions"
+         style="push"></action>
+   <action
+         class="com.rohanclan.afae.editor.actions.ToggleTextModeAction"
+         definitionId="AfaeEditor.ActionToggleTextMode"
+         icon="icons/obj16/text_block.gif"
+         id="AfaeEditor.ActionToggleTextMode"
+         label="Toggle Text Mode"
+         menubarPath="additions"
+         style="push">
+   </action>
 			
 		</viewerContribution>
 	</extension>
@@ -630,4 +665,11 @@
 	<extension point="org.eclipse.team.core.fileTypes">
 		<fileTypes extension="dtd,as,4gl,ada,adb,ads,as,asa,asm,awk,log,bas,jsf,ref,reg,rex,rvw,bsh,sml,sources,spec,sqc,sqr,st,strings,csh,m,m3,pov,povray,prg,pro,project,ps,py,sh,mch,mips,ml,nrx,orx,p,pas,patch,phtml,pl,tsh,c,cbl,cc,changes,classpath,cls,cpp,bat,i,i3,icc,idl,imp,properties,xmi,xhtml,wsdl,rss,htm,html,xsl,xslt,xsd,svg,props,xquery,ini,w,xom,aspx,vb,thx,xdf,xml,config,scm,sgm,sgml,shtm,shtml,sty,tcl,tex,texi,jsp,jspf,lisp,lsp,ltx,pyw,r,rb,rbw,asp,mak,makefile,pls,pm,scpt,applescript,php,dpk,dpr,dsl,e,el,eps,f,h,hh,hpp,hs,inc,jhtml,jmk,jou,php3,bbj,bib,cs,cxx,dbm,diff,resx,xq,mod,ixml,htaccess,rhtml,yml,rake,php4,txt,v,vbs,ver,vh,vm,lzx,mxml,js,css,plist,sql,java,rng,wsdd,in,txt,f,4th,jjt,jj,gladep,glade,cfm,cfml,cfc,blog,note,ftl,speak,conf,g,gd,gi" type="text" />
 	</extension>
+ <extension
+       point="org.eclipse.ui.views">
+    <category
+          id="AfaeEditor.category"
+          name="Afae Editor">
+    </category>
+ </extension>
 </plugin>
