@@ -27,54 +27,58 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * A Map of keywords 
+ * A Map of keywords
+ * 
  * @author robrohan
  */
-public class KeywordMap 
-{
+public class KeywordMap {
 	/** the keywords */
-	protected Map<Object,Object> keywords;
+	protected Map<Object, Object> keywords;
 	/** does case matter for these keywords */
 	protected boolean ignoreCase;
 	protected boolean at_line_start = false;
-	
+
 	/**
 	 * C'tore
-	 * @param ignoreCase true if case doesnt matter
+	 * 
+	 * @param ignoreCase
+	 *            true if case doesnt matter
 	 */
-	public KeywordMap(boolean ignoreCase) 
-	{
+	public KeywordMap(boolean ignoreCase) {
 		super();
-		keywords = new HashMap<Object,Object>();
+		keywords = new HashMap<Object, Object>();
 		this.ignoreCase = ignoreCase;
 	}
-	
+
 	/**
 	 * Add a keyword to this map
-	 * @param key one of IModeConstants.[CONSTANT] (non TAG_ type)
-	 * @param value a string array of keywords
+	 * 
+	 * @param key
+	 *            one of IModeConstants.[CONSTANT] (non TAG_ type)
+	 * @param value
+	 *            a string array of keywords
 	 */
-	public void put(Object key, Object value) 
-	{
+	public void put(Object key, Object value) {
 		keywords.put(key, value);
 	}
-	
+
 	/**
-	 * returns true if keyword case doesnt matter
+	 * returns true if keyword case doesn't matter
+	 * 
 	 * @return
 	 */
-	public boolean ignoreCase() 
-	{
+	public boolean ignoreCase() {
 		return ignoreCase;
 	}
-	
+
 	/**
 	 * Gets a string array of keywords
-	 * @param key one of AfaePartitionScanner.[CONSTANT]
+	 * 
+	 * @param key
+	 *            one of AfaePartitionScanner.[CONSTANT]
 	 * @return a string array of keywords
 	 */
-	public String[] get(Object key) 
-	{
+	public String[] get(Object key) {
 		return (String[]) keywords.get(key);
 	}
 

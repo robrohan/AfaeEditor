@@ -30,29 +30,27 @@ import org.eclipse.jface.text.rules.IWordDetector;
 
 public class ColoringWordDetector implements IWordDetector {
 	protected Set<Integer> charMap = new HashSet<Integer>();
-	
-    public boolean isWordStart(char c) 
-    {
-    		return Character.isLetter(c) || '_' == c || isTextSequencePart(c);
-    }
 
-	private boolean isTextSequencePart(char c) 
-	{
+	public boolean isWordStart(char c) {
+		return Character.isLetter(c) || '_' == c || isTextSequencePart(c);
+	}
+
+	private boolean isTextSequencePart(char c) {
 		return charMap.contains(new Integer(c));
 	}
 
-	public void addWord(String word) 
-	{
+	public void addWord(String word) {
 		charMap.add(new Integer(word.charAt(0)));
 	}
 
-    public boolean isWordPart(char c) 
-    {
-    		/* added the dot so properties file would mark_following correctly
-    		 * when they path contained dots. For example a.b.c=124
-    		 * added the - for css and xslt methods
-    		 */
-		//return isWordStart(c) || Character.isDigit(c) || '.' == c || '-' == c;
-    		return isWordStart(c) || Character.isDigit(c) || '-' == c;
-    }
+	public boolean isWordPart(char c) {
+		/*
+		 * added the dot so properties file would mark_following correctly when
+		 * they path contained dots. For example a.b.c=124 added the - for css
+		 * and xslt methods
+		 */
+		// return isWordStart(c) || Character.isDigit(c) || '.' == c || '-' ==
+		// c;
+		return isWordStart(c) || Character.isDigit(c) || '-' == c;
+	}
 }
