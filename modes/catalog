@@ -366,7 +366,7 @@
 	/>
 
 	<MODE NAME="xml" FILE="xml.xml"
-		FILE_NAME_GLOB="*{catalog,.project,.classpath,.xml,.xhtml,.config,.lzx,.plist,.xsd,.xmi,.wsdl,.rss,.resx,.rng,.ixml,.wsdd,.gladep,.glade}"
+		FILE_NAME_GLOB="*{catalog,.project,.classpath,.xml,.xhtml,.config,.lzx,.plist,.xsd,.xmi,.wsdl,.rss,.resx,.rng,.ixml,.wsdd,.gladep,.glade,.wddx}"
 		FIRST_LINE_GLOB="&lt;\?xml*" 
 	/>
 	
