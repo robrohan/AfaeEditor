@@ -60,7 +60,7 @@ public class TextThemes implements IPreferenceConstants {
 				}
 				//is this a text attribute background color setting
 				else if( key.toLowerCase().indexOf("color") > 0 && key.indexOf(BACKGROUND_COLOR_SUFFIX) > 0 ) {
-					System.err.println("This is a background color property: " + key + " value: " + p.getProperty(key));
+					//System.err.println("This is a background color property: " + key + " value: " + p.getProperty(key));
 					store.setValue(key, p.getProperty(key));
 				}
 				//not a text attribute setting, perhaps just a color setting
@@ -68,11 +68,11 @@ public class TextThemes implements IPreferenceConstants {
 					(key.indexOf(BOLD_SUFFIX) < 0 && key.indexOf(ITALIC_SUFFIX) < 0
 					 && key.indexOf(TEXT_PROPERTY_SUFFIX) < 0 && key.indexOf(BACKGROUND_COLOR_SUFFIX) < 0) 
 				) {
-					System.err.println("This is a Color setting (not background): " + key + " value: " + p.getProperty(key));
+					//System.err.println("This is a Color setting (not background): " + key + " value: " + p.getProperty(key));
 					store.setValue(key, p.getProperty(key));
 				//it's none of those, assume it's just a boolean setting
 				} else {
-					System.err.println("This is a boolean setting: " + key + " value: " + p.getProperty(key));
+					//System.err.println("This is a boolean setting: " + key + " value: " + p.getProperty(key));
 					store.setValue(key, Boolean.valueOf(p.getProperty(key)));	
 				}	
 			} catch (Exception ex) {

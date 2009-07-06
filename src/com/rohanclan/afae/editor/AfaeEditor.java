@@ -224,13 +224,14 @@ public class AfaeEditor extends TextEditor implements IPreferenceConstants,
 	/**
 	 * (non-Javadoc) Method declared on IAdaptable
 	 */
-	@SuppressWarnings( { "unchecked" })
+	@SuppressWarnings("unchecked")
 	public Object getAdapter(Class key) {
+		
 		if (key.equals(IContentOutlinePage.class)) {
 			IEditorInput input = getEditorInput();
+			
 			if (input instanceof IFileEditorInput) {
-				page = new AfaeContentOutlinePage(((IFileEditorInput) input)
-						.getFile());
+				page = new AfaeContentOutlinePage(((IFileEditorInput) input).getFile());
 				return page;
 			}
 		}
