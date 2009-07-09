@@ -54,6 +54,7 @@ import org.eclipse.swt.graphics.RGB;
 
 import com.rohanclan.afae.AfaePlugin;
 import com.rohanclan.afae.editor.indentstrategy.BracketedIndentStrategy;
+import com.rohanclan.afae.editor.indentstrategy.DefaultIndentStrategy;
 import com.rohanclan.afae.editor.indentstrategy.TagIndentStrategy;
 import com.rohanclan.afae.modes.IModeConstants;
 import com.rohanclan.afae.modes.Mode;
@@ -102,8 +103,13 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 		
 		tokenMap = new HashMap<String, IToken>();
 		
+		int tabWidth = getPreferenceStore().getInt(IPreferenceConstants.P_EDITOR_TAB_WIDTH);
+		boolean useSpaces = getPreferenceStore().getBoolean(IPreferenceConstants.P_EDITOR_SPACES_FOR_TABS);
+		
 		bracketIndentStrategy = new BracketedIndentStrategy(editor);
+		((DefaultIndentStrategy)bracketIndentStrategy).setIndentString(tabWidth, useSpaces);
 		chevronIndentStrategy = new TagIndentStrategy(editor);
+		((DefaultIndentStrategy)chevronIndentStrategy).setIndentString(tabWidth, useSpaces);
 		
 		prefListener = new PreferenceListener();
 		
@@ -143,14 +149,12 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 	 * Copied from org.eclipse.jdt.ui.text.JavaSourceViewerConfiguration
 	 * controls the tab / applekey+tab many line indent function
 	 */
-	public String[] getIndentPrefixes(ISourceViewer sourceViewer, String contentType) {
+	/*public String[] getIndentPrefixes(ISourceViewer sourceViewer, String contentType) {
 		List<String> list = new ArrayList<String>();
 		// prefix[0] is either '\t' or ' ' x tabWidth, depending on useSpaces
 		
-		int tabWidth = 4;
-		//int tabWidth = getPreferenceStore().getInt(PREFERENCE_TAB_WIDTH);
-		boolean useSpaces = false;
-		//boolean useSpaces = getPreferenceStore().getBoolean(SPACES_FOR_TABS);
+		int tabWidth = getPreferenceStore().getInt(IPreferenceConstants.P_EDITOR_TAB_WIDTH);
+		boolean useSpaces = getPreferenceStore().getBoolean(IPreferenceConstants.P_EDITOR_SPACES_FOR_TABS);
 		
 		for(int i= 0; i <= tabWidth; i++) {
 		    StringBuffer prefix = new StringBuffer();
@@ -171,16 +175,13 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 		
 		list.add(""); //$NON-NLS-1$
 		return (String[]) list.toArray(new String[list.size()]);
-	}
+	}*/
 
 	/**
 	 * Gets the tab width from the preference store
-	 * (unused at present)
-	 */
-	public int getTabWidth(ISourceViewer sourceViewer) 
-	{
-		return getPreferenceStore().getInt(P_TAB_WIDTH);
-	}
+	public int getTabWidth() {
+		return getPreferenceStore().getInt(IPreferenceConstants.P_EDITOR_TAB_WIDTH);
+	} */
 
 	/**
 	 * Gets the preference store
@@ -312,8 +313,13 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 	public IPresentationReconciler getPresentationReconciler(ISourceViewer sourceViewer) {
 		PresentationReconciler reconciler = new PresentationReconciler();
 		
+		//do spans and sequences in the normal document
 		addAllButKeywordHighlighting(reconciler);
+		
+		//do everything in the delegate sections
 		addDelegatedKeywords(reconciler);
+		
+		//add the keywords from the normal section
 		addKeywordHighlighting(reconciler);
 		
 		return reconciler;
@@ -357,8 +363,7 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 		scanner.setDefaultReturnToken(defaultToken);
 		
 		AfaeEditorTools.add(rule, rules, new ITokenFactory() {
-			public IToken makeToken(Type type) 
-			{
+			public IToken makeToken(Type type) {
 				String color = colorManager.colorForType(type.getColor());
 				return newToken(color);
 			}
@@ -380,7 +385,7 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 		setupScannerType(reconciler, Type.SEQ);
 		setupScannerType(reconciler, Type.EOL_SPAN);
 		//setupScannerType(reconciler, "");
-		setupScannerTypeForMark(reconciler);
+		//setupScannerTypeForMark(reconciler);
 	}
 
 	/**
@@ -391,7 +396,7 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 	private void setupScannerType(PresentationReconciler reconciler, String typeName) {
 		String[] contentTypes = mode.getContentTypes();
 		
-//		java.util.HashMap map = (HashMap)mode.getDelegates();
+		//java.util.HashMap map = (HashMap)mode.getDelegates();
 		
 		for(int i = 0; i < contentTypes.length; i++) {
 			String contentType = contentTypes[i];
@@ -452,7 +457,9 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 	 * 
 	 * @param reconciler
 	 */
+	/*
 	private void setupScannerTypeForMark(PresentationReconciler reconciler)	{
+	
 		String[] contentTypes = mode.getContentTypes();
 		
 		for(int i = 0; i < contentTypes.length; i++) {
@@ -469,12 +476,13 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 				
 				scanner.setDefaultReturnToken(defaultToken);
 				
-				DefaultDamagerRepairer dr = new MarkDamagerRepairer(scanner);
+				//DefaultDamagerRepairer dr = new MarkDamagerRepairer(scanner);
+				DefaultDamagerRepairer dr = new DefaultDamagerRepairer(scanner);
 				reconciler.setDamager(dr, contentType);
 				reconciler.setRepairer(dr, contentType);
 			}
 		}
-	}
+	} */
 
 	/**
 	 * 

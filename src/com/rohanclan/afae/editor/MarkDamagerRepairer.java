@@ -38,6 +38,7 @@ import com.rohanclan.afae.rules.LToken;
 /**
  * 
  * @author robrohan
+ * @deprecated
  */
 public class MarkDamagerRepairer extends DefaultDamagerRepairer {
 	/*
@@ -59,6 +60,9 @@ public class MarkDamagerRepairer extends DefaultDamagerRepairer {
 	 */
 	public void createPresentation(TextPresentation presentation, ITypedRegion damage) {
 		AfaePlugin.logDebug("going into createPresentation", null, MarkDamagerRepairer.class);
+		
+		System.err.println("going into createPresentation");
+		
 		// AfaePlugin.logDebug("damage type: " + damage.getType(),null,
 		// MarkDamagerRepairer.class);
 

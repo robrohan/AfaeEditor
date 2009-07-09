@@ -144,7 +144,14 @@ public interface IPreferenceConstants {
 
 	/** Preference key identifier for using a wide caret */
 	public static final String P_USE_WIDE_CARET = AbstractDecoratedTextEditorPreferenceConstants.EDITOR_WIDE_CARET;
-
+	
+	/** A named preference that holds the number of spaces used per tab in the text editor. */
+	public static final String P_EDITOR_SPACES_FOR_TABS  = AbstractDecoratedTextEditorPreferenceConstants.EDITOR_SPACES_FOR_TABS ;
+	
+	/** A named preference that controls whether text drag and drop is enabled. */
+	public static final String P_EDITOR_TAB_WIDTH  = AbstractDecoratedTextEditorPreferenceConstants.EDITOR_TAB_WIDTH ;
+	
+	
 	/** Used to Toggle word wrap */
 	public static final String P_USE_WORD_WRAP = "afae.editor.wordwrap";
 	

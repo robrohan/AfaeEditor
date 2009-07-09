@@ -42,7 +42,7 @@ public abstract class Type {
 	/** This represents a multiple line span. */
 	public static final String MULTI_S = "MULTI_S";
 
-	/** This represents a single line span. */
+	/** This represents an end of line span. */
 	public static final String EOL_SPAN = "EOL_SPAN";
 
 	/** This represents a sequence of text. */

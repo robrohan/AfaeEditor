@@ -426,7 +426,6 @@ public class DecorationSupport extends SourceViewerDecorationSupport implements 
 	 * effect.
 	 */
 	public void uninstall() {
-
 		if (fPreferenceStore != null) {
 			fPreferenceStore.removePropertyChangeListener(fPropertyChangeListener);
 			fPropertyChangeListener = null;
@@ -530,7 +529,7 @@ public class DecorationSupport extends SourceViewerDecorationSupport implements 
 			while (e.hasNext()) {
 				Object type = e.next();
 				//TODO: fix this hack. It is only here so that I can use the
-				//annotation markers, but this will show all unconfigured.
+				//annotation markers, but this will show all.
 				//if (isAnnotationOverviewShown(type))
 					showAnnotationOverview(type, false);
 				//else
@@ -729,8 +728,7 @@ public class DecorationSupport extends SourceViewerDecorationSupport implements 
 			if (key != null) {
 				// try to get it from the preference store
 				try {
-					RGB rgb = PreferenceConverter.getColor(fPreferenceStore,
-							key);
+					RGB rgb = PreferenceConverter.getColor(fPreferenceStore, key);
 					return getColor(rgb);
 				} catch (Exception e) {
 					AfaePlugin.logError("I was asked for unknown key: " + key,
