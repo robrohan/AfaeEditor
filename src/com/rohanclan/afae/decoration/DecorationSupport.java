@@ -32,6 +32,7 @@ import org.eclipse.jface.text.IPainter;
 import org.eclipse.jface.text.ITextViewerExtension2;
 import org.eclipse.jface.text.ITextViewerExtension4;
 import org.eclipse.jface.text.MarginPainter;
+import org.eclipse.jface.text.WhitespaceCharacterPainter;
 import org.eclipse.jface.text.source.Annotation;
 import org.eclipse.jface.text.source.AnnotationPainter;
 import org.eclipse.jface.text.source.IAnnotationAccess;
@@ -257,7 +258,7 @@ public class DecorationSupport extends SourceViewerDecorationSupport implements 
 	/** The character painter's pair matcher */
 	private ICharacterPairMatcher fCharacterPairMatcher;
 
-	private WhitespacePainter fWhitespacePainter;
+	private WhitespaceCharacterPainter fWhitespacePainter;
 
 	/** Table of annotation type preference infos */
 	private Map<Object, AnnotationPreference> fAnnotationTypeKeyMap = new HashMap<Object, AnnotationPreference>();
@@ -818,9 +819,7 @@ public class DecorationSupport extends SourceViewerDecorationSupport implements 
 	private void showWhitespaceCharacters() {
 		if (fWhitespacePainter == null) {
 			if (fSourceViewer instanceof ITextViewerExtension2) {
-				fWhitespacePainter = new WhitespacePainter(fSourceViewer);
-				fWhitespacePainter
-						.setColor(getColor(fMatchingCharacterPainterColorKey));
+				fWhitespacePainter = new WhitespaceCharacterPainter(fSourceViewer);
 
 				ITextViewerExtension2 extension = (ITextViewerExtension2) fSourceViewer;
 				extension.addPainter(fWhitespacePainter);

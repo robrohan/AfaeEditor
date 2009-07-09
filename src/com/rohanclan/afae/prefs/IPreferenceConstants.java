@@ -115,7 +115,8 @@ public interface IPreferenceConstants {
 	/** Preference key identifier for showing the line number ruler */
 	public static final String P_SHOW_LINE_NUMBERS = AbstractDecoratedTextEditorPreferenceConstants.EDITOR_LINE_NUMBER_RULER;
 
-	public static final String P_SHOW_WHITESPACE = "com.rohanclan.afae.ShowWhitespacee";
+	public static final String P_SHOW_WHITESPACE = AbstractDecoratedTextEditorPreferenceConstants.EDITOR_SHOW_WHITESPACE_CHARACTERS;
+	/* public static final String P_SHOW_WHITESPACE = "com.rohanclan.afae.ShowWhitespacee"; */
 
 	/** Preference key identifier for line number color */
 	public static final String P_LINE_NUMBER_COLOR = AbstractDecoratedTextEditorPreferenceConstants.EDITOR_LINE_NUMBER_RULER_COLOR;
