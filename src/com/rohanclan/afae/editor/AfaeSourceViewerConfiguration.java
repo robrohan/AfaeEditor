@@ -337,6 +337,7 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 		//loop over each delegate and get out the set of jEdit mode rules they have
 		for(Iterator<String> rules = delegates.iterator(); rules.hasNext();) {
 			String mungedName = (String)rules.next();
+			//System.err.println(mungedName);
 			
 			Rule rule = (Rule)mode.getDelegates().get(mungedName);
 			
@@ -355,7 +356,7 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 	 */
 	private RuleBasedScanner getDelegateScanner(Rule rule) {
 		RuleBasedScanner scanner = new RuleBasedScanner();
-		List<Object> rules = new ArrayList<Object>();
+		List<IRule> rules = new ArrayList<IRule>();
 		//get the color / token
 		String colorName = colorManager.colorForType(rule.getDefaultTokenType());
 		IToken defaultToken = newToken(colorName);
@@ -489,7 +490,7 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 	 * @param contentType
 	 * @return
 	 */
-	private int getLength(String contentType) {
+	/*private int getLength(String contentType) {
 		int start = contentType.indexOf('@');
 		
 		if(start == -1) 
@@ -511,7 +512,7 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 			);
 			return 0;
 		}
-	}
+	}*/
 
 	/**
 	 * Adds keyword highlighting... 
@@ -531,7 +532,7 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 	 */
 	public RuleBasedScanner getCodeScanner() {
 		RuleBasedScanner scanner = new RuleBasedScanner();
-		List<Object> rules = new ArrayList<Object>();
+		List<IRule> rules = new ArrayList<IRule>();
 		Rule main = mode.getDefaultRuleSet();
 		addWhitespaceRule(rules);
 
@@ -548,7 +549,7 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 	 * 
 	 * @param rules
 	 */
-	private void addWhitespaceRule(List<Object> rules) {
+	private void addWhitespaceRule(List<IRule> rules) {
 		rules.add(new WhitespaceRule(new ColoringWhitespaceDetector()));
 	}
 	
@@ -558,7 +559,7 @@ public class AfaeSourceViewerConfiguration extends SourceViewerConfiguration imp
 	 * @param rules
 	 * @param defaultToken
 	 */
-	private void addTextSequenceRules(Rule ruleSet, List<Object> rules, IToken defaultToken) {
+	private void addTextSequenceRules(Rule ruleSet, List<IRule> rules, IToken defaultToken) {
 		ColoringWordDetector wordDetector = new ColoringWordDetector();
 		
 		if(ruleSet.getHighlightDigits()) 

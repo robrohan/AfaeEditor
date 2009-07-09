@@ -29,6 +29,7 @@ import java.util.List;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.rules.ICharacterScanner;
 import org.eclipse.jface.text.rules.IPredicateRule;
+import org.eclipse.jface.text.rules.IRule;
 import org.eclipse.jface.text.rules.IToken;
 import org.eclipse.jface.text.rules.RuleBasedPartitionScanner;
 
@@ -103,7 +104,7 @@ public class AfaePartitionScanner extends RuleBasedPartitionScanner implements I
 	 */
 	private IPredicateRule[] createRuleSet(Rule rule) 
 	{
-		List<Object> rules = new ArrayList<Object>();
+		List<IRule> rules = new ArrayList<IRule>();
 		
 		AfaeEditorTools.add(rule, rules, new ITokenFactory() {
 			public IToken makeToken(Type type) 

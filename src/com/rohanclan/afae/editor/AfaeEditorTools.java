@@ -39,6 +39,7 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
 // import org.eclipse.jface.text.rules.IPredicateRule;
+import org.eclipse.jface.text.rules.IRule;
 import org.eclipse.jface.text.rules.IToken;
 import org.eclipse.jface.text.rules.PatternRule;
 import org.eclipse.jface.util.PropertyChangeEvent;
@@ -87,7 +88,7 @@ public class AfaeEditorTools {
 	 * @param factory
 	 *            factory used to get tokens
 	 */
-	public static void add(Rule rule, List<Object> rules, ITokenFactory factory) {
+	public static void add(Rule rule, List<IRule> rules, ITokenFactory factory) {
 		List<Type> allTypes = rule.getTypes();
 
 		for (Iterator<Type> typeI = allTypes.iterator(); typeI.hasNext();) {
@@ -104,7 +105,7 @@ public class AfaeEditorTools {
 	 * @param factory
 	 * @param rules
 	 */
-	public static void add(final Rule rule, final Type type, ITokenFactory factory, final List<Object> rules) {
+	public static void add(final Rule rule, final Type type, ITokenFactory factory, final List<IRule> rules) {
 		final IToken token = factory.makeToken(type);
 		final Mode mode = rule.getMode();
 		final boolean ignoreCase = rule.getIgnoreCase();
