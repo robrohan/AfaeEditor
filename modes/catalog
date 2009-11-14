@@ -180,7 +180,7 @@
 	/>
 
 	<MODE NAME="makefile" FILE="makefile.xml"
-		FILE_NAME_GLOB="*{[Mm]akefile,.mak}" 
+		FILE_NAME_GLOB="*{[Mm]akefile,.mak,.386,.amd64,.arm,.cmd}" 
 	/>
 
 	<MODE NAME="ml" FILE="ml.xml"
@@ -299,7 +299,7 @@
 	/>
 
 	<MODE NAME="shellscript"	FILE="shellscript.xml"
-		FILE_NAME_GLOB="*.{csh,sh}"
+		FILE_NAME_GLOB="*.{csh,sh,bash}"
 		FIRST_LINE_GLOB="#!/*sh*" 
 	/>
 
@@ -376,5 +376,9 @@
    
 	<MODE NAME="GAP" FILE="gap.xml"
 		FILE_NAME_GLOB="*.{g,gd,gi}"
+	/>
+	
+	<MODE NAME="go" FILE="go.xml"
+		FILE_NAME_GLOB="*.go"
 	/>
 </MODES>
