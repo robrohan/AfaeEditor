@@ -92,11 +92,14 @@
 	<KEYWORD3>cgi</KEYWORD3>
 	<KEYWORD3>cookie</KEYWORD3>
 	<KEYWORD3>error</KEYWORD3>
+	<KEYWORD3>flash</KEYWORD3>
 	<KEYWORD3>form</KEYWORD3>
+	<KEYWORD3>local</KEYWORD3>
 	<KEYWORD3>request</KEYWORD3>
 	<KEYWORD3>server</KEYWORD3>
 	<KEYWORD3>session</KEYWORD3>
 	<KEYWORD3>this</KEYWORD3>
+	<KEYWORD3>thisTag</KEYWORD3>
 	<KEYWORD3>url</KEYWORD3>
 	<KEYWORD3>variables</KEYWORD3>
 
@@ -106,16 +109,22 @@
 	<KEYWORD3>fusebox</KEYWORD3>
 
 	<!-- CF functions: -->
+	<!-- Updated for CF9, 10/11/2009 -->
 	<FUNCTION>Abs</FUNCTION>
 	<FUNCTION>ACos</FUNCTION>
 	<FUNCTION>AddSOAPRequestHeader</FUNCTION>
 	<FUNCTION>AddSOAPResponseHeader</FUNCTION>
 	<FUNCTION>AjaxLink</FUNCTION>				
 	<FUNCTION>AjaxOnLoad</FUNCTION>			
+	<FUNCTION>ApplicationStop</FUNCTION>
 	<FUNCTION>ArrayAppend</FUNCTION>
 	<FUNCTION>ArrayAvg</FUNCTION>
 	<FUNCTION>ArrayClear</FUNCTION>
+	<FUNCTION>ArrayContains</FUNCTION>
+	<FUNCTION>ArrayDelete</FUNCTION>
 	<FUNCTION>ArrayDeleteAt</FUNCTION>
+	<FUNCTION>ArrayFind</FUNCTION>
+	<FUNCTION>ArrayFindNoCase</FUNCTION>
 	<FUNCTION>ArrayInsertAt</FUNCTION>
 	<FUNCTION>ArrayIsDefined</FUNCTION>	
 	<FUNCTION>ArrayIsEmpty</FUNCTION>
@@ -146,6 +155,13 @@
 	<FUNCTION>BitSHLN</FUNCTION>
 	<FUNCTION>BitSHRN</FUNCTION>
 	<FUNCTION>BitXor</FUNCTION>
+	<FUNCTION>CacheGet</FUNCTION>
+	<FUNCTION>CacheGetAllIds</FUNCTION>
+	<FUNCTION>CacheGetMetadata</FUNCTION>
+	<FUNCTION>CacheGetProperties</FUNCTION>
+	<FUNCTION>CachePut</FUNCTION>
+	<FUNCTION>CacheRemove</FUNCTION>
+	<FUNCTION>CacheSetProperties</FUNCTION>
 	<FUNCTION>Ceiling</FUNCTION>
 	<FUNCTION>CharsetDecode</FUNCTION>
 	<FUNCTION>CharsetEncode</FUNCTION>
@@ -182,18 +198,30 @@
 	<FUNCTION>DecryptBinary</FUNCTION>
 	<FUNCTION>DeleteClientVariable</FUNCTION>
 	<FUNCTION>DeserializeJSON</FUNCTION>	
+	<FUNCTION>DirectoryCreate</FUNCTION>
+	<FUNCTION>DirectoryDelete</FUNCTION>
 	<FUNCTION>DirectoryExists</FUNCTION>
+	<FUNCTION>DirectoryList</FUNCTION>
+	<FUNCTION>DirectoryRename</FUNCTION>
 	<FUNCTION>DollarFormat</FUNCTION>
 	<FUNCTION>DotNetToCFType</FUNCTION>	
 	<FUNCTION>Duplicate</FUNCTION>
 	<FUNCTION>Encrypt</FUNCTION>
 	<FUNCTION>EncryptBinary</FUNCTION>
+	<FUNCTION>EntityDelete</FUNCTION>
+	<FUNCTION>EntityLoad</FUNCTION>
+	<FUNCTION>EntityLoadByExample</FUNCTION>
+	<FUNCTION>EntityLoadByPK</FUNCTION>
+	<FUNCTION>EntityMerge</FUNCTION>
+	<FUNCTION>EntityNew</FUNCTION>
+	<FUNCTION>EntityReload</FUNCTION>
+	<FUNCTION>EntitySave</FUNCTION>
 	<FUNCTION>Evaluate</FUNCTION>
 	<FUNCTION>Exp</FUNCTION>
 	<FUNCTION>ExpandPath</FUNCTION>
 	<FUNCTION>FileClose</FUNCTION>	
 	<FUNCTION>FileCopy</FUNCTION>	
-	<FUNCTION>FileDelete</FUNCTION>	
+	<FUNCTION>FileDelete</FUNCTION>
 	<FUNCTION>FileExists</FUNCTION>
 	<FUNCTION>FileIsEOF</FUNCTION>	
 	<FUNCTION>FileMove</FUNCTION>	
@@ -201,11 +229,12 @@
 	<FUNCTION>FileRead</FUNCTION>	
 	<FUNCTION>FileReadBinary</FUNCTION>	
 	<FUNCTION>FileReadLine</FUNCTION>	
+	<FUNCTION>FileSeek</FUNCTION>
 	<FUNCTION>FileSetAccessMode</FUNCTION>	
 	<FUNCTION>FileSetAttribute</FUNCTION>	
-	<FUNCTION>FileSetAccessMode</FUNCTION>	
+	<FUNCTION>FileSkipBytes</FUNCTION>
 	<FUNCTION>FileWrite</FUNCTION>	
-	<FUNCTION>FileWriteLine</FUNCTION>	
+	<FUNCTION>FileWriteLine</FUNCTION>
 	<FUNCTION>Find</FUNCTION>
 	<FUNCTION>FindNoCase</FUNCTION>
 	<FUNCTION>FindOneOf</FUNCTION>
@@ -223,8 +252,9 @@
 	<FUNCTION>GetDirectoryFromPath</FUNCTION>
 	<FUNCTION>GetEncoding</FUNCTION>
 	<FUNCTION>GetException</FUNCTION>
-	<FUNCTION>GetFileInfo</FUNCTION>	
 	<FUNCTION>GetFileFromPath</FUNCTION>
+	<FUNCTION>GetFileInfo</FUNCTION>	
+	<FUNCTION>GetFunctionCalledName</FUNCTION>
 	<FUNCTION>GetFunctionList</FUNCTION>
 	<FUNCTION>GetGatewayHelper</FUNCTION>
 	<FUNCTION>GetHttpRequestData</FUNCTION>
@@ -252,6 +282,7 @@
 	<FUNCTION>GetTimeZoneInfo</FUNCTION>
 	<FUNCTION>GetToken</FUNCTION>
 	<FUNCTION>GetUserRoles</FUNCTION>	
+	<FUNCTION>GetVFSMetaData</FUNCTION>
 	<FUNCTION>GetWriteableImageFormats</FUNCTION>	
 	<FUNCTION>Hash</FUNCTION>
 	<FUNCTION>Hour</FUNCTION>
@@ -280,8 +311,8 @@
 	<FUNCTION>ImageGetEXIFMetaData</FUNCTION>	
 	<FUNCTION>ImageGetEXIFTag</FUNCTION>	
 	<FUNCTION>ImageGetHeight</FUNCTION>	
-	<FUNCTION>ImageGetIPTCMetaData</FUNCTION>	
 	<FUNCTION>ImageGetIPCTTag</FUNCTION>	
+	<FUNCTION>ImageGetIPTCMetaData</FUNCTION>	
 	<FUNCTION>ImageGetWidth</FUNCTION>	
 	<FUNCTION>ImageGrayscale</FUNCTION>	
 	<FUNCTION>ImageInfo</FUNCTION>	
@@ -324,11 +355,13 @@
 	<FUNCTION>IsImage</FUNCTION>	
 	<FUNCTION>IsImageFile</FUNCTION>	
 	<FUNCTION>IsInstanceOf</FUNCTION>	
+	<FUNCTION>IsIPv6</FUNCTION>
 	<FUNCTION>IsJSON</FUNCTION>	
 	<FUNCTION>IsK2ServerABroker</FUNCTION>	
 	<FUNCTION>IsK2ServerOnline</FUNCTION>	
 	<FUNCTION>IsLeapYear</FUNCTION>
 	<FUNCTION>IsLocalHost</FUNCTION>
+	<FUNCTION>IsNull</FUNCTION>
 	<FUNCTION>IsNumeric</FUNCTION>
 	<FUNCTION>IsNumericDate</FUNCTION>
 	<FUNCTION>IsObject</FUNCTION>
@@ -338,6 +371,8 @@
 	<FUNCTION>IsQuery</FUNCTION>
 	<FUNCTION>IsSimpleValue</FUNCTION>
 	<FUNCTION>IsSOAPRequest</FUNCTION>
+	<FUNCTION>IsSpreadsheetFile</FUNCTION>
+	<FUNCTION>IsSpreadsheetObject</FUNCTION>
 	<FUNCTION>IsStruct</FUNCTION>
 	<FUNCTION>IsUserInRole</FUNCTION>
 	<FUNCTION>IsUserLoggedIn</FUNCTION>
@@ -375,8 +410,9 @@
 	<FUNCTION>ListValueCount</FUNCTION>
 	<FUNCTION>ListValueCountNoCase</FUNCTION>
 	<FUNCTION>LJustify</FUNCTION>
-	<FUNCTION>Log</FUNCTION>
+	<FUNCTION>Location</FUNCTION>
 	<FUNCTION>Log10</FUNCTION>
+	<FUNCTION>Log</FUNCTION>
 	<FUNCTION>LSCurrencyFormat</FUNCTION>
 	<FUNCTION>LSDateFormat</FUNCTION>
 	<FUNCTION>LSEuroCurrencyFormat</FUNCTION>
@@ -398,6 +434,19 @@
 	<FUNCTION>MonthAsString</FUNCTION>
 	<FUNCTION>Now</FUNCTION>
 	<FUNCTION>NumberFormat</FUNCTION>
+	<FUNCTION>ObjectEquals</FUNCTION>
+	<FUNCTION>ObjectLoad</FUNCTION>
+	<FUNCTION>ObjectSave</FUNCTION>
+	<FUNCTION>ORMClearSession</FUNCTION>
+	<FUNCTION>ORMCloseSession</FUNCTION>
+	<FUNCTION>ORMEvictCollection</FUNCTION>
+	<FUNCTION>ORMEvictEntity</FUNCTION>
+	<FUNCTION>ORMEvictQueries</FUNCTION>
+	<FUNCTION>ORMExecuteQuery</FUNCTION>
+	<FUNCTION>ORMFlush</FUNCTION>
+	<FUNCTION>ORMGetSession</FUNCTION>
+	<FUNCTION>ORMGetSessionFactory</FUNCTION>
+	<FUNCTION>ORMReload</FUNCTION>
 	<FUNCTION>ParagraphFormat</FUNCTION>
 	<FUNCTION>ParameterExists</FUNCTION>	
 	<FUNCTION>ParseDateTime</FUNCTION>
@@ -415,9 +464,9 @@
 	<FUNCTION>RandRange</FUNCTION>
 	<FUNCTION>REFind</FUNCTION>
 	<FUNCTION>REFindNoCase</FUNCTION>
+	<FUNCTION>ReleaseComObject</FUNCTION>
 	<FUNCTION>REMatch</FUNCTION>	
 	<FUNCTION>REMatchNoCase</FUNCTION>	
-	<FUNCTION>ReleaseComObject</FUNCTION>
 	<FUNCTION>RemoveChars</FUNCTION>
 	<FUNCTION>RepeatString</FUNCTION>
 	<FUNCTION>Replace</FUNCTION>
@@ -441,6 +490,43 @@
 	<FUNCTION>Sin</FUNCTION>
 	<FUNCTION>SpanExcluding</FUNCTION>
 	<FUNCTION>SpanIncluding</FUNCTION>
+	<FUNCTION>SpreadsheetAddColumn</FUNCTION>
+	<FUNCTION>SpreadsheetAddFreezePane</FUNCTION>
+	<FUNCTION>SpreadsheetAddImage</FUNCTION>
+	<FUNCTION>SpreadsheetAddInfo</FUNCTION>
+	<FUNCTION>SpreadsheetAddRow</FUNCTION>
+	<FUNCTION>SpreadsheetAddRows</FUNCTION>
+	<FUNCTION>SpreadsheetAddSplitPane</FUNCTION>
+	<FUNCTION>SpreadsheetCreateSheet</FUNCTION>
+	<FUNCTION>SpreadsheetDeleteColumn</FUNCTION>
+	<FUNCTION>SpreadsheetDeleteColumns</FUNCTION>
+	<FUNCTION>SpreadsheetDeleteRow</FUNCTION>
+	<FUNCTION>SpreadsheetDeleteRows</FUNCTION>
+	<FUNCTION>SpreadsheetFormatCell</FUNCTION>
+	<FUNCTION>SpreadsheetFormatColumn</FUNCTION>
+	<FUNCTION>SpreadsheetFormatColumns</FUNCTION>
+	<FUNCTION>SpreadsheetFormatRow</FUNCTION>
+	<FUNCTION>SpreadsheetFormatRows</FUNCTION>
+	<FUNCTION>SpreadsheetGetCellComment</FUNCTION>
+	<FUNCTION>SpreadsheetGetCellFormula</FUNCTION>
+	<FUNCTION>SpreadsheetGetCellValue</FUNCTION>
+	<FUNCTION>SpreadsheetInfo</FUNCTION>
+	<FUNCTION>SpreadsheetMergeCells</FUNCTION>
+	<FUNCTION>SpreadsheetNew</FUNCTION>
+	<FUNCTION>SpreadsheetRead</FUNCTION>
+	<FUNCTION>SpreadsheetReadBinary</FUNCTION>
+	<FUNCTION>SpreadsheetSetActiveSheet</FUNCTION>
+	<FUNCTION>SpreadsheetSetActiveSheetNumber</FUNCTION>
+	<FUNCTION>SpreadsheetSetCellComment</FUNCTION>
+	<FUNCTION>SpreadsheetSetCellFormula</FUNCTION>
+	<FUNCTION>SpreadsheetSetCellValue</FUNCTION>
+	<FUNCTION>SpreadsheetSetColumnWidth</FUNCTION>
+	<FUNCTION>SpreadsheetSetFooter</FUNCTION>
+	<FUNCTION>SpreadsheetSetHeader</FUNCTION>
+	<FUNCTION>SpreadsheetSetRowHeight</FUNCTION>
+	<FUNCTION>SpreadsheetShiftColumns</FUNCTION>
+	<FUNCTION>SpreadsheetShiftRows</FUNCTION>
+	<FUNCTION>SpreadsheetWrite</FUNCTION>
 	<FUNCTION>Sqr</FUNCTION>
 	<FUNCTION>StripCR</FUNCTION>
 	<FUNCTION>StructAppend</FUNCTION>
@@ -461,11 +547,18 @@
 	<FUNCTION>StructSort</FUNCTION>
 	<FUNCTION>StructUpdate</FUNCTION>
 	<FUNCTION>Tan</FUNCTION>
+	<FUNCTION>ThreadJoin</FUNCTION>
+	<FUNCTION>ThreadTerminate</FUNCTION>
+	<FUNCTION>Throw</FUNCTION>
 	<FUNCTION>TimeFormat</FUNCTION>
 	<FUNCTION>ToBase64</FUNCTION>
 	<FUNCTION>ToBinary</FUNCTION>
 	<FUNCTION>ToScript</FUNCTION>
 	<FUNCTION>ToString</FUNCTION>
+	<FUNCTION>Trace</FUNCTION>
+	<FUNCTION>TransactionCommit</FUNCTION>
+	<FUNCTION>TransactionRollback</FUNCTION>
+	<FUNCTION>TransactionSetSavePoint</FUNCTION>
 	<FUNCTION>Trim</FUNCTION>
 	<FUNCTION>UCase</FUNCTION>
 	<FUNCTION>URLDecode</FUNCTION>
@@ -476,6 +569,8 @@
 	<FUNCTION>VerifyClient</FUNCTION>	
 	<FUNCTION>Week</FUNCTION>
 	<FUNCTION>Wrap</FUNCTION>
+	<FUNCTION>WriteDump</FUNCTION>
+	<FUNCTION>WriteLog</FUNCTION>
 	<FUNCTION>WriteOutput</FUNCTION>
 	<FUNCTION>XmlChildPos</FUNCTION>
 	<FUNCTION>XmlElemNew</FUNCTION>
@@ -488,7 +583,7 @@
 	<FUNCTION>XmlValidate</FUNCTION>
 	<FUNCTION>Year</FUNCTION>
 	<FUNCTION>YesNoFormat</FUNCTION>
-
+	
 	<!-- Functions from other (i.e., non-Adobe) CFML implementations -->
 	<!-- BD = Blue Dragon (as of 12/29/2008, BD CFML Compatibility Guide) -->
 	<!-- R = Railo -->
@@ -499,9 +594,7 @@
 	-->
 	<FUNCTION>AmazonSimpleDB</FUNCTION> <!-- O -->
 	<FUNCTION>Array</FUNCTION>	<!-- R -->
-	<FUNCTION>ArrayContains</FUNCTION> <!-- R3 -->
 	<FUNCTION>ArrayContainsNoCase</FUNCTION> <!-- R3 -->
-	<FUNCTION>ArrayIsDefined</FUNCTION> <!-- O 1.0.1 -->
 	<FUNCTION>ArrayMerge</FUNCTION>	<!-- R -->
 	<FUNCTION>ArrayReverse</FUNCTION>	<!-- R -->
 	<FUNCTION>ArraySlice</FUNCTION>	<!-- R -->
@@ -516,10 +609,6 @@
 	<FUNCTION>DayOfWeekShortAsString</FUNCTION>	<!-- R -->
 	<FUNCTION>DeleteSDBAttribute</FUNCTION>	<!-- O -->
 	<FUNCTION>DeleteSDBDomain</FUNCTION> <!-- O -->
-	<FUNCTION>DeserializeJSON</FUNCTION> <!-- O -->
-	<FUNCTION>DirectoryCreate</FUNCTION> <!-- O -->
-	<FUNCTION>DirectoryDelete</FUNCTION> <!-- O -->
-	<FUNCTION>DirectoryExists</FUNCTION> <!-- O -->
 	<FUNCTION>Dump</FUNCTION>	<!-- R, R3 -->
 	<FUNCTION>Echo</FUNCTION>	<!-- R -->
 	<FUNCTION>Extract</FUNCTION>	<!-- R -->
@@ -536,7 +625,6 @@
 	<FUNCTION>HTMLGetPrintableText</FUNCTION> <!-- O -->
 	<FUNCTION>HTMLParse</FUNCTION>	<!-- R -->
 	<FUNCTION>ImageDrawImage</FUNCTION>	<!-- R3 -->
-	<FUNCTION>IsNull</FUNCTION>	<!-- BD, R -->
 	<FUNCTION>IsVideoFile</FUNCTION> <!-- R3 -->
 	<FUNCTION>IsZipFile</FUNCTION> <!-- R3 -->
 	<FUNCTION>ListRemoveDuplicates</FUNCTION>	<!-- BD, O -->
@@ -552,7 +640,6 @@
 	<FUNCTION>QuerySort</FUNCTION>	<!-- BD, R, O -->
 	<FUNCTION>Query</FUNCTION> <!-- R -->
 	<FUNCTION>Render</FUNCTION>	<!-- BD, O -->
-	<FUNCTION>SerializeJSON</FUNCTION>	<!-- O -->
 	<FUNCTION>Serialize</FUNCTION>	<!-- R -->
 	<FUNCTION>SetSDBAttribute</FUNCTION> <!-- O -->
 	<FUNCTION>SetTimezone</FUNCTION> <!-- R -->
@@ -564,9 +651,261 @@
 	<FUNCTION>SystemReloadConfig</FUNCTION> <!-- O -->
 	<FUNCTION>ThreadInterrupt</FUNCTION>	<!-- BD -->
 	<FUNCTION>ThreadIsAlive</FUNCTION>	<!-- BD -->
-	<FUNCTION>ThreadJoin</FUNCTION>	<!-- BD -->
 	<FUNCTION>ThreadRunningTime</FUNCTION>	<!-- BD -->
 	<FUNCTION>ThreadStop</FUNCTION>	<!-- BD -->
 	<FUNCTION>ToBase62</FUNCTION> <!-- O -->
 	<FUNCTION>TrueFalseFormat</FUNCTION> <!-- R3 -->
+	
+	<!-- CF9's component-equivalents of tags, and their respective methods: 
+		These, and their methods are primarily intended for use in CFSCRIPT, but because they
+		could in theory be used in CFML markup, I've included them here
+	-->
+	<!-- Generic and shared methods: -->
+	<FUNCTION>addParam</FUNCTION>
+	<FUNCTION>clear</FUNCTION>
+	<FUNCTION>clearAttributes</FUNCTION>
+	<FUNCTION>clearParams</FUNCTION>
+	<FUNCTION>getAttributes</FUNCTION>
+	<FUNCTION>setAttributes</FUNCTION>
+	
+	<!-- Utility methods for ftp, http, query classes: -->
+	<FUNCTION>getPrefix</FUNCTION>
+	<FUNCTION>getResult</FUNCTION>
+	
+	<!-- Utility methods for storedProc class -->
+	<FUNCTION>getProcOutVariables</FUNCTION>
+	<FUNCTION>getProcResultSets</FUNCTION>
+		
+	<KEYWORD3>ftp</KEYWORD3>
+	<FUNCTION>acct</FUNCTION>
+	<FUNCTION>allo</FUNCTION>
+	<FUNCTION>changeDir</FUNCTION>
+	<FUNCTION>close</FUNCTION>
+	<FUNCTION>createDir</FUNCTION>
+	<FUNCTION>existDir</FUNCTION>
+	<FUNCTION>exists</FUNCTION>
+	<FUNCTION>existsFile</FUNCTION>
+	<FUNCTION>getCurrentDir</FUNCTION>
+	<FUNCTION>getCurrentURL</FUNCTION>
+	<FUNCTION>getFile</FUNCTION>
+	<FUNCTION>listDir</FUNCTION>
+	<FUNCTION>open</FUNCTION>
+	<FUNCTION>putFile</FUNCTION>
+	<FUNCTION>quote</FUNCTION>
+	<FUNCTION>remove</FUNCTION>
+	<FUNCTION>removeDir</FUNCTION>
+	<FUNCTION>rename</FUNCTION>
+	<FUNCTION>site</FUNCTION>
+	<FUNCTION>setActionParam</FUNCTION>
+	<FUNCTION>setAlloSize</FUNCTION>
+	<FUNCTION>setASCIIExtensionList</FUNCTION>
+	<FUNCTION>setBufferSize</FUNCTION>
+	<FUNCTION>setConnection</FUNCTION>
+	<FUNCTION>setDirectory</FUNCTION>
+	<FUNCTION>setExisting</FUNCTION>
+	<FUNCTION>setFailIfExists</FUNCTION>
+	<FUNCTION>setFingerprint</FUNCTION>
+	<FUNCTION>setItem</FUNCTION>
+	<FUNCTION>setKey</FUNCTION>
+	<FUNCTION>setLocalFile</FUNCTION>
+	<FUNCTION>setName</FUNCTION>
+	<FUNCTION>setNew</FUNCTION>
+	<FUNCTION>setPassive</FUNCTION>
+	<FUNCTION>setPassphrase</FUNCTION>
+	<FUNCTION>setPassword</FUNCTION>
+	<FUNCTION>setPort</FUNCTION>
+	<FUNCTION>setProxyServer</FUNCTION>
+	<FUNCTION>setRemoteFile</FUNCTION>
+	<FUNCTION>setResult</FUNCTION>
+	<FUNCTION>setRetryCount</FUNCTION>
+	<FUNCTION>setSecure</FUNCTION>
+	<FUNCTION>setServer</FUNCTION>
+	<FUNCTION>setStopOnError</FUNCTION>
+	<FUNCTION>setTimeout</FUNCTION>
+	<FUNCTION>setTransferMode</FUNCTION>
+	<FUNCTION>setUsername</FUNCTION>
+	
+	<KEYWORD3>http</KEYWORD3>
+	<FUNCTION>send</FUNCTION>
+	<FUNCTION>setCharset</FUNCTION>
+	<FUNCTION>setClientCert</FUNCTION>
+	<FUNCTION>setClientCertPassword</FUNCTION>
+	<FUNCTION>setColumns</FUNCTION>
+	<FUNCTION>setDelimiter</FUNCTION>
+	<FUNCTION>setFile</FUNCTION>
+	<FUNCTION>setFirstRowAsHeaders</FUNCTION>
+	<FUNCTION>setGetAsBinary</FUNCTION>
+	<FUNCTION>setMethod</FUNCTION>
+	<FUNCTION>setMultipart</FUNCTION>
+	<FUNCTION>setMultipartType</FUNCTION>
+	<FUNCTION>setName</FUNCTION>
+	<FUNCTION>setPassword</FUNCTION>
+	<FUNCTION>setPath</FUNCTION>
+	<FUNCTION>setPort</FUNCTION>
+	<FUNCTION>setProxyPassword</FUNCTION>
+	<FUNCTION>setProxyPort</FUNCTION>
+	<FUNCTION>setProxyServer</FUNCTION>
+	<FUNCTION>setProxyUser</FUNCTION>
+	<FUNCTION>setRedirect</FUNCTION>
+	<FUNCTION>setResolveURL</FUNCTION>
+	<FUNCTION>setResult</FUNCTION>
+	<FUNCTION>setTextQualifier</FUNCTION>
+	<FUNCTION>setThrowOnError</FUNCTION>
+	<FUNCTION>setTimeout</FUNCTION>
+	<FUNCTION>setURL</FUNCTION>
+	<FUNCTION>setUserAgent</FUNCTION>
+	<FUNCTION>setUsername</FUNCTION>
+	
+	<KEYWORD3>mail</KEYWORD3>
+	<FUNCTION>addPart</FUNCTION>
+	<FUNCTION>clearParts</FUNCTION>
+	<FUNCTION>send</FUNCTION>
+	<FUNCTION>setBcc</FUNCTION>
+	<FUNCTION>setBody</FUNCTION>
+	<FUNCTION>setCc</FUNCTION>
+	<FUNCTION>setCharset</FUNCTION>
+	<FUNCTION>setDebug</FUNCTION>
+	<FUNCTION>setFailto</FUNCTION>
+	<FUNCTION>setFrom</FUNCTION>
+	<FUNCTION>setGroup</FUNCTION>
+	<FUNCTION>setGroupCaseSensitive</FUNCTION>
+	<FUNCTION>setMailerID</FUNCTION>
+	<FUNCTION>setMaxRows</FUNCTION>
+	<FUNCTION>setMimeAttach</FUNCTION>
+	<FUNCTION>setPassword</FUNCTION>
+	<FUNCTION>setPort</FUNCTION>
+	<FUNCTION>setPriority</FUNCTION>
+	<FUNCTION>setQuery</FUNCTION>
+	<FUNCTION>setRemove</FUNCTION>
+	<FUNCTION>setReplyTo</FUNCTION>
+	<FUNCTION>setServer</FUNCTION>
+	<FUNCTION>setSpoolEnable</FUNCTION>
+	<FUNCTION>setStartRow</FUNCTION>
+	<FUNCTION>setSubject</FUNCTION>
+	<FUNCTION>setTimeout</FUNCTION>
+	<FUNCTION>setTo</FUNCTION>
+	<FUNCTION>setType</FUNCTION>
+	<FUNCTION>setUsername</FUNCTION>
+	<FUNCTION>setUseSSL</FUNCTION>
+	<FUNCTION>setUseTLS</FUNCTION>
+	<FUNCTION>setWrapText</FUNCTION>
+
+	<KEYWORD3>pdf</KEYWORD3>
+	<FUNCTION>addFooter</FUNCTION>
+	<FUNCTION>addHeader</FUNCTION>
+	<FUNCTION>addWatermark</FUNCTION>
+	<FUNCTION>deletePages</FUNCTION>
+	<FUNCTION>extractImage</FUNCTION>
+	<FUNCTION>extractText</FUNCTION>
+	<FUNCTION>getPDFInfo</FUNCTION>
+	<FUNCTION>merge</FUNCTION>
+	<FUNCTION>optimize</FUNCTION>
+	<FUNCTION>processDDX</FUNCTION>
+	<FUNCTION>protect</FUNCTION>
+	<FUNCTION>read</FUNCTION>
+	<FUNCTION>removeHeaderFooter</FUNCTION>
+	<FUNCTION>removeWatermark</FUNCTION>
+	<FUNCTION>setPDFInfo</FUNCTION>
+	<FUNCTION>thumbnail</FUNCTION>
+	<FUNCTION>transform</FUNCTION>
+	<FUNCTION>write</FUNCTION>
+	<FUNCTION>setAddQuads</FUNCTION>
+	<FUNCTION>setAlgo</FUNCTION>
+	<FUNCTION>setAlign</FUNCTION>
+	<FUNCTION>setAscending</FUNCTION>
+	<FUNCTION>setBottomMargin</FUNCTION>
+	<FUNCTION>setCompressTiffs</FUNCTION>
+	<FUNCTION>setCopyFrom</FUNCTION>
+	<FUNCTION>setDdxFile</FUNCTION>
+	<FUNCTION>setDestination</FUNCTION>
+	<FUNCTION>setDirectory</FUNCTION>
+	<FUNCTION>setEncodeAll</FUNCTION>
+	<FUNCTION>setEncrypt</FUNCTION>
+	<FUNCTION>setFlatten</FUNCTION>
+	<FUNCTION>setForeground</FUNCTION>
+	<FUNCTION>setFormat</FUNCTION>
+	<FUNCTION>setHeight</FUNCTION>
+	<FUNCTION>setHires</FUNCTION>
+	<FUNCTION>setHonourSpaces</FUNCTION>
+	<FUNCTION>setHScale</FUNCTION>
+	<FUNCTION>setImage</FUNCTION>
+	<FUNCTION>setImagePrefix</FUNCTION>
+	<FUNCTION>setInfo</FUNCTION>
+	<FUNCTION>setInputFiles</FUNCTION>
+	<FUNCTION>setIsBase64</FUNCTION>
+	<FUNCTION>setJpgDpi</FUNCTION>
+	<FUNCTION>setKeepBookmark</FUNCTION>
+	<FUNCTION>setLeftMargin</FUNCTION>
+	<FUNCTION>setMaxBreadth</FUNCTION>
+	<FUNCTION>setMaxLength</FUNCTION>
+	<FUNCTION>setMaxScale</FUNCTION>
+	<FUNCTION>setName</FUNCTION>
+	<FUNCTION>setNewOwnerPassword</FUNCTION>
+	<FUNCTION>setNewUserPassword</FUNCTION>
+	<FUNCTION>setNoAttachments</FUNCTION>
+	<FUNCTION>setNoBookmarks</FUNCTION>
+	<FUNCTION>setNoComments</FUNCTION>
+	<FUNCTION>setNoJavascripts</FUNCTION>
+	<FUNCTION>setNoLinks</FUNCTION>
+	<FUNCTION>setNoMetadata</FUNCTION>
+	<FUNCTION>setNoThumbnails</FUNCTION>
+	<FUNCTION>setNumberFormat</FUNCTION>
+	<FUNCTION>setOpacity</FUNCTION>
+	<FUNCTION>setOrder</FUNCTION>
+	<FUNCTION>setOutputFiles</FUNCTION>
+	<FUNCTION>setOverridePage</FUNCTION>
+	<FUNCTION>setOverwrite</FUNCTION>
+	<FUNCTION>setPackage</FUNCTION>
+	<FUNCTION>setPages</FUNCTION>
+	<FUNCTION>setPassword</FUNCTION>
+	<FUNCTION>setPermissions</FUNCTION>
+	<FUNCTION>setPosition</FUNCTION>
+	<FUNCTION>setResolution</FUNCTION>
+	<FUNCTION>setRightMargin</FUNCTION>
+	<FUNCTION>setRotation</FUNCTION>
+	<FUNCTION>setSaveOption</FUNCTION>
+	<FUNCTION>setScale</FUNCTION>
+	<FUNCTION>setShowOnPrint</FUNCTION>
+	<FUNCTION>setSource</FUNCTION>
+	<FUNCTION>setStopOnError</FUNCTION>
+	<FUNCTION>setText</FUNCTION>
+	<FUNCTION>setTopMargin</FUNCTION>
+	<FUNCTION>setTransparent</FUNCTION>
+	<FUNCTION>setType</FUNCTION>
+	<FUNCTION>setUseStructure</FUNCTION>
+	<FUNCTION>setVersion</FUNCTION>
+	<FUNCTION>setVscale</FUNCTION>
+	<FUNCTION>setWidth</FUNCTION>
+		
+	<KEYWORD3>query</KEYWORD3>
+	<FUNCTION>execute</FUNCTION>
+	<FUNCTION>setBlockFactor</FUNCTION>
+	<FUNCTION>setCachedAfter</FUNCTION>
+	<FUNCTION>setCachedWithin</FUNCTION>
+	<FUNCTION>setDataSource</FUNCTION>
+	<FUNCTION>setDbType</FUNCTION>
+	<FUNCTION>setDebug</FUNCTION>
+	<FUNCTION>setMaxRows</FUNCTION>
+	<FUNCTION>setName</FUNCTION>
+	<FUNCTION>setPassword</FUNCTION>
+	<FUNCTION>setResult</FUNCTION>
+	<FUNCTION>setSql</FUNCTION>
+	<FUNCTION>setTimeout</FUNCTION>
+	<FUNCTION>setUsername</FUNCTION>
+		
+	<KEYWORD3>storedProc</KEYWORD3>
+	<FUNCTION>addProcResult</FUNCTION>
+	<FUNCTION>clearProcResults</FUNCTION>
+	<FUNCTION>execute</FUNCTION>
+	<FUNCTION>setBlockFactor</FUNCTION>
+	<FUNCTION>setCachedAfter</FUNCTION>
+	<FUNCTION>setCachedWithin</FUNCTION>
+	<FUNCTION>setDataSource</FUNCTION>
+	<FUNCTION>setDebug</FUNCTION>
+	<FUNCTION>setPassword</FUNCTION>
+	<FUNCTION>setProcedure</FUNCTION>
+	<FUNCTION>setResult</FUNCTION>
+	<FUNCTION>setReturnCode</FUNCTION>
+	<FUNCTION>setUsername</FUNCTION>
+	
 </KEYWORDS>

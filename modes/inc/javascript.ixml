@@ -207,11 +207,11 @@
 	<!-- Attributes common to all objects: -->
 	<LITERAL2>constructor</LITERAL2>
 	<LITERAL2>prototype</LITERAL2>
-	<METHOD>eval</METHOD>
-	<METHOD>toSource</METHOD>
-	<METHOD>toString</METHOD>
-	<METHOD>unwatch</METHOD>
-	<METHOD>watch</METHOD>
+	<FUNCTION>eval</FUNCTION>
+	<FUNCTION>toSource</FUNCTION>
+	<FUNCTION>toString</FUNCTION>
+	<FUNCTION>unwatch</FUNCTION>
+	<FUNCTION>watch</FUNCTION>
 
 	<!-- Global functions -->
 	<FUNCTION>eval</FUNCTION>

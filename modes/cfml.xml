@@ -1539,7 +1539,6 @@
 			<LABEL>errorVariable</LABEL> <!-- OpenBD -->
 			<LABEL>name</LABEL>
 			<LABEL>outputFile</LABEL>
-			<LABEL>terminateOnTimeout</LABEL> <!-- Railo -->
 			<LABEL>timeout</LABEL>
 			<LABEL>variable</LABEL>
 		</KEYWORDS>
