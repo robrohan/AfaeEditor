@@ -871,8 +871,16 @@ public class DecorationSupport extends SourceViewerDecorationSupport implements 
 							.setHighlightColor(getColor(fCursorLinePainterColorKey));
 
 					ITextViewerExtension2 extension = (ITextViewerExtension2) fSourceViewer;
-					if (extension != null && fCursorLinePainter != null)
-						extension.addPainter(fCursorLinePainter);
+					if (extension != null && fCursorLinePainter != null) {
+						try {
+							extension.addPainter(fCursorLinePainter);
+						} catch (Exception e) {
+							//A null pointer can happen if the widget is disposed
+							//while this call is being made? It seems to happen but
+							//not be fatal
+							e.printStackTrace(System.err);
+						}
+					}
 				}
 			}
 		} catch (NullPointerException npe) {

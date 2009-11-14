@@ -121,7 +121,7 @@ public class AfaeDocumentProvider extends FileDocumentProvider {
 
 		IDocumentPartitioner partitioner = createPartitioner(modefile);
 
-		if (doc.getDocumentPartitioner() != null) {
+		if (doc != null && doc.getDocumentPartitioner() != null) {
 			doc.getDocumentPartitioner().disconnect();
 
 			partitioner.connect(doc);

@@ -245,7 +245,6 @@
 			<FUNCTION>accept_connect</FUNCTION>
 			<FUNCTION>acos</FUNCTION>
 			<FUNCTION>add</FUNCTION>
-			<FUNCTION>add</FUNCTION>
 			<FUNCTION>add_iovec</FUNCTION>
 			<FUNCTION>addaction</FUNCTION>
 			<FUNCTION>addcolor</FUNCTION>
@@ -255,10 +254,8 @@
 			<FUNCTION>addshape</FUNCTION>
 			<FUNCTION>addslashes</FUNCTION>
 			<FUNCTION>addstring</FUNCTION>
-			<FUNCTION>addstring</FUNCTION>
 			<FUNCTION>align</FUNCTION>
 			<FUNCTION>apache_child_terminate</FUNCTION>
-			<FUNCTION>apache_lookup_uri</FUNCTION>
 			<FUNCTION>apache_lookup_uri</FUNCTION>
 			<FUNCTION>apache_note</FUNCTION>
 			<FUNCTION>apache_sub_req</FUNCTION>
@@ -351,13 +348,11 @@
 			<FUNCTION>chdir</FUNCTION>
 			<FUNCTION>checkdate</FUNCTION>
 			<FUNCTION>checkdnsrr</FUNCTION>
-			<FUNCTION>checkdnsrr</FUNCTION>
 			<FUNCTION>chgrp</FUNCTION>
 			<FUNCTION>chmod</FUNCTION>
 			<FUNCTION>chop</FUNCTION>
 			<FUNCTION>chown</FUNCTION>
 			<FUNCTION>chr</FUNCTION>
-			<FUNCTION>chroot</FUNCTION>
 			<FUNCTION>chroot</FUNCTION>
 			<FUNCTION>chunk_split</FUNCTION>
 			<FUNCTION>class_exists</FUNCTION>
@@ -2587,34 +2582,30 @@
 			<FUNCTION>zzip_read</FUNCTION>
 			<FUNCTION>zzip_readdir</FUNCTION>
 
-			<!-- WordPress 2.5x API -->
-			<!-- Post, page, and attachment functions -->
-			<FUNCTION>wp_trim_excerpt</FUNCTION>
-			<FUNCTION>get_attached_file</FUNCTION>
-			<FUNCTION>update_attached_file</FUNCTION>
-			<FUNCTION>get_children</FUNCTION>
-			<FUNCTION>get_extended</FUNCTION>
+			<!-- WordPress 2.8x API (from http://codex.wordpress.org/Function_Reference), as of 07/2009 -->
+			<!-- Post, Page, Attachment, and Bookmark Functions: -->
+			<!-- Posts -->
 			<FUNCTION>get_post</FUNCTION>
 			<FUNCTION>get_post_mime_type</FUNCTION>
 			<FUNCTION>get_post_status</FUNCTION>
 			<FUNCTION>get_post_type</FUNCTION>
 			<FUNCTION>get_posts</FUNCTION>
-			<FUNCTION>add_post_meta</FUNCTION>
-			<FUNCTION>delete_post_meta</FUNCTION>
-			<FUNCTION>update_post_meta</FUNCTION>
-			<FUNCTION>get_post_meta</FUNCTION>
-			<FUNCTION>get_post_custom</FUNCTION>
-			<FUNCTION>get_post_custom_keys</FUNCTION>
-			<FUNCTION>get_post_custom_values</FUNCTION>
-			<FUNCTION>add_meta_box</FUNCTION>
+			<FUNCTION>get_children</FUNCTION>
+			<FUNCTION>get_extended</FUNCTION>
+			<FUNCTION>wp_get_recent_posts</FUNCTION>
+			<FUNCTION>wp_get_single_post</FUNCTION>
+			<FUNCTION>is_single</FUNCTION>
+			<FUNCTION>is_sticky</FUNCTION>
+			<FUNCTION>is_post</FUNCTION>
+    
+			<!-- Post insertion/removal -->
 			<FUNCTION>wp_delete_post</FUNCTION>
-			<FUNCTION>wp_get_post_categories</FUNCTION>
-			<FUNCTION>get_recent_posts</FUNCTION>
-			<FUNCTION>get_single_post</FUNCTION>
 			<FUNCTION>wp_insert_post</FUNCTION>
 			<FUNCTION>wp_update_post</FUNCTION>
 			<FUNCTION>wp_publish_post</FUNCTION>
-			<FUNCTION>wp_set_post_categories</FUNCTION>
+    
+			<!-- Pages -->
+			<FUNCTION>is_page</FUNCTION>
 			<FUNCTION>get_all_page_ids</FUNCTION>
 			<FUNCTION>get_page</FUNCTION>
 			<FUNCTION>get_page_by_path</FUNCTION>
@@ -2623,11 +2614,27 @@
 			<FUNCTION>get_page_hierarchy</FUNCTION>
 			<FUNCTION>get_page_uri</FUNCTION>
 			<FUNCTION>get_pages</FUNCTION>
-			<FUNCTION>generate_page_uri_index</FUNCTION>
+			<FUNCTION>page_uri_index</FUNCTION>
 			<FUNCTION>wp_list_pages</FUNCTION>
+    
+			<!-- Custom fields (postmeta) -->
+			<FUNCTION>add_post_meta</FUNCTION>
+			<FUNCTION>delete_post_meta</FUNCTION>
+			<FUNCTION>update_post_meta</FUNCTION>
+			<FUNCTION>get_post_meta</FUNCTION>
+			<FUNCTION>get_post_custom</FUNCTION>
+			<FUNCTION>get_post_custom_keys</FUNCTION>
+			<FUNCTION>get_post_custom_values</FUNCTION>
+    
+			<!-- Attachments -->
+			<FUNCTION>is_attachment</FUNCTION>
+			<FUNCTION>get_attached_file</FUNCTION>
+			<FUNCTION>update_attached_file</FUNCTION>
 			<FUNCTION>is_local_attachment</FUNCTION>
 			<FUNCTION>wp_insert_attachment</FUNCTION>
 			<FUNCTION>wp_delete_attachment</FUNCTION>
+			<FUNCTION>wp_get_attachment_image</FUNCTION>
+			<FUNCTION>wp_get_attachment_image_src</FUNCTION>
 			<FUNCTION>wp_get_attachment_metadata</FUNCTION>
 			<FUNCTION>wp_update_attachment_metadata</FUNCTION>
 			<FUNCTION>wp_get_attachment_url</FUNCTION>
@@ -2636,33 +2643,132 @@
 			<FUNCTION>wp_attachment_is_image</FUNCTION>
 			<FUNCTION>wp_mime_type_icon</FUNCTION>
 			<FUNCTION>wp_check_for_changed_slugs</FUNCTION>
+			<FUNCTION>wp_count_posts</FUNCTION>
+    
+			<!-- Bookmarks -->
+ 			<FUNCTION>wp_list_bookmarks</FUNCTION>
+			<FUNCTION>get_bookmark</FUNCTION>
+			<FUNCTION>get_bookmarks</FUNCTION>
+    
+			 <!-- Others -->
+ 			<FUNCTION>wp_trim_excerpt</FUNCTION>
+			<FUNCTION>add_meta_box</FUNCTION>
+			<FUNCTION>wp_get_post_categories</FUNCTION>
+			<FUNCTION>wp_set_post_categories</FUNCTION>
+			<FUNCTION>get_the_ID</FUNCTION>
+			<FUNCTION>get_the_content</FUNCTION>
+			<FUNCTION>get_the_author </FUNCTION>
+ 
+			<!-- Category, Tag, and Taxonomy Functions: -->
+			<!-- Categories -->
+			<FUNCTION>is_category</FUNCTION>
+			<FUNCTION>in_category</FUNCTION>
+			<FUNCTION>cat_is_ancestor_of</FUNCTION>
+			<FUNCTION>get_category_parents</FUNCTION>
+			<FUNCTION>get_all_category_ids</FUNCTION>
+			<FUNCTION>get_categories</FUNCTION>
+			<FUNCTION>get_the_category</FUNCTION>
+			<FUNCTION>get_category</FUNCTION>
+			<FUNCTION>get_category_by_path</FUNCTION>
+			<FUNCTION>get_category_by_slug</FUNCTION>
+			<FUNCTION>get_cat_ID</FUNCTION>
+			<FUNCTION>get_cat_name</FUNCTION>
+			<FUNCTION>get_category_link</FUNCTION>
 
-			<!-- User and author functions: -->
+			<!-- Category Creation -->
+			<FUNCTION>wp_create_category</FUNCTION>
+			<FUNCTION>wp_insert_category</FUNCTION>
+
+			<!-- Tags -->
+			<FUNCTION>is_tag</FUNCTION>
+			<FUNCTION>get_tag</FUNCTION>
+			<FUNCTION>get_tags</FUNCTION>
+			<FUNCTION>get_the_tags</FUNCTION>
+			<FUNCTION>get_the_tag_list</FUNCTION>
+			<FUNCTION>get_tag_link</FUNCTION>
+
+			<!-- Taxonomy -->
+			<FUNCTION>is_taxonomy</FUNCTION>
+			<FUNCTION>is_taxonomy_hierarchical</FUNCTION>
+			<FUNCTION>register_taxonomy</FUNCTION>
+			<FUNCTION>is_term</FUNCTION>
+			<FUNCTION>get_term</FUNCTION>
+			<FUNCTION>get_term_by</FUNCTION>
+			<FUNCTION>get_term_children</FUNCTION>
+			<FUNCTION>get_terms</FUNCTION>
+			<FUNCTION>wp_get_object_terms</FUNCTION>
+			<FUNCTION>wp_insert_term</FUNCTION>
+    
+			<!-- User and Author Functions: -->
+			<!-- Users and Authors -->
 			<FUNCTION>get_profile</FUNCTION>
 			<FUNCTION>get_usernumposts</FUNCTION>
-			<FUNCTION>delete_usermeta</FUNCTION>
-			<FUNCTION>get_usermeta</FUNCTION>
-			<FUNCTION>update_usermeta</FUNCTION>
 			<FUNCTION>set_current_user</FUNCTION>
 			<FUNCTION>wp_set_current_user</FUNCTION>
 			<FUNCTION>wp_get_current_user</FUNCTION>
 			<FUNCTION>get_currentuserinfo</FUNCTION>
 			<FUNCTION>get_userdata</FUNCTION>
 			<FUNCTION>get_userdatabylogin</FUNCTION>
-			<FUNCTION>wp_login</FUNCTION>
-			<FUNCTION>is_user_logged_in</FUNCTION>
 			<FUNCTION>auth_redirect</FUNCTION>
 			<FUNCTION>username_exists</FUNCTION>
 			<FUNCTION>email_exists</FUNCTION>
 			<FUNCTION>validate_username</FUNCTION>
+			<FUNCTION>user_pass_ok</FUNCTION>
+
+			<!-- User meta -->
+			<FUNCTION>get_usermeta</FUNCTION>
+			<FUNCTION>delete_usermeta</FUNCTION>
+			<FUNCTION>update_usermeta</FUNCTION>
+
+			<!-- User insertion/removal -->
 			<FUNCTION>wp_insert_user</FUNCTION>
 			<FUNCTION>wp_update_user</FUNCTION>
+			<FUNCTION>wp_delete_user</FUNCTION>
 			<FUNCTION>wp_create_user</FUNCTION>
 
-			<!-- Comment, theme, and trackback functions: -->
+			<!-- Login / Logout -->
+			<FUNCTION>wp_signon</FUNCTION>
+			<FUNCTION>is_user_logged_in</FUNCTION>
+    
+			<!-- Feed Functions: -->
+ 			<FUNCTION>fetch_rss</FUNCTION>
+			<FUNCTION>wp_rss</FUNCTION>
+			<FUNCTION>get_rss</FUNCTION>
+			<FUNCTION>do_feed</FUNCTION>
+			<FUNCTION>do_feed_rdf</FUNCTION>
+			<FUNCTION>do_feed_rss</FUNCTION>
+			<FUNCTION>do_feed_rss2</FUNCTION>
+			<FUNCTION>do_feed_atom</FUNCTION>
+			<FUNCTION>get_bloginfo_rss</FUNCTION>
+			<FUNCTION>bloginfo_rss</FUNCTION>
+			<FUNCTION>get_the_title_rss</FUNCTION>
+			<FUNCTION>the_title_rss</FUNCTION>
+			<FUNCTION>the_content_rss</FUNCTION>
+			<FUNCTION>the_excerpt_rss</FUNCTION>
+			<FUNCTION>permalink_single_rss</FUNCTION>
+			<FUNCTION>comment_link</FUNCTION>
+			<FUNCTION>get_comment_link</FUNCTION>
+			<FUNCTION>get_comment_author_rss</FUNCTION>
+			<FUNCTION>comment_author_rss</FUNCTION>
+			<FUNCTION>comment_text_rss</FUNCTION>
+			<FUNCTION>post_comments_feed_link</FUNCTION>
+			<FUNCTION>get_post_comments_feed_link</FUNCTION>
+			<FUNCTION>get_author_feed_link</FUNCTION>
+			<FUNCTION>get_category_feed_link</FUNCTION>
+			<FUNCTION>get_the_category_rss</FUNCTION>
+			<FUNCTION>the_category_rss</FUNCTION>
+			<FUNCTION>rss_enclosure</FUNCTION>
+			<FUNCTION>get_search_feed_link</FUNCTION>
+			<FUNCTION>get_search_comments_feed_link</FUNCTION>
+    
+			<!-- Comment, Ping, and Trackback Functions -->
+ 			<FUNCTION>paginate_comments_links</FUNCTION>
+			<FUNCTION>previous_comments_link</FUNCTION>
+			<FUNCTION>next_comments_link</FUNCTION>
 			<FUNCTION>check_comment</FUNCTION>
 			<FUNCTION>get_approved_comments</FUNCTION>
 			<FUNCTION>get_comment</FUNCTION>
+			<FUNCTION>get_comments</FUNCTION>
 			<FUNCTION>get_lastcommentmodified</FUNCTION>
 			<FUNCTION>sanitize_comment_cookies</FUNCTION>
 			<FUNCTION>wp_allow_comment</FUNCTION>
@@ -2689,9 +2795,51 @@
 			<FUNCTION>get_enclosed</FUNCTION>
 			<FUNCTION>get_pung</FUNCTION>
 			<FUNCTION>get_to_ping</FUNCTION>
-			<FUNCTION>trackback_url_list</FUNCTION> 
+			<FUNCTION>trackback_url_list</FUNCTION>
+    
+			<!-- Action, Filter, and Plugin Functions -->
+			<!-- Filters -->
+			<FUNCTION>add_filter</FUNCTION>
+			<FUNCTION>remove_filter</FUNCTION>
+			<FUNCTION>apply_filters</FUNCTION>
+			<FUNCTION>merge_filters</FUNCTION>
 
-			<!-- Theme-related functions: -->
+			<!-- Actions -->
+			<FUNCTION>add_action</FUNCTION>
+			<FUNCTION>remove_action</FUNCTION>
+			<FUNCTION>do_action</FUNCTION>
+			<FUNCTION>did_action</FUNCTION>
+			<FUNCTION>do_action_ref_array</FUNCTION>
+
+			<!-- Plugins -->
+			<FUNCTION>plugin_basename</FUNCTION>
+			<FUNCTION>register_activation_hook</FUNCTION>
+			<FUNCTION>register_deactivation_hook</FUNCTION>
+			<FUNCTION>register_setting</FUNCTION>
+			<FUNCTION>unregister_setting</FUNCTION>
+			<FUNCTION>settings_fields</FUNCTION>
+
+			<!-- Shortcodes -->
+			<FUNCTION>add_shortcode</FUNCTION>
+			<FUNCTION>remove_shortcode</FUNCTION>
+			<FUNCTION>remove_all_shortcodes</FUNCTION>
+			<FUNCTION>do_shortcode</FUNCTION>
+			<FUNCTION>get_shortcode_regex</FUNCTION>
+			<FUNCTION>do_shortcode_tag</FUNCTION>
+			<FUNCTION>shortcode_parse_atts</FUNCTION>
+			<FUNCTION>shortcode_atts</FUNCTION>
+			<FUNCTION>strip_shortcodes</FUNCTION>
+    
+ 
+			<!-- Theme-Related Functions -->
+			<!-- Include functions -->
+			<FUNCTION>get_header</FUNCTION>
+			<FUNCTION>get_sidebar</FUNCTION>
+			<FUNCTION>get_search_form</FUNCTION>
+			<FUNCTION>comments_template</FUNCTION>
+			<FUNCTION>get_footer</FUNCTION>
+
+			<!-- Other functions -->
 			<FUNCTION>get_stylesheet</FUNCTION>
 			<FUNCTION>get_stylesheet_directory</FUNCTION>
 			<FUNCTION>get_stylesheet_directory_uri</FUNCTION>
@@ -2721,86 +2869,19 @@
 			<FUNCTION>get_comments_popup_template</FUNCTION>
 			<FUNCTION>load_template</FUNCTION>
 			<FUNCTION>locale_stylesheet</FUNCTION>
+			<FUNCTION>preview_theme</FUNCTION>
+			<FUNCTION>preview_theme_ob_filter</FUNCTION>
+			<FUNCTION>preview_theme_ob_filter_callback</FUNCTION>
 			<FUNCTION>validate_current_theme</FUNCTION>
+			<FUNCTION>switch_theme</FUNCTION>
 			<FUNCTION>get_theme_mod</FUNCTION>
 			<FUNCTION>set_theme_mod</FUNCTION>
 			<FUNCTION>get_header_textcolor</FUNCTION>
 			<FUNCTION>get_header_image</FUNCTION>
 			<FUNCTION>header_image</FUNCTION>
 			<FUNCTION>add_custom_image_header</FUNCTION>
-
-			<!-- Category, tag, and taxonomy functions: -->
-			<FUNCTION>get_all_category_ids</FUNCTION>
-			<FUNCTION>get_categories</FUNCTION>
-			<FUNCTION>get_category</FUNCTION>
-			<FUNCTION>get_category_by_path</FUNCTION>
-			<FUNCTION>get_category_by_slug</FUNCTION>
-			<FUNCTION>get_cat_ID</FUNCTION>
-			<FUNCTION>get_cat_name</FUNCTION>
-			<FUNCTION>cat_is_ancestor_of</FUNCTION>
-
-			<FUNCTION>get_tags</FUNCTION>
-			<FUNCTION>get_tag</FUNCTION>
-
-			<FUNCTION>is_taxonomy</FUNCTION>
-			<FUNCTION>is_taxonomy_hierarchical</FUNCTION>
-			<FUNCTION>get_term</FUNCTION>
-			<FUNCTION>get_term_by</FUNCTION>
-			<FUNCTION>get_term_children</FUNCTION>
-			<FUNCTION>get_terms</FUNCTION>
-			<FUNCTION>is_term</FUNCTION>
-			<FUNCTION>register_taxonomy</FUNCTION>
-			<FUNCTION>wp_get_object_terms</FUNCTION>
-
-			<FUNCTION>get_category_link</FUNCTION>
-
-
-			<!-- Feed functions: -->
-			<FUNCTION>fetch_rss</FUNCTION>
-			<FUNCTION>wp_rss</FUNCTION>
-			<FUNCTION>get_rss</FUNCTION>
-			<FUNCTION>do_feed</FUNCTION>
-			<FUNCTION>do_feed_rdf</FUNCTION>
-			<FUNCTION>do_feed_rss</FUNCTION>
-			<FUNCTION>do_feed_rss2</FUNCTION>
-			<FUNCTION>do_feed_atom</FUNCTION>
-			<FUNCTION>get_bloginfo_rss</FUNCTION>
-			<FUNCTION>bloginfo_rss</FUNCTION>
-			<FUNCTION>get_the_title_rss</FUNCTION>
-			<FUNCTION>the_title_rss</FUNCTION>
-			<FUNCTION>the_content_rss</FUNCTION>
-			<FUNCTION>the_excerpt_rss</FUNCTION>
-			<FUNCTION>permalink_single_rss</FUNCTION>
-			<FUNCTION>comment_link</FUNCTION>
-			<FUNCTION>get_comment_author_rss</FUNCTION>
-			<FUNCTION>comment_author_rss</FUNCTION>
-			<FUNCTION>comment_text_rss</FUNCTION>
-			<FUNCTION>post_comments_feed_link</FUNCTION>
-			<FUNCTION>get_post_comments_feed_link</FUNCTION>
-			<FUNCTION>get_author_feed_link</FUNCTION>
-			<FUNCTION>get_category_rss_link</FUNCTION>
-			<FUNCTION>get_category_feed_link</FUNCTION>
-			<FUNCTION>get_the_category_rss</FUNCTION>
-			<FUNCTION>the_category_rss</FUNCTION>
-			<FUNCTION>rss_enclosure</FUNCTION>
-			<FUNCTION>get_search_feed_link</FUNCTION>
-			<FUNCTION>get_search_comments_feed_link</FUNCTION>
-
-			<!-- Action, filter, plugin functions: -->
-			<FUNCTION>add_filter</FUNCTION>
-			<FUNCTION>apply_filters</FUNCTION>
-			<FUNCTION>merge_filters</FUNCTION>
-			<FUNCTION>remove_filter</FUNCTION>
-			<FUNCTION>add_action</FUNCTION>
-			<FUNCTION>do_action</FUNCTION>
-			<FUNCTION>did_action</FUNCTION>
-			<FUNCTION>do_action_ref_array</FUNCTION>
-			<FUNCTION>remove_action</FUNCTION>
-			<FUNCTION>plugin_basename</FUNCTION>
-			<FUNCTION>register_activation_hook</FUNCTION>
-			<FUNCTION>register_deactivation_hook</FUNCTION>
-
-			<!-- Formatting functions: -->
+    
+			<!-- Formatting Functions -->
 			<FUNCTION>wptexturize</FUNCTION>
 			<FUNCTION>clean_pre</FUNCTION>
 			<FUNCTION>wpautop</FUNCTION>
@@ -2821,6 +2902,7 @@
 			<FUNCTION>zeroise</FUNCTION>
 			<FUNCTION>backslashit</FUNCTION>
 			<FUNCTION>trailingslashit</FUNCTION>
+			<FUNCTION>untrailingslashit</FUNCTION>
 			<FUNCTION>addslashes_gpc</FUNCTION>
 			<FUNCTION>stripslashes_deep</FUNCTION>
 			<FUNCTION>antispambot</FUNCTION>
@@ -2849,7 +2931,7 @@
 			<FUNCTION>wp_kses_check_attr_val</FUNCTION>
 			<FUNCTION>wp_kses_bad_protocol</FUNCTION>
 			<FUNCTION>wp_kses_no_null</FUNCTION>
-			<FUNCTION>wp_kses_strip_slashes</FUNCTION>
+			<FUNCTION>wp_kses_stripslashes</FUNCTION>
 			<FUNCTION>wp_kses_array_lc</FUNCTION>
 			<FUNCTION>wp_kses_js_entities</FUNCTION>
 			<FUNCTION>wp_kses_html_error</FUNCTION>
@@ -2861,9 +2943,14 @@
 			<FUNCTION>wp_filter_kses</FUNCTION>
 			<FUNCTION>wp_filter_post_kses</FUNCTION>
 			<FUNCTION>wp_filter_nohtml_kses</FUNCTION>
-
-			<!-- Miscellaneous functions -->
-			<!-- Time/date: -->
+    
+			<!-- Miscellaneous Functions -->
+			<!-- Time/Date Functions -->
+			<FUNCTION>get_the_time</FUNCTION>
+			<FUNCTION>get_day_link</FUNCTION>
+			<FUNCTION>get_month_link</FUNCTION>
+			<FUNCTION>get_year_link</FUNCTION>
+			<FUNCTION>get_calendar</FUNCTION>
 			<FUNCTION>get_gmt_from_date</FUNCTION>
 			<FUNCTION>get_date_from_gmt</FUNCTION>
 			<FUNCTION>iso8601_timezone_to_offset</FUNCTION>
@@ -2872,18 +2959,18 @@
 			<FUNCTION>mysql2date</FUNCTION>
 			<FUNCTION>current_time</FUNCTION>
 			<FUNCTION>date_i18n</FUNCTION>
-			<FUNCTION>get_weekendstartend</FUNCTION>
+			<FUNCTION>get_weekstartend</FUNCTION>
 			<FUNCTION>get_lastpostdate</FUNCTION>
 			<FUNCTION>get_lastpostmodified</FUNCTION>
 			<FUNCTION>is_new_day</FUNCTION>
 
-			<!-- Serialization: -->
+			<!-- Serialization -->
 			<FUNCTION>maybe_serialize</FUNCTION>
 			<FUNCTION>maybe_unserialize</FUNCTION>
 			<FUNCTION>is_serialized</FUNCTION>
 			<FUNCTION>is_serialized_string</FUNCTION>
 
-			<!-- Options: -->
+			<!-- Options -->
 			<FUNCTION>get_option</FUNCTION>
 			<FUNCTION>form_option</FUNCTION>
 			<FUNCTION>get_alloptions</FUNCTION>
@@ -2893,13 +2980,13 @@
 			<FUNCTION>get_user_option</FUNCTION>
 			<FUNCTION>update_user_option</FUNCTION>
 
-			<!-- XMLRPC: -->
+			<!-- XMLRPC -->
 			<FUNCTION>xmlrpc_getposttitle</FUNCTION>
 			<FUNCTION>xmlrpc_getpostcategory</FUNCTION>
 			<FUNCTION>xmlrpc_removepostdata</FUNCTION>
 			<FUNCTION>user_pass_ok</FUNCTION>
 
-			<!-- Localization: -->
+			<!-- Localization -->
 			<FUNCTION>get_locale</FUNCTION>
 			<FUNCTION>__</FUNCTION>
 			<FUNCTION>_e</FUNCTION>
@@ -2909,7 +2996,7 @@
 			<FUNCTION>load_plugin_textdomain</FUNCTION>
 			<FUNCTION>load_theme_textdomain</FUNCTION>
 
-			<!-- Cron (Scheduling): -->
+			<!-- Cron (Scheduling) -->
 			<FUNCTION>wp_schedule_single_event</FUNCTION>
 			<FUNCTION>wp_schedule_event</FUNCTION>
 			<FUNCTION>wp_reschedule_event</FUNCTION>
@@ -2921,8 +3008,8 @@
 			<FUNCTION>wp_get_schedules</FUNCTION>
 			<FUNCTION>wp_get_schedule</FUNCTION>
 
-			<!-- Miscellaneous: -->
-			<FUNCTION>gzip_compression</FUNCTION>
+			<!-- Miscellaneous -->
+			<FUNCTION>get_bloginfo</FUNCTION>
 			<FUNCTION>make_url_footnote</FUNCTION>
 			<FUNCTION>wp_get_http_headers</FUNCTION>
 			<FUNCTION>add_query_arg</FUNCTION>
@@ -2949,8 +3036,6 @@
 			<FUNCTION>wp_explain_nonce</FUNCTION>
 			<FUNCTION>wp_nonce_ays</FUNCTION>
 			<FUNCTION>wp_die</FUNCTION>
-			<FUNCTION>get_bookmark</FUNCTION>
-			<FUNCTION>get_bookmarks</FUNCTION>
 			<FUNCTION>wp_mail</FUNCTION>
 			<FUNCTION>check_admin_referer</FUNCTION>
 			<FUNCTION>check_ajax_referer</FUNCTION>
@@ -2966,69 +3051,222 @@
 			<FUNCTION>wp_salt</FUNCTION>
 			<FUNCTION>wp_hash</FUNCTION>
 
-			<!-- RPS 06.2008: -->
-			<!-- Additional functions I see used in the theme I'm using but that don't seem to be above -->
-			<FUNCTION>bloginfo</FUNCTION>
-			<FUNCTION>comment_author_link</FUNCTION>
-			<FUNCTION>comment_date</FUNCTION>
-			<FUNCTION>comment_ID</FUNCTION>
-			<FUNCTION>comments_number</FUNCTION>
-			<FUNCTION>comments_open</FUNCTION>
-			<FUNCTION>comments_popup_link</FUNCTION>
-			<FUNCTION>comments_rss_link</FUNCTION>
-			<FUNCTION>comments_template</FUNCTION>
-			<FUNCTION>comment_text</FUNCTION>
-			<FUNCTION>comment_time</FUNCTION>
-			<FUNCTION>comment_type</FUNCTION>
-			<FUNCTION>edit_comment_link</FUNCTION>
-			<FUNCTION>edit_post_link</FUNCTION>
-			<FUNCTION>get_attachment_link</FUNCTION>
-			<FUNCTION>get_footer</FUNCTION>
+			<!-- Template Tags, (from http://codex.wordpress.org/Template_Tags), as of 07/2009 -->
+			<!-- Include tags -->
 			<FUNCTION>get_header</FUNCTION>
-			<FUNCTION>get_settings</FUNCTION>
 			<FUNCTION>get_sidebar</FUNCTION>
-			<FUNCTION>get_the_category</FUNCTION>
-			<FUNCTION>get_the_tags</FUNCTION>
-			<FUNCTION>get_the_title</FUNCTION>
-			<FUNCTION>have_posts</FUNCTION>
-			<FUNCTION>is_author</FUNCTION>
-			<FUNCTION>is_category</FUNCTION>
-			<FUNCTION>is_day</FUNCTION>
-			<FUNCTION>is_home</FUNCTION>
-			<FUNCTION>is_month</FUNCTION>
-			<FUNCTION>is_paged</FUNCTION>
-			<FUNCTION>is_search</FUNCTION>
-			<FUNCTION>is_tag</FUNCTION>
-			<FUNCTION>is_year</FUNCTION>
-			<FUNCTION>list_cats</FUNCTION>
+			<FUNCTION>get_search_form</FUNCTION>
+			<FUNCTION>comments_template</FUNCTION>
+			<FUNCTION>get_footer</FUNCTION>
+	
+			<!-- Blog info tags -->
+			<FUNCTION>bloginfo</FUNCTION>
+			<FUNCTION>bloginfo_rss</FUNCTION>
+			<FUNCTION>get_bloginfo</FUNCTION>
+			<FUNCTION>get_bloginfo_rss</FUNCTION>
+
+			<!-- Lists & Dropdown tags -->
+			<FUNCTION>wp_list_authors</FUNCTION>
+			<FUNCTION>wp_list_categories</FUNCTION>
+			<FUNCTION>wp_list_pages</FUNCTION>
+			<FUNCTION>wp_list_bookmarks</FUNCTION>
+			<FUNCTION>wp_list_comments</FUNCTION>
+			<FUNCTION>wp_get_archives</FUNCTION>
+			<FUNCTION>wp_page_menu</FUNCTION>
+			<FUNCTION>wp_dropdown_pages</FUNCTION>
+			<FUNCTION>wp_dropdown_categories</FUNCTION>
+			<FUNCTION>wp_dropdown_users</FUNCTION>
+
+			<!-- Login/Logout tags -->
+			<FUNCTION>is_user_logged_in</FUNCTION>
+			<FUNCTION>wp_login_url</FUNCTION>
+			<FUNCTION>wp_logout_url</FUNCTION>
+			<FUNCTION>wp_lostpassword_url</FUNCTION>
+			<FUNCTION>wp_registration_url</FUNCTION>
+			<FUNCTION>wp_loginout</FUNCTION>
+			<FUNCTION>wp_register</FUNCTION>
+
+			<!-- Post tags -->
+			<FUNCTION>the_ID</FUNCTION>
+			<FUNCTION>the_title</FUNCTION>
+			<FUNCTION>the_title_rss</FUNCTION>
+			<FUNCTION>the_title_attribute</FUNCTION>
+			<FUNCTION>single_post_title</FUNCTION>
+			<FUNCTION>the_content</FUNCTION>
+			<FUNCTION>the_content_rss</FUNCTION>
+			<FUNCTION>the_excerpt</FUNCTION>
+			<FUNCTION>the_excerpt_rss</FUNCTION>
+			<FUNCTION>wp_link_pages</FUNCTION>
+			<FUNCTION>posts_nav_link</FUNCTION>
+			<FUNCTION>next_post_link</FUNCTION>
 			<FUNCTION>next_posts_link</FUNCTION>
-			<FUNCTION>posts_nav_link</FUNCTION>	
+			<FUNCTION>previous_post_link</FUNCTION>
 			<FUNCTION>previous_posts_link</FUNCTION>
+			<FUNCTION>next_image_link</FUNCTION>
+			<FUNCTION>previous_image_link</FUNCTION>
+			<FUNCTION>sticky_class</FUNCTION>
+			<FUNCTION>the_category</FUNCTION>
+			<FUNCTION>the_category_rss</FUNCTION>
+			<FUNCTION>the_tags</FUNCTION>
+			<FUNCTION>the_meta</FUNCTION>
+	
+			<!-- Comment tags -->
+			<FUNCTION>wp_list_comments</FUNCTION>
+			<FUNCTION>comments_number</FUNCTION>
+			<FUNCTION>comments_link</FUNCTION>
+			<FUNCTION>comments_rss_link</FUNCTION>
+			<FUNCTION>comments_popup_script</FUNCTION>
+			<FUNCTION>comments_popup_link</FUNCTION>
+			<FUNCTION>comment_ID</FUNCTION>
+			<FUNCTION>comment_id_fields</FUNCTION>
+			<FUNCTION>comment_author</FUNCTION>
+			<FUNCTION>comment_author_link</FUNCTION>
+			<FUNCTION>comment_author_email</FUNCTION>
+			<FUNCTION>comment_author_email_link</FUNCTION>
+			<FUNCTION>comment_author_url</FUNCTION>
+			<FUNCTION>comment_author_url_link</FUNCTION>
+			<FUNCTION>comment_author_IP</FUNCTION>
+			<FUNCTION>comment_type</FUNCTION>
+			<FUNCTION>comment_text</FUNCTION>
+			<FUNCTION>comment_excerpt</FUNCTION>
+			<FUNCTION>comment_date</FUNCTION>
+			<FUNCTION>comment_time</FUNCTION>
+			<FUNCTION>comment_form_title</FUNCTION>
+			<FUNCTION>comment_author_rss</FUNCTION>
+			<FUNCTION>comment_text_rss</FUNCTION>
+			<FUNCTION>comment_link_rss</FUNCTION>
+			<FUNCTION>permalink_comments_rss</FUNCTION>
+			<FUNCTION>comment_reply_link</FUNCTION>
+			<FUNCTION>cancel_comment_reply_link</FUNCTION>
+			<FUNCTION>previous_comments_link</FUNCTION>
+			<FUNCTION>next_comments_link</FUNCTION>
+			<FUNCTION>paginate_comments_links</FUNCTION>
+
+			<!-- Category tags -->
+			<FUNCTION>the_category</FUNCTION>
+			<FUNCTION>the_category_rss</FUNCTION>
+			<FUNCTION>single_cat_title</FUNCTION>
+			<FUNCTION>category_description</FUNCTION>
+			<FUNCTION>wp_dropdown_categories</FUNCTION>
+			<FUNCTION>wp_list_categories</FUNCTION>
+
+			<!-- Tag tags -->
+			<FUNCTION>the_tags</FUNCTION>
+			<FUNCTION>tag_description</FUNCTION>
+			<FUNCTION>single_tag_title</FUNCTION>
+			<FUNCTION>wp_tag_cloud</FUNCTION>
+			<FUNCTION>wp_generate_tag_cloud</FUNCTION>
+
+			<!-- Author tags -->
+			<FUNCTION>the_author</FUNCTION>
+			<FUNCTION>the_author_link</FUNCTION>
+			<FUNCTION>the_author_posts</FUNCTION>
+			<FUNCTION>the_author_posts_link</FUNCTION>
+			<FUNCTION>the_author_meta</FUNCTION>
+			<FUNCTION>wp_list_authors</FUNCTION>
+			<FUNCTION>wp_dropdown_users</FUNCTION>
+	
+			<!-- Date and Time tags -->
+			<FUNCTION>the_time</FUNCTION>
+			<FUNCTION>the_date</FUNCTION>
+			<FUNCTION>the_date_xml</FUNCTION>
+			<FUNCTION>the_modified_time</FUNCTION>
+			<FUNCTION>the_modified_date</FUNCTION>
+			<FUNCTION>the_modified_author</FUNCTION>
+			<FUNCTION>single_month_title</FUNCTION>
+
+			<!-- Edit Link tags -->
+			<FUNCTION>edit_post_link</FUNCTION>
+			<FUNCTION>edit_comment_link</FUNCTION>
+			<FUNCTION>edit_tag_link</FUNCTION>
+			<FUNCTION>edit_bookmark_link</FUNCTION>
+
+	
+			<!-- Permalink tags -->
+			<FUNCTION>permalink_anchor</FUNCTION>
+			<FUNCTION>get_permalink</FUNCTION>
+			<FUNCTION>the_permalink</FUNCTION>
+			<FUNCTION>permalink_single_rss</FUNCTION>
+
+			<!-- Links Manager tags -->
+			<FUNCTION>wp_list_bookmarks</FUNCTION>
+			<FUNCTION>get_bookmarks</FUNCTION>
+			<FUNCTION>get_bookmark</FUNCTION>
+			<FUNCTION>get_bookmark_field</FUNCTION>
+	
+			<!-- Trackback tags -->
+			<FUNCTION>trackback_url</FUNCTION>
+			<FUNCTION>trackback_rdf</FUNCTION>
+
+			<!-- Title tags -->
+			<FUNCTION>wp_title</FUNCTION>
+			<FUNCTION>single_post_title</FUNCTION>
 			<FUNCTION>single_cat_title</FUNCTION>
 			<FUNCTION>single_tag_title</FUNCTION>
-			<FUNCTION>the_author</FUNCTION>
-			<FUNCTION>the_category</FUNCTION>
-			<FUNCTION>the_content</FUNCTION>
-			<FUNCTION>the_ID</FUNCTION>
-			<FUNCTION>the_permalink</FUNCTION>
-			<FUNCTION>the_post</FUNCTION>
+			<FUNCTION>single_month_title</FUNCTION>
 			<FUNCTION>the_search_query</FUNCTION>
-			<FUNCTION>the_tags</FUNCTION>
-			<FUNCTION>the_time</FUNCTION>
-			<FUNCTION>the_title</FUNCTION>
+
+			<!-- Query tags -->
+			<FUNCTION>get_posts</FUNCTION>
+			<FUNCTION>query_posts</FUNCTION>
+	
+			<!-- Geo tags -->
+			<FUNCTION>print_Lat</FUNCTION>
+			<FUNCTION>print_Lon</FUNCTION>
+			<FUNCTION>print_UrlPopNav</FUNCTION>
+			<FUNCTION>print_AcmeMap_Url</FUNCTION>
+			<FUNCTION>print_GeoURL_Url</FUNCTION>
+			<FUNCTION>print_GeoCache_Url</FUNCTION>
+			<FUNCTION>print_MapQuest_Url</FUNCTION>
+			<FUNCTION>print_SideBit_Url</FUNCTION>
+			<FUNCTION>print_DegreeConfluence_Url</FUNCTION>
+			<FUNCTION>print_TopoZone_Url</FUNCTION>
+			<FUNCTION>print_FindU_Url</FUNCTION>
+			<FUNCTION>print_MapTech_Url</FUNCTION>
+
+			<!-- RPS 06.2008: -->
+			<!-- Additional functions that don't seem to be above -->
+			<FUNCTION>comments_open</FUNCTION>
+			<FUNCTION>pings_open</FUNCTION>
+			<FUNCTION>get_attachment_link</FUNCTION>
+			<FUNCTION>get_settings</FUNCTION> <!-- Deprecated -->
+			<FUNCTION>get_the_title</FUNCTION>
+			<FUNCTION>have_posts</FUNCTION>
+			<FUNCTION>in_the_loop</FUNCTION>
+			<FUNCTION>is_active_sidebar</FUNCTION>
+			<FUNCTION>is_active_widget</FUNCTION>
+			<FUNCTION>is_admin</FUNCTION>
+			<FUNCTION>is_archive</FUNCTION>
+			<FUNCTION>is_author</FUNCTION>
+			<FUNCTION>is_comments_popup</FUNCTION>
+			<FUNCTION>is_date</FUNCTION>
+			<FUNCTION>is_day</FUNCTION>
+			<FUNCTION>is_dynamic_sidebar</FUNCTION>
+			<FUNCTION>is_feed</FUNCTION>
+			<FUNCTION>is_front_page</FUNCTION>
+			<FUNCTION>is_home</FUNCTION>
+			<FUNCTION>is_month</FUNCTION>
+			<FUNCTION>is_new_day</FUNCTION>
+			<FUNCTION>is_paged</FUNCTION>
+			<FUNCTION>is_page_template</FUNCTION>
+			<FUNCTION>is_plugin_page</FUNCTION>
+			<FUNCTION>is_preview</FUNCTION>
+			<FUNCTION>is_search</FUNCTION>
+			<FUNCTION>is_singular</FUNCTION>
+			<FUNCTION>is_time</FUNCTION>
+			<FUNCTION>is_trackback</FUNCTION>
+			<FUNCTION>is_year</FUNCTION>
+			<FUNCTION>is_404</FUNCTION>
+			<FUNCTION>has_excerpt</FUNCTION>
+			<FUNCTION>has_tag</FUNCTION>
+			<FUNCTION>list_cats</FUNCTION>
+			<FUNCTION>the_post</FUNCTION>
 			<FUNCTION>trackback_url</FUNCTION>
-			<FUNCTION>wp_get_archives</FUNCTION>
 			<FUNCTION>wp_footer</FUNCTION>
 			<FUNCTION>wp_head</FUNCTION>
-			<FUNCTION>wp_link_pages</FUNCTION>
-			<FUNCTION>wp_list_bookmarks</FUNCTION>
-			<FUNCTION>wp_list_categories</FUNCTION>
 			<FUNCTION>wp_list_cats</FUNCTION>
-			<FUNCTION>wp_loginout</FUNCTION>
 			<FUNCTION>wp_meta</FUNCTION>
-			<FUNCTION>wp_register</FUNCTION>
-			<FUNCTION>wp_title</FUNCTION>
-
+			
 		</KEYWORDS>
 	</RULES>
 </MODE>

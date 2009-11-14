@@ -56,12 +56,9 @@
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCHARTIMAGE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfchartimage</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCHARTRANGEMARKER" IGNORE_CASE="TRUE"><BEGIN>&lt;cfchartrangemarker</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCHARTTITLE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcharttitle</BEGIN><END>&gt;</END></SPAN>
-		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_1" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcontinue</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFDEBUGGER" IGNORE_CASE="TRUE"><BEGIN>&lt;cfdebugger</BEGIN><END>&gt;</END></SPAN>
-		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_2" IGNORE_CASE="TRUE"><BEGIN>&lt;cffinally</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFORWARD" IGNORE_CASE="TRUE"><BEGIN>&lt;cfforward</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFINTERRUPT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfinterrupt</BEGIN><END>&gt;</END></SPAN>
-		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFIMAP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfimap</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFJAVASCRIPT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfjavascript</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFJOIN" IGNORE_CASE="TRUE"><BEGIN>&lt;cfjoin</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMAPPING" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmapping</BEGIN><END>&gt;</END></SPAN>
@@ -96,6 +93,7 @@
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCOL" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcol</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCOMPONENT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcomponent</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCONTENT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcontent</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_1" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcontinue</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFCOOKIE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfcookie</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFDBINFO" IGNORE_CASE="TRUE"><BEGIN>&lt;cfdbinfo</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_2" IGNORE_CASE="TRUE"><BEGIN>&lt;cfdefaultcase</BEGIN><END>&gt;</END></SPAN>
@@ -117,7 +115,9 @@
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXECUTE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfexecute</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXIT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfexit</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFEED" IGNORE_CASE="TRUE"><BEGIN>&lt;cffeed</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFILEUPLOAD" IGNORE_CASE="TRUE"><BEGIN>&lt;cffileupload</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFILE" IGNORE_CASE="TRUE"><BEGIN>&lt;cffile</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_2" IGNORE_CASE="TRUE"><BEGIN>&lt;cffinally</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFLUSH" IGNORE_CASE="TRUE"><BEGIN>&lt;cfflush</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFORMGROUP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfformgroup</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFFORMITEM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfformitem</BEGIN><END>&gt;</END></SPAN>
@@ -134,6 +134,7 @@
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFHTTP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfhttp</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXPRESSION_TAG2" IGNORE_CASE="TRUE"><BEGIN>&lt;cfif</BEGIN><END>&gt;</END></SPAN>		
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFIMAGE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfimage</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFIMAP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfimap</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFIMPORT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfimport</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFINCLUDE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfinclude</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFINDEX" IGNORE_CASE="TRUE"><BEGIN>&lt;cfindex</BEGIN><END>&gt;</END></SPAN>
@@ -155,8 +156,12 @@
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMAILPARAM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmailparam</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMAILPART" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmailpart</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMAIL" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmail</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMAPITEM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmapitem</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMAP" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmap</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMEDIAPLAYER" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmediaplayer</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMENUITEM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmenuitem</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMENU" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmenu</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMESSAGEBOX" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmessagebox</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFMODULE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfmodule</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFNTAUTHENTICATE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfntauthenticate</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFOBJECTCACHE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfobjectcache</BEGIN><END>&gt;</END></SPAN>
@@ -177,6 +182,7 @@
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPROCESSINGDIRECTIVE" IGNORE_CASE="TRUE"><BEGIN>&lt;cfprocessingdirective</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPROCPARAM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfprocparam</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPROCRESULT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfprocresult</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPROGRESSBAR" IGNORE_CASE="TRUE"><BEGIN>&lt;cfprogressbar</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFPROPERTY" IGNORE_CASE="TRUE"><BEGIN>&lt;cfproperty</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFREGISTRY" IGNORE_CASE="TRUE"><BEGIN>&lt;cfregistry</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFREPORTPARAM" IGNORE_CASE="TRUE"><BEGIN>&lt;cfreportparam</BEGIN><END>&gt;</END></SPAN>
@@ -189,8 +195,10 @@
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSELECT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfselect</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSETTING" IGNORE_CASE="TRUE"><BEGIN>&lt;cfsetting</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFEXPRESSION_TAG1" IGNORE_CASE="TRUE"><BEGIN>&lt;cfset</BEGIN><END>&gt;</END></SPAN>		
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSHAREPOINT" IGNORE_CASE="TRUE"><BEGIN>&lt;cfsharepoint</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSIMPLE_2" IGNORE_CASE="TRUE"><BEGIN>&lt;cfsilent</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSLIDER" IGNORE_CASE="TRUE"><BEGIN>&lt;cfslider</BEGIN><END>&gt;</END></SPAN>
+		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSPREADSHEET" IGNORE_CASE="TRUE"><BEGIN>&lt;cfspreadsheet</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSPRYDATASET" IGNORE_CASE="TRUE"><BEGIN>&lt;cfsprydataset</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSTOREDPROC" IGNORE_CASE="TRUE"><BEGIN>&lt;cfstoredproc</BEGIN><END>&gt;</END></SPAN>
 		<SPAN TYPE="KEYWORD2" DELEGATE="CFML_CFSWITCH" IGNORE_CASE="TRUE"><BEGIN>&lt;cfswitch</BEGIN><END>&gt;</END></SPAN>
@@ -324,6 +332,8 @@
 			<KEYWORD2>cfdocument</KEYWORD2>
 			<KEYWORD2>cfexchangemail</KEYWORD2>
 			<KEYWORD2>cfexecute</KEYWORD2>
+			<KEYWORD2>cffileupload</KEYWORD2>
+			<KEYWORD2>cffinally</KEYWORD2>
 			<KEYWORD2>cfformgroup</KEYWORD2>
 			<KEYWORD2>cfformitem</KEYWORD2>
 			<KEYWORD2>cfform</KEYWORD2>
@@ -339,6 +349,8 @@
 			<KEYWORD2>cflogin</KEYWORD2>
 			<KEYWORD2>cfloop</KEYWORD2>
 			<KEYWORD2>cfmailpart</KEYWORD2>
+			<KEYWORD2>cfmap</KEYWORD2>
+			<KEYWORD2>cfmediaplayer</KEYWORD2>
 			<KEYWORD2>cfmenuitem</KEYWORD2>
 			<KEYWORD2>cfmenu</KEYWORD2>
 			<KEYWORD2>cfmail</KEYWORD2>
@@ -375,7 +387,6 @@
 			<KEYWORD2>cfxmlrpc</KEYWORD2>
 			
 			<!-- Railo -->
-			<KEYWORD2>cffinally</KEYWORD2>
 			<KEYWORD2>cfvideoplayer</KEYWORD2>
 			<KEYWORD2>cfwhile</KEYWORD2>
 			
@@ -465,7 +476,7 @@
 		<SEQ TYPE="LABEL">null</SEQ>
 		<SEQ TYPE="LABEL">scale</SEQ>
 		<SEQ TYPE="LABEL">separator</SEQ>
-
+		<SEQ TYPE="LABEL">value</SEQ>
 
 		<!-- Handling for embedded CF; this is kind of clunky, but at least it gets the embeded
 				CFML stuff set off in a different color, even if it doesn't look completely like
@@ -511,14 +522,166 @@
 		<KEYWORDS IGNORE_CASE="TRUE">
 			<KEYWORD2>cfadmin</KEYWORD2>
 			
-			<!-- TODO: RPS 01/2009 - This is a Railo-specific tag; no docs? -->
+			<!-- Railo-specific tag; docs: http://www.getrailo.org/index.cfm/documentation/cfadmin-doc/ -->
+			<LABEL>_type</LABEL>
+			<LABEL>access_read</LABEL>
+			<LABEL>access_write</LABEL>
 			<LABEL>action</LABEL>
-			<LABEL>password</LABEL>
-			<LABEL>dbPassword</LABEL>
-			<LABEL>dbUsername</LABEL>
+			<LABEL>allowed_alter</LABEL>
+			<LABEL>allowed_create</LABEL>
+			<LABEL>allowed_delete</LABEL>
+			<LABEL>allowed_drop</LABEL>
+			<LABEL>allowed_grant</LABEL>
+			<LABEL>allowed_insert</LABEL>
+			<LABEL>allowed_revoke</LABEL>
+			<LABEL>allowed_select</LABEL>
+			<LABEL>allowed_update</LABEL>
+			<LABEL>allowimplicidquerycall</LABEL>
+			<LABEL>allowurlrequesttimeout</LABEL>
+			<LABEL>append</LABEL>
+			<LABEL>applicationtimeout</LABEL>
+			<LABEL>archive</LABEL>
+			<LABEL>author</LABEL>
+			<LABEL>basecomponenttemplate</LABEL>
+			<LABEL>blob</LABEL>
+			<LABEL>category</LABEL>
+			<LABEL>cfx_setting</LABEL>
+			<LABEL>cfx_usage</LABEL>
+			<LABEL>class</LABEL>
+			<LABEL>classname</LABEL>
+			<LABEL>clientcookies</LABEL>
+			<LABEL>clientmanagement</LABEL>
+			<LABEL>clob</LABEL>
+			<LABEL>codename</LABEL>
+			<LABEL>collection</LABEL>
+			<LABEL>collectionaction</LABEL>
+			<LABEL>config</LABEL>
+			<LABEL>connectionlimit</LABEL>
+			<LABEL>connectiontimeout</LABEL>
+			<LABEL>contextpath</LABEL>
+			<LABEL>created</LABEL>
+			<LABEL>custom</LABEL>
+			<LABEL>custom_tag</LABEL>
+			<LABEL>database</LABEL>
+			<LABEL>datasource</LABEL>
+			<LABEL>dbpassword</LABEL>
+			<LABEL>dbusername</LABEL>
+			<LABEL>debug</LABEL>
+			<LABEL>debugging</LABEL>
+			<LABEL>debugtemplate</LABEL>
+			<LABEL>deepsearch</LABEL>
+			<LABEL>defaultencoding</LABEL>
+			<LABEL>description</LABEL>
+			<LABEL>direct_java_access</LABEL>
+			<LABEL>documentation</LABEL>
+			<LABEL>domaincookies</LABEL>
+			<LABEL>dsn</LABEL>
+			<LABEL>enddate</LABEL>
+			<LABEL>endtime</LABEL>
+			<LABEL>extensions</LABEL>
+			<LABEL>file</LABEL>
+			<LABEL>forum</LABEL>
+			<LABEL>host</LABEL>
+			<LABEL>hostname</LABEL>
+			<LABEL>id</LABEL>
+			<LABEL>image</LABEL>
+			<LABEL>indexaction</LABEL>
+			<LABEL>indextype</LABEL>
+			<LABEL>interval</LABEL>
+			<LABEL>key</LABEL>
+			<LABEL>label</LABEL>
+			<LABEL>language</LABEL>
+			<LABEL>listenermode</LABEL>
+			<LABEL>listenertype</LABEL>
+			<LABEL>locale</LABEL>
+			<LABEL>localmode</LABEL>
+			<LABEL>localsearch</LABEL>
+			<LABEL>logfile</LABEL>
+			<LABEL>loglevel</LABEL>
+			<LABEL>mail</LABEL>
+			<LABEL>mailinglist</LABEL>
+			<LABEL>mailpassword</LABEL>
+			<LABEL>mailusername</LABEL>
+			<LABEL>mapping</LABEL>
+			<LABEL>mergeformandurl</LABEL>
 			<LABEL>name</LABEL>
-			<LABEL>returnVariable</LABEL>
+			<LABEL>network</LABEL>
+			<LABEL>newpassword</LABEL>
+			<LABEL>oldpassword</LABEL>
+			<LABEL>operation</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>path</LABEL>
+			<LABEL>physical</LABEL>
+			<LABEL>port</LABEL>
+			<LABEL>primary</LABEL>
+			<LABEL>provider</LABEL>
+			<LABEL>proxyenabled</LABEL>
+			<LABEL>proxypassword</LABEL>
+			<LABEL>proxyport</LABEL>
+			<LABEL>proxyserver</LABEL>
+			<LABEL>proxyuser</LABEL>
+			<LABEL>proxyusername</LABEL>
+			<LABEL>psq</LABEL>
+			<LABEL>publish</LABEL>
+			<LABEL>recurse</LABEL>
+			<LABEL>remote</LABEL>
+			<LABEL>remoteclients</LABEL>
+			<LABEL>remotetype</LABEL>
+			<LABEL>requesttimeout</LABEL>
+			<LABEL>resolveurl</LABEL>
+			<LABEL>resourcecharset</LABEL>
+			<LABEL>returnvariable</LABEL>
+			<LABEL>scheduleaction</LABEL>
+			<LABEL>scheduled_task</LABEL>
+			<LABEL>schedulepassword</LABEL>
+			<LABEL>scopecascadingtype</LABEL>
+			<LABEL>scriptprotect</LABEL>
+			<LABEL>search</LABEL>
+			<LABEL>sectype</LABEL>
+			<LABEL>secure</LABEL>
+			<LABEL>secvalue</LABEL>
+			<LABEL>serverpassword</LABEL>
+			<LABEL>sessionmanagement</LABEL>
+			<LABEL>sessiontimeout</LABEL>
+			<LABEL>sessiontype</LABEL>
+			<LABEL>setting</LABEL>
+			<LABEL>showversion</LABEL>
+			<LABEL>spoolenable</LABEL>
+			<LABEL>spoolinterval</LABEL>
+			<LABEL>ssl</LABEL>
+			<LABEL>startdate</LABEL>
+			<LABEL>starttime</LABEL>
+			<LABEL>statuscode</LABEL>
+			<LABEL>stoponerror</LABEL>
+			<LABEL>support</LABEL>
+			<LABEL>supresswhitespace</LABEL>
+			<LABEL>tag_execute</LABEL>
+			<LABEL>tag_import</LABEL>
+			<LABEL>tag_object</LABEL>
+			<LABEL>tag_registry</LABEL>
+			<LABEL>task</LABEL>
+			<LABEL>template404</LABEL>
+			<LABEL>template500</LABEL>
+			<LABEL>templatecharset</LABEL>
+			<LABEL>timeout</LABEL>
+			<LABEL>timeserver</LABEL>
+			<LABEL>timezone</LABEL>
+			<LABEL>tls</LABEL>
+			<LABEL>toplevel</LABEL>
+			<LABEL>triggerdatamember</LABEL>
+			<LABEL>trusted</LABEL>
 			<LABEL>type</LABEL>
+			<LABEL>updatelocation</LABEL>
+			<LABEL>updatetype</LABEL>
+			<LABEL>url</LABEL>
+			<LABEL>urlpath</LABEL>
+			<LABEL>username</LABEL>
+			<LABEL>useshadow</LABEL>
+			<LABEL>value</LABEL>
+			<LABEL>version</LABEL>
+			<LABEL>video</LABEL>
+			<LABEL>virtual</LABEL>
+			<LABEL>webcharset</LABEL>
 		</KEYWORDS>
 	</RULES>
 
@@ -581,14 +744,17 @@
 		<KEYWORDS IGNORE_CASE="TRUE">
 			<KEYWORD2>cfapplication</KEYWORD2>
 			<LABEL>attributeCollection</LABEL>
-			<LABEL>name</LABEL>
+			<LABEL>dataSource</LABEL>
 			<LABEL>applicationTimeout</LABEL>
 			<LABEL>clientManagement</LABEL>
 			<LABEL>clientStorage</LABEL>
+			<LABEL>googleMapKey</LABEL>
 			<LABEL>loginStorage</LABEL>
+			<LABEL>name</LABEL>
 			<LABEL>scriptProtect</LABEL>
 			<LABEL>secureJSON</LABEL>
 			<LABEL>secureJSONPrefix</LABEL>
+			<LABEL>serverSideFormValidation</LABEL>
 			<LABEL>sessionManagement</LABEL>
 			<LABEL>sessionTimeout</LABEL>
 			<LABEL>setClientCookies</LABEL>
@@ -663,13 +829,24 @@
 			<KEYWORD2>cfcache</KEYWORD2>
 			<LABEL>attributeCollection</LABEL>
 			<LABEL>action</LABEL>
+			<LABEL>dependsOn</LABEL>
 			<LABEL>directory</LABEL>
 			<LABEL>expireURL</LABEL>
+			<LABEL>id</LABEL>
+			<LABEL>idleTime</LABEL>
+			<LABEL>key</LABEL>
+			<LABEL>metaData</LABEL>
+			<LABEL>name</LABEL>
 			<LABEL>password</LABEL>
 			<LABEL>port</LABEL>
 			<LABEL>protocol</LABEL>
+			<LABEL>stringWhiteSpace</LABEL>
+			<LABEL>throwOnError</LABEL>
 			<LABEL>timespan</LABEL>
+			<LABEL>useCache</LABEL>
+			<LABEL>useQueryString</LABEL>
 			<LABEL>username</LABEL>
+			<LABEL>value</LABEL>
 		</KEYWORDS>
 	</RULES>
 
@@ -960,7 +1137,9 @@
 			<KEYWORD2>cfcollection</KEYWORD2>
 			<LABEL>attributeCollection</LABEL>
 			<LABEL>action</LABEL>
+			<LABEL>categories</LABEL>
 			<LABEL>collection</LABEL>
+			<LABEL>engine</LABEL>
 			<LABEL>language</LABEL>
 			<LABEL>name</LABEL>
 			<LABEL>path</LABEL>
@@ -975,6 +1154,8 @@
 		<!-- Tag attributes: -->
 		<KEYWORDS IGNORE_CASE="TRUE">
 			<KEYWORD2>cfcomponent</KEYWORD2>
+			<LABEL>accessors</LABEL>
+			<LABEL>alias</LABEL>
 			<LABEL>bindingName</LABEL>
 			<LABEL>displayName</LABEL>
 			<LABEL>extends</LABEL>
@@ -983,6 +1164,7 @@
 			<LABEL>nameSpace</LABEL>
 			<LABEL>output</LABEL>
 			<LABEL>portTypeName</LABEL>
+			<LABEL>serializable</LABEL>
 			<LABEL>serviceAddress</LABEL>
 			<LABEL>servicePortName</LABEL>
 			<LABEL>style</LABEL>
@@ -1098,7 +1280,6 @@
 		<!-- Tag attributes: -->
 		<KEYWORDS IGNORE_CASE="TRUE">
 			<KEYWORD2>cfdocument</KEYWORD2>
-			<LABEL>format</LABEL>
 			<LABEL>authPassword</LABEL>
 			<LABEL>authUser</LABEL>
 			<LABEL>backgroundVisible</LABEL>
@@ -1106,6 +1287,9 @@
 			<LABEL>encryption</LABEL>
 			<LABEL>filename</LABEL>
 			<LABEL>fontEmbed</LABEL>
+			<LABEL>format</LABEL>
+			<LABEL>formFields</LABEL>
+			<LABEL>formsType</LABEL>
 			<LABEL>localUrl</LABEL>
 			<LABEL>marginBottom</LABEL>
 			<LABEL>marginLeft</LABEL>
@@ -1113,12 +1297,15 @@
 			<LABEL>marginTop</LABEL>
 			<LABEL>mimeType</LABEL>
 			<LABEL>name</LABEL>
+			<LABEL>openPassword</LABEL>
 			<LABEL>orientation</LABEL>
 			<LABEL>overwrite</LABEL>
 			<LABEL>ownerPassword</LABEL>
 			<LABEL>pageHeight</LABEL>
 			<LABEL>pageType</LABEL>
 			<LABEL>pageWidth</LABEL>
+			<LABEL>pdfa</LABEL>
+			<LABEL>permissionPassword</LABEL>
 			<LABEL>permissions</LABEL>
 			<LABEL>proxyHost</LABEL>
 			<LABEL>proxyPassword</LABEL>
@@ -1128,6 +1315,7 @@
 			<LABEL>scale</LABEL>
 			<LABEL>src</LABEL>
 			<LABEL>srcfile</LABEL>
+			<LABEL>tagged</LABEL>
 			<LABEL>unit</LABEL>
 			<LABEL>userAgent</LABEL>
 			<LABEL>userPassword</LABEL>
@@ -1351,6 +1539,7 @@
 			<LABEL>errorVariable</LABEL> <!-- OpenBD -->
 			<LABEL>name</LABEL>
 			<LABEL>outputFile</LABEL>
+			<LABEL>terminateOnTimeout</LABEL> <!-- Railo -->
 			<LABEL>timeout</LABEL>
 			<LABEL>variable</LABEL>
 		</KEYWORDS>
@@ -1418,6 +1607,39 @@
 			<LABEL>result</LABEL>
 			<LABEL>source</LABEL>
 			<LABEL>variable</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFFILEUPLOAD" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cffileupload</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>addButtonLabel</LABEL>
+			<LABEL>align</LABEL>
+			<LABEL>bgColor</LABEL>
+			<LABEL>clearButtonLabel</LABEL>
+			<LABEL>deleteButtonLabel</LABEL>
+			<LABEL>extensionFilter</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>hideUploadButton</LABEL>
+			<LABEL>maxFileSelect</LABEL>
+			<LABEL>maxUploadSize</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>onComplete</LABEL>
+			<LABEL>onError</LABEL>
+			<LABEL>onUploadComplete</LABEL>
+			<LABEL>progressBar</LABEL>
+			<LABEL>stopOnError</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>title</LABEL>
+			<LABEL>uploadButtonLabel</LABEL>
+			<LABEL>url</LABEL>
+			<LABEL>width</LABEL>
+			<LABEL>wmode</LABEL>
 		</KEYWORDS>
 	</RULES>
 
@@ -1601,6 +1823,7 @@
 			<LABEL>colHeaderItalic</LABEL>
 			<LABEL>colHeaders</LABEL>
 			<LABEL>colHeaderTextColor</LABEL>
+			<LABEL>collapsible</LABEL>
 			<LABEL>delete</LABEL>
 			<LABEL>deleteButton</LABEL>
 			<LABEL>enabled</LABEL>
@@ -1609,6 +1832,7 @@
 			<LABEL>format</LABEL>
 			<LABEL>gridDataAlign</LABEL>
 			<LABEL>gridLines</LABEL>
+			<LABEL>groupField</LABEL>
 			<LABEL>height</LABEL>
 			<LABEL>highlightHref</LABEL>
 			<LABEL>href</LABEL>
@@ -1861,23 +2085,34 @@
 		<KEYWORDS IGNORE_CASE="TRUE">
 			<KEYWORD2>cfimap</KEYWORD2>
 			<LABEL>action</LABEL>
+			<LABEL>attachmentPath</LABEL>
 			<LABEL>connection</LABEL>
 			<LABEL>folder</LABEL>
-			<LABEL>name</LABEL>
+			<LABEL>generateUniqueFilenames</LABEL>
 			<LABEL>maxRows</LABEL>
-			<LABEL>reverse</LABEL>
+			<LABEL>messageNumber</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>newFolder</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>port</LABEL>
+			<LABEL>recurse</LABEL>
+			<LABEL>secure</LABEL>
 			<LABEL>server</LABEL>
-			<LABEL>service</LABEL>
 			<LABEL>startRow</LABEL>
-			<LABEL>username</LABEL>
+			<LABEL>stopOnError</LABEL>
+			<LABEL>timeout</LABEL>
+			<LABEL>uid</LABEL>
+			<LABEL>userName</LABEL>
+
+			<!-- TODO: Where did these come from? -->
+			<LABEL>reverse</LABEL>
+			<LABEL>service</LABEL>
 			
 			<!-- BD -->
 			<LABEL>attachmentURI</LABEL>
-			<LABEL>password</LABEL>	<!-- Really just BD? -->
 			<LABEL>destFolder</LABEL>
 			<LABEL>messageID</LABEL>
 			<LABEL>messageList</LABEL>
-			<LABEL>newFolder</LABEL>
 			<LABEL>oldFolder</LABEL>
 			<LABEL>answered</LABEL>
 			<LABEL>deleted</LABEL>
@@ -1886,23 +2121,6 @@
 			<LABEL>recent</LABEL>
 			<LABEL>seen</LABEL>
 			
-			<!-- Railo -->
-			<LABEL>action</LABEL>
-			<LABEL>attachmentPath</LABEL>
-			<LABEL>generateUniqueFilenames</LABEL>
-			<LABEL>messageNumber</LABEL>
-			<LABEL>port</LABEL>
-			<LABEL>timeout</LABEL>
-			<LABEL>uid</LABEL>
-
-			<!-- Railo attributes already present above...
-			<LABEL>maxRows</LABEL>
-			<LABEL>name</LABEL>
-			<LABEL>password</LABEL>
-			<LABEL>server</LABEL>
-			<LABEL>startRow</LABEL>
-			<LABEL>username</LABEL>
-			-->
 		</KEYWORDS>
 	</RULES>
 	
@@ -2130,13 +2348,20 @@
 		<KEYWORDS IGNORE_CASE="TRUE">
 			<KEYWORD2>cflayout</KEYWORD2>
 			<LABEL>attributeCollection</LABEL>
+			<LABEL>activeOnTop</LABEL>
 			<LABEL>align</LABEL>
+			<LABEL>fillHeight</LABEL>
+			<LABEL>fitToWindow</LABEL>
+			<LABEL>height</LABEL>
 			<LABEL>name</LABEL>
 			<LABEL>padding</LABEL>
 			<LABEL>style</LABEL>
 			<LABEL>tabHeight</LABEL>
 			<LABEL>tabPosition</LABEL>
+			<LABEL>tabStrip</LABEL>
+			<LABEL>titleCollapse</LABEL>
 			<LABEL>type</LABEL>
+			<LABEL>width</LABEL>
 		</KEYWORDS>
 	</RULES>
 
@@ -2384,6 +2609,90 @@
 		</KEYWORDS>
 	</RULES>
 
+	<RULES SET="CFML_CFMAP" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfmap</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>centerAddress</LABEL>
+			<LABEL>centerLatitude</LABEL>
+			<LABEL>centerLongitude</LABEL>
+			<LABEL>collapsible</LABEL>
+			<LABEL>continuousZoom</LABEL>
+			<LABEL>doubleClickZoom</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>hideBorder</LABEL>
+			<LABEL>markerBind</LABEL>
+			<LABEL>markerColor</LABEL>
+			<LABEL>markerWindowContent</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>onError</LABEL>
+			<LABEL>onLoad</LABEL>
+			<LABEL>overview</LABEL>
+			<LABEL>showMarkerWindow</LABEL>
+			<LABEL>scrollWheelZoom</LABEL>
+			<LABEL>showAllMarkers</LABEL>
+			<LABEL>showCenterMarker</LABEL>
+			<LABEL>showScale</LABEL>
+			<LABEL>tip</LABEL>
+			<LABEL>title</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>typeControl</LABEL>
+			<LABEL>width</LABEL>
+			<LABEL>zoomControl</LABEL>
+			<LABEL>zoomLevel</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFMAPITEM" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfmapitem</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>address</LABEL>
+			<LABEL>latitude</LABEL>
+			<LABEL>longitude</LABEL>
+			<LABEL>markerColor</LABEL>
+			<LABEL>markerIcon</LABEL>
+			<LABEL>markerWindowContent</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>showMarkerWindow</LABEL>
+			<LABEL>tip</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFMEDIAPLAYER" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfmediaplayer</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>align</LABEL>
+			<LABEL>autoPlay</LABEL>
+			<LABEL>bgColor</LABEL>
+			<LABEL>controlBar</LABEL>
+			<LABEL>hideBorder</LABEL>
+			<LABEL>fullScreenControl</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>onComplete</LABEL>
+			<LABEL>onLoad</LABEL>
+			<LABEL>onStart</LABEL>
+			<LABEL>quality</LABEL>
+			<LABEL>source</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>width</LABEL>
+			<LABEL>wmode</LABEL>
+		</KEYWORDS>
+	</RULES>
+
 	<RULES SET="CFML_CFMENU" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
 		&cftagrules;
 		
@@ -2422,6 +2731,34 @@
 			<LABEL>name</LABEL>
 			<LABEL>style</LABEL>
 			<LABEL>target</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFMESSAGEBOX" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfmessagebox</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>bodyStyle</LABEL>
+			<LABEL>buttonType</LABEL>
+			<LABEL>callbackHandler</LABEL>
+			<LABEL>icon</LABEL>
+			<LABEL>labelCancel</LABEL>
+			<LABEL>labelOK</LABEL>
+			<LABEL>labelNo</LABEL>
+			<LABEL>labelYes</LABEL>
+			<LABEL>message</LABEL>
+			<LABEL>modal</LABEL>
+			<LABEL>multiLine</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>title</LABEL>
+			<LABEL>type</LABEL>
+			<LABEL>width</LABEL>
+			<LABEL>x</LABEL>
+			<LABEL>y</LABEL>
 		</KEYWORDS>
 	</RULES>
 
@@ -2590,28 +2927,50 @@
 			<KEYWORD2>cfpdf</KEYWORD2>
 			<LABEL>attributeCollection</LABEL>
 			<LABEL>action</LABEL>
+			<LABEL>addQuads</LABEL>
+			<LABEL>align</LABEL>
+			<LABEL>algo</LABEL>
 			<LABEL>ascending</LABEL>
+			<LABEL>bottomMargin</LABEL>
+			<LABEL>compressTiffs</LABEL>
 			<LABEL>copyfrom</LABEL>
 			<LABEL>ddxfile</LABEL>
 			<LABEL>destination</LABEL>
 			<LABEL>directory</LABEL>
+			<LABEL>encodeAll</LABEL>
 			<LABEL>encrypt</LABEL>
 			<LABEL>flatten</LABEL>
 			<LABEL>foreground</LABEL>
 			<LABEL>format</LABEL>
+			<LABEL>hiRes</LABEL>
+			<LABEL>honourSpaces</LABEL>
+			<LABEL>hScale</LABEL>
 			<LABEL>image</LABEL>
 			<LABEL>imagePrefix</LABEL>
 			<LABEL>info</LABEL>
 			<LABEL>inputfiles</LABEL>
 			<LABEL>isBase64</LABEL>
 			<LABEL>keepBookmark</LABEL>
+			<LABEL>leftMargin</LABEL>
+			<LABEL>maxBreadth</LABEL>
+			<LABEL>maxScale</LABEL>
+			<LABEL>minScale</LABEL>
 			<LABEL>name</LABEL>
 			<LABEL>newOwnerPassword</LABEL>
 			<LABEL>newUserPassword</LABEL>
+			<LABEL>noAttachments</LABEL>
+			<LABEL>noBookmarks</LABEL>
+			<LABEL>noFonts</LABEL>
+			<LABEL>noJavaScript</LABEL>
+			<LABEL>noLinks</LABEL>
+			<LABEL>noMetaData</LABEL>
+			<LABEL>noThumbnails</LABEL>
+			<LABEL>numberFormat</LABEL>
 			<LABEL>opacity</LABEL>
 			<LABEL>order</LABEL>
 			<LABEL>outputfiles</LABEL>
 			<LABEL>overwrite</LABEL>
+			<LABEL>package</LABEL>
 			<LABEL>pages</LABEL>
 			<LABEL>password</LABEL>
 			<LABEL>permissions</LABEL>
@@ -2624,6 +2983,7 @@
 			<LABEL>source</LABEL>
 			<LABEL>stopOnError</LABEL>
 			<LABEL>transparent</LABEL>
+			<LABEL>useStructure</LABEL>
 			<LABEL>version</LABEL>
 			
 			<LABEL>filter</LABEL>	<!-- R3 -->
@@ -2745,7 +3105,9 @@
 			<LABEL>backgroundColor</LABEL>
 			<LABEL>control</LABEL>
 			<LABEL>controlLocation</LABEL>
+			<LABEL>destination</LABEL>
 			<LABEL>directory</LABEL>
+			<LABEL>format</LABEL>
 			<LABEL>glowColor</LABEL>
 			<LABEL>initialTab</LABEL>
 			<LABEL>lightColor</LABEL>
@@ -2786,8 +3148,10 @@
 			<LABEL>notes</LABEL>
 			<LABEL>presenter</LABEL>
 			<LABEL>scale</LABEL>
+			<LABEL>slide</LABEL>
 			<LABEL>src</LABEL>
 			<LABEL>title</LABEL>
+			<LABEL>useExternalProgram</LABEL>
 			<LABEL>userAgent</LABEL>
 			<LABEL>video</LABEL>
 		</KEYWORDS>
@@ -2807,6 +3171,26 @@
 			<LABEL>name</LABEL>
 			<LABEL>logo</LABEL>
 			<LABEL>title</LABEL>
+		</KEYWORDS>
+	</RULES>
+
+	<RULES SET="CFML_CFPROGRESSBAR" DEFAULT="NULL" IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+		
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfprogressbar</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>autoDisplay</LABEL>
+			<LABEL>bind</LABEL>
+			<LABEL>duration</LABEL>
+			<LABEL>height</LABEL>
+			<LABEL>interval</LABEL>
+			<LABEL>onComplete</LABEL>
+			<LABEL>onError</LABEL>
+			<LABEL>style</LABEL>
+			<LABEL>width</LABEL>
 		</KEYWORDS>
 	</RULES>
 
@@ -2955,7 +3339,62 @@
 			<LABEL>hint</LABEL>
 			<LABEL>name</LABEL>
 			<LABEL>required</LABEL>
+			<LABEL>serializable</LABEL>
 			<LABEL>type</LABEL>
+			
+			<!-- CF9's ORM-related attributes -->
+			<LABEL>batchSize</LABEL>
+			<LABEL>cascade</LABEL>
+			<LABEL>catalog</LABEL>
+			<LABEL>cfc</LABEL>
+			<LABEL>collectionType</LABEL>
+			<LABEL>column</LABEL>
+			<LABEL>constrained</LABEL>
+			<LABEL>dataType</LABEL>
+			<LABEL>dynamicInsert</LABEL>
+			<LABEL>dynamicUpdate</LABEL>
+			<LABEL>elementColumn</LABEL>
+			<LABEL>elementType</LABEL>
+			<LABEL>entityName</LABEL>
+			<LABEL>fetchBatchSize</LABEL>
+			<LABEL>fieldType</LABEL>
+			<LABEL>fkColumn</LABEL>
+			<LABEL>formula</LABEL>
+			<LABEL>generator</LABEL>
+			<LABEL>getter</LABEL>
+			<LABEL>index</LABEL>
+			<LABEL>insert</LABEL>
+			<LABEL>inverse</LABEL>
+			<LABEL>inverseJoinColumn</LABEL>
+			<LABEL>joinColumn</LABEL>
+			<LABEL>lazy</LABEL>
+			<LABEL>length</LABEL>
+			<LABEL>linkCatalog</LABEL>
+			<LABEL>linkSchema</LABEL>
+			<LABEL>linkTable</LABEL>
+			<LABEL>mappedBy</LABEL>
+			<LABEL>missingRowIgnored</LABEL>
+			<LABEL>notNull</LABEL>
+			<LABEL>optimisticLock</LABEL>
+			<LABEL>optimisticLockGenerated</LABEL>
+			<LABEL>orderBy</LABEL>
+			<LABEL>orderByReadOnly</LABEL>
+			<LABEL>params</LABEL>
+			<LABEL>persistent</LABEL>
+			<LABEL>precision</LABEL>
+			<LABEL>readOnly</LABEL>
+			<LABEL>rowID</LABEL>
+			<LABEL>scale</LABEL>
+			<LABEL>setter</LABEL>
+			<LABEL>schema</LABEL>
+			<LABEL>selectBeforeUpdate</LABEL>
+			<LABEL>selectKey</LABEL>
+			<LABEL>sequence</LABEL>
+			<LABEL>source</LABEL>
+			<LABEL>structKeyColumn</LABEL>
+			<LABEL>structKeyDataType</LABEL>
+			<LABEL>structKeyType</LABEL>
+			<LABEL>table</LABEL>
 		</KEYWORDS>
 	</RULES>
 
@@ -3101,6 +3540,25 @@
 		</KEYWORDS>
 	</RULES>
 
+	<RULES SET="CFML_CFSHAREPOINT" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfsharepoint</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>domain</LABEL>
+			<LABEL>login</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>params</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>userName</LABEL>
+			<LABEL>wsdl</LABEL>
+		</KEYWORDS>
+	</RULES>
+
 	<RULES SET="CFML_CFSLIDER" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
 		&cftagrules;
 		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
@@ -3133,6 +3591,30 @@
 		</KEYWORDS>
 	</RULES>
 
+	<RULES SET="CFML_CFSPREADSHEET" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
+		&cftagrules;
+		<SEQ TYPE="KEYWORD2">/&gt;</SEQ> <!-- XML-style close -->
+
+		<!-- Tag attributes: -->
+		<KEYWORDS IGNORE_CASE="TRUE">
+			<KEYWORD2>cfspreadsheet</KEYWORD2>
+			<LABEL>attributeCollection</LABEL>
+			<LABEL>action</LABEL>
+			<LABEL>filename</LABEL>
+			<LABEL>columns</LABEL>
+			<LABEL>columnNames</LABEL>
+			<LABEL>format</LABEL>
+			<LABEL>headerRow</LABEL>
+			<LABEL>name</LABEL>
+			<LABEL>overwrite</LABEL>
+			<LABEL>query</LABEL>
+			<LABEL>password</LABEL>
+			<LABEL>rows</LABEL>
+			<LABEL>sheet</LABEL>
+			<LABEL>sheetName</LABEL>
+			<LABEL>src</LABEL>
+		</KEYWORDS>
+	</RULES>
 
 	<RULES SET="CFML_CFSPRYDATASET" DEFAULT="NULL" HIGHLIGHT_DIGITS="TRUE">
 		&cftagrules;
@@ -3709,12 +4191,10 @@
 		<KEYWORDS IGNORE_CASE="TRUE">
 			<KEYWORD2>cfdefaultcase</KEYWORD2>
 			<KEYWORD2>cfelse</KEYWORD2>
+			<KEYWORD2>cffinally</KEYWORD2>
 			<KEYWORD2>cfrethrow</KEYWORD2>
 			<KEYWORD2>cfsilent</KEYWORD2>
 			<KEYWORD2>cftry</KEYWORD2>
-			
-			<!-- Railo -->
-			<KEYWORD2>cffinally</KEYWORD2>
 		</KEYWORDS>
 	</RULES>
 

@@ -72,6 +72,13 @@
 	<KEYWORD2>CF_SQL_TINYINT</KEYWORD2>
 	<KEYWORD2>CF_SQL_VARCHAR</KEYWORD2>
 
+	<!-- Addition BD/OBD SQL data types, for consistency with cfml.xml: -->
+	<KEYWORD2>CF_SQL_BINARY</KEYWORD2>
+	<KEYWORD2>CF_SQL_VARBINARY</KEYWORD2>
+	<KEYWORD2>CF_SQL_NCLOB</KEYWORD2>
+	<KEYWORD2>CF_SQL_NCHAR</KEYWORD2>
+	<KEYWORD2>CF_SQL_NVARCHAR</KEYWORD2>
+
 	<!-- Scopes: -->
 	<!-- Not included here based on conflicts: query, since it is more frequently an attribute
 				of the CFOUTPUT tag, and causes problems if we include it here.
@@ -83,7 +90,6 @@
 	<KEYWORD3>cfcatch</KEYWORD3>
 	<KEYWORD3>client</KEYWORD3>
 	<KEYWORD3>cgi</KEYWORD3>
-	<KEYWORD3>cgi.remote_host</KEYWORD3>
 	<KEYWORD3>cookie</KEYWORD3>
 	<KEYWORD3>error</KEYWORD3>
 	<KEYWORD3>form</KEYWORD3>
